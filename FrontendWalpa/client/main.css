@@ -1,0 +1,2 @@
+body{padding-top:120px}.navbar{height:120px;line-height:120px;display:flex;align-items:center;background-color:#FFF;-webkit-box-shadow:0 2px 5px 0 #ccc;-moz-box-shadow:0 2px 5px 0 #ccc;box-shadow:0 2px 5px 0 #ccc}.navbar .menu{display:flex;align-items:center;justify-content:space-between}.navbar .menu .navbar-brand{padding:0;height:100px}.navbar .menu .navbar-brand img{max-height:100px}.navbar .menu .navbar-collapse ul li{margin:0 5px}.navbar .menu .navbar-collapse ul li a{padding:5px 10px}.navbar .menu .navbar-collapse ul li:last-child{background-color:#ededed}
+
