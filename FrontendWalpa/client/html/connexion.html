@@ -1,0 +1,11 @@
+SELECT distinct SGC.name,SG.name, A.address, A.inline_city,A.zipcode, A.lower_price, A.nb_stars, A.meeting_rooms , A.max_capacity
+FROM `av_content` A
+LEFT JOIN `sg_content_translations` SG ON SG.translatable_id = A.id
+LEFT JOIN `sg_content_translations` SGC ON SGC.translatable_id = A.country_object_id
+WHERE A.is_visible=1
+AND A.discriminator='hotel'
+AND SG.locale ='fr'
+AND A.draft_id IS NOT NULL
+AND A.meeting_rooms >= 1
+AND A.country_object_id =44
+ORDER BY `SG`.`id`  DESC
