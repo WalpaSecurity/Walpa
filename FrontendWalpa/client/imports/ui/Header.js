@@ -18,13 +18,13 @@ export default class Header extends Component {
                 <div className="collapse navbar-collapse">
                   <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                      <a className="nav-link" href="/team">Qui sommes nous ?</a>
+                      <a className="nav-link" href="/qui-sommes-nous">Qui sommes nous ?</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/projet">Analyser mon projet</a>
+                      <a className="nav-link" href="/analyser-mon-projet">Analyser mon projet</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/don">Faire un don</a>
+                      <a className="nav-link" href="/faire-un-don">Faire un don</a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="/contact">Contact</a>
