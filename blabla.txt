@@ -1,0 +1,1 @@
+Texte inutile pour initialiser le projet Git.
