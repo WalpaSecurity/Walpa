@@ -3,22 +3,51 @@ import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import App from '../imports/ui/App.js';
+
 import Header from '../imports/ui/Header.js';
-import Content from '../imports/ui/Content.js';
+import Dons from '../imports/ui/Dons.js';
+import Home from '../imports/ui/Home.js';
+import Projet from '../imports/ui/Projet.js';
+import Contact from '../imports/ui/Contact.js';
+import Connexion from '../imports/ui/Connexion.js';
 
 Meteor.startup(() => {
     // render(<App />, document.getElementById('content'));
     render(<Header />, document.getElementById('header'));
-    render(<BrowserRouter >
+    render(<BrowserRouter>
             <Switch>
-                <Route exact path="/" component={ App }/>
-                <Route name="connexion" path="/login" component={ Content }  />
-                <Route name="compte" path="/compte" component={ Content }  />
-                <Route name="dons" path="/don" component={ Content }  />
+                <Route exact path="/" component={Home}></Route>
+                <Route name="connexion" path="/login" component={ Home }  />
+                <Route name="compte" path="/compte" component={ Home }  />
+                <Route exact path="/don" component={Dons}/>
+                <Route exact path="/team" component={Dons}/>
+                <Route exact path="/projet" component={Projet}/>
+                <Route exact path="/contact" component={Contact}/>
+                <Route exact path="/connexion" component={Connexion}/>
             </Switch>
 
 
-</ BrowserRouter> , document.getElementById('content'));
+</BrowserRouter> , document.getElementById('content'));
 });
 
+jQuery(function($){
+
+    // Ouverture du menu mobile et de l'overlay
+    $('body').on("click", ".navbar-toggler", function(){
+        $("#menu-mobile").animate({
+            opacity: 1,
+            left: "0px"
+        }, 300);
+        $('.overlay_mobile').fadeIn();
+        $('body').addClass("noscroll");
+    });
+    // Fermeture du menu mobile et de l'overlay
+    $('.overlay_mobile').click(function() {
+        $("#menu-mobile").animate({
+            opacity: 0,
+            left: "-80%"
+        }, 300);
+        $('.overlay_mobile').fadeOut();
+        $('body').removeClass("noscroll");
+    });
+});
