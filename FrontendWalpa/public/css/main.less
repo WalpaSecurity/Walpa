@@ -6,11 +6,6 @@ body {
   height: 100%;
 }
 
-// input , select, textarea {
-//   border-radius: 0 !important;
-//   border: none !important;
-// }
-
 h1, h2, h3 {
  margin: 30px 0;
  letter-spacing: 0.035rem;
@@ -38,14 +33,58 @@ h4 {
   font-weight: 500;
 }
 
-#menu {
+.btn {
+  margin-bottom: 30px;
+  border-radius: 0;
+  border: 0;
 
+  &.btn-primary {
+    background-color: #ff6600;
+    border: 1px solid #fff !important;
+
+    &:hover {
+      background-color: #de5900;
+    }
+  }
+
+  &:focus, &:active {
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+select, input, textarea {
+  box-shadow: none !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+  font-weight: 100 !important;
+}
+
+
+label {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+input {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid #ff6600 !important;
+}
+
+.form-control {
+  &:focus {
+    border-color: #FF6600;
+  }
+}
+
+#menu {
   .navbar {
     height: 120px;
     background-color: #FFF;
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,1);
-    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,1);
-    box-shadow: 0px 2px 5px 0px rgba(0,0,0,1);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
     padding: 0;
 
     .navbar-brand {
@@ -66,31 +105,31 @@ h4 {
     .navbar-collapse {
       ul {
         li {
-          transition: all 0.4s ease;
-          margin: 0 5px;
-
-          &:last-child {
-            background-color: #ededed;
-          }
-          &:hover {
+          a {
             transition: all 0.4s ease;
-            background-color: #FF6600;
 
-            a {
-              color: #FFF;
+            &:after {
+              content: "";
+              display: block;
+              height: 2px;
+              width: 0%;
+              background-color: #ff6600;
+              transition: all 0.4s ease;
             }
 
-            &:last-child {
-              background-color: #FF6600;
+            &:hover {
+              transition: all 0.4s ease;
+              color: #FF6600;
 
-              a {
-                color: #FFF;
+              &:after {
+                content: "";
+                display: block;
+                height: 2px;
+                width: 100%;
+                background-color: #ff6600;
+                transition: all 0.4s ease;
               }
             }
-          }
-
-          a {
-            padding: 2px 10px;
           }
         }
       }
@@ -162,30 +201,161 @@ h4 {
 
 
 #content {
-  h1:first-child, h2:first-child {
-    margin-top: 0;
+  section {
+    padding: 4rem 0;
+
+    &#home {
+        padding: 0;
+
+        #blocDons {
+          background-image: url(/images/bkg-dons.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-attachment: fixed;
+
+          .description{
+            background-color: rgba(255,255,255,0.95);
+            padding: 1rem 3rem;
+            margin: 4rem 0;
+          }
+        }
+
+        #maps {
+          height: 500px;
+          background-image: url(/images/maps.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+    }
   }
 }
 
 #headerHome {
   height: 600px;
+  background-image: url(/images/bkg-header.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  h1 {
+    font-size: 5rem;
+    line-height: 3rem;
+
+    small {
+      font-size: 40%;
+      line-height: 1rem;
+    }
+  }
 }
 
 #dons {
-    #formDons {
-      width: 80%;
-      margin: auto;
+  #formDons {
+    width: 80%;
+    margin: auto;
 
-      .bloc-montant, .bloc-infos, .bloc-paiement {
-        background-color: #ff6600;
-        padding: 20px 40px;
-        margin-bottom: 40px;
-      }
+    input {
+      padding: .375rem .75rem !important;
     }
+
+    .bloc-montant, .bloc-infos, .bloc-paiement {
+      background-color: #ff6600;
+      padding: 20px 40px;
+      margin-bottom: 40px;
+    }
+
+
+  }
+}
+
+#competences {
+  i {
+    font-size: 3rem;
+    color: #FF6600;
+  }
+
+  h3 {
+    margin-top: 10px;
+  }
+}
+
+#contact {
+  .description {
+    p {
+      width: 40%;
+      margin: auto;
+    }
+  }
+}
+
+#connexion-inscription {
+  .connexion, .inscription {
+    padding: 0 15px;
+  }
 }
 
 
+footer {
+  .footer-menu {
+    ul {
+      display: inline-flex;
+      flex-direction: column;
+      li {
+        display: inline-table;
+        a {
+          color: #FFF;
+          font-weight: 100;
+          font-size: 0.85rem;
+          letter-spacing: 0.045rem;
 
+
+          &:after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 2px;
+            background-color: #ff6600;
+            transition: all 0.4s ease;
+          }
+
+          &:hover {
+            text-decoration: none;
+
+            &:after {
+              content: "";
+              display: block;
+              width: 100%;
+              height: 2px;
+              background-color: #ff6600;
+              transition: all 0.4s ease;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footer-search {
+    input {
+      padding-left: 0.75rem !important;
+    }
+  }
+}
+
+
+@media (min-width: 768px){
+  #connexion-inscription {
+    .connexion {
+      padding-right: 5rem;
+    }
+
+    .inscription {
+      border-left: 1px solid #ff6600;
+      padding-left: 5rem;
+    }
+  }
+}
 
 @media (min-width: 992px){
   .container {
