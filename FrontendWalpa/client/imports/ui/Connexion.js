@@ -45,26 +45,26 @@ export default class Connexion extends Component {
 
     render() {
         return (
-                <div id="home">
+                <section id="connexion-inscription">
                     <div className="container">
-                        <div className="row align-items-start justify-content-between">
-                            <div className="col-5 connexion">
+                        <div className="row align-items-start justify-content-center">
+                            <div className="col-12 col-md-6 col-lg-4 connexion">
                                 <h2>Connexion</h2>
-                                <form onSubmit={this.handleSubmitConnexion.bind(this)} >
+                                <form>
                                     <div className="form-group">
-                                        <label htmlFor="formGroupExampleInput">Adresse Mail</label>
-                                    <input type="text" className="form-control" id="formGroupExampleInput" ref="email" placeholder="blablabla@blabla.fr"/>
+                                        <label htmlFor="email">Adresse Mail</label>
+                                    <input type="email" className="form-control" id="email" ref="" placeholder="Entrez votre e-mail"/>
                                     </div>
                                     <div className="form-group">
-                                    <label htmlFor="formGroupExampleInput2">Mot de passe</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput2" ref="password" placeholder="00000000"/>
+                                    <label htmlFor="mdp">Mot de passe</label>
+                                        <input type="text" className="form-control" id="mdp" ref="" placeholder="Entrez votre mot de passe"/>
                                     </div>
-                                    <input type="submit" value="Connexion" />
+                                    <input className="btn btn-primary" type="submit" value="Se connecter"/>
                                 </form>
                             </div>
-                            <div className="col-5">
+                            <div className="col-12 col-md-6 col-lg-4 inscription">
                                 <h2>Inscription</h2>
-                                <form onSubmit={this.handleSubmitInscription.bind(this)}>
+                                <form>
                                     <div className="form-group">
                                         <label htmlFor="formGroupExampleInput">Adresse mail</label>
                                         <input type="text" className="form-control" id="formGroupExampleInput" ref="emailinscrit" placeholder="blablabla@blabla.fr"/>
@@ -83,14 +83,14 @@ export default class Connexion extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="formGroupExampleInput2">Confirmation mot de passe</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput2" ref="passwordinscrit2"placeholder="Put here yo mothafucking password again"/>
+                                        <input type="text" className="form-control" id="formGroupExampleInput2" ref="passwordinscrit2" placeholder="Put here yo mothafucking password again"/>
                                     </div>
-                                    <input type="submit" value="S'inscrire" />
+                                    <input className="btn btn-primary" type="submit" value="S'inscrire"/>
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
     );
     }
