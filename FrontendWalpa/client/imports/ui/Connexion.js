@@ -14,20 +14,14 @@ export default class Connexion extends Component {
         console.log(password);
 
         HTTP.call('GET', 'https://swapi.co/api/people/1/', {}, (error, result) => {
-            if (!error) {
-            res=JSON.parse(result.content);
-                // debugger;
-            // console.log(result);
-            // console.log(JSON.parse(result));
-        }
-        HTTP.call('GET', 'https://swapi.co/api/people/1/', {}, (error, result) => {
-            if (!error) {
-            res=JSON.parse(result.content);
+            if( !error ){
+            const res = JSON.parse(result.content);
             // debugger;
-            // console.log(result);
+             console.log(res);
             // console.log(JSON.parse(result));
             }
-        }
+        });
+
         // Clear form
 
     }
