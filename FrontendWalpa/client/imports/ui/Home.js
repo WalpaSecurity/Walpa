@@ -39,15 +39,17 @@ export default class Home extends Component {
             <div id="blocDons" className="d-flex align-items-center bg-light py-5">
               <div className="container">
                 <div className="row justify-content-center align-items-center">
-                  <div className="col-lg-3">
-                  <img src="images/img1.png" alt="" />
+                  <div className="col-12 col-lg-3">
+                  <img className="img-fluid" src="images/img1.png" alt="" />
                   </div>
-                  <div className="col-lg-7 description">
-                    <h2>Aidez nous à nous développer !</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <a href="/faire-un-don" className="btn btn-primary">Faire un don</a>
+                  <div className="col-12 col-lg-7">
+                    <div className="description">
+                      <h2>Aidez nous à nous développer !</h2>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      </p>
+                      <a href="/faire-un-don" className="btn btn-primary">Faire un don</a>
+                    </div>
                   </div>
                 </div>
               </div>

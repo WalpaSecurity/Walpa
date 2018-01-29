@@ -31,6 +31,29 @@ Meteor.startup(() => {
     render(<Footer />, document.getElementById('footer'));
 });
 
+
+
+
+
+window.onscroll = function () {
+    growShrinkLogo();
+};
+
+function growShrinkLogo() {
+    var Logo = document.getElementById("logo");
+    var Menu = document.getElementById("menu");
+    var body = document.getElementsByTagName('body');
+    if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+        Logo.style.width = '120px';
+        Menu.style.height = '80px';
+        $(body).css({'padding-top':'0'});
+    } else {
+        Logo.style.width = '200px';
+        Menu.style.height = '120px';
+        $(body).css({'padding-top':'120px'});
+    }
+}
+
 jQuery(function($){
 
     // Ouverture du menu mobile et de l'overlay
