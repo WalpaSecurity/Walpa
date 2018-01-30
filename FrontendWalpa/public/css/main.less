@@ -7,30 +7,35 @@ body {
   transition: all 0.5s ease;
 }
 
+body.noscroll {
+    overflow: hidden;
+}
+
 h1, h2, h3 {
  margin: 30px 0;
  letter-spacing: 0.035rem;
 }
 
-h1 {text-transform: uppercase;
-  font-size: 3rem;
+h1 {
+  text-transform: uppercase;
+  font-size: 2.6rem;
   font-weight: 700;
 }
 
 h2 {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   font-weight: 100;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 500;
   color: #ff6600;
 }
 
 h4 {
   margin: 20px 0;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
@@ -66,14 +71,17 @@ label {
   font-size: 1.2rem;
   font-weight: 300;
 }
-input {
+
+
+#connexion-inscription input, #contact input {
   padding-left: 0 !important;
   padding-right: 0 !important;
   border: 0 !important;
   border-bottom: 1px solid #ff6600 !important;
+  text-align: center;
 }
 
-input[type="submit"] {
+#connexion-inscription input[type="submit"] {
   padding: .375rem .75rem !important;
 }
 
@@ -95,11 +103,11 @@ input[type="submit"] {
 
     .navbar-brand {
       padding: 0;
-      max-height: 100px;
+      max-height: 80px;
       transition: all 0.5s ease;
 
       img {
-        max-height: 100px;
+        max-height: 80px;
       }
     }
 
@@ -115,6 +123,7 @@ input[type="submit"] {
         li {
           a {
             transition: all 0.4s ease;
+            font-size: 0.9rem;
 
             &:after {
               content: "";
@@ -148,7 +157,7 @@ input[type="submit"] {
     content: "";
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0; z-index: 1031;
     background-color: rgba(0,0,0,0.7);
@@ -158,7 +167,7 @@ input[type="submit"] {
   #menu-mobile {
     opacity: 0;
     z-index: 1032;
-    position: absolute;
+    position: fixed;
     width: 80%;
     background-color: #FFF;
     padding: 30px;
@@ -210,7 +219,7 @@ input[type="submit"] {
 
 #content {
   section {
-    padding: 4rem 0;
+    padding: 2rem 0 4rem;
 
     &#home {
         padding: 0;
@@ -225,16 +234,16 @@ input[type="submit"] {
           .description{
             background-color: rgba(255,255,255,0.95);
             padding: 1rem 3rem;
-            margin: 4rem 0;
           }
         }
 
         #maps {
           height: 500px;
-          background-image: url(/images/maps.jpg);
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center;
+          iframe {
+            width: 100%;
+            height: 500px;
+            border: 0;
+          }
         }
     }
   }
@@ -260,11 +269,12 @@ input[type="submit"] {
 
 #dons {
   #formDons {
-    width: 80%;
+    width: 100%;
     margin: auto;
 
     input {
       padding: .375rem .75rem !important;
+      border: 1px solid #ff6600;
     }
 
     .bloc-montant, .bloc-infos, .bloc-paiement {
@@ -309,8 +319,11 @@ footer {
     ul {
       display: inline-flex;
       flex-direction: column;
+
       li {
-        display: inline-table;
+        display: flex;
+        justify-content: center;
+
         a {
           color: #FFF;
           font-weight: 100;
@@ -325,6 +338,7 @@ footer {
             height: 2px;
             background-color: #ff6600;
             transition: all 0.4s ease;
+            margin: auto;
           }
 
           &:hover {
@@ -344,15 +358,36 @@ footer {
     }
   }
 
-  .footer-search {
-    input {
-      padding-left: 0.75rem !important;
+  .footer-social {
+    ul {
+      li {
+        margin-left: 10px;
+        a {
+          color: #FFF;
+          font-size: 1.4rem;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          display: block;
+          text-align: center;
+          transition: all 0.4s ease;
+          background-color: #FFF;
+          color: #333;
+          border-radius: 50%;
+
+          &:hover {
+            transform: rotate(360deg);
+            transition: all 0.7s ease;
+          }
+        }
+      }
     }
   }
 }
 
 
 @media (min-width: 768px){
+
   #connexion-inscription {
     .connexion {
       padding-right: 5rem;
@@ -369,9 +404,57 @@ footer {
   .container {
       width: 95% !important;
   }
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 2.6rem;
+    font-weight: 100;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ff6600;
+  }
+
+  h4 {
+    margin: 20px 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  #connexion-inscription input, #contact input {
+    text-align: left;
+  }
+
+  .footer-menu {
+    ul {
+      li {
+        justify-content: start !important;
+      }
+    }
+  }
 }
 
 @media (min-width: 1200px){
+
+  #content {
+    section {
+      padding: 4rem 0;
+    }
+  }
+
+  #dons {
+    #formDons {
+      width: 80%;
+    }
+  }
+
   .container {
       max-width: 1600px !important;
       width: 85% !important;

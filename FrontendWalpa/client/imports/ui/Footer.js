@@ -8,7 +8,7 @@ export default class Footer extends Component {
           <footer className="bg-dark text-light py-5">
             <div className="container">
               <div className="row align-items-center">
-                <div className="col-md-4 footer-menu">
+                <div className="col-lg-4 footer-menu mb-5 mb-lg-0 text-center text-lg-left">
                   <ul className="list-unstyled mb-0">
                     <li>
                       <a href="#">Accueil</a>
@@ -30,13 +30,27 @@ export default class Footer extends Component {
                     </li>
                   </ul>
                 </div>
-                <div className="col-md-4 footer-logo">
+                <div className="col-12 col-lg-4 mb-5 mb-lg-0 footer-logo">
                   <img src="images/logo-footer-walpa.png" width="200px" className="img-fluid d-block mx-auto" alt="" />
                 </div>
-                <div className="ml-auto col-md-2 footer-search">
-                  <form className="" action="index.html" method="post">
-                      <input type="text" name="" value="" className="form-control" placeholder="Rechercher" />
-                  </form>
+                <div className="ml-auto col-12 col-lg-4 footer-social text-center text-lg-right">
+                  <ul className="list-inline">
+                   <li className="list-inline-item">
+                    <a href="">
+                      <i className="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                   </li>
+                   <li className="list-inline-item">
+                     <a href="">
+                       <i className="fa fa-twitter" aria-hidden="true"></i>
+                     </a>
+                   </li>
+                   <li className="list-inline-item">
+                     <a href="">
+                       <i className="fa fa-google-plus" aria-hidden="true"></i>
+                     </a>
+                   </li>
+                  </ul>
                 </div>
               </div>
             </div>

@@ -8,7 +8,7 @@ export default class Team extends Component {
           <section id="Team">
             <div className="container">
 
-              <div className="row">
+              <div className="row ">
                 <div className="col-lg-7 text-center text-lg-left pr-lg-5">
                   <h1>Qui sommes nous ?</h1>
                   <p>

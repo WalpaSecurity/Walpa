@@ -5,7 +5,7 @@
 export default class Dons extends Component {
     render() {
         return (
-          <section id="dons">
+          <section id="dons" className="text-center text-lg-left">
             <div className="container">
               <div className="row justify-content-center justify-content-lg-between">
                 <div className="col-lg-5">
@@ -18,7 +18,7 @@ export default class Dons extends Component {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                   </p>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6 mt-4 mt-lg-0">
                   <form className="text-white" action="" method="POST" id="formDons">
                     <div className="text-center bloc-montant">
                       <h2 className="font-weight-bold mt-0">Je fais un don</h2>
@@ -87,12 +87,12 @@ export default class Dons extends Component {
                       <br/>
                       <div className="form-group">
                         <label htmlFor="email">Numéro de votre carte bancaire</label>
-                        <input type="email" className="form-control" id="email" name="email" maxlength="16" size="16" placeholder="X X X X    X X X X    X X X X    X X X X" />
+                        <input type="email" className="form-control" id="email" name="email" size="16" placeholder="X X X X    X X X X    X X X X    X X X X" />
                       </div>
-                      <div className="form-row justify-content-lg-between">
+                      <div className="form-row justify-content-between">
                         <div className="form-group col-md-5">
-                          <label htmlFor="prenom">CVC <span title="Entrez les 3 numéros au dos de la carte">(?)</span></label>
-                          <div className="row">
+                          <label htmlFor="prenom">{"Date d'expiration"}</label>
+                          <div className="row no-gutters">
                             <div className="col">
                               <input type="text" className="form-control" placeholder="MM" />
                             </div>
@@ -102,8 +102,8 @@ export default class Dons extends Component {
                           </div>
                         </div>
                         <div className="form-group col-md-5">
-                          <label htmlFor="prenom">CVC</label>
-                          <input type="text" className="form-control" id="prenom" placeholder="Entrez votre prénom" />
+                          <label htmlFor="prenom">CVC <span title="Entrez les 3 numéros au dos de la carte">(?)</span></label>
+                          <input type="text" className="form-control" id="prenom" placeholder="Cryptogramme" />
                         </div>
                       </div>
                     </div>

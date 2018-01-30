@@ -13,8 +13,11 @@ import Contact from '../imports/ui/Contact.js';
 import Connexion from '../imports/ui/Connexion.js';
 import Footer from '../imports/ui/Footer.js';
 
+// ADMIN
+import Dashboard from '../imports/ui/admin/Dashboard.js';
+
+
 Meteor.startup(() => {
-    // render(<App />, document.getElementById('content'));
     render(<Header />, document.getElementById('header'));
     render(<BrowserRouter>
             <Switch>
@@ -28,6 +31,7 @@ Meteor.startup(() => {
                 <Route exact path="/connexion" component={Connexion}/>
             </Switch>
     </BrowserRouter> , document.getElementById('content'));
+
     render(<Footer />, document.getElementById('footer'));
 });
 
@@ -48,7 +52,7 @@ function growShrinkLogo() {
         Menu.style.height = '80px';
         $(body).css({'padding-top':'0'});
     } else {
-        Logo.style.width = '200px';
+        Logo.style.width = '180px';
         Menu.style.height = '120px';
         $(body).css({'padding-top':'120px'});
     }

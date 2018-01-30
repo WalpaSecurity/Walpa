@@ -32,6 +32,9 @@ export default class Header extends Component {
                     <li className="nav-item">
                       <a className="nav-link" href="/connexion">Connexion / Inscription</a>
                     </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="/admin">Mon compte</a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -42,19 +45,22 @@ export default class Header extends Component {
               </a>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#">Qui sommes nous ?</a>
+                  <a href="/qui-sommes-nous">Qui sommes nous ?</a>
                 </li>
                 <li>
-                  <a href="#">Analyser mon projet</a>
+                  <a href="/analyser-mon-projet">Analyser mon projet</a>
                 </li>
                 <li>
-                  <a href="#">Faire un don</a>
+                  <a href="/faire-un-don">Faire un don</a>
                 </li>
                 <li>
-                  <a href="#">Contact</a>
+                  <a href="/contact">Contact</a>
                 </li>
                 <li>
-                  <a href="#">Connexion / Inscription</a>
+                  <a href="/connexion">Connexion / Inscription</a>
+                </li>
+                <li>
+                  <a href="/admin">Mon compte</a>
                 </li>
               </ul>
             </div>
