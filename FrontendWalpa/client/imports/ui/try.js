@@ -23,7 +23,7 @@ export default class Try extends Component {
             <div className="col-12 col-md-6 col-lg-4 inscription">
                 <h2>Test</h2>
 
-            <form action="192.168.1.16:5000" onSubmit={this.handleSubmitTest.bind(this)}>
+            <form onSubmit={this.handleSubmitTest.bind(this)}>
                 <input type="submit" value="C'est parti pour laravel" />
             </form>
             </div>
