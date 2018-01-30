@@ -43,7 +43,7 @@ Route::get('storage/{filename}', function ($filename)
     return $response;
 });
 
-Route::get('try', function ($filename)
+Route::get('/try', function ()
 {
   return response()
         ->json([
