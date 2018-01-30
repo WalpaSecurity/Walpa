@@ -37,7 +37,7 @@ class DonationsController extends Controller
 
       /*
       return response()
-            ->json(
+            ->json([
                 'donationE' => $donationE,
                 'donationB' => $donationB,
                 'donationEi' => $donationEt,

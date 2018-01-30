@@ -43,6 +43,15 @@ Route::get('storage/{filename}', function ($filename)
     return $response;
 });
 
+Route::get('try', function ($filename)
+{
+  return response()
+        ->json([
+            'toot' => "HOLA C'EST LARAVEL",
+        ]);
+});
+
+
 Route::get('/donation', 'DonationsController@index')->name('donation');
 
 Route::post('/donation', 'DonationsController@store');
