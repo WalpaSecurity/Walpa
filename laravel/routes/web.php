@@ -23,7 +23,25 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/activity', 'ActivityReportController@index')->name('activity');
 Route::post('/activity', 'ActivityReportController@store');
+Route::get('/account', 'ActivityReportController@show');
 
+
+Route::get('storage/{filename}', function ($filename)
+{
+    $path = '/var/www/html/public/temp/' . $filename .'.txt';
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
 
 Route::get('/donation', 'DonationsController@index')->name('donation');
 

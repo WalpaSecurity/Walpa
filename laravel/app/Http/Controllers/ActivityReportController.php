@@ -8,6 +8,9 @@ use DB;
 use Validator;
 use Mail;
 use App\Mail\OrderShipped;
+use App\Mail\MailTransac;
+use File;
+use Response;
 
 class ActivityReportController extends Controller
 {
@@ -23,6 +26,7 @@ class ActivityReportController extends Controller
                      ->select('*')
                      ->where('user_id', $id)
                      ->get();
+
 
       return view('activity', [
           'report' => $activityReport
@@ -59,45 +63,64 @@ class ActivityReportController extends Controller
 
       //AJOUT DANS LA BDD DU COMMENCEMENT DE L'ANALYSE
       $id = Auth::user()->id;
-    /*  $activityReport = DB::table('activityReport')->insert(
+      $number = rand();
+      $name_file = $id ."_RESULT_" . $number ;
+
+      $activityReport = DB::table('activityReport')->insert(
         [ 'statut' => 'EN_COURS',
-          "url" => "test",
+          "url" => $request->url,
+          "file_name" => $name_file,
           "user_id" => $id]
-      );*/
-
-
-      //CLONAGE DU FICHIER GIT RENTRER DANS L'URL
-      shell_exec("git clone http://github.com/antonioribeiro/laravelcs LaravelCodeSniffer");
+      );
 
       //COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
-        //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
-      shell_exec("sudo apt-get install phpcs");
-      shell_exec("git clone https://github.com/It-DreamTeam/Vox-Populi-Web.git /var/www/html/public/temp");
-      $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/html/public/temp");
+      shell_exec("git clone ". $request->url ." /var/www/html/public/temp");
 
+        //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
+      shell_exec("sudo apt-get install php-codesniffer");
+      $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/html/public/temp");
 
         //PHP LOC : is a tool for quickly measuring the size and analyzing the structure of a PHP project
       shell_exec("sudo apt-get install phploc");
       $PHPLOC = shell_exec("phploc /var/www/html/public/temp");
+
         //PHP Copy/Paste Detector : is a Copy/Paste Detector (CPD) for PHP code.
       shell_exec("wget https://phar.phpunit.de/phpcpd.phar");
       $PHPCPD = shell_exec("php phpcpd.phar /var/www/html/public/temp");
 
-      //Réunion de tous les résultats
-      $str_result = "Détection des violations dans les fichiers PHP, JS et CSS : \n " . $PHPCODESNIFFER . "\n\n Analyse de la taille et la structure du projet PHP : \n" . $PHPLOC . "\n\n Détecteur de copier/coller : \n " . $PHPCPD;
+        //Phortress : static code analyser for potential vulnerabilities
+      shell_exec("sudo apt-get install phpunit");
+      $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
 
+
+      //Rassemblement de tous les résultats
+      $str_result = "Détection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
+      $str_result .= "\n -------------------------------------------------------------------------------- \n\n Analyse de la taille et la structure du projet PHP : \n\n\n" . $PHPLOC ;
+      $str_result .= "\n -------------------------------------------------------------------------------- \n Détecteur de copier/coller : \n\n " . $PHPCPD;
+      $str_result .= "\n -------------------------------------------------------------------------------- \n Analyse des potentiels vulnérabilités \n " . $PHortress;
+
+
+    //  shell_exec("rm /var/www/html/public/temp/result.txt");
       //Création du fichier texte qui va contenir le résultat
-      shell_exec("touch /var/www/html/public/temp/result.txt");
 
-      $file = '/var/www/html/public/temp/result.txt';
+      shell_exec("touch /var/www/html/public/temp/". $name_file .".txt");
+
+      $file = '/var/www/html/public/temp/'. $name_file .'.txt';
       // Ouvre un fichier pour lire un contenu existant
       $current = file_get_contents($file);
       $current .= $str_result ;
       file_put_contents($file, $current);
 
-      Mail::to("catarino.laure@gmail.com")->send(new OrderShipped($current));
+    //  Mail::to("catarino.laure@gmail.com")->send(new MailTransac($current));
 
-       return redirect('/activity');
+      //Analyse terminée
+      $activityReport = DB::table('activityReport')
+              ->where('user_id', $id)
+              ->where('url', $request->url)
+              ->where('file_name', $name_file)
+              ->update(['statut' => "TERMINEE"]);
+
+      return redirect('/activity');
     }
 
     /**
@@ -106,9 +129,27 @@ class ActivityReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+      $id = Auth::user()->id;
+      $activityReport = DB::table('activityReport')
+                     ->select('file_name')
+                     ->where('user_id', $id)
+                     ->get();
+
+      $resultActivityReport = array();
+      foreach ($activityReport as $data) {
+        array_push($resultActivityReport, $data->file_name);
+      }
+      /*r
+      eturn response()
+            ->json(
+                'history' => $resultActivityReport,
+            ])
+      */
+      return view('activityHisto', [
+          'history' => $resultActivityReport
+      ]);
     }
 
     /**

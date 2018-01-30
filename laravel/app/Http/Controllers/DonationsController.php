@@ -35,6 +35,14 @@ class DonationsController extends Controller
         }
       }
 
+      /*
+      return response()
+            ->json(
+                'donationE' => $donationE,
+                'donationB' => $donationB,
+                'donationEi' => $donationEt,
+            ]);
+      */
       return view('donations', [
           'donationE' => $donationE,
           'donationB' => $donationB,
@@ -83,7 +91,7 @@ class DonationsController extends Controller
           dd($e->getMessage());
       }*/
 
-     Mail::to($request->email)->send(new MailTransac());
+      Mail::to($request->email)->send(new MailTransac());
 
 
        return redirect('/donation');
