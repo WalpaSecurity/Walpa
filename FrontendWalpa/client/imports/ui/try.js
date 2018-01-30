@@ -4,7 +4,8 @@ import { HTTP } from 'meteor/http';
 
 
 export default class Try extends Component {
-    handleSubmitTest(){
+    handleSubmitTest(event){
+        event.preventDefault();
         location.href = "192.168.1.16:5000";
     }
 
@@ -12,7 +13,10 @@ export default class Try extends Component {
         return (
             <div className="col-12 col-md-6 col-lg-4 inscription">
                 <h2>Test</h2>
-            <button onclick="handleSubmitTest()">Vers laravel</button>
+
+            <form action="192.168.1.16:5000">
+                <input type="submit" value="C'est parti pour laravel" />
+            </form>
             </div>
         );
     }
