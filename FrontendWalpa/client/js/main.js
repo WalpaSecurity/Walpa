@@ -13,8 +13,11 @@ import Contact from '../imports/ui/Contact.js';
 import Connexion from '../imports/ui/Connexion.js';
 import Footer from '../imports/ui/Footer.js';
 
+// ADMIN
+import Dashboard from '../imports/ui/admin/Dashboard.js';
+
+
 Meteor.startup(() => {
-    // render(<App />, document.getElementById('content'));
     render(<Header />, document.getElementById('header'));
     render(<BrowserRouter>
             <Switch>
@@ -28,8 +31,32 @@ Meteor.startup(() => {
                 <Route exact path="/connexion" component={Connexion}/>
             </Switch>
     </BrowserRouter> , document.getElementById('content'));
+
     render(<Footer />, document.getElementById('footer'));
 });
+
+
+
+
+
+window.onscroll = function () {
+    growShrinkLogo();
+};
+
+function growShrinkLogo() {
+    var Logo = document.getElementById("logo");
+    var Menu = document.getElementById("menu");
+    var body = document.getElementsByTagName('body');
+    if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+        Logo.style.width = '120px';
+        Menu.style.height = '80px';
+        $(body).css({'padding-top':'0'});
+    } else {
+        Logo.style.width = '180px';
+        Menu.style.height = '120px';
+        $(body).css({'padding-top':'120px'});
+    }
+}
 
 jQuery(function($){
 

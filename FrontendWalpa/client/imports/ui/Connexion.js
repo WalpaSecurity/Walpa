@@ -59,7 +59,7 @@ export default class Connexion extends Component {
 
     render() {
         return (
-                <section id="connexion-inscription">
+                <section id="connexion-inscription" className="text-center text-lg-left">
                     <div className="container">
                         <div className="row align-items-start justify-content-center">
                             <div className="col-12 col-md-6 col-lg-4 connexion">
