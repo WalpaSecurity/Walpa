@@ -6,7 +6,7 @@ import { HTTP } from 'meteor/http';
 export default class Try extends Component {
     handleSubmitTest(event){
         event.preventDefault();
-        location.href = "192.168.1.16:5000";
+
 
         HTTP.call('GET', '192.168.1.16:5000/try', {}, (error, result) =>{
             if( !error ){
