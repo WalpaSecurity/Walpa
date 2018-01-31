@@ -9,7 +9,7 @@ export default class Header extends Component {
             <nav id="menu" className="navbar navbar-expand-lg fixed-top navbar-light">
               <div className="container">
                 <a id="logo" className="navbar-brand mx-auto" href="/">
-                  <img src="images/logo-walpa.png" className="img-fluid" />
+                  <img src="/images/logo-walpa.png" className="img-fluid" />
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon">

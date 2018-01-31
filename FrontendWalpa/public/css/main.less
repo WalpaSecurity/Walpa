@@ -1,10 +1,15 @@
 // out: main.css, sourcemap: true, compress: true
 
+body, html {
+  height: 100%;
+}
+
 body {
   padding-top: 120px;
   font-family: 'Roboto', sans-serif;
   height: 100%;
   transition: all 0.5s ease;
+  font-weight: 300;
 }
 
 body.noscroll {
@@ -89,6 +94,11 @@ label {
   &:focus {
     border-color: #FF6600;
   }
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: rgba(0,0,0,.9);
+    font-weight: 700;
 }
 
 #navbar-menu {
@@ -378,6 +388,79 @@ footer {
           &:hover {
             transform: rotate(360deg);
             transition: all 0.7s ease;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+#panel-admin {
+  position: relative;
+  .sidebar-admin {
+    .topbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 10px;
+      background-color: #3E3E3E;
+      z-index: 10;
+
+      a {
+        color: #FFF;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: #ff6600;
+          text-decoration: none;
+        }
+      }
+    }
+    .navbar-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      background-color: #333;
+      height: 100%;
+      z-index: 11;
+      display: block;
+
+      .nav-item {
+
+        &.active, &:hover {
+          background-color: #555;
+        }
+
+        a {
+          padding: 1rem 0;
+          color: #FFF;
+        }
+
+      }
+    }
+  }
+}
+
+.adminContent {
+  margin-left: 300px;
+  padding: 0 30px;
+
+  h1 {
+    margin-top: 0;
+  }
+
+
+  &.gestionProjets {
+    table {
+      tbody {
+        tr {
+          td {
+            &:last-child {
+              text-align: center;
+            }
           }
         }
       }

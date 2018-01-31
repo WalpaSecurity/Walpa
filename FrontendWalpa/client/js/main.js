@@ -15,25 +15,43 @@ import Footer from '../imports/ui/Footer.js';
 
 // ADMIN
 import Dashboard from '../imports/ui/admin/Dashboard.js';
+import Sidebar from '../imports/ui/admin/Sidebar.js';
+import gestionProjets from '../imports/ui/admin/Projets.js';
 
 
-Meteor.startup(() => {
-    render(<Header />, document.getElementById('header'));
-    render(<BrowserRouter>
-            <Switch>
-                <Route exact path="/" component={Home}></Route>
-                <Route name="connexion" path="/login" component={ Home }  />
-                <Route name="compte" path="/compte" component={ Home }  />
-                <Route exact path="/qui-sommes-nous" component={Team}/>
-                <Route exact path="/analyser-mon-projet" component={Projet}/>
-                <Route exact path="/faire-un-don" component={Dons}/>
-                <Route exact path="/contact" component={Contact}/>
-                <Route exact path="/connexion" component={Connexion}/>
-            </Switch>
-    </BrowserRouter> , document.getElementById('content'));
+const view = 999;
 
-    render(<Footer />, document.getElementById('footer'));
-});
+if(view == 999){
+  Meteor.startup(() => {
+      render(<Sidebar />, document.getElementById('panel-admin'));
+      render(<BrowserRouter>
+              <Switch>
+                  <Route exact path="/admin" component={Dashboard}></Route>
+                  <Route exact path="/admin/projets" component={gestionProjets}/>
+              </Switch>
+      </BrowserRouter> , document.getElementById('content'));
+  });
+} else {
+  Meteor.startup(() => {
+      render(<Header />, document.getElementById('header'));
+      render(<BrowserRouter>
+              <Switch>
+                  <Route exact path="/" component={Home}></Route>
+                  <Route name="connexion" path="/login" component={ Home }  />
+                  <Route name="compte" path="/compte" component={ Home }  />
+                  <Route exact path="/qui-sommes-nous" component={Team}/>
+                  <Route exact path="/analyser-mon-projet" component={Projet}/>
+                  <Route exact path="/faire-un-don" component={Dons}/>
+                  <Route exact path="/contact" component={Contact}/>
+                  <Route exact path="/connexion" component={Connexion}/>
+              </Switch>
+      </BrowserRouter> , document.getElementById('content'));
+
+      render(<Footer />, document.getElementById('footer'));
+  });
+}
+
+
 
 
 
