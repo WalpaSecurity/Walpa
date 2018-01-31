@@ -1,8 +1,31 @@
 import React, { Component } from 'react';
-
+import ReactDOM from 'react-dom';
+import { HTTP } from 'meteor/http';
 
 // App component - represents the whole app
 export default class Contact extends Component {
+    handleSubmitContact(event) {
+            event.preventDefault();
+
+            // Find the text field via the React ref
+            const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
+            const nom = ReactDOM.findDOMNode(this.refs.nom).value.trim();
+            const prenom = ReactDOM.findDOMNode(this.refs.prenom).value.trim();
+            const telephone = ReactDOM.findDOMNode(this.refs.telephone).value.trim();
+            const objet = ReactDOM.findDOMNode(this.refs.objet).value.trim();
+            const message = ReactDOM.findDOMNode(this.refs.message).value.trim();
+
+
+            const contact = { "email":email, "nom":nom, "prenom": prenom, "email":email, "telephone":telephone,"objet":objet,  "message": message};
+            const contactjson = JSON.stringify(contact);
+            console.log(contactjson);console.log(contact.nom);
+            // HTTP.call('GET', '/connexion', {}, (error, result) =>{
+            //     if( !error ){
+            // const res = JSON.parse(result.content);
+            // console.log(contactjson);
+            // }
+    };
+
     render() {
         return (
           <section id="contact">
@@ -23,30 +46,30 @@ export default class Contact extends Component {
                   </p>
                 </div>
                 <div className="col-lg-6">
-                  <form>
+                  <form onSubmit={this.handleSubmitContact.bind(this)} >
                     <div className="form-group">
                       <label htmlFor="inputMail">Email</label>
-                      <input type="email" className="form-control" id="inputMail" placeholder="Entrez votre email" />
+                      <input type="email" className="form-control" ref="email" id="inputMail" placeholder="Entrez votre email" />
                     </div>
                     <div className="form-group">
                       <label htmlFor="inputNom">Nom</label>
-                      <input type="text" className="form-control" id="inputNom" placeholder="Entrez votre nom" />
+                      <input type="text" className="form-control" ref="nom" id="inputNom" placeholder="Entrez votre nom" />
                     </div>
                     <div className="form-group">
                       <label htmlFor="inputPrenom">Prénom</label>
-                      <input type="text" className="form-control" id="inputPrenom" placeholder="Entrez votre prénom" />
+                      <input type="text" className="form-control" ref="prenom" id="inputPrenom" placeholder="Entrez votre prénom" />
                     </div>
                     <div className="form-group">
                       <label htmlFor="inputTelephone">Téléphone</label>
-                      <input type="text" className="form-control" id="inputTelephone" placeholder="Entrez votre n° de téléphone" />
+                      <input type="text" className="form-control" ref="telephone" id="inputTelephone" placeholder="Entrez votre n° de téléphone" />
                     </div>
                     <div className="form-group">
                       <label htmlFor="inputObjet">Objet</label>
-                      <input type="text" className="form-control" id="inputObjet" placeholder="Entrez l'objet du message" />
+                      <input type="text" className="form-control" ref="objet" id="inputObjet" placeholder="Entrez l'objet du message" />
                     </div>
                     <div className="form-group">
                       <label htmlFor="inputMessage">Message</label>
-                      <textarea className="form-control" id="inputMessage" rows="3" placeholder="Entrez votre message"></textarea>
+                      <textarea className="form-control" id="inputMessage" ref="message" rows="3" placeholder="Entrez votre message"></textarea>
                     </div>
                     <button type="submit" className="btn btn-primary">Envoyer</button>
                   </form>

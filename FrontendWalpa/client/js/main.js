@@ -12,6 +12,7 @@ import Dons from '../imports/ui/Dons.js';
 import Contact from '../imports/ui/Contact.js';
 import Connexion from '../imports/ui/Connexion.js';
 import Footer from '../imports/ui/Footer.js';
+import Try from '../imports/ui/try.js';
 
 // ADMIN
 import Dashboard from '../imports/ui/admin/Dashboard.js';
@@ -44,16 +45,13 @@ if(view == 999){
                   <Route exact path="/faire-un-don" component={Dons}/>
                   <Route exact path="/contact" component={Contact}/>
                   <Route exact path="/connexion" component={Connexion}/>
+                  <Route exact path="/try" component={Try}/>
               </Switch>
       </BrowserRouter> , document.getElementById('content'));
 
       render(<Footer />, document.getElementById('footer'));
   });
 }
-
-
-
-
 
 
 

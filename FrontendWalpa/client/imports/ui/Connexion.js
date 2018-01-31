@@ -4,6 +4,7 @@ import { HTTP } from 'meteor/http';
 
 // App component - represents the whole app
 export default class Connexion extends Component {
+
     handleSubmitConnexion(event) {
         event.preventDefault();
 
@@ -13,11 +14,11 @@ export default class Connexion extends Component {
         console.log(email);
         console.log(password);
 
-        HTTP.call('GET', 'https://swapi.co/api/people/1/', {}, (error, result) => {
+        HTTP.call('GET', 'https://swapi.co/api/people/1/', {}, (error, result) =>{
             if( !error ){
             const res = JSON.parse(result.content);
-            // debugger;
-             console.log(res);
+             //debugger;
+             console.log(res.name);
             // console.log(JSON.parse(result));
             }
         });
@@ -35,12 +36,25 @@ export default class Connexion extends Component {
         const surname = ReactDOM.findDOMNode(this.refs.surname).value.trim();
         const passwordinscrit = ReactDOM.findDOMNode(this.refs.passwordinscrit).value.trim();
         const passwordinscrit2 = ReactDOM.findDOMNode(this.refs.passwordinscrit2).value.trim();
-        const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-        console.log(emailinscrit);
+        //const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
+
+        const datafetched = fetch('/connexion', {
+            method: 'POST',
+            data: {
+                emailinscrit: this.refs.emailinscrit,
+                name: this.refs.name,
+                surname: this.refs.surname,
+                passwordinscrit: this.refs.passwordinscrit,
+                passwordinscrit2: this.refs.passwordinscrit2
+            }
+        })
+
+        console.log(datafetched);
+
 
 
         // Clear form
-        ReactDOM.findDOMNode(this.refs.textInput).value = '';
+        //ReactDOM.findDOMNode(this.refs.textInput).value = '';
     }
 
     render() {
@@ -50,21 +64,21 @@ export default class Connexion extends Component {
                         <div className="row align-items-start justify-content-center">
                             <div className="col-12 col-md-6 col-lg-4 connexion">
                                 <h2>Connexion</h2>
-                                <form>
+                                <form onSubmit={this.handleSubmitConnexion.bind(this)} >
                                     <div className="form-group">
                                         <label htmlFor="email">Adresse Mail</label>
-                                    <input type="email" className="form-control" id="email" ref="" placeholder="Entrez votre e-mail"/>
+                                    <input type="email" className="form-control" id="email" ref="email" placeholder="Entrez votre e-mail"/>
                                     </div>
                                     <div className="form-group">
                                     <label htmlFor="mdp">Mot de passe</label>
-                                        <input type="text" className="form-control" id="mdp" ref="" placeholder="Entrez votre mot de passe"/>
+                                        <input type="text" className="form-control" id="mdp" ref="password" placeholder="Entrez votre mot de passe"/>
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="Se connecter"/>
                                 </form>
                             </div>
                             <div className="col-12 col-md-6 col-lg-4 inscription">
                                 <h2>Inscription</h2>
-                                <form>
+                                <form onSubmit={this.handleSubmitInscription.bind(this)}>
                                     <div className="form-group">
                                         <label htmlFor="formGroupExampleInput">Adresse mail</label>
                                         <input type="text" className="form-control" id="formGroupExampleInput" ref="emailinscrit" placeholder="blablabla@blabla.fr"/>
