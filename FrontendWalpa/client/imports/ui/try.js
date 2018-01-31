@@ -11,7 +11,7 @@ export default class Try extends Component {
         HTTP.call('GET', 'http://192.168.1.16:5000/try', {}, (error, result) =>{
             if( !error ){
             console.log(result);
-            const res = JSON.parse(result);
+            const res = JSON.parse(result.content);
             //debugger;
             console.log(res);
             // console.log(JSON.parse(result));
