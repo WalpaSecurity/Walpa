@@ -6,6 +6,7 @@ import { HTTP } from 'meteor/http';
 // App component - represents the whole app
 export default class Projet extends Component {
     handleSubmitConnexion(event){
+        event.preventDefault();
         const repo = ReactDOM.findDOMNode(this.refs.depot).value.trim();
         console.log(repo);
     }
