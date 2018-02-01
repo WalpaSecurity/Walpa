@@ -19,8 +19,7 @@ import Dashboard from '../imports/ui/admin/Dashboard.js';
 import Sidebar from '../imports/ui/admin/Sidebar.js';
 import gestionProjets from '../imports/ui/admin/Projets.js';
 
-
-const view = 999;
+const view = 0;
 
 if(view == 999){
   Meteor.startup(() => {
@@ -76,22 +75,23 @@ function growShrinkLogo() {
 
 jQuery(function($){
 
-    // Ouverture du menu mobile et de l'overlay
-    $('body').on("click", ".navbar-toggler", function(){
-        $("#menu-mobile").animate({
-            opacity: 1,
-            left: "0px"
-        }, 300);
-        $('.overlay_mobile').fadeIn();
-        $('body').addClass("noscroll");
-    });
-    // Fermeture du menu mobile et de l'overlay
-    $('.overlay_mobile').click(function() {
-        $("#menu-mobile").animate({
-            opacity: 0,
-            left: "-80%"
-        }, 300);
-        $('.overlay_mobile').fadeOut();
-        $('body').removeClass("noscroll");
-    });
+
+  // Ouverture du menu mobile et de l'overlay
+  $('body').on("click", ".navbar-toggler", function(){
+    $("#menu-mobile").animate({
+        opacity: 1,
+        left: "0px"
+    }, 300);
+    $('.overlay_mobile').fadeIn();
+    $('body').addClass("noscroll");
+  });
+  // Fermeture du menu mobile et de l'overlay
+  $('.overlay_mobile').click(function() {
+    $("#menu-mobile").animate({
+        opacity: 0,
+        left: "-80%"
+    }, 300);
+    $('.overlay_mobile').fadeOut();
+    $('body').removeClass("noscroll");
+  });
 });
