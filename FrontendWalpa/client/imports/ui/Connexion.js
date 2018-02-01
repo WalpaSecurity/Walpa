@@ -14,7 +14,7 @@ export default class Connexion extends Component {
         console.log(email);
         console.log(password);
 
-        HTTP.call('Post', 'http://192.168.1.16:5000/api/login', {
+        HTTP.call('POST', 'http://192.168.1.16:5000/api/login', {
                 data: {
                     email: email,
                     password: password
