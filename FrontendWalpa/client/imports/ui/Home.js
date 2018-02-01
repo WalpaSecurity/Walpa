@@ -1,4 +1,4 @@
-  import React, { Component } from 'react';
+import React, { Component } from 'react';
 
 
 // App component - represents the whole app
@@ -7,7 +7,7 @@ export default class Home extends Component {
         return (
           <section id="home">
             <div id="headerHome" className="d-flex align-items-center text-center text-lg-right bg-dark text-light">
-              <div className="container">
+              <div className="container blockGoToRight">
                 <h1>
                   Walpa<br/>
                   <small>Un projet propre, sécurisé<br/>et bien codé</small>
