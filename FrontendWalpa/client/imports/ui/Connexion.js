@@ -37,13 +37,12 @@ export default class Connexion extends Component {
         const passwordinscrit2 = ReactDOM.findDOMNode(this.refs.passwordinscrit2).value.trim();
         //const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
-        HTTP.call('POST', 'http://192.168.1.16:5000/api/login', {
+        HTTP.call('POST', 'http://192.168.1.16:5000/api/register', {
             data: {
                 email: emailinscrit,
                 name: name,
                 password: passwordinscrit,
-                c_password: passwordinscrit2,
-                email: emailinscrit
+                c_password: passwordinscrit2
                 }
             },
             (error, result) => {
