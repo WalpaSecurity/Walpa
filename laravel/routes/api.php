@@ -25,6 +25,35 @@ Route::group(['middleware' => 'auth:api'], function(){
 	Route::post('get-details', 'API\PassportController@getDetails'); //Récupère les informations d'un utilisateur
   Route::post('/activity', 'ActivityReportController@store'); //Envoi d'un rapport d'activité
   Route::get('/activity', 'ActivityReportController@index'); //Avoir tous les rapports d'activité d'un utilisateur
-  Route::get('/account', 'ActivityReportController@show');
+  Route::get('/account', 'ActivityReportController@show'); //Avoir
+
+  Route::get('storage/{filename}', function ($filename)
+  {
+    if (Auth::check()) {
+      $path = '/var/www/html/public/temp/' . $filename .'.txt';
+
+      if (!File::exists($path)) {
+          abort(404);
+      }
+
+      $file = File::get($path);
+      $type = File::mimeType($path);
+
+      $response = Response::make($file, 200);
+      $response->header("Content-Type", $type);
+
+      //return $response;
+
+      return response()
+        ->json([
+            'success' => true,
+            'resultActivityReport' => $response
+      ]);
+
+    }else{
+      return view('auth.login');
+    }
+
+  });
 
 });

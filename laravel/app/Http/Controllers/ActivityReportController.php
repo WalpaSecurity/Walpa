@@ -28,7 +28,6 @@ class ActivityReportController extends Controller
                        ->where('user_id', $id)
                        ->get();
 
-
         return response()
            ->json([
                 'success' => true,
@@ -156,14 +155,18 @@ class ActivityReportController extends Controller
         foreach ($activityReport as $data) {
           array_push($resultActivityReport, $data->file_name);
         }
-        /*return response()
-              ->json([
-                  'history' => $resultActivityReport,
-              ])
-        */
+        /*
         return view('activityHisto', [
             'history' => $resultActivityReport
         ]);
+        */
+        return response()
+          ->json([
+              'success' => true,
+              'history' => $resultActivityReport
+        ]);
+
+
       }else{
         return view('auth.login');
       }
