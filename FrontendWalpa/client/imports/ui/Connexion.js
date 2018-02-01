@@ -23,6 +23,7 @@ export default class Connexion extends Component {
             (error, result) => {
             if (!error) {
             const res = JSON.parse(result.content);
+            console.log(res);
             console.log(res.token);
         }
     });
