@@ -33,7 +33,6 @@ export default class Connexion extends Component {
         // Find the text field via the React ref
         const emailinscrit = ReactDOM.findDOMNode(this.refs.emailinscrit).value.trim();
         const name = ReactDOM.findDOMNode(this.refs.name).value.trim();
-        const surname = ReactDOM.findDOMNode(this.refs.surname).value.trim();
         const passwordinscrit = ReactDOM.findDOMNode(this.refs.passwordinscrit).value.trim();
         const passwordinscrit2 = ReactDOM.findDOMNode(this.refs.passwordinscrit2).value.trim();
         //const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
@@ -43,7 +42,6 @@ export default class Connexion extends Component {
             data: {
                 emailinscrit: this.refs.emailinscrit,
                 name: this.refs.name,
-                surname: this.refs.surname,
                 passwordinscrit: this.refs.passwordinscrit,
                 passwordinscrit2: this.refs.passwordinscrit2
             }
@@ -71,7 +69,7 @@ export default class Connexion extends Component {
                                     </div>
                                     <div className="form-group">
                                     <label htmlFor="mdp">Mot de passe</label>
-                                        <input type="text" className="form-control" id="mdp" ref="password" placeholder="Entrez votre mot de passe"/>
+                                        <input type="password" className="form-control" id="mdp" ref="password" placeholder="Entrez votre mot de passe"/>
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="Se connecter"/>
                                 </form>
@@ -88,16 +86,12 @@ export default class Connexion extends Component {
                                         <input type="text" className="form-control" id="formGroupExampleInput" ref="name" placeholder="What's yo name son ?"/>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="formGroupExampleInput">Prénom </label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput" ref="surname" placeholder="What's yo surname cunt ?"/>
-                                    </div>
-                                    <div className="form-group">
                                         <label htmlFor="formGroupExampleInput2">Mot de passe</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput2" ref="passwordinscrit" placeholder="Put here yo mothafucking password"/>
+                                        <input type="password" className="form-control" id="formGroupExampleInput2" ref="passwordinscrit" placeholder="Put here yo mothafucking password"/>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="formGroupExampleInput2">Confirmation mot de passe</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput2" ref="passwordinscrit2" placeholder="Put here yo mothafucking password again"/>
+                                        <input type="password" className="form-control" id="formGroupExampleInput2" ref="passwordinscrit2" placeholder="Put here yo mothafucking password again"/>
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="S'inscrire"/>
                                 </form>
