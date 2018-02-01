@@ -21,16 +21,22 @@ class ActivityReportController extends Controller
      */
     public function index()
     {
-      $id = Auth::user()->id;
-      $activityReport = DB::table('activityReport')
-                     ->select('*')
-                     ->where('user_id', $id)
-                     ->get();
+      if (Auth::check()) {
+        $id = Auth::user()->id;
+        $activityReport = DB::table('activityReport')
+                       ->select('*')
+                       ->where('user_id', $id)
+                       ->get();
 
 
-      return view('activity', [
-          'report' => $activityReport
-      ]);
+        return view('activity', [
+            'report' => $activityReport
+        ]);
+      }else{
+        return view('auth.login');
+      }
+
+
     }
 
     /**
@@ -85,24 +91,21 @@ class ActivityReportController extends Controller
       $PHPLOC = shell_exec("phploc /var/www/html/public/temp");
 
         //PHP Copy/Paste Detector : is a Copy/Paste Detector (CPD) for PHP code.
-      shell_exec("wget https://phar.phpunit.de/phpcpd.phar");
-      $PHPCPD = shell_exec("php phpcpd.phar /var/www/html/public/temp");
+      shell_exec("sudo apt-get install phpcpd");
+      $PHPCPD = shell_exec("phpcpd /var/www/html/public/temp");
 
         //Phortress : static code analyser for potential vulnerabilities
-      shell_exec("sudo apt-get install phpunit");
-      $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
-
+    //  shell_exec("sudo apt-get install phpunit");
+  //    $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
 
       //Rassemblement de tous les résultats
-      $str_result = "Détection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
-      $str_result .= "\n -------------------------------------------------------------------------------- \n\n Analyse de la taille et la structure du projet PHP : \n\n\n" . $PHPLOC ;
-      $str_result .= "\n -------------------------------------------------------------------------------- \n Détecteur de copier/coller : \n\n " . $PHPCPD;
-      $str_result .= "\n -------------------------------------------------------------------------------- \n Analyse des potentiels vulnérabilités \n " . $PHortress;
-
+      $str_result = "-------------------------------------------------------------------------------- \n Détection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
+      $str_result .= "\n-------------------------------------------------------------------------------- \n\n Analyse de la taille et la structure du projet PHP : \n\n\n" . $PHPLOC ;
+      $str_result .= "\n-------------------------------------------------------------------------------- \n Détecteur de copier/coller : \n\n " . $PHPCPD;
+  //  $str_result .= "\n -------------------------------------------------------------------------------- \n Analyse des potentiels vulnérabilités \n " . $PHortress;
 
     //  shell_exec("rm /var/www/html/public/temp/result.txt");
       //Création du fichier texte qui va contenir le résultat
-
       shell_exec("touch /var/www/html/public/temp/". $name_file .".txt");
 
       $file = '/var/www/html/public/temp/'. $name_file .'.txt';
@@ -120,7 +123,12 @@ class ActivityReportController extends Controller
               ->where('file_name', $name_file)
               ->update(['statut' => "TERMINEE"]);
 
-      return redirect('/activity');
+      return response()
+        ->json([
+            'success' => true,
+            'fileName' => $name_file,
+      ]);
+    //  return redirect('/activity');
     }
 
     /**
@@ -131,25 +139,29 @@ class ActivityReportController extends Controller
      */
     public function show()
     {
-      $id = Auth::user()->id;
-      $activityReport = DB::table('activityReport')
-                     ->select('file_name')
-                     ->where('user_id', $id)
-                     ->get();
+      if (Auth::check()) {
+        $id = Auth::user()->id;
+        $activityReport = DB::table('activityReport')
+                       ->select('file_name')
+                       ->where('user_id', $id)
+                       ->get();
 
-      $resultActivityReport = array();
-      foreach ($activityReport as $data) {
-        array_push($resultActivityReport, $data->file_name);
+        $resultActivityReport = array();
+        foreach ($activityReport as $data) {
+          array_push($resultActivityReport, $data->file_name);
+        }
+        /*return response()
+              ->json([
+                  'history' => $resultActivityReport,
+              ])
+        */
+        return view('activityHisto', [
+            'history' => $resultActivityReport
+        ]);
+      }else{
+        return view('auth.login');
       }
-      /*r
-      eturn response()
-            ->json(
-                'history' => $resultActivityReport,
-            ])
-      */
-      return view('activityHisto', [
-          'history' => $resultActivityReport
-      ]);
+
     }
 
     /**

@@ -19,8 +19,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
 Route::get('/activity', 'ActivityReportController@index')->name('activity');
 Route::post('/activity', 'ActivityReportController@store');
 Route::get('/account', 'ActivityReportController@show');
@@ -28,6 +26,7 @@ Route::get('/account', 'ActivityReportController@show');
 
 Route::get('storage/{filename}', function ($filename)
 {
+  if (Auth::check()) {
     $path = '/var/www/html/public/temp/' . $filename .'.txt';
 
     if (!File::exists($path)) {
@@ -41,6 +40,10 @@ Route::get('storage/{filename}', function ($filename)
     $response->header("Content-Type", $type);
 
     return $response;
+  }else{
+    return view('auth.login');
+  }
+
 });
 
 Route::get('/try', function ()

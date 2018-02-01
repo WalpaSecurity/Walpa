@@ -44,7 +44,23 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+      //If route doesn't exist, redirect on 404 or 500
+      if($this->isHttpException($exception))
+      {
+        switch ($exception->getStatusCode()){
+            case 404:
+              return redirect()->guest('home');
+              break;
+            case '500':
+              return redirect()->guest('home');
+              break;
+            default:
+              return $this->renderHttpException($exception);
+              break;
+        }
+      }else{
         return parent::render($request, $exception);
+      }
     }
 
     /**
