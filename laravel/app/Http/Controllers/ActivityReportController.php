@@ -29,11 +29,17 @@ class ActivityReportController extends Controller
                        ->get();
 
 
-        return view('activity', [
-            'report' => $activityReport
+        return response()
+           ->json([
+                'success' => true,
+                'report' => $activityReport
         ]);
       }else{
-        return view('auth.login');
+        return response()
+           ->json([
+                'success' => false,
+                'error' => "Non connecté"
+        ]);
       }
 
 
