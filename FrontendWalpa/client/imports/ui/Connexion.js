@@ -14,14 +14,17 @@ export default class Connexion extends Component {
         console.log(email);
         console.log(password);
 
-        HTTP.call('GET', 'https://swapi.co/api/people/1/', {}, (error, result) =>{
-            if( !error ){
-            const res = JSON.parse(result.content);
-             //debugger;
-             console.log(res.name);
-            // console.log(JSON.parse(result));
-            }
-        });
+        HTTP.call('POST', 'http://192.168.1.16:5000/api/login', {
+                data: {
+                    email: email,
+                    password: password
+                }
+            },
+            (error, result) => {
+            if (!error) {
+            console.log(result);
+        }
+    });
 
         // Clear form
 
@@ -37,17 +40,19 @@ export default class Connexion extends Component {
         const passwordinscrit2 = ReactDOM.findDOMNode(this.refs.passwordinscrit2).value.trim();
         //const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
-        const datafetched = fetch('/connexion', {
-            method: 'POST',
+        HTTP.call('POST', 'http://192.168.1.16:5000/api/register', {
             data: {
-                emailinscrit: this.refs.emailinscrit,
-                name: this.refs.name,
-                passwordinscrit: this.refs.passwordinscrit,
-                passwordinscrit2: this.refs.passwordinscrit2
-            }
-        })
-
-        console.log(datafetched);
+                email: emailinscrit,
+                name: name,
+                password: passwordinscrit,
+                c_password: passwordinscrit2
+                }
+            },
+            (error, result) => {
+                if (!error) {
+                    console.log(result);
+                }
+        });
 
 
 
