@@ -20,7 +20,7 @@ import Sidebar from '../imports/ui/admin/Sidebar.js';
 import gestionProjets from '../imports/ui/admin/Projets.js';
 
 
-const view = 999;
+const view = 99;
 
 if(view == 999){
   Meteor.startup(() => {
