@@ -22,7 +22,7 @@ export default class Connexion extends Component {
             },
             (error, result) => {
             if (!error) {
-            console.log(result.content);
+            console.log(result.content.token);
         }
     });
 
