@@ -69,8 +69,8 @@ export default class Connexion extends Component {
                                 <h2>Connexion</h2>
                                 <form onSubmit={this.handleSubmitConnexion.bind(this)} >
                                     <div className="form-group">
-                                        <label htmlFor="email">Adresse Mail</label>
-                                    <input type="email" className="form-control" id="email" ref="email" placeholder="Entrez votre e-mail"/>
+                                        <label htmlFor="emailConnect">Adresse Mail</label>
+                                    <input type="email" className="form-control" id="emailConnect" ref="email" placeholder="Entrez votre e-mail"/>
                                     </div>
                                     <div className="form-group">
                                     <label htmlFor="mdp">Mot de passe</label>
@@ -83,20 +83,20 @@ export default class Connexion extends Component {
                                 <h2>Inscription</h2>
                                 <form onSubmit={this.handleSubmitInscription.bind(this)}>
                                     <div className="form-group">
-                                        <label htmlFor="formGroupExampleInput">Adresse mail</label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput" ref="emailinscrit" placeholder="blablabla@blabla.fr"/>
+                                        <label htmlFor="email">Adresse mail</label>
+                                        <input type="text" className="form-control" id="email" ref="emailinscrit" placeholder="blablabla@blabla.fr"/>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="formGroupExampleInput">Nom </label>
-                                        <input type="text" className="form-control" id="formGroupExampleInput" ref="name" placeholder="What's yo name son ?"/>
+                                        <label htmlFor="nom">Nom </label>
+                                        <input type="text" className="form-control" id="nom" ref="name" placeholder="What's yo name son ?"/>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="formGroupExampleInput2">Mot de passe</label>
-                                        <input type="password" className="form-control" id="formGroupExampleInput2" ref="passwordinscrit" placeholder="Put here yo mothafucking password"/>
+                                        <label htmlFor="password1">Mot de passe</label>
+                                        <input type="password" className="form-control" id="password1" ref="passwordinscrit" placeholder="Put here yo mothafucking password"/>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="formGroupExampleInput2">Confirmation mot de passe</label>
-                                        <input type="password" className="form-control" id="formGroupExampleInput2" ref="passwordinscrit2" placeholder="Put here yo mothafucking password again"/>
+                                        <label htmlFor="password2">Confirmation mot de passe</label>
+                                        <input type="password" className="form-control" id="password2" ref="passwordinscrit2" placeholder="Put here yo mothafucking password again"/>
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="S'inscrire"/>
                                 </form>
