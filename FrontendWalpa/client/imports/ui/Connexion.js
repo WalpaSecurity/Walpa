@@ -15,12 +15,16 @@ export default class Connexion extends Component {
         console.log(password);
 
         HTTP.call('Post', 'http://192.168.1.16:5000/api/login', {
-            method: 'POST',
-            content: JSON.stringify({
-                email: email,
-                password: password,
-            })
-        });
+                data: {
+                    email: email,
+                    password: password
+                }
+            },
+            (error, result) => {
+            if (!error) {
+            console.log(result);
+        }
+    });
 
         // Clear form
 
