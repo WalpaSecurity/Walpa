@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5da80c1778062d8db04986b8a6c53446",
-    "content-hash": "f6742585735d442e935e4ee707adb2ad",
+    "hash": "c11234d5af616b6fd3f112ef9ec56688",
+    "content-hash": "a42fb15f0d8222dc5aa90c6aeb1991ec",
     "packages": [
         {
             "name": "antoineaugusti/laravel-sentiment-analysis",
@@ -1557,6 +1557,112 @@
                 "random"
             ],
             "time": "2017-09-27 21:40:39"
+        },
+        {
+            "name": "phpcheckstyle/phpcheckstyle",
+            "version": "V0.14.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPCheckstyle/phpcheckstyle.git",
+                "reference": "12794c040998979c8720ae80bfd29ddf7a88b566"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPCheckstyle/phpcheckstyle/zipball/12794c040998979c8720ae80bfd29ddf7a88b566",
+                "reference": "12794c040998979c8720ae80bfd29ddf7a88b566",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "bin": [
+                "phpcheckstyle"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPCheckstyle\\": "src/"
+                },
+                "files": [
+                    "src/PHPCheckstyle/_Constants.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-2.1"
+            ],
+            "description": "PHPCheckstyle is an open-source tool that helps PHP programmers adhere to certain coding conventions",
+            "homepage": "https://github.com/phpcheckstyle/phpcheckstyle/",
+            "keywords": [
+                "checkstyle",
+                "convention",
+                "standard"
+            ],
+            "time": "2017-11-10 15:01:41"
+        },
+        {
+            "name": "phpmetrics/phpmetrics",
+            "version": "v2.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpmetrics/PhpMetrics.git",
+                "reference": "e44f5224d08571ee6ba85c50379560b9ec217b91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpmetrics/PhpMetrics/zipball/e44f5224d08571ee6ba85c50379560b9ec217b91",
+                "reference": "e44f5224d08571ee6ba85c50379560b9ec217b91",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-tokenizer": "*",
+                "nikic/php-parser": "v3.*",
+                "php": ">=5.5"
+            },
+            "replace": {
+                "halleck45/php-metrics": "*",
+                "halleck45/phpmetrics": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4.8.27,<=5.7.13"
+            },
+            "bin": [
+                "bin/phpmetrics"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Hal\\": "./src/"
+                },
+                "files": [
+                    "./src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jean-François Lépine",
+                    "email": "lepinejeanfrancois@yahoo.fr",
+                    "homepage": "http://www.lepine.pro",
+                    "role": "Copyright Holder"
+                }
+            ],
+            "description": "Static analyzer tool for PHP : Coupling, Cyclomatic complexity, Maintainability Index, Halstead's metrics... and more !",
+            "homepage": "http://www.phpmetrics.org",
+            "keywords": [
+                "analysis",
+                "qa",
+                "quality",
+                "testing"
+            ],
+            "time": "2017-10-13 16:11:30"
         },
         {
             "name": "phpseclib/phpseclib",

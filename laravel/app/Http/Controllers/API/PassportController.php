@@ -10,7 +10,6 @@ use Validator;
 
 class PassportController extends Controller
 {
-
     public $successStatus = 200;
 
     /**
@@ -18,13 +17,13 @@ class PassportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function login(){
-        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+    public function login()
+    {
+        if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
             return response()->json(['success' => true, 'token' => $user->createToken('MyApp')->accessToken]);
-        }
-        else{
+        } else {
             return response()->json(['error'=>'Unauthorised'], 401);
         }
     }
@@ -36,7 +35,7 @@ class PassportController extends Controller
      */
     public function register(Request $request)
     {
-      $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
@@ -52,7 +51,7 @@ class PassportController extends Controller
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
         ]);
-    //    $success['token'] =  $user->createToken('MyApp')->accessToken;
+        //    $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
 
         return response()->json(['success'=>true, 'data' => $success]);

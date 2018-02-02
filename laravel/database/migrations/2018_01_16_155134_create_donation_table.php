@@ -11,26 +11,26 @@ class CreateDonationTable extends Migration
      *
      * @return void
      */
-     public function up()
-     {
-         Schema::create('donations', function (Blueprint $table) {
-             $table->increments('id');
-             $table->string('lastName');
-             $table->string('firstName');
-             $table->string('email');
-             $table->decimal('amount');
-             $table->enum('type', ['bitcoin', 'euro', 'ether']);
-             $table->timestamps();
-         });
-     }
+    public function up()
+    {
+        Schema::create('donations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('lastName');
+            $table->string('firstName');
+            $table->string('email');
+            $table->decimal('amount');
+            $table->enum('type', ['bitcoin', 'euro', 'ether']);
+            $table->timestamps();
+        });
+    }
 
-     /**
-      * Reverse the migrations.
-      *
-      * @return void
-      */
-     public function down()
-     {
-         Schema::dropIfExists('donations');
-     }
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('donations');
+    }
 }

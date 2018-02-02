@@ -5,7 +5,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">ACTIVITY REPORT</div>
 
-                <?php if($report): ?>
+                <?php if ($report): ?>
                    <?php echo e($report); ?>
 
                 <?php else: ?>
@@ -25,7 +25,7 @@
                     <label for="task" class="col-sm-3 control-label">URL Git : </label>
 
                     <div class="col-sm-6">
-                      <?php if($errors->activity && $errors->activity->first() == "The url field is required."): ?>
+                      <?php if ($errors->activity && $errors->activity->first() == "The url field is required."): ?>
                         <input type="text" name="url" style="border-bottom: red solid 2px;" placeholder="Le champs de doit pas être vide" id="url" class="form-control">
                       <?php else: ?>
                         <input type="text" name="url" id="url" class="form-control">

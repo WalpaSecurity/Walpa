@@ -25,7 +25,7 @@ class OrderShipped extends Mailable
      */
     public function __construct($order)
     {
-         $this->order = $order;
+        $this->order = $order;
     }
 
     /**
@@ -35,16 +35,14 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-      
-      if($this->order->type == "euro"){
-        $type = "€";
-      }else if($this->order->type == "bitcoin") {
-        $type = "BC";
-      }
-      else if($this->order->type == "ether") {
-        $type = "Ether";
-      }
-      return $this->from('walpa@security.com')
+        if ($this->order->type == "euro") {
+            $type = "€";
+        } elseif ($this->order->type == "bitcoin") {
+            $type = "BC";
+        } elseif ($this->order->type == "ether") {
+            $type = "Ether";
+        }
+        return $this->from('walpa@security.com')
           ->view('emails.template')
           ->with([
                   'lastName' => $this->order->lastName,
@@ -53,8 +51,8 @@ class OrderShipped extends Mailable
                   'type' => $type,
           ]);
 
-      /*return $this->from('walpa@security.com')
-              ->view('emails.template');
+        /*return $this->from('walpa@security.com')
+                ->view('emails.template');
 */
               /*
               ATTACH FILE INTO EMAIL

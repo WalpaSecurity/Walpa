@@ -19,7 +19,7 @@ class MailTransac extends Mailable
      */
     public function __construct()
     {
-      //  $this->data = $data;
+        //  $this->data = $data;
     }
 
     /**
@@ -29,8 +29,7 @@ class MailTransac extends Mailable
      */
     public function build()
     {
-
-      return $this->from('toto@toto.eu')
+        return $this->from('toto@toto.eu')
           ->view('emails.activity');
     }
 }

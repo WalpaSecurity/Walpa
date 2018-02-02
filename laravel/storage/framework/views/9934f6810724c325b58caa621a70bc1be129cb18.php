@@ -6,7 +6,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <?php if(session('status')): ?>
+                    <?php if (session('status')): ?>
                         <div class="alert alert-success">
                             <?php echo e(session('status')); ?>
 

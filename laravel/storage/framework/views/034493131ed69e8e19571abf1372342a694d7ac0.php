@@ -5,7 +5,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">ACTIVITY REPORT</div>
 
-                <?php if($report): ?>
+                <?php if ($report): ?>
                    <?php echo e($report); ?> 
                 <?php else: ?>
                   <p> NOPE </p>

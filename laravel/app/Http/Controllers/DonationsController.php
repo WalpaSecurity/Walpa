@@ -10,7 +10,6 @@ use App\Mail\MailTransac;
 use Illuminate\Validation\Rule;
 use Validator;
 
-
 class DonationsController extends Controller
 {
     /**
@@ -20,25 +19,25 @@ class DonationsController extends Controller
      */
     public function index()
     {
-      $activityReport = DB::table('donations')
+        $activityReport = DB::table('donations')
                      ->select('*')
                      ->get();
 
-      $donationE = 0;
-      $donationB = 0;
-      $donationEt = 0;
+        $donationE = 0;
+        $donationB = 0;
+        $donationEt = 0;
 
-      foreach ($activityReport as $data) {
-        if($data->type == "euro"){
-          $donationE += $data->amount;
-        }else if($data->type == "bitcoin"){
-          $donationB += $data->amount;
-        }else if($data->type == "ether"){
-          $donationEt += $data->amount;
+        foreach ($activityReport as $data) {
+            if ($data->type == "euro") {
+                $donationE += $data->amount;
+            } elseif ($data->type == "bitcoin") {
+                $donationB += $data->amount;
+            } elseif ($data->type == "ether") {
+                $donationEt += $data->amount;
+            }
         }
-      }
 
-      return response()
+        return response()
             ->json([
             'success' => true,
             'data' => [
@@ -48,11 +47,11 @@ class DonationsController extends Controller
             ]
             ]);
 
-    /*  return view('donations', [
-          'donationE' => $donationE,
-          'donationB' => $donationB,
-          'donationEi' => $donationEt,
-      ]);*/
+        /*  return view('donations', [
+              'donationE' => $donationE,
+              'donationB' => $donationB,
+              'donationEi' => $donationEt,
+          ]);*/
     }
 
     /**
@@ -73,7 +72,6 @@ class DonationsController extends Controller
      */
     public function store(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
           'firstName' => 'required',
           'lastName' => 'required',
@@ -89,7 +87,7 @@ class DonationsController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);
         }
 
-      $activityReport = DB::table('donations')->insert(
+        $activityReport = DB::table('donations')->insert(
         ['firstName' => $request->firstName,
         "lastName" => $request->lastName,
         "email" => $request->email,
@@ -99,37 +97,36 @@ class DonationsController extends Controller
 
 
 
-    /*
-    $order = $request;
-    try
-      {
-          Mail::send('welcome', array('key' => 'value'), function($message)
+        /*
+        $order = $request;
+        try
           {
-              $message->from('ex@xzzxxx.com');
-              $message->to('catarino.laure@gmail.com', 'John Smith')->subject('Welcome!');
-          });
-      }
-      catch (\Exception $e)
-      {
-          dd($e->getMessage());
-      }*/
+              Mail::send('welcome', array('key' => 'value'), function($message)
+              {
+                  $message->from('ex@xzzxxx.com');
+                  $message->to('catarino.laure@gmail.com', 'John Smith')->subject('Welcome!');
+              });
+          }
+          catch (\Exception $e)
+          {
+              dd($e->getMessage());
+          }*/
 
-  //    Mail::to($request->email)->send(new MailTransac());
+        //    Mail::to($request->email)->send(new MailTransac());
 
 
-    if($activityReport == 1){
-      return response()
+        if ($activityReport == 1) {
+            return response()
             ->json([
             'success' => true,
             ]);
-    }else{
-      return response()
+        } else {
+            return response()
             ->json([
             'success' => false,
             ]);
-    }
+        }
 //       return redirect('/donation');
-
     }
 
     /**

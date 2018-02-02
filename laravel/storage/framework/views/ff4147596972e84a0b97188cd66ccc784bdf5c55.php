@@ -43,7 +43,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        <?php if(Auth::guest()): ?>
+                        <?php if (Auth::guest()): ?>
                             <li><a href="<?php echo e(route('login')); ?>">Login</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Register</a></li>
                         <?php else: ?>
