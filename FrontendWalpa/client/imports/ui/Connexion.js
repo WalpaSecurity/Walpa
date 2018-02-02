@@ -27,7 +27,7 @@ export default class Connexion extends Component {
             console.log(res.token);
             const token = res.token;
             HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
-                headers:{
+                header:{
                     "Access-Control-Allow-Origin": "http://192.168.1.16:5000/",
                     "Access-Control-Allow-Credentials": "true",
                     "Access-Control-Allow-Methods": 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
