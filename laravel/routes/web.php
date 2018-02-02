@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Mail\OrderShipped;
+use App\Mail\MailTransac;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -55,6 +56,21 @@ Route::get('/try', function () {
 Route::get('/donation', 'DonationsController@index')->name('donation');
 
 Route::post('/donation', 'DonationsController@store');
+
+Route::get('/mail', function () {
+  try
+    {
+        Mail::send('welcome', array('key' => 'value'), function($message)
+        {
+            $message->from('groupe2@asr.lan');
+            $message->to('catarino.laure@gmail.com', 'John Smith')->subject('Welcome!');
+        });
+    }
+    catch (\Exception $e)
+    {
+        dd($e->getMessage());
+    }
+});
 
 
 Route::get('metrics/{filename}', function ($filename) { //Récupération du fichier d'analyse
