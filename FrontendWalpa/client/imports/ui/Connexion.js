@@ -27,7 +27,7 @@ export default class Connexion extends Component {
             console.log(res.token);
             const token = res.token;
             HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
-                header:{
+                headers:{
                     'Authorization' : "Bearer " + token,
                     'Accept' : "application/json"
 
@@ -38,7 +38,7 @@ export default class Connexion extends Component {
                 },
                 (error, resultuser) => {
                     if (!error) {
-                        console.log(resultuser);die;
+                        console.log(resultuser);
                         const resuser = JSON.parse(resultuser);
                         console.log(resuser);
                     }
