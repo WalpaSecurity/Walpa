@@ -25,6 +25,24 @@ export default class Connexion extends Component {
             const res = JSON.parse(result.content);
             console.log(res);
             console.log(res.token);
+            const token = res.token;
+            HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
+                header:{
+                    Authorization : Bearer + token,
+                    Accept : application/json
+
+                },
+                    data: {
+                        token: token
+                    }
+                },
+                (error, resultuser) => {
+                    if (!error) {
+                        const resuser = JSON.parse(resultuser.content);
+                        console.log(resuser);
+                    }
+            });
+
         }
     });
 
