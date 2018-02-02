@@ -9,6 +9,19 @@ export default class Projet extends Component {
         event.preventDefault();
         const repo = ReactDOM.findDOMNode(this.refs.depot).value.trim();
         console.log(repo);
+        HTTP.call('POST', 'http://192.168.1.16:5000/api/activity', {
+                data: {
+                    url: repo
+                }
+            },
+            (error, result) => {
+            if (!error) {
+            const res = JSON.parse(result.content);
+            console.log(res);
+
+
+        }
+    });
     }
 
     render() {
