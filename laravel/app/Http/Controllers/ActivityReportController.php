@@ -101,7 +101,7 @@ class ActivityReportController extends Controller
         $PHPCPD = shell_exec("phpcpd /var/www/html/public/temp/".$number);
 
         //Phortress : static code analyser for potential vulnerabilities
-        //  shell_exec("sudo apt-get install phpunit");
+        //shell_exec("sudo apt-get install phpunit");
         //    $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
 
         //PHP Coding Standards Fixer : The PHP Coding Standards Fixer (PHP CS Fixer) tool fixes your code to follow standards; whether you want to follow PHP coding standards as defined in the PSR-1, PSR-2, etc., or other community driven ones like the Symfony one.
@@ -112,7 +112,7 @@ class ActivityReportController extends Controller
 
 
         //PHP Metrics :
-        shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/html/public/temp/".$number);
+        shell_exec("php ./vendor/bin/phpmetrics --report-json=myreport /var/www/html/public/temp/".$number);
 
         //Rassemblement de tous les résultats
         $str_result = "-------------------------------------------------------------------------------- \n Détection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
@@ -122,7 +122,7 @@ class ActivityReportController extends Controller
         $str_result .= "\n-------------------------------------------------------------------------------- \n Modifie le code PHP en standard : \n\n " . $PHPCoding;
 
 
-        shell_exec("cp -R /var/www/html/myreport /var/www/html/public/temp/metrics_". $number);
+        shell_exec("mv /var/www/html/myreport /var/www/html/public/temp/metrics_". $number);
 
         /*$path = '/var/www/html/myreport/index.html';
         $file = File::get($path);

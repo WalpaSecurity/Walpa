@@ -58,8 +58,8 @@ Route::post('/donation', 'DonationsController@store');
 
 
 Route::get('metrics/{filename}', function ($filename) { //Récupération du fichier d'analyse
-    if (Auth::check()) {
-        $path = '/var/www/html/public/temp/' . $filename . '/index.html';
+  //  if (Auth::check()) {
+        $path = '/var/www/html/public/' . $filename . '/index.html';
 
         if (!File::exists($path)) {
             abort(404);
@@ -71,8 +71,8 @@ Route::get('metrics/{filename}', function ($filename) { //Récupération du fich
           $type = File::mimeType($path);
 
           $response = Response::make($file, 200);
-          $response->header("Content-Type", $type);
-
+        //  $response->header("Content-Type", $type);
+//return File::get($path);
         return $response;
       //  return Redirect::to($path);
 
@@ -81,7 +81,7 @@ Route::get('metrics/{filename}', function ($filename) { //Récupération du fich
           'success' => true,
           'resultActivityReport' => $response
     ]);*/
-    } else {
+  /*  } else {
         return view('auth.login');
-    }
+    }*/
 });
