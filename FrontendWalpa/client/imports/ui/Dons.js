@@ -34,7 +34,7 @@ export default class Dons extends Component {
                       </div>
                       <div className="form-row">
                         <div className="form-group col-md-2">
-                          <label htmlFor="inputState">State</label>
+                          <label htmlFor="inputState">Sexe</label>
                           <select id="inputState" className="form-control">
                             <option value="" >Sexe</option>
                             <option value="M">M</option>

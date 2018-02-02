@@ -1,7 +1,7 @@
-  import React, { Component } from 'react';
+import React, { Component } from 'react';
 
-  $('body').css({ 'padding-top':'0 !important'});
-// App component - represents the whole app
+$('body').css({ 'padding-top':'0 !important'});
+
 export default class Sidebar extends Component {
 
     render() {
@@ -15,10 +15,10 @@ export default class Sidebar extends Component {
                 <a className="nav-link" href="/admin/">Tableau de bord</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/admin/projets">Mes projets</a>
+                <a className="nav-link" href="/admin/projets">Projets</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/admin/profile">Mon profil</a>
+                <a className="nav-link" href="/admin/dons">Dons</a>
               </li>
             </ul>
             <div className="topbar text-right">
