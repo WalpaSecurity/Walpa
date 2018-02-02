@@ -41,7 +41,7 @@ export default class Connexion extends Component {
                 (error, resultuser) => {
                     if (!error) {
                         console.log(resultuser);
-                        const resuser = JSON.parse(resultuser);
+                        const resuser = JSON.parse(resultuser.content);
                         console.log(resuser);
                     }
             });
