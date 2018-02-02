@@ -28,7 +28,6 @@ export default class Connexion extends Component {
             const token = res.token;
             HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
                 headers:{
-                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
                     'Content-Type' : "application/json",
                     'Authorization' : "Bearer " + token,
                     'Accept' : "application/json"
