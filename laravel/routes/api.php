@@ -12,8 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-header('Access-Control-Allow-Origin: *');
-header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
