@@ -4,11 +4,7 @@
 
 // App component - represents the whole app
 export default class Header extends Component {
-    Template.header.helpers({
-    theEnemy() {
-        return Session.get('name');
-    }
-    });
+
     render() {
         return (
             <template name="header">
