@@ -2,19 +2,19 @@
 
 
 // App component - represents the whole app
-export default class gestionProjets extends Component {
+export default class gestionDons extends Component {
     render() {
         return (
-          <div className="adminContent gestionProjets">
-            <h1>Historiques des projets</h1>
+          <div className="adminContent gestionDons">
+            <h1>Historiques des dons</h1>
             <table className="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">Id</th>
-                  <th scope="col">Nom du client</th>
-                  <th scope="col">Nom du projet</th>
-                  <th scope="col">Url</th>
-                  <th className="text-center" scope="col">Supprimer le projet</th>
+                  <th scope="col">Nom du donateur</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Montant</th>
+                  <th scope="col">Date</th>
                 </tr>
               </thead>
               <tbody>
@@ -22,13 +22,13 @@ export default class gestionProjets extends Component {
                   <td>1</td>
                   <td>Jean Mouloud</td>
                   <td>
-                   <a href="/admin/projet/1">
+                   <a href="">
                     Projet 1
                    </a>
                   </td>
                   <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
                   <td>
-                    <a href="/admin/projet/2">
+                    <a href="#">
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </a>
                   </td>
@@ -37,7 +37,7 @@ export default class gestionProjets extends Component {
                   <td>2</td>
                   <td>Alain Jéfaim</td>
                   <td>
-                   <a href="/admin/projet/2">
+                   <a href="">
                     Projet 2
                    </a>
                   </td>
@@ -52,7 +52,7 @@ export default class gestionProjets extends Component {
                   <td>3</td>
                   <td>Legrand Monarque</td>
                   <td>
-                   <a href="/admin/projet/3">
+                   <a href="">
                     Projet 3
                    </a>
                   </td>
@@ -67,23 +67,8 @@ export default class gestionProjets extends Component {
                   <td>4</td>
                   <td>James Bond</td>
                   <td>
-                   <a href="/admin/projet/4">
+                   <a href="">
                     Projet 4
-                   </a>
-                  </td>
-                  <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                  <td>
-                    <a href="#">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Le violongay</td>
-                  <td>
-                   <a href="/admin/projet/5">
-                    Projet 5
                    </a>
                   </td>
                   <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>

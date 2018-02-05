@@ -446,11 +446,14 @@ footer {
       height: 100%;
       z-index: 11;
       display: block;
+      border-right: 2px solid #ff6600;
 
       .nav-item {
+        border-right: 0 solid #ff6600;
 
         &.active, &:hover {
-          background-color: #555;
+          background-color: #4C4C4C;
+          border-right: 6px solid #ff6600;
         }
 
         a {
@@ -469,6 +472,16 @@ footer {
 
   h1 {
     margin-top: 0;
+  }
+
+  a {
+    color: #FF6600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #c14d00;
+      text-decoration: none;
+    }
   }
 
 

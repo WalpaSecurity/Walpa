@@ -20,7 +20,7 @@ import Sidebar from '../imports/ui/admin/Sidebar.js';
 import gestionProjets from '../imports/ui/admin/Projets.js';
 
 
-const view = 99;
+const view = 0;
 
 
 if(view == 999){
@@ -64,7 +64,7 @@ function growShrinkLogo() {
     var Logo = document.getElementById("logo");
     var Menu = document.getElementById("menu");
     var body = document.getElementsByTagName('body');
-    if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
         Logo.style.width = '120px';
         Menu.style.height = '80px';
         $(body).css({'padding-top':'0'});
