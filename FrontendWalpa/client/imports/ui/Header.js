@@ -32,7 +32,7 @@ export default class Header extends Component {
                       <a className="nav-link" href="/contact">Contact</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/connexion">Connexion / Inscription or {{theEnemy}}</a>
+                      <a className="nav-link" href="/connexion">Connexion / Inscription</a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="/admin">Mon compte</a>
