@@ -11,7 +11,7 @@ export default class Projet extends Component {
         console.log(repo);
         HTTP.call('POST', 'http://192.168.1.16:5000/api/activity', {
                 data: {
-                    url: repo
+                    url: repoe
                 }
             },
             (error, result) => {
