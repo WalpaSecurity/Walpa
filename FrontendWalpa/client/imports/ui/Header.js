@@ -4,6 +4,11 @@
 
 // App component - represents the whole app
 export default class Header extends Component {
+    Template.header.helpers({
+    theEnemy() {
+        return Session.get('name');
+    }
+    });
     render() {
         return (
           <div id="navbar-menu">
@@ -31,7 +36,7 @@ export default class Header extends Component {
                       <a className="nav-link" href="/contact">Contact</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/connexion">Connexion / Inscription</a>
+                      <a className="nav-link" href="/connexion">Connexion / Inscription or {{theEnemy}}</a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="/admin">Mon compte</a>
