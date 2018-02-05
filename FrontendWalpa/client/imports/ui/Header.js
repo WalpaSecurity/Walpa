@@ -1,4 +1,5 @@
   import React, { Component } from 'react';
+  import { Session } from 'meteor/session'
 
 
 // App component - represents the whole app
