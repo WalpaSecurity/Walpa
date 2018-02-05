@@ -11,6 +11,7 @@ export default class Header extends Component {
     });
     render() {
         return (
+            <template name="header">
           <div id="navbar-menu">
             <nav id="menu" className="navbar navbar-expand-lg fixed-top navbar-light">
               <div className="container">
@@ -72,6 +73,7 @@ export default class Header extends Component {
             </div>
             <div className="overlay_mobile"></div>
           </div>
+          </template>
     );
     }
     // function displayHeader(){
