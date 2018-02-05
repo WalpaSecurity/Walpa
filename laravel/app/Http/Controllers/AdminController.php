@@ -10,6 +10,9 @@ class AdminController extends Controller
 {
   protected function getUser ()
   {
+    $admin = Auth::user()->admin;
+
+    if($admin == true){
     $users = DB::table('users')
                ->select('*')
                ->get();
@@ -19,6 +22,13 @@ class AdminController extends Controller
                 'success' => true,
                 'data' => $users,
             ]);
+    }else{
+      return response()
+            ->json([
+                'success' => false,
+                'error' => 'Vous n\'etes pas admin.'
+      ]);
+    }
   }
 
   protected function changeID ($id)
