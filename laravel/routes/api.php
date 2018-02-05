@@ -56,4 +56,12 @@ Route::group(['middleware' => 'auth:api'], function () {
       }
   });
 
+
+  //Partie ADMIN
+
+
+  Route::get('/adminU', 'AdminController@getUser');
+  Route::post('/admin/{id}', 'AdminController@changeID');
+  Route::delete('/admin/{id}', 'AdminController@deleteAdmin');
+
 });
