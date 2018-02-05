@@ -105,3 +105,5 @@ Route::get('metrics/{filename}', function ($filename) { //Récupération du fich
         return view('auth.login');
     }*/
 });
+
+Route::get('/jobs', 'ActivityReportController@show');
