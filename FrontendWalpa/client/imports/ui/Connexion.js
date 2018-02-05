@@ -44,6 +44,7 @@ export default class Connexion extends Component {
                         const resuser = JSON.parse(resultuser.content);
                         console.log(resuser);
                         console.log(resuser.name);
+                        console.log(resuser);
                         //Session.set('nom':'name');
                     }
             });
