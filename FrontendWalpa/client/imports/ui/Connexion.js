@@ -46,8 +46,7 @@ export default class Connexion extends Component {
                         console.log(resuser);
 
                         Session.set('nom':resuser.success.name);
-                        const nom = Session.get('nom');
-                        console.log(nom);
+                        console.log(Session.get('nom'));
                     }
             });
 
