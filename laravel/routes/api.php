@@ -28,8 +28,7 @@ Route::group(['middleware' => 'auth:api'], function () {
   Route::post('get-details', 'API\PassportController@getDetails'); //Récupère les informations d'un utilisateur
   Route::post('/activity', 'ActivityReportController@store'); //Envoi d'un rapport d'activité
   Route::get('/activity', 'ActivityReportController@index'); //Avoir tous les rapports d'activité d'un utilisateur
-  Route::get('/account', 'ActivityReportController@show'); //Avoir
-
+  Route::get('/account', 'ActivityReportController@show'); //Avoir tous les fichiers d'analyse d'un utilisateur
   Route::get('storage/{filename}', function ($filename) { //Récupération du fichier d'analyse
       if (Auth::check()) {
           $path = '/var/www/html/public/temp/' . $filename .'.txt';
@@ -40,19 +39,21 @@ Route::group(['middleware' => 'auth:api'], function () {
               return response()->file($path);
           }
 
-          /*  $file = File::get($path);
+            $file = File::get($path);
             $type = File::mimeType($path);
 
             $response = Response::make($file, 200);
             $response->header("Content-Type", $type);
-*/
-      /*return response()
+
+    /*  return response()
         ->json([
             'success' => true,
             'resultActivityReport' => $response
       ]);*/
+
       } else {
           return view('auth.login');
       }
   });
+
 });
