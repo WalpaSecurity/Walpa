@@ -260,23 +260,53 @@ label {
   }
 }
 
+
+
 #headerHome {
-  height: 600px;
-  background-image: url(/images/bkg-header.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  padding: 0 !important;
 
-  h1 {
-    font-size: 5rem;
-    line-height: 3rem;
+  &.fullsize-video-bg {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
 
-    small {
-      font-size: 40%;
-      line-height: 1rem;
+    &:before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-color: rgba(255, 102, 0, 0.75);
+    }
+
+    #video-viewport {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+
+      video {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+    }
+    .contentVideo {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      color: #FFF !important;
     }
   }
 }
+
+
+
+
 
 #dons {
   .modePaiement1 {
@@ -513,6 +543,14 @@ footer {
 }
 
 @media (min-width: 992px){
+
+  #headerHome {
+    &.fullsize-video-bg {
+      height: 800px;
+    }
+  }
+
+
   .container {
       width: 95% !important;
   }
