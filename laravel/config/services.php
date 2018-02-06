@@ -34,5 +34,17 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'google' => [
+       'client_id'     => '639601032152-pc7l02septjkki9li24c59cj089sm6h8.apps.googleusercontent.com',
+       'client_secret' => "TFhMdQ_LheO3MEn3KHradDnO",
+       'redirect'      => "http://www.walpa.com/home"
+   ],
+   'github' => [
+    'client_id' => env('GITHUB_ID'),
+    'client_secret' => env('GITHUB_SECRET'),
+    'redirect' => env('GITHUB_URL'),
+],
+
+
 
 ];

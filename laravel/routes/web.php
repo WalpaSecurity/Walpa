@@ -107,3 +107,10 @@ Route::get('metrics/{filename}', function ($filename) { //Récupération du fich
 });
 
 Route::get('/jobs', 'ActivityReportController@show');
+Route::get('/google', function () {
+    return view('google');
+});
+
+//OAUTH WITH GITHUB
+Route::get('auth/github', 'Auth\OauthController@redirectToProvider');
+Route::get('auth/github/callback', 'Auth\OauthController@handleProviderCallback');
