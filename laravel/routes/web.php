@@ -125,3 +125,5 @@ Route::get('auth/github/callback', 'Auth\OauthController@handleProviderCallback'
 Route::get('/po', function () {
     return view('emails.register');
 });
+
+Route::post('/contact', 'ContactController@index');

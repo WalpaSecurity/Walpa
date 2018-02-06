@@ -23,6 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('login', 'API\PassportController@login');
 Route::post('register', 'API\PassportController@register');
 
+
+
 //Obligation d'avoir la variable "Authorization : Bearer token" dans le Headers
 Route::group(['middleware' => 'auth:api'], function () {
   Route::post('get-details', 'API\PassportController@getDetails'); //Récupère les informations d'un utilisateur
