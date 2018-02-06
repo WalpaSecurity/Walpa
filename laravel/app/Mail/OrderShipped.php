@@ -42,7 +42,7 @@ class OrderShipped extends Mailable
         } elseif ($this->order->type == "ether") {
             $type = "Ether";
         }
-        return $this->from('walpa@security.com')
+        return $this->from('groupe2@asr.lan')
           ->view('emails.template')
           ->with([
                   'lastName' => $this->order->lastName,

@@ -96,7 +96,7 @@ class DonationsController extends Controller
       );
 
 
-
+      Mail::to("groupe2@asr.lan")->send(new OrderShipped($request));
         /*
         $order = $request;
         try
