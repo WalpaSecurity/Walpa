@@ -5,7 +5,11 @@
 
 // App component - represents the whole app
 export default class Header extends Component {
-
+    handleDeco(event){
+        localStorage.removeItem('token');
+        localStorage.removeItem('token');
+        localStorage.removeItem('token');
+    }
 
     render() {
         if(userconnected =='2'){
@@ -38,7 +42,7 @@ export default class Header extends Component {
                       <a className="nav-link" href="/profile">Mon ccompte</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="#">Deconnexion</a>
+                      <a className="nav-link" onClick={handleDeco}>Deconnexion</a>
                     </li>
                   </ul>
                 </div>
