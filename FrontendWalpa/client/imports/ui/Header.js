@@ -5,10 +5,9 @@
 
 // App component - represents the whole app
 export default class Header extends Component {
-    handleDeco(event){
+    handleDeco(event) {
         localStorage.removeItem('token');
-        localStorage.removeItem('token');
-        localStorage.removeItem('token');
+        localStorage.removeItem('statutconnexion');
     }
 
     render() {
@@ -42,7 +41,7 @@ export default class Header extends Component {
                       <a className="nav-link" href="/profile">Mon ccompte</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" onClick={handleDeco}>Deconnexion</a>
+                      <a className="nav-link" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
                     </li>
                   </ul>
                 </div>
