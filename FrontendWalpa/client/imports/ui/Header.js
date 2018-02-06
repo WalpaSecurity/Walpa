@@ -8,6 +8,8 @@ export default class Header extends Component {
     handleDeco(event) {
         localStorage.removeItem('token');
         localStorage.removeItem('statutconnexion');
+        document.location.reload(true);
+        this.props.history.push('/');
     }
 
     render() {
