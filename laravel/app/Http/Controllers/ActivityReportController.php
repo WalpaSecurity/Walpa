@@ -115,7 +115,8 @@ class ActivityReportController extends Controller
         $PHPCoding = shell_exec("php-cs-fixer fix /var/www/html/public/temp/".$number);
 
         //PHP Metrics :
-        shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/html/public/temp/".$number);
+      //  shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/html/public/temp/".$number);
+        //  shell_exec("cp -R /var/www/html/myreport /var/www/html/public/temp/metrics_". $number);
 
         //Rassemblement de tous les résultats
         $str_result = "-------------------------------------------------------------------------------- \n Détection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
@@ -124,15 +125,7 @@ class ActivityReportController extends Controller
         //  $str_result .= "\n -------------------------------------------------------------------------------- \n Analyse des potentiels vulnérabilités \n " . $PHortress;
         $str_result .= "\n-------------------------------------------------------------------------------- \n Modifie le code PHP en standard : \n\n " . $PHPCoding;
 
-        shell_exec("cp -R /var/www/html/myreport /var/www/html/public/temp/metrics_". $number);
-
-        /*$path = '/var/www/html/myreport/index.html';
-        $file = File::get($path);
-        $type = File::mimeType($path);
-        $response = Response::make($file, 200);
-        $response->header("Content-Type", $type);
-*/
-        $str_result .= "\n-------------------------------------------------------------------------------- \n PHP Metrics : \n\n " . URL::asset('/metrics/metrics_'. $number);
+      //  $str_result .= "\n-------------------------------------------------------------------------------- \n PHP Metrics : \n\n " . URL::asset('/metrics/metrics_'. $number);
 
         //  shell_exec("rm /var/www/html/public/temp/result.txt");
         //Création du fichier texte qui va contenir le résultat
