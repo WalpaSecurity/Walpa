@@ -10,16 +10,14 @@ export default class Projet extends Component {
         const repo = ReactDOM.findDOMNode(this.refs.depot).value.trim();
         console.log(repo);
         HTTP.call('POST', 'http://192.168.1.16:5000/api/activity', {
-                data: {
-                    url: repoe
-                }
-            },
-            (error, result) => {
-            if (!error) {
-            const res = JSON.parse(result.content);
-            console.log(res);
-
-
+              data: {
+                  url: repo
+              }
+          },
+          (error, result) => {
+          if (!error) {
+          const res = JSON.parse(result.content);
+          console.log(res);
         }
     });
     }
@@ -30,7 +28,7 @@ export default class Projet extends Component {
             <div className="container">
               <h1 className="text-center">Analyser mon projet</h1>
               <div className="row align-items-center">
-                <div className="col-md-6 text-center text-lg-left">
+                <div className="col-12 col-lg-6 text-center text-lg-left">
                   <h2>Pourquoi analyser votre projet ?</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -39,7 +37,7 @@ export default class Projet extends Component {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                   </p>
                 </div>
-                <div className="col-md-6">
+                <div className="col-12 col-lg-6">
                   <form onSubmit={this.handleSubmitConnexion.bind(this)} className="formLinkProject text-center">
                     <ol className="list-unstyled text-white ">
                       <li>1. Entrez le lien de votre projet Github</li>

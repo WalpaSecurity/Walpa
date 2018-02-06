@@ -6,15 +6,23 @@ export default class Home extends Component {
     render() {
         return (
           <section id="home">
-            <div id="headerHome" className="d-flex align-items-center text-center text-lg-right bg-dark text-light">
-              <div className="container blockGoToRight">
+
+            <section id="headerHome" className="fullsize-video-bg">
+              <div id="video-viewport">
+                <video width="1920" height="1280" autoPlay="autoplay" muted loop>
+                    <source src="/images/video2.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div className="contentVideo text-center text-md-right">
                 <h1>
                   Walpa<br/>
                   <small>Un projet propre, sécurisé<br/>et bien codé</small>
                 </h1>
                 <a href="/analyser-mon-projet" className="btn btn-primary">Analyser mon projet</a>
               </div>
-            </div>
+            </section>
+
+
 
             <div id="presentation" className="d-flex align-items-center py-5">
               <div className="container">
