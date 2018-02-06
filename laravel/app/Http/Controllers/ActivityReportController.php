@@ -231,7 +231,5 @@ class ActivityReportController extends Controller
         //
     }
 
-    public function try(){
-        $this->dispatch(new AnalyseProcess($request->url, $id, $name_file, $number));
-    }
+
 }
