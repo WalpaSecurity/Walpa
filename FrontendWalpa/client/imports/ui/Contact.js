@@ -15,15 +15,6 @@ export default class Contact extends Component {
             const objet = ReactDOM.findDOMNode(this.refs.objet).value.trim();
             const message = ReactDOM.findDOMNode(this.refs.message).value.trim();
 
-
-            const contact = { "email":email, "nom":nom, "prenom": prenom, "email":email, "telephone":telephone,"objet":objet,  "message": message};
-            const contactjson = JSON.stringify(contact);
-            console.log(contactjson);console.log(contact.nom);
-            // HTTP.call('GET', '/connexion', {}, (error, result) =>{
-            //     if( !error ){
-            // const res = JSON.parse(result.content);
-            // console.log(contactjson);
-            // }
     };
 
     render() {
