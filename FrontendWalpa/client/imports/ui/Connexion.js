@@ -27,6 +27,8 @@ export default class Connexion extends Component {
             console.log(res);
             console.log(res.token);
             const token = res.token;
+            localStorage.setItem('token': token);
+            localStorage.setItem('statutconnexion': '1');
             HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
@@ -44,9 +46,6 @@ export default class Connexion extends Component {
                         console.log(resultuser);
                         const resuser = JSON.parse(resultuser.content);
                         console.log(resuser);
-
-                        Session.set('nom':resuser.success.name);
-                        console.log(Session.get('nom'));
                     }
             });
 

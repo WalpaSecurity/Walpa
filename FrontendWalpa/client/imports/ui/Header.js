@@ -1,11 +1,13 @@
   import React, { Component } from 'react';
   import { Session } from 'meteor/session'
 
-
+ const userconnected = localStorage.getItem('statutconnexion');
 // App component - represents the whole app
 export default class Header extends Component {
 
+
     render() {
+        if(userconnected =='1'){
         return (
           <div id="navbar-menu">
             <nav id="menu" className="navbar navbar-expand-lg fixed-top navbar-light">
@@ -32,7 +34,7 @@ export default class Header extends Component {
                       <a className="nav-link" href="/contact">Contact</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/connexion">Connexion / Inscription</a>
+                    <a className="nav-link" href="/connexion">Connexion / Inscription</a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="/admin">Mon compte</a>
@@ -59,7 +61,7 @@ export default class Header extends Component {
                   <a href="/contact">Contact</a>
                 </li>
                 <li>
-                  <a href="/connexion">Connexion / Inscription</a>
+                  <a href="/connexion">Bienvenue utilisateur</a>
                 </li>
                 <li>
                   <a href="/admin">Mon compte</a>
@@ -68,7 +70,71 @@ export default class Header extends Component {
             </div>
             <div className="overlay_mobile"></div>
           </div>
-    );
+    );}else {
+            return (
+            <div id="navbar-menu">
+                <nav id="menu" className="navbar navbar-expand-lg fixed-top navbar-light">
+                    <div className="container">
+                        <a id="logo" className="navbar-brand mx-auto" href="/">
+                            <img src="/images/logo-walpa.png" className="img-fluid" />
+                        </a>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon">
+                            </span>
+                        </button>
+                        <div className="collapse navbar-collapse">
+                            <ul className="navbar-nav ml-auto">
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/qui-sommes-nous">Qui sommes nous ?</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/analyser-mon-projet">Analyser mon projet</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/faire-un-don">Faire un don</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/contact">Contact</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/connexion">Connexion / Inscription</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/admin">Mon compte</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div id="menu-mobile" className="text-center">
+                    <a href="#">
+                        <img  className="img-fluid" width="200px" src="images/logo-walpa.png" className="img-fluid" />
+                    </a>
+                    <ul className="list-unstyled">
+                        <li>
+                            <a href="/qui-sommes-nous">Qui sommes nous ?</a>
+                        </li>
+                        <li>
+                            <a href="/analyser-mon-projet">Analyser mon projet</a>
+                        </li>
+                        <li>
+                            <a href="/faire-un-don">Faire un don</a>
+                        </li>
+                        <li>
+                            <a href="/contact">Contact</a>
+                        </li>
+                        <li>
+                            <a href="/connexion">Connexion / Inscription</a>
+                        </li>
+                        <li>
+                            <a href="/admin">Mon compte</a>
+                        </li>
+                    </ul>
+                </div>
+                <div className="overlay_mobile"></div>
+            </div>
+            );
+        }
     }
     // function displayHeader(){
     //     const element = (

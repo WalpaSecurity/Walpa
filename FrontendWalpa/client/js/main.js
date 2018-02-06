@@ -20,10 +20,10 @@ import Sidebar from '../imports/ui/admin/Sidebar.js';
 import gestionProjets from '../imports/ui/admin/Projets.js';
 
 
-const view = 0;
+const statutconnexion = localStorage.getItem('statutconnexion');
 
 
-if(view == 999){
+if(statutconnexion == 1){
   Meteor.startup(() => {
       render(<Sidebar />, document.getElementById('panel-admin'));
       render(<BrowserRouter>
