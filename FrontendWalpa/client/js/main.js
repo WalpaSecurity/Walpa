@@ -11,6 +11,7 @@ import Projet from '../imports/ui/Projet.js';
 import Dons from '../imports/ui/Dons.js';
 import Contact from '../imports/ui/Contact.js';
 import Connexion from '../imports/ui/Connexion.js';
+import Profile from '../imports/ui/Profile.js';
 import Footer from '../imports/ui/Footer.js';
 import Try from '../imports/ui/try.js';
 
@@ -46,6 +47,7 @@ if(statutconnexion == 1){
                   <Route exact path="/faire-un-don" component={Dons}/>
                   <Route exact path="/contact" component={Contact}/>
                   <Route exact path="/connexion" component={Connexion}/>
+                  <Route exact path="/profile" component={Profile}/>
                   <Route exact path="/try" component={Try}/>
               </Switch>
       </BrowserRouter> , document.getElementById('content'));

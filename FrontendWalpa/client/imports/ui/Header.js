@@ -2,6 +2,7 @@
   import { Session } from 'meteor/session'
 
  const userconnected = localStorage.getItem('statutconnexion');
+
 // App component - represents the whole app
 export default class Header extends Component {
 
@@ -34,10 +35,10 @@ export default class Header extends Component {
                       <a className="nav-link" href="/contact">Contact</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="/connexion">Connexion / Inscription</a>
+                      <a className="nav-link" href="/profile">Mon ccompte</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="/admin">Mon compte</a>
+                      <a className="nav-link" href="#">Deconnexion</a>
                     </li>
                   </ul>
                 </div>
@@ -61,10 +62,10 @@ export default class Header extends Component {
                   <a href="/contact">Contact</a>
                 </li>
                 <li>
-                  <a href="/connexion">Bienvenue utilisateur</a>
+                  <a href="/profile">Mon compte</a>
                 </li>
-                <li>
-                  <a href="/admin">Mon compte</a>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">Deconnexion</a>
                 </li>
               </ul>
             </div>
@@ -99,9 +100,6 @@ export default class Header extends Component {
                                 <li className="nav-item">
                                     <a className="nav-link" href="/connexion">Connexion / Inscription</a>
                                 </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/admin">Mon compte</a>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -125,9 +123,6 @@ export default class Header extends Component {
                         </li>
                         <li>
                             <a href="/connexion">Connexion / Inscription</a>
-                        </li>
-                        <li>
-                            <a href="/admin">Mon compte</a>
                         </li>
                     </ul>
                 </div>
