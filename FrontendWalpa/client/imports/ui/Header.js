@@ -1,11 +1,10 @@
   import React, { Component } from 'react';
   import { Session } from 'meteor/session'
 
-
+ const userconnected = localStorage.getItem('statutconnexion');
 // App component - represents the whole app
 export default class Header extends Component {
-    //const Isuserconnected = localStorage.getItem('statutconnexion');
-    const sacrebleu = '1';
+
 
     render() {
         return (
@@ -33,18 +32,16 @@ export default class Header extends Component {
                     <li className="nav-item">
                       <a className="nav-link" href="/contact">Contact</a>
                     </li>
-                    if(sacrebleu == '1'){
+                    if(userconnected =='1'){
                     <li className="nav-item">
-                        <a className="nav-link" href="/admin">Bienvenue lambda</a>
+                    <a className="nav-link" href="/connexion">Connexion / Inscription</a>
                     </li>
                     }else{
                     <li className="nav-item">
-                        <a className="nav-link" href="/connexion">Connexion / Inscription</a>
+                    <a className="nav-link" href="/connexion">Connexion / Inscription</a>
                     </li>
                     }
-                    <li className="nav-item">
-                      <a className="nav-link" href="/connexion">Connexion / Inscription</a>
-                    </li>
+
                     <li className="nav-item">
                       <a className="nav-link" href="/admin">Mon compte</a>
                     </li>
