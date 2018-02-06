@@ -50,6 +50,7 @@ class PassportController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
+            'github_id' => '',
         ]);
         //    $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
