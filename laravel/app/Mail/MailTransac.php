@@ -29,7 +29,7 @@ class MailTransac extends Mailable
      */
     public function build()
     {
-        return $this->from('toto@toto.eu')
-          ->view('emails.activity');
+      return $this->from('groupe2@asr.lan')
+        ->view('emails.activity')
     }
 }

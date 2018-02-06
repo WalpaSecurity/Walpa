@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>WALPA Security </title>
+  <title>WALPA </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <style>
@@ -18,18 +18,17 @@
 </head>
 
 
-<body style="margin: 0; padding: 0;">
- <table border="0" cellpadding="0" cellspacing="0" width="100%">
-  <tr>
+<table border="0" cellpadding="20" cellspacing="0" width="100%">
+ <tr>
 
-   <td>
-   <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
-	 <tr>
-	 <td align="center" bgcolor="#ff6600" style="padding: 40px 0 30px 0;">
-	 <img src="{{ asset('img/logo-walpa1.png') }}" alt="WALPA SECURITY" width="80" height="80" style="display: block;" />
-	 <h2 style="font-size: 32px; font-weight: bold; color: white;">Bienvenue
-							chez WALPA Security</h2>
-	</td>
+  <td>
+  <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 2px solid #ff6600;">
+  <tr>
+  <td align="center" bgcolor="#ff6600" style="padding: 40px 0 30px 0;">
+  <img src="{{ asset('img/logo-footer-walpa.png') }}" alt="WALPA SECURITY" width="120" style="display: block;" />
+  <h2 style="font-size: 32px; font-weight: bold; color: white;">Bienvenue
+             chez WALPA</h2>
+ </td>
 
 	</tr>
 
