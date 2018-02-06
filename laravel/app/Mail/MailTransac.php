@@ -30,6 +30,6 @@ class MailTransac extends Mailable
     public function build()
     {
       return $this->from('groupe2@asr.lan')
-        ->view('emails.activity')
+        ->view('emails.activity');
     }
 }
