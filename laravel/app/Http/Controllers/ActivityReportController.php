@@ -167,14 +167,9 @@ class ActivityReportController extends Controller
         if (Auth::check()) {
             $id = Auth::user()->id;
             $activityReport = DB::table('activityReport')
-                       ->select('file_name')
+                       ->select('file_name', 'url', 'statut')
                        ->where('user_id', $id)
                        ->get();
-
-            $resultActivityReport = array();
-            foreach ($activityReport as $data) {
-                array_push($resultActivityReport, $data->file_name);
-            }
             /*
             return view('activityHisto', [
                 'history' => $resultActivityReport
@@ -183,7 +178,7 @@ class ActivityReportController extends Controller
             return response()
           ->json([
               'success' => true,
-              'history' => $resultActivityReport
+              'data' => $activityReport
         ]);
         } else {
             return view('auth.login');
