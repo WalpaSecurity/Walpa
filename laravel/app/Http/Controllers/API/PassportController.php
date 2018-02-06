@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use Mail;
+use App\Mail\RegisterEmail;
 
 class PassportController extends Controller
 {
@@ -55,7 +57,7 @@ class PassportController extends Controller
         //    $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
 
-        Mail::to("groupe2@asr.lan")->send(new OrderShipped($request));
+        Mail::to("groupe2@asr.lan")->send(new RegisterEmail($request));
 
         return response()->json(['success'=>true, 'data' => $success]);
     }
