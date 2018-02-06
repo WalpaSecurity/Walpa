@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->boolean('admin')->default(false);
             $table->string('password');
 
-             $table->string('github_id')->unique();
+            $table->string('github_id');
 
-             
+
             $table->rememberToken();
             $table->timestamps();
         });
