@@ -95,25 +95,7 @@ class DonationsController extends Controller
         "type" => $request->type]
       );
 
-
       Mail::to("groupe2@asr.lan")->send(new OrderShipped($request));
-        /*
-        $order = $request;
-        try
-          {
-              Mail::send('welcome', array('key' => 'value'), function($message)
-              {
-                  $message->from('ex@xzzxxx.com');
-                  $message->to('catarino.laure@gmail.com', 'John Smith')->subject('Welcome!');
-              });
-          }
-          catch (\Exception $e)
-          {
-              dd($e->getMessage());
-          }*/
-
-        //    Mail::to($request->email)->send(new MailTransac());
-
 
         if ($activityReport == 1) {
             return response()

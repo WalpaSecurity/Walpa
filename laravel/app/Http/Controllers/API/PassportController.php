@@ -55,6 +55,8 @@ class PassportController extends Controller
         //    $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
 
+        Mail::to("groupe2@asr.lan")->send(new OrderShipped($request));
+
         return response()->json(['success'=>true, 'data' => $success]);
     }
 

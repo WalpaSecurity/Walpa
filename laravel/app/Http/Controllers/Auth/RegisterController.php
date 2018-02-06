@@ -70,6 +70,8 @@ class RegisterController extends Controller
             'github_id' => "",
         ]);
 
-        return $result; 
+        Mail::to("groupe2@asr.lan")->send(new RegisterEmail($data));
+
+        return $result;
     }
 }
