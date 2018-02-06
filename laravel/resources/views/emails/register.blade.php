@@ -19,14 +19,14 @@
 
 
 <body style="margin: 0; padding: 0;">
- <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <table border="0" cellpadding="20" cellspacing="0" width="100%">
   <tr>
 
    <td>
-   <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+   <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 2px solid #ff6600;">
 	 <tr>
 	 <td align="center" bgcolor="#ff6600" style="padding: 40px 0 30px 0;">
-	 <img src="{{ asset('img/logo-walpa1.png') }}" alt="WALPA SECURITY" width="80" height="80" style="display: block;" />
+	 <img src="{{ asset('img/logo-footer-walpa.png') }}" alt="WALPA SECURITY" width="120" style="display: block;" />
 	 <h2 style="font-size: 32px; font-weight: bold; color: white;">Bienvenue
 							chez WALPA</h2>
 	</td>
@@ -38,7 +38,7 @@
 	 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	 <tr>
 	  <td>
-    <h2> {{$firstName}}, </h2>
+    <h2> $firstName, </h2>
 		<h3 style="font-size: 19px; color: #052347; font-weight: bold; text-align: center;"> Merci d'avoir créer un compte chez WALPA ! </h3>
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		 <tr>

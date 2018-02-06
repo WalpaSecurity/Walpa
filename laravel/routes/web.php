@@ -121,3 +121,7 @@ Route::get('/google', function () {
 //OAUTH WITH GITHUB
 Route::get('auth/github', 'Auth\OauthController@redirectToProvider');
 Route::get('auth/github/callback', 'Auth\OauthController@handleProviderCallback');
+
+Route::get('/po', function () {
+    return view('emails.register');
+});
