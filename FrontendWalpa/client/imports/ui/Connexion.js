@@ -46,7 +46,7 @@ export default class Connexion extends Component {
                         console.log(resultuser);
                         const resuser = JSON.parse(resultuser.content);
                         console.log(resuser);
-                        Router.go('/profile');
+                        this.redirect('/profile');
                     }
             });
 
