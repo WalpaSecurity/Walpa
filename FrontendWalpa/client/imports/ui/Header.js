@@ -8,7 +8,7 @@ export default class Header extends Component {
 
 
     render() {
-        if(userconnected =='1'){
+        if(userconnected =='2'){
         return (
           <div id="navbar-menu">
             <nav id="menu" className="navbar navbar-expand-lg fixed-top navbar-light">
