@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { HTTP } from 'meteor/http';
-import { Session } from 'meteor/session'
+import { Session } from 'meteor/session';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // App component - represents the whole app
 export default class Connexion extends Component {
@@ -46,7 +47,7 @@ export default class Connexion extends Component {
                         console.log(resultuser);
                         const resuser = JSON.parse(resultuser.content);
                         console.log(resuser);
-                        this.redirect('/profile');
+                        browserHistory.push('/profile');
                     }
             });
 
