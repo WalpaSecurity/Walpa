@@ -66,14 +66,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'github_id' => '',
             'admin' => false,
+            'github_id' => "",
         ]);
 
-        return response()
-              ->json([
-                  'success' => true,
-                  'data' => $result,
-              ]);
+        return $result; 
     }
 }
