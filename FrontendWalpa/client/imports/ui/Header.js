@@ -4,7 +4,8 @@
 
 // App component - represents the whole app
 export default class Header extends Component {
-    const userconnected =localStorage.getItem('statutconnexion');
+    //const Isuserconnected = localStorage.getItem('statutconnexion');
+    const sacrebleu = '1';
 
     render() {
         return (
@@ -32,7 +33,7 @@ export default class Header extends Component {
                     <li className="nav-item">
                       <a className="nav-link" href="/contact">Contact</a>
                     </li>
-                    if(userconnected == '1'){
+                    if(sacrebleu == '1'){
                     <li className="nav-item">
                         <a className="nav-link" href="/admin">Bienvenue lambda</a>
                     </li>
