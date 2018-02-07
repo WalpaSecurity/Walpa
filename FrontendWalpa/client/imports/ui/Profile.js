@@ -45,7 +45,7 @@ export default class Profile extends Component {
         }
         });
 
-        this.setState({inputValue: "tt"});
+        this.setState({inputValue: TableauRepo});
         this.renderRepo();
 
     }
