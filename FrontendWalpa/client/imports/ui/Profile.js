@@ -35,7 +35,7 @@ export default class Profile extends Component {
             TableauRepo =res.data;
             for (i = 0; i<= TableauRepo.length; i++ )
             {
-                const tab = [];
+                var tab = [];
                 tab[i] = JSON.parse(TableauRepo[i]);
                 console.log(tab[i]);
             }
