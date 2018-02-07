@@ -32,7 +32,7 @@ console.log(view);
 
 
 // Si admin connecter && vue = admin ---- on affiche le panel admin
-if(statutconnexion == 2 && view == "admin"){
+if(statutconnexion == "1" && view == "admin"){
   Meteor.startup(() => {
       render(<Sidebar />, document.getElementById('panel-admin'));
       render(<BrowserRouter>
@@ -45,7 +45,7 @@ if(statutconnexion == 2 && view == "admin"){
               </Switch>
       </BrowserRouter> , document.getElementById('content'));
   });
-} else if(statutconnexion == 2 && view == "site"){
+} else if(statutconnexion == "1" && view == "site"){
   Meteor.startup(() => {
       render(<Header />, document.getElementById('header'));
       render(<BrowserRouter>
