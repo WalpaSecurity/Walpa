@@ -26,13 +26,44 @@ export default class Profile extends Component {
             console.log(res.data);
             TableauRepo = res.data;
             console.log(TableauRepo);
+            console.log(length(res));
 
         }
         });
     }
 
+    getRepo() {
+        return TableauRepo;
+    }
 
+    renderRepo(){
+        return this.getRepo().map(
+            function (repo) {
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <a href="/files.txt">
+                            Projet 1
+                        </a>
+                    </td>
+                    <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
+                    <td>
+                    <a href="/admin/projet/2">
+                    <i className="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                    </td>
+                </tr>
+            }
+        );
+    }
 
+        // <ul>
+        // {myList.map(function (element) {
+        // return (
+        //     <li>{element}</li>
+        // )
+        // })}
+        // </ul>
 
     render() {
         return (
@@ -55,23 +86,7 @@ export default class Profile extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      for (){
-                      <tr>
-                          <td>1</td>
-                          <td>
-                          <a href="/files.txt">
-                              Projet 1
-                          </a>
-                          </td>
-                          <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                          <td>
-                          <a href="/admin/projet/2">
-                              <i className="fa fa-trash" aria-hidden="true"></i>
-                              </a>
-                              </td>
-                              </tr>
-                      }
-
+                        {this.renderRepo()}
                     </tbody>
                   </table>
                 </div>
