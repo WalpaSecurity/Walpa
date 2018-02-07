@@ -56,16 +56,16 @@ export default class Profile extends Component {
     }
 
     renderRepo(){
-
+        return (
+            <p> test</p>
+        );
         for (i = 0; i< TableauRepo.length; i++ )
         {
             var tab = [];
             tab[i] = TableauRepo[i];
             console.log(TableauRepo[i].file_name);
 
-                return (
-                  <p> test</p>
-                );
+
 
         }
 
