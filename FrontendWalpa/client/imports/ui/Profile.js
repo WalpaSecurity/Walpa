@@ -5,19 +5,21 @@
 // App component - represents the whole app
 export default class Profile extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputValue: ""
+        };
+    }
 
-constructor(props) {
-    super(props);
-    this.state = {
-        tab: ""
-    };
-}
-    handleListrepo(event){
+
+
+    handleListrepo = event => {
 
         event.preventDefault();
 
-        this.setState.bind(this)({
-            tab: "bonjour"
+        this.setState({
+            inputValue: "bonnn"
         });
         /*
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
