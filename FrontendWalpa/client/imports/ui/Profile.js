@@ -19,7 +19,7 @@ export default class Profile extends Component {
             (error, result) => {
             if (!error) {
             const res = JSON.parse(result.content);
-            console.log(res);
+            console.log(res.data[0]);
 
         }
         });
