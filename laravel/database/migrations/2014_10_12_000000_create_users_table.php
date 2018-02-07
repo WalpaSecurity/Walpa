@@ -20,12 +20,24 @@ class CreateUsersTable extends Migration
             $table->boolean('admin')->default(false);
             $table->string('password');
 
-            $table->string('github_id');  
+            $table->string('github_id');
 
 
             $table->rememberToken();
             $table->timestamps();
         });
+
+        // Insert Admin
+          DB::table('users')->insert(
+              array(
+                'name' => "Walpa Admin",
+                'email' => "admin@walpa.com",
+                'password' => bcrypt("0000"),
+                'admin' => true,
+                'github_id' => "",
+              )
+          );
+
     }
 
     /**
