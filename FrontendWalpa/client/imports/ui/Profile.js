@@ -20,10 +20,10 @@ export default class Profile extends Component {
         console.log(this.state.inputValue);
         this.setState({inputValue: "tt"}, function () {
             console.log(this.state.inputValue);
-            debugger;
+            //debugger;
         });
 
-        /*
+
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
@@ -41,21 +41,22 @@ export default class Profile extends Component {
             //var toto = TableauRepo;
             console.log(TableauRepo);
           //  console.log(TableauRepo[0]);
-            this.setState = {
-                tab: TableauRepo
-            };
+                this.setState({inputValue: TableauRepo}, function () {
+                    console.log(this.state.inputValue);
+                    //debugger;
+                });
             this.renderRepo(TableauRepo);
 
         }
-        });*/
+        });
     }
 
     getRepo() {
         return TableauRepo;
     }
 
-    renderRepo(test){
-     //   console.log(this.state.tab);
+    renderRepo(){
+       console.log(this.state.inputValue);
 
         for (i = 0; i<= TableauRepo.length; i++ )
         {
