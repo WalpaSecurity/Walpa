@@ -27,7 +27,7 @@ export default class Profile extends Component {
             TableauRepo = res.data;
             console.log(TableauRepo);
           //  console.log(TableauRepo[0]);
-            this.renderRepo(TableauRepo);
+            //this.renderRepo(TableauRepo);
 
         }
         });
