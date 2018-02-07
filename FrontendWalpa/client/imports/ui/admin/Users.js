@@ -19,6 +19,7 @@ export default class gestionUsers extends Component {
       }, (error, result) => {
         if (!error) {
           const users = JSON.parse(result.content);
+          console.log(result);
           console.log(users.data);
         }
       });
