@@ -37,7 +37,7 @@ export default class Profile extends Component {
         return TableauRepo;
     }
 
-    renderRepo(TableauRepo){
+    renderRepo(){
         for (i = 0; i<= TableauRepo.length; i++ )
         {
             console.log(TableauRepo[i]);
