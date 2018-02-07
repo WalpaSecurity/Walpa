@@ -8,7 +8,7 @@ export default class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: ""
+            inputValue: "p"
         };
     }
 
@@ -18,10 +18,7 @@ export default class Profile extends Component {
 
         //event.preventDefault();
         console.log(this.state.inputValue);
-        this.setState({inputValue: "tt"}, function () {
-            console.log(this.state.inputValue);
-            //debugger;
-        });
+
 
 
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
@@ -36,16 +33,15 @@ export default class Profile extends Component {
             (error, result) => {
             if (!error) {
             const res = JSON.parse(result.content);
-            //console.log(res.data);
+            console.log(res.data);
+
             TableauRepo.map(res.data);
+
             //var toto = TableauRepo;
             console.log(TableauRepo);
-          //  console.log(TableauRepo[0]);
-                this.setState({inputValue: TableauRepo}, function () {
-                    console.log(this.state.inputValue);
-                    //debugger;
-                });
-            this.renderRepo(TableauRepo);
+            // console.log(TableauRepo[0])
+            this.setState({inputValue: "tt"});
+            this.renderRepo();
 
         }
         });
