@@ -6,6 +6,7 @@ const token = localStorage.getItem('token');
 // App component - represents the whole app
 export default class Projet extends Component {
     handleSubmitRepo(event){
+        console.log(token);
         event.preventDefault();
         const repo = ReactDOM.findDOMNode(this.refs.depot).value.trim();
         console.log(repo);
