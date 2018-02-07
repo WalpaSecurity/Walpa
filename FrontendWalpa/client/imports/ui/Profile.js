@@ -26,7 +26,7 @@ export default class Profile extends Component {
             console.log(res.data);
             TableauRepo = res.data;
             console.log(TableauRepo);
-            console.log(TableauRepo[0][file_name]);
+            console.log(TableauRepo[0]);
             this.renderRepo();
 
         }
@@ -40,7 +40,7 @@ export default class Profile extends Component {
     renderRepo(){
         for (i = 0; i<= TableauRepo.length; i++ )
         {
-            console.log(TableauRepo[i][file_name]);
+            console.log(TableauRepo[i]);
         }
         // return this.getRepo().map(
         //     function (repo) {
