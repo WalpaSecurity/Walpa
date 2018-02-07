@@ -30,7 +30,6 @@ class OauthController extends Controller
    */
   public function handleProviderCallback()
   {
-
       try {
           $user = Socialite::driver('github')->user();
       } catch (Exception $e) {
@@ -40,6 +39,12 @@ class OauthController extends Controller
       $authUser = $this->findOrCreateUser($user);
 
       Auth::login($authUser, true);
+
+      if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+
+      }else{
+
+      }
 
       return Redirect::to('home');
   }

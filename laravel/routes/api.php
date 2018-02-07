@@ -63,5 +63,5 @@ Route::group(['middleware' => 'auth:api'], function () {
   Route::get('/admin', 'AdminController@getUser');
   Route::post('/admin/{id}', 'AdminController@changeID');
   Route::delete('/admin/{id}', 'AdminController@deleteAdmin');
-
+  Route::post('/admin', 'AdminController@addAdmin');
 });

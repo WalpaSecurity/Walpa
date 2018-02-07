@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
               array(
                 'name' => "Walpa Admin",
                 'email' => "admin@walpa.com",
-                'password' => bcrypt("0000"),
+                'password' => bcrypt("000000"),
                 'admin' => true,
                 'github_id' => "",
               )

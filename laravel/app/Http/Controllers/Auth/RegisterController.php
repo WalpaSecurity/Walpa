@@ -64,6 +64,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      if (User::where('email', $request['email'])->first()) {
+        return response()
+              ->json([
+                  'success' => false,
+                  'error' => 'Email deja utilisee'
+        ]);
+      }
+
         $result = User::create([
             'name' => $data['name'],
             'email' => $data['email'],

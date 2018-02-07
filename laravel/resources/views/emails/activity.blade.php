@@ -25,7 +25,7 @@
   <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 2px solid #ff6600;">
   <tr>
   <td align="center" bgcolor="#ff6600" style="padding: 40px 0 30px 0;">
-  <img src="{{ asset('img/logo-footer-walpa.png') }}" alt="WALPA SECURITY" width="120" style="display: block;" />
+  <img src="{{ asset('img/logo-footer-walpa.png') }}" alt="WALPA" width="120" style="display: block;" />
   <h2 style="font-size: 32px; font-weight: bold; color: white;">Bienvenue
              chez WALPA</h2>
  </td>
@@ -78,20 +78,9 @@
     <tr>
      <td>
       <p style="padding-left: 20px;  display: -webkit-inline-box; text-align: justify; font-size: 12px; color: dimgrey; font-weight: initial;">
-					<span style="color: #052347; font-size: 19px; font-weight: bold;"> TESTEZ VOS FICHIERS GITHUB </span>
+					<span style="color: #052347; font-size: 19px; font-weight: bold;"> Analyse de votre projet </span>
 				<br><br>
-					Nous vous envoyons l'analyse de votre code en moins de 5 minutes!!
-				</p>
-     </td>
-    </tr>
-    <tr>
-     <td style="padding: 25px 0 0 0;">
-     <p style="padding-left: 20px; width: 350px; display: -webkit-inline-box; text-align: justify; font-size: 12px; color: dimgrey; font-weight: initial;">
-				<span style="color: #052347; font-size: 19px; font-weight: bold;">DEVENEZ MEILLEUR DEVELOPPEUR</span>
-					<br><br>
-					Vous pourrez apprendre de vos erreurs.
-					<br><br>
-					Une analyse complète sera envoyée pour vous expliquer en détails les éléments à modifier.
+					Votre projet a été analysé et le rapport est disponible sur notre site en vous connectant, puis dans la rubrique "Mon Compte".
 				</p>
      </td>
     </tr>
@@ -118,7 +107,7 @@
 	  <tr  align="right" style="background: white;">
 			<th>
 				<p style="font-size: 12px; color: dimgrey; float: right; padding-right: 25%; font-weight: initial;" class="signature">
-					L'équipe de WALPA Security
+					L'équipe WALPA
 				</p>
 			</th>
 		</tr>
@@ -135,7 +124,7 @@
 	  <tr style="background: white;">
 			<th>
 				<h5 style="font-size: 10px; color: grey;">
-					© WALPA Security - 2018, tous droits réservés.
+					© WALPA - 2018, tous droits réservés.
 				</h5>
 			</th>
 		</tr>
