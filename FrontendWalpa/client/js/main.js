@@ -21,7 +21,7 @@ import Sidebar from '../imports/ui/admin/Sidebar.js';
 import gestionProjets from '../imports/ui/admin/Projets.js';
 import gestionUsers from '../imports/ui/admin/Users.js';
 import gestionDons from '../imports/ui/admin/Dons.js';
-import addAdmin from '../imports/ui/admin/AddAdmin.js';
+import AjouterAdmin from '../imports/ui/admin/AddAdmin.js';
 
 
 const statutconnexion = localStorage.getItem('statutconnexion');
@@ -36,7 +36,7 @@ if(statutconnexion == 1){
                   <Route exact path="/admin/projets" component={gestionProjets}/>
                   <Route exact path="/admin/utilisateurs" component={gestionUsers}/>
                   <Route exact path="/admin/dons" component={gestionDons}/>
-                  <Route exact path="/admin/add-admin" component={addAdmin}/>
+                  <Route exact path="/admin/add-admin" component={AjouterAdmin}/>
               </Switch>
       </BrowserRouter> , document.getElementById('content'));
   });

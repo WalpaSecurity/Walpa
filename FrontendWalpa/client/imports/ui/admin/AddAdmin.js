@@ -2,7 +2,7 @@
 
 
 // App component - represents the whole app
-export default class addAdmin extends Component {
+export default class AjouterAdmin extends Component {
     render() {
         return (
           <div className="adminContent add-admin">
