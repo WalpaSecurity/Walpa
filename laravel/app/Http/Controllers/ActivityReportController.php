@@ -93,9 +93,8 @@ class ActivityReportController extends Controller
         shell_exec("git clone ". $request->url ." /var/www/laravel/public/temp/".$number);
 
         //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
-    //    shell_exec("sudo apt-get install php-codesniffer");
-        $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/laravel/public/temp/".$number);
-
+        $PHPCODESNIFFER = shell_exec("phpcs /var/www/laravel/public/temp/".$number);
+/*--standard=LaravelCodeSniffer/Standards/Laravel/*/
         //PHP LOC : is a tool for quickly measuring the size and analyzing the structure of a PHP project
         $PHPLOC = shell_exec("phploc /var/www/laravel/public/temp/".$number);
 
