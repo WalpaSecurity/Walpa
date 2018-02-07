@@ -16,9 +16,9 @@ constructor(props) {
 
         event.preventDefault();
 
-        this.setState = {
+        this.setState({
             tab: "bonjour"
-        };
+        });
         /*
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
                 headers:{
