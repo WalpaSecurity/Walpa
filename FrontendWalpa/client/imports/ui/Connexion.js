@@ -45,7 +45,7 @@ export default class Connexion extends Component {
                     if (!error) {
                         console.log(resultuser);
                         const resuser = JSON.parse(resultuser.content);
-                        console.log(resuser);
+                        console.log("TOTO : " + resuser);
                         console.log(resuser.content);
                         return false;
                         document.location.reload(true);
