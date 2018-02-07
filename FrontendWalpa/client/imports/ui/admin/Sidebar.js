@@ -4,14 +4,16 @@ $('body').css({ 'padding-top':'0 !important'});
 
 export default class Sidebar extends Component {
 
-  handleDeco(event) {
-      event.preventDefault();
-      localStorage.removeItem('token');
-      localStorage.removeItem('statutconnexion');
-      document.location.reload(true);
-      window.location.href = "/home";
-      return false;
-  }
+    handleDeco(event) {
+        event.preventDefault();
+        localStorage.removeItem('token');
+        localStorage.removeItem('statutconnexion');
+        document.location.reload(true);
+        window.location.href = "/home";
+        return false;
+    }
+
+    localStorage.setItem('view', 'admin');
 
     render() {
         return (

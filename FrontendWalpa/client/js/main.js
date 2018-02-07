@@ -26,8 +26,9 @@ import AjouterAdmin from '../imports/ui/admin/AddAdmin.js';
 
 const statutconnexion = localStorage.getItem('statutconnexion');
 
+const view = localStorage.getItem('view');
 
-if(statutconnexion == 1){
+if(statutconnexion == 1 && view == "admin"){
   Meteor.startup(() => {
       render(<Sidebar />, document.getElementById('panel-admin'));
       render(<BrowserRouter>
@@ -42,6 +43,7 @@ if(statutconnexion == 1){
   });
 } else {
   Meteor.startup(() => {
+      localStorage.setItem('view', 'site');
       render(<Header />, document.getElementById('header'));
       render(<BrowserRouter>
               <Switch>

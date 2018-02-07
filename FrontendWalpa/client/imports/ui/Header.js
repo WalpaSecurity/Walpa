@@ -14,6 +14,8 @@ export default class Header extends Component {
         return false;
     }
 
+    localStorage.setItem('view', 'site');
+
     render() {
         if(userconnected =='2'){
           return (
