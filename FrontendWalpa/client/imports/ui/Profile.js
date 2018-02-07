@@ -64,6 +64,9 @@ export default class Profile extends Component {
             console.log(TableauRepo[i].file_name);
 
         }
+        return (
+            <h1>Hello World</h1>
+        );
         // return this.getRepo().map(
         //     function (repo) {
         //         <tr>
@@ -113,7 +116,7 @@ export default class Profile extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                        {this.TableauRepo}
+                        {this.renderRepo}
                     </tbody>
                   </table>
                 </div>
