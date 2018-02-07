@@ -5,7 +5,7 @@ import { HTTP } from 'meteor/http';
 const token = localStorage.getItem('token');
 // App component - represents the whole app
 export default class Projet extends Component {
-    handleSubmitConnexion(event){
+    handleSubmitRepo(event){
         event.preventDefault();
         const repo = ReactDOM.findDOMNode(this.refs.depot).value.trim();
         console.log(repo);
@@ -45,7 +45,7 @@ export default class Projet extends Component {
                   </p>
                 </div>
                 <div className="col-12 col-lg-6">
-                  <form onSubmit={this.handleSubmitConnexion.bind(this)} className="formLinkProject text-center">
+                  <form onSubmit={this.handleSubmitRepo.bind(this)} className="formLinkProject text-center">
                     <ol className="list-unstyled text-white ">
                       <li>1. Entrez le lien de votre projet Github</li>
                       <li>2. Connectez-vous à votre compte</li>
