@@ -10,7 +10,7 @@ export default class gestionUsers extends Component {
 
     handleListUsers(e){
       e.preventDefault();
-      
+
       console.log("toto");
       HTTP.call('GET', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -27,8 +27,6 @@ export default class gestionUsers extends Component {
         }
       });
     }
-
-    setTimeout(handleListUsers, 3000);
 
     render() {
         return (
