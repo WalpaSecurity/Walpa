@@ -21,7 +21,7 @@ import Sidebar from '../imports/ui/admin/Sidebar.js';
 import gestionProjets from '../imports/ui/admin/Projets.js';
 import gestionUsers from '../imports/ui/admin/Users.js';
 import gestionDons from '../imports/ui/admin/Dons.js';
-import addAdmin from '../imports/ui/admin/add-admin.js';
+import addAdmin from '../imports/ui/admin/AddAdmin.js';
 
 
 const statutconnexion = localStorage.getItem('statutconnexion');
