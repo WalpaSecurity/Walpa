@@ -13,13 +13,15 @@ export default class Header extends Component {
         window.location.href = "/home";
         return false;
     }
-
-    localStorage.setItem('view', 'site');
+    handleGetTypePage() {
+        localStorage.setItem('view', 'site');
+    }
 
     render() {
         if(userconnected =='2'){
           return (
-            <div id="navbar-menu">
+
+            <div id="navbar-menu" onLoad={this.handleGetTypePage.bind(this)}>
               <nav id="menu" className="navbar navbar-expand-lg fixed-top navbar-light">
                 <div className="container">
                   <a id="logo" className="navbar-brand mx-auto" href="/">

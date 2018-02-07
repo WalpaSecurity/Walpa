@@ -13,11 +13,13 @@ export default class Sidebar extends Component {
         return false;
     }
 
-    localStorage.setItem('view', 'admin');
+    handleGetTypePage() {
+        localStorage.setItem('view', 'admin');
+    }
 
     render() {
         return (
-          <div className="sidebar-admin text-center">
+          <div className="sidebar-admin text-center" onLoad={this.handleGetTypePage.bind(this)}>
             <ul className="navbar-nav">
               <li className="p-4">
                   <img src="/images/logo-footer-walpa.png" className="img-fluid" />
