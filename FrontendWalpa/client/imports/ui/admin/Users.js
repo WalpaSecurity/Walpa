@@ -1,4 +1,4 @@
-  import React, { Component } from 'react';
+import React, { Component } from 'react';
 
 
 const token = localStorage.getItem('token');
@@ -8,9 +8,7 @@ export default class gestionUsers extends Component {
 
 
 
-    handleListUsers(e){
-      e.preventDefault();
-
+    handleGetListUsers(){
       console.log("toto");
       HTTP.call('GET', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -24,13 +22,16 @@ export default class gestionUsers extends Component {
           const users = JSON.parse(result.content);
           console.log(result);
           console.log(users.data);
+          console.log("good");
+        } else {
+          console.log("pas good");
         }
       });
     }
 
     render() {
         return (
-          <div className="adminContent gestionUsers" onLoad={this.handleListUsers.bind()}>
+          <div className="adminContent gestionUsers"onLoad={this.handleGetListUsers.bind(this)}>
             <h1>Liste des utilisateurs</h1>
             <a href="/" className="btn btn-primary">Rafraichir</a>
             <table className="table table-striped">
