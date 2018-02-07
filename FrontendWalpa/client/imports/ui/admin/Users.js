@@ -6,8 +6,7 @@ const token = localStorage.getItem('token');
 // App component - represents the whole app
 export default class gestionUsers extends Component {
 
-
-
+  
     handleGetListUsers(){
       console.log("toto");
       HTTP.call('GET', 'http://192.168.1.16:5000/api/admin', {
