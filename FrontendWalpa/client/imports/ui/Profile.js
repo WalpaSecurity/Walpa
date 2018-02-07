@@ -7,7 +7,7 @@ export default class Profile extends Component {
     handleListrepo(event){
         event.preventDefault();
 
-        HTTP.call('POST', 'http://192.168.1.16:5000/api/account', {
+        HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
                     'Content-Type' : "application/json",
