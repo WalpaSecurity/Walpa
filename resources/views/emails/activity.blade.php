@@ -79,7 +79,7 @@
       <p style="padding-left: 20px;  display: -webkit-inline-box; text-align: justify; font-size: 12px; color: dimgrey; font-weight: initial;">
 					<span style="color: #052347; font-size: 19px; font-weight: bold;"> Votre projet Github</span>
 				<br><br>
-					Votre projet a été analysé et vous pouvez avoir le consulter sur notre site http://192.168.1.16:9000/, en vous connectant et en cliquant sur Mon Compte.
+					Votre projet a été analysé et vous pouvez consulter le rapport sur notre site http://192.168.1.16:9000/, en vous connectant et en cliquant sur Mon Compte.
 				</p>
      </td>
     </tr>
