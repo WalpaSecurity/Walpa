@@ -20,6 +20,7 @@ import Dashboard from '../imports/ui/admin/Dashboard.js';
 import Sidebar from '../imports/ui/admin/Sidebar.js';
 import gestionProjets from '../imports/ui/admin/Projets.js';
 import gestionUsers from '../imports/ui/admin/Users.js';
+import gestionDons from '../imports/ui/admin/Dons.js';
 import addAdmin from '../imports/ui/admin/add-admin.js';
 
 
@@ -34,6 +35,7 @@ if(statutconnexion == 1){
                   <Route exact path="/admin" component={Dashboard}></Route>
                   <Route exact path="/admin/projets" component={gestionProjets}/>
                   <Route exact path="/admin/utilisateurs" component={gestionUsers}/>
+                  <Route exact path="/admin/dons" component={gestionDons}/>
                   <Route exact path="/admin/add-admin" component={addAdmin}/>
               </Switch>
       </BrowserRouter> , document.getElementById('content'));
