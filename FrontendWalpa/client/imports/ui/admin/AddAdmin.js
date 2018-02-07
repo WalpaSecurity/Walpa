@@ -2,12 +2,12 @@
 
 
 // App component - represents the whole app
-export default class gestionUsers extends Component {
+export default class AjouterAdmin extends Component {
     render() {
         return (
           <div className="adminContent add-admin">
             <h1>Ajouter un administrateur</h1>
-            <form onSubmit={this.handleSubmitInscription.bind(this)}>
+            <form>
                 <div className="form-group">
                     <label htmlFor="email">Adresse mail</label>
                     <input type="text" className="form-control" id="email" ref="emailinscrit" placeholder="Entrez une adresse e-mail"/>

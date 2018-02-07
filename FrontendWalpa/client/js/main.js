@@ -20,13 +20,19 @@ import Dashboard from '../imports/ui/admin/Dashboard.js';
 import Sidebar from '../imports/ui/admin/Sidebar.js';
 import gestionProjets from '../imports/ui/admin/Projets.js';
 import gestionUsers from '../imports/ui/admin/Users.js';
-import addAdmin from '../imports/ui/admin/add-admin.js';
+import gestionDons from '../imports/ui/admin/Dons.js';
+import AjouterAdmin from '../imports/ui/admin/AddAdmin.js';
 
 
 const statutconnexion = localStorage.getItem('statutconnexion');
 
+const view = localStorage.getItem('view');
+console.log(statutconnexion);
+console.log(view);
 
-if(statutconnexion == 1){
+
+// Si admin connecter && vue = admin ---- on affiche le panel admin
+if(statutconnexion == "1" && view == "admin"){
   Meteor.startup(() => {
       render(<Sidebar />, document.getElementById('panel-admin'));
       render(<BrowserRouter>
@@ -34,9 +40,31 @@ if(statutconnexion == 1){
                   <Route exact path="/admin" component={Dashboard}></Route>
                   <Route exact path="/admin/projets" component={gestionProjets}/>
                   <Route exact path="/admin/utilisateurs" component={gestionUsers}/>
-                  <Route exact path="/admin/add-admin" component={addAdmin}/>
+                  <Route exact path="/admin/dons" component={gestionDons}/>
+                  <Route exact path="/admin/add-admin" component={AjouterAdmin}/>
               </Switch>
       </BrowserRouter> , document.getElementById('content'));
+  });
+} else if(statutconnexion == "1" && view == "site"){
+  Meteor.startup(() => {
+      render(<Header />, document.getElementById('header'));
+      render(<BrowserRouter>
+              <Switch>
+                  <Route exact path="/" component={Home}></Route>
+                  <Route exact path="/home" component={Home}></Route>
+                  <Route name="connexion" path="/login" component={ Home }  />
+                  <Route name="compte" path="/compte" component={ Home }  />
+                  <Route exact path="/qui-sommes-nous" component={Team}/>
+                  <Route exact path="/analyser-mon-projet" component={Projet}/>
+                  <Route exact path="/faire-un-don" component={Dons}/>
+                  <Route exact path="/contact" component={Contact}/>
+                  <Route exact path="/connexion" component={Connexion}/>
+                  <Route exact path="/profile" component={Profile}/>
+                  <Route exact path="/try" component={Try}/>
+              </Switch>
+      </BrowserRouter> , document.getElementById('content'));
+
+      render(<Footer />, document.getElementById('footer'));
   });
 } else {
   Meteor.startup(() => {

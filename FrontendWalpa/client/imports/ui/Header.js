@@ -1,7 +1,7 @@
   import React, { Component } from 'react';
   import { Session } from 'meteor/session'
 
- const userconnected = localStorage.getItem('statutconnexion');
+ const statutconnexion = localStorage.getItem('statutconnexion');
 
 // App component - represents the whole app
 export default class Header extends Component {
@@ -13,11 +13,16 @@ export default class Header extends Component {
         window.location.href = "/home";
         return false;
     }
+    handleGetTypePage() {
+        localStorage.setItem('view', 'site');
+    }
 
     render() {
-        if(userconnected =='2'){
+        // si on est connecter en mode admin
+        if(statutconnexion == "1"){
           return (
-            <div id="navbar-menu">
+            // admin connecté
+            <div id="navbar-menu" onLoad={this.handleGetTypePage.bind(this)}>
               <nav id="menu" className="navbar navbar-expand-lg fixed-top navbar-light">
                 <div className="container">
                   <a id="logo" className="navbar-brand mx-auto" href="/">
@@ -42,10 +47,75 @@ export default class Header extends Component {
                         <a className="nav-link" href="/contact">Contact</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="/profile">Mon compte</a>
+                        <a className="nav-link btn btn-secondary" href="/admin">Administration</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link-disconnect" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
+                        <a className="nav-link link-disconnect btn btn-danger" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div id="menu-mobile" className="text-center">
+                <a href="#">
+                  <img  className="img-fluid" width="200px" src="images/logo-walpa.png" className="img-fluid" />
+                </a>
+                <ul className="list-unstyled">
+                  <li>
+                    <a href="/qui-sommes-nous">Qui sommes nous ?</a>
+                  </li>
+                  <li>
+                    <a href="/analyser-mon-projet">Analyser mon projet</a>
+                  </li>
+                  <li>
+                    <a href="/faire-un-don">Faire un don</a>
+                  </li>
+                  <li>
+                    <a href="/contact">Contact</a>
+                  </li>
+                  <li>
+                    <a href="/admin">Administration</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link link-disconnect" onClick={this.handleDeco.bind(this)}>Deconnexion</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="overlay_mobile"></div>
+            </div>
+          );
+        }else if(statutconnexion == "2"){
+          return (
+            // utilisateur connecter
+            <div id="navbar-menu" onLoad={this.handleGetTypePage.bind(this)}>
+              <nav id="menu" className="navbar navbar-expand-lg fixed-top navbar-light">
+                <div className="container">
+                  <a id="logo" className="navbar-brand mx-auto" href="/">
+                    <img src="/images/logo-walpa.png" className="img-fluid" />
+                  </a>
+                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon">
+                  </span>
+                  </button>
+                  <div className="collapse navbar-collapse">
+                    <ul className="navbar-nav ml-auto">
+                      <li className="nav-item">
+                        <a className="nav-link" href="/qui-sommes-nous">Qui sommes nous ?</a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link" href="/analyser-mon-projet">Analyser mon projet</a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link" href="/faire-un-don">Faire un don</a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link" href="/contact">Contact</a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link btn btn-secondary" href="/profile">Mon compte</a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link link-disconnect btn btn-danger" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
                       </li>
                     </ul>
                   </div>
@@ -79,7 +149,8 @@ export default class Header extends Component {
               <div className="overlay_mobile"></div>
             </div>
           );
-        }else {
+        } else {
+          // Pas connecté
           return (
             <div id="navbar-menu">
                 <nav id="menu" className="navbar navbar-expand-lg fixed-top navbar-light">

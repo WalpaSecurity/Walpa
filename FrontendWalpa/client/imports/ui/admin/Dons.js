@@ -21,62 +21,37 @@ export default class gestionDons extends Component {
                 <tr>
                   <td>1</td>
                   <td>Jean Mouloud</td>
-                  <td>
-                   <a href="">
-                    Projet 1
-                   </a>
-                  </td>
-                  <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                  <td>
-                    <a href="#">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
+                  <td>Email</td>
+                  <td>50€</td>
+                  <td>10/01/2018</td>
                 </tr>
                 <tr>
-                  <td>2</td>
-                  <td>Alain Jéfaim</td>
-                  <td>
-                   <a href="">
-                    Projet 2
-                   </a>
-                  </td>
-                  <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                  <td>
-                    <a href="#">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
+                  <td>1</td>
+                  <td>Jean Mouloud</td>
+                  <td>Email</td>
+                  <td>50€</td>
+                  <td>10/01/2018</td>
                 </tr>
                 <tr>
-                  <td>3</td>
-                  <td>Legrand Monarque</td>
-                  <td>
-                   <a href="">
-                    Projet 3
-                   </a>
-                  </td>
-                  <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                  <td>
-                    <a href="#">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
+                  <td>1</td>
+                  <td>Jean Mouloud</td>
+                  <td>Email</td>
+                  <td>50€</td>
+                  <td>10/01/2018</td>
                 </tr>
                 <tr>
-                  <td>4</td>
-                  <td>James Bond</td>
-                  <td>
-                   <a href="">
-                    Projet 4
-                   </a>
-                  </td>
-                  <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                  <td>
-                    <a href="#">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
+                  <td>1</td>
+                  <td>Jean Mouloud</td>
+                  <td>Email</td>
+                  <td>50€</td>
+                  <td>10/01/2018</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Jean Mouloud</td>
+                  <td>Email</td>
+                  <td>50€</td>
+                  <td>10/01/2018</td>
                 </tr>
               </tbody>
             </table>
