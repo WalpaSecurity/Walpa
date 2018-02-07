@@ -13,7 +13,7 @@ export default class AjouterAdmin extends Component {
       const passwordNewAdmin = ReactDOM.findDOMNode(this.refs.passwordNewAdmin).value.trim();
       //const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
-      HTTP.call('POST', 'http://192.168.1.16:5000/api/register', {
+      HTTP.call('POST', 'http://192.168.1.16:5000/api/admin', {
         data: {
           email: emailNewAdmin,
           name: nameNewAdmin,
