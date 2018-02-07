@@ -60,7 +60,7 @@ export default class Profile extends Component {
         for (i = 0; i<= TableauRepo.length; i++ )
         {
             console.log(TableauRepo[i]);
-            debugger;
+            //debugger;
         }
         // return this.getRepo().map(
         //     function (repo) {
