@@ -48,8 +48,9 @@ export default class Connexion extends Component {
                         console.log(resuser);
                         console.log(resuser.success.admin);
                         document.location.reload(true);
+                        
                         if(resuser.success.admin == 1){
-                          localStorage.setItem('statutconnexion', '1');
+                          localStorage.setItem('statutconnexion', '2');
                           this.props.history.push('/admin');
                         } else {
                           this.props.history.push('/profile');

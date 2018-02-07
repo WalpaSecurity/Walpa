@@ -1,7 +1,7 @@
   import React, { Component } from 'react';
   import { Session } from 'meteor/session'
 
- const userconnected = localStorage.getItem('statutconnexion');
+ const statutconnexion = localStorage.getItem('statutconnexion');
 
 // App component - represents the whole app
 export default class Header extends Component {
@@ -18,9 +18,9 @@ export default class Header extends Component {
     }
 
     render() {
-        if(userconnected =='2'){
+        if(statutconnexion == "2"){
           return (
-
+            // admin connecté
             <div id="navbar-menu" onLoad={this.handleGetTypePage.bind(this)}>
               <nav id="menu" className="navbar navbar-expand-lg fixed-top navbar-light">
                 <div className="container">
