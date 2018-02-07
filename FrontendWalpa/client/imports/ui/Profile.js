@@ -3,7 +3,7 @@
   const token = localStorage.getItem('token');
   var TableauRepo = [];
 // App component - represents the whole app
-export default class Profile extends Component {
+export default class Profile extends React.Component {
 
     constructor(props) {
         super(props);
