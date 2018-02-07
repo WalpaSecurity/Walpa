@@ -6,7 +6,12 @@
 export default class Profile extends Component {
 
 
-
+constructor(props) {
+    super(props);
+    this.state = {
+        tab: ""
+    };
+}
     handleListrepo(event){
 
         event.preventDefault();
@@ -28,8 +33,8 @@ export default class Profile extends Component {
             //var toto = TableauRepo;
             console.log(TableauRepo);
           //  console.log(TableauRepo[0]);
-            this.state = {
-                Tab: TableauRepo
+            this.setState = {
+                tab: TableauRepo
             };
             this.renderRepo(TableauRepo);
 
@@ -42,7 +47,7 @@ export default class Profile extends Component {
     }
 
     renderRepo(test){
-        console.log(this.state.Tab);
+        console.log(this.state.tab);
         debugger;
         for (i = 0; i<= TableauRepo.length; i++ )
         {
