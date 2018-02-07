@@ -42,15 +42,18 @@ export default class Connexion extends Component {
                     }
                 },
                 (error, resultuser) => {
-                    if (!error) {
-                        console.log(resultuser);
-                        const resuser = JSON.parse(resultuser.content);
-                        console.log(resuser);
-                        console.log(resuser.content.admin);
-                        document.location.reload(true);
-                        return false;
+                  if (!error) {
+                      console.log(resultuser);
+                      const resuser = JSON.parse(resultuser.content);
+                      console.log(resuser);
+                      console.log(resuser.admin);
+                      document.location.reload(true);
+                      if(resuser.admin == 1){
+                        this.props.history.push('/admin');
+                      } else {
                         this.props.history.push('/profile');
-                    }
+                      }
+                  }
             });
 
         }
