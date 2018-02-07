@@ -33,14 +33,7 @@ export default class Profile extends Component {
             const res = JSON.parse(result.content);
             //console.log(res.data);
             TableauRepo =res.data;
-            for (i = 0; i< TableauRepo.length; i++ )
-            {
-                console.log(TableauRepo[i]);
-
-                 var tab = [];
-                 tab[i] = TableauRepo[i];
-                console.log(tab[i].file_name);
-            }
+            this.renderRepo();
 
 
             //TableauRepo.map(res.data);
@@ -63,12 +56,14 @@ export default class Profile extends Component {
     }
 
     renderRepo(){
-       console.log(this.state.inputValue);
 
-        for (i = 0; i<= TableauRepo.length; i++ )
+        for (i = 0; i< TableauRepo.length; i++ )
         {
             console.log(TableauRepo[i]);
-            //debugger;
+
+            var tab = [];
+            tab[i] = TableauRepo[i];
+            console.log(tab[i].file_name);
         }
         // return this.getRepo().map(
         //     function (repo) {
