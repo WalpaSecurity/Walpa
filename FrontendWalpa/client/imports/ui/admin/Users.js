@@ -30,7 +30,7 @@ export default class gestionUsers extends Component {
 
     render() {
         return (
-          <div className="adminContent gestionUsers" onLoad={this.handleListUsers.bind(this)}>
+          <div className="adminContent gestionUsers" onLoad={handleListUsers()}>
             <h1>Liste des utilisateurs</h1>
             <a href="/" className="btn btn-primary">Rafraichir</a>
             <table className="table table-striped">
