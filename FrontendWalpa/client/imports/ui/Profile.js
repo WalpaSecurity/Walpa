@@ -40,11 +40,14 @@ export default class Profile extends Component {
             //var toto = TableauRepo;
             console.log(TableauRepo);
             // console.log(TableauRepo[0])
-            this.setState({inputValue: "tt"});
-            this.renderRepo();
+
 
         }
         });
+
+        this.setState({inputValue: "tt"});
+        this.renderRepo();
+
     }
 
     getRepo() {
