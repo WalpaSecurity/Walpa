@@ -45,8 +45,8 @@ export default class Connexion extends Component {
                     if (!error) {
                         console.log(resultuser);
                         const resuser = JSON.parse(resultuser.content);
-                        console.log("TOTO : " + resuser);
-                        console.log(resuser.content);
+                        console.log(resuser);
+                        console.log(resuser.content.admin);
                         return false;
                         document.location.reload(true);
                         this.props.history.push('/profile');
