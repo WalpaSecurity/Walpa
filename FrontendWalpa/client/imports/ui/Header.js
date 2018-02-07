@@ -17,6 +17,10 @@ export default class Header extends Component {
         localStorage.setItem('view', 'site');
     }
 
+    handleGoViewAdmin() {
+        localStorage.setItem('view', 'admin');
+    }
+
     render() {
         // si on est connecter en mode admin
         if(statutconnexion == "1"){
@@ -47,7 +51,7 @@ export default class Header extends Component {
                         <a className="nav-link" href="/contact">Contact</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link btn btn-secondary" href="/admin">Administration</a>
+                        <a className="nav-link btn btn-secondary" href="/admin" onClick={this.handleGoViewAdmin.bind(this)}>Administration</a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link link-disconnect btn btn-danger" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
