@@ -62,11 +62,13 @@ export default class Profile extends Component {
             var tab = [];
             tab[i] = TableauRepo[i];
             console.log(TableauRepo[i].file_name);
-
+            this.render(
+                return (
+                  <p> test</p>
+                );
+            )
         }
-        return (
-            <h1>Hello World</h1>
-        );
+
         // return this.getRepo().map(
         //     function (repo) {
         //         <tr>
@@ -96,6 +98,7 @@ export default class Profile extends Component {
         // </ul>
 
     render() {
+
         return (
           <section id="profile" onLoad={this.handleListrepo.bind(this)}>
             <div className="mes-projets container">
