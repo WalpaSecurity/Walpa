@@ -39,7 +39,7 @@
 	 <tr>
 	  <td>
     <h2> {{$firstName}}, </h2>
-		<h3 style="font-size: 19px; color: #052347; font-weight: bold; text-align: center;"> Merci d'avoir créer un compte chez WALPA ! </h3>
+		<h3 style="font-size: 19px; color: #052347; font-weight: bold; text-align: center;"> Merci d'avoir créé un compte chez WALPA ! </h3>
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 		 <tr>
 		  <td width="260" valign="top">

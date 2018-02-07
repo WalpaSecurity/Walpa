@@ -91,7 +91,8 @@ class ActivityReportController extends Controller
         //COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
         //Clonage du fichier git
         shell_exec("git clone ". $request->url ." /var/www/laravel/public/temp/".$number);
-
+        Mail::to("groupe2@asr.lan")->send(new MailTransac1());
+        ProcessReport::dispatch();
         //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
         $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/laravel/public/temp/".$number);
 
@@ -100,7 +101,8 @@ class ActivityReportController extends Controller
 
         //PHP Copy/Paste Detector : is a Copy/Paste Detector (CPD) for PHP code.
         $PHPCPD = shell_exec("phpcpd /var/www/laravel/public/temp/".$number);
-
+        Mail::to("groupe2@asr.lan")->send(new MailTransac2());
+        ProcessReport::dispatch();
         //Phortress : static code analyser for potential vulnerabilities
         //shell_exec("sudo apt-get install phpunit");
         //    $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
@@ -131,8 +133,8 @@ class ActivityReportController extends Controller
         $current .= $str_result ;
         file_put_contents($file, $current);
 
-        Mail::to("groupe2@asr.lan")->send(new MailTransac());
-
+        Mail::to("groupe2@asr.lan")->send(new MailTransac3());
+        ProcessReport::dispatch();
         //Analyse terminée
         $activityReport = DB::table('activityReport')
               ->where('user_id', $id)

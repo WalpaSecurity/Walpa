@@ -106,7 +106,7 @@ class AdminController extends Controller
           'github_id' => "",
       ]);
 
-      Mail::to("groupe2@asr.lan")->send(new RegisterEmail($request));
+    //  Mail::to("groupe2@asr.lan")->send(new RegisterEmail($request));
 
 
       return response()->json(['success' => true,]);
