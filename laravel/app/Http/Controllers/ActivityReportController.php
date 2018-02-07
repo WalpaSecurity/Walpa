@@ -90,24 +90,24 @@ class ActivityReportController extends Controller
 
         //COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
         //Clonage du fichier git
-        shell_exec("git clone ". $request->url ." /var/www/html/public/temp/".$number);
+        shell_exec("git clone ". $request->url ." /var/www/laravel/public/temp/".$number);
 
         //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
         shell_exec("sudo apt-get install php-codesniffer");
-        $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/html/public/temp/".$number);
+        $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/laravel/public/temp/".$number);
 
         //PHP LOC : is a tool for quickly measuring the size and analyzing the structure of a PHP project
-        $PHPLOC = shell_exec("phploc /var/www/html/public/temp/".$number);
+        $PHPLOC = shell_exec("phploc /var/www/laravel/public/temp/".$number);
 
         //PHP Copy/Paste Detector : is a Copy/Paste Detector (CPD) for PHP code.
-        $PHPCPD = shell_exec("phpcpd /var/www/html/public/temp/".$number);
+        $PHPCPD = shell_exec("phpcpd /var/www/laravel/public/temp/".$number);
 
         //Phortress : static code analyser for potential vulnerabilities
         //shell_exec("sudo apt-get install phpunit");
         //    $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
 
         //PHP Coding Standards Fixer : The PHP Coding Standards Fixer (PHP CS Fixer) tool fixes your code to follow standards; whether you want to follow PHP coding standards as defined in the PSR-1, PSR-2, etc., or other community driven ones like the Symfony one.
-        $PHPCoding = shell_exec("php-cs-fixer fix /var/www/html/public/temp/".$number);
+        $PHPCoding = shell_exec("php-cs-fixer fix /var/www/laravel/public/temp/".$number);
 
         //PHP Metrics :
       //  shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/html/public/temp/".$number);
@@ -125,9 +125,9 @@ class ActivityReportController extends Controller
 
         //  shell_exec("rm /var/www/html/public/temp/result.txt");
         //Création du fichier texte qui va contenir le résultat
-        shell_exec("touch /var/www/html/public/temp/". $name_file .".txt");
+        shell_exec("touch /var/www/laravel/public/temp/". $name_file .".txt");
 
-        $file = '/var/www/html/public/temp/'. $name_file .'.txt';
+        $file = '/var/www/laravel/public/temp/'. $name_file .'.txt';
         // Ouvre un fichier pour lire un contenu existant
         $current = file_get_contents($file);
         $current .= $str_result ;
@@ -142,7 +142,7 @@ class ActivityReportController extends Controller
               ->where('file_name', $name_file)
               ->update(['statut' => "TERMINEE"]);
 
-        shell_exec("rm -rf /var/www/html/public/temp/".$number);
+        shell_exec("rm -rf /var/www/laravel/public/temp/".$number);
 
         return response()
         ->json([
