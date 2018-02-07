@@ -24,11 +24,11 @@ export default class Profile extends Component {
             if (!error) {
             const res = JSON.parse(result.content);
             //console.log(res.data);
-            TableauRepo = res.data;
-            var toto = TableauRepo;
+            TableauRepo.map(res.data);
+            //var toto = TableauRepo;
             console.log(TableauRepo);
           //  console.log(TableauRepo[0]);
-            this.renderRepo(toto);
+            this.renderRepo(TableauRepo);
 
         }
         });
