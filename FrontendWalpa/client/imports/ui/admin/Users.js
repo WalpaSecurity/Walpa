@@ -6,9 +6,11 @@ const token = localStorage.getItem('token');
 // App component - represents the whole app
 export default class gestionUsers extends Component {
 
+
+
     handleListUsers(e){
       e.preventDefault();
-
+      
       console.log("toto");
       HTTP.call('GET', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -26,12 +28,13 @@ export default class gestionUsers extends Component {
       });
     }
 
+    setTimeout(handleListUsers, 3000);
 
     render() {
         return (
-          <div className="adminContent gestionUsers">
+          <div className="adminContent gestionUsers" onLoad={this.handleListUsers.bind(this)}>
             <h1>Liste des utilisateurs</h1>
-            <a href="/" className="btn btn-primary" onClick={this.handleListUsers.bind(this)}>Rafraichir</a>
+            <a href="/" className="btn btn-primary">Rafraichir</a>
             <table className="table table-striped">
               <thead>
                 <tr>
