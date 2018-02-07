@@ -47,9 +47,9 @@ export default class Connexion extends Component {
                         const resuser = JSON.parse(resultuser.content);
                         console.log(resuser);
                         console.log(resuser.user);
-                        document.location.reload(true);
                         return false;
-                        // this.props.history.push('/profile');
+                        document.location.reload(true);
+                        this.props.history.push('/profile');
                     }
             });
 
