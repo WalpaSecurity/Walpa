@@ -9,20 +9,7 @@ export default class gestionUsers extends Component {
     handleListUsers(){
       console.log("toto");
 
-      HTTP.call('GET', 'http://192.168.1.16:5000/api/admin', {
-        headers:{
-          "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-          'Content-Type' : "application/json",
-          'Authorization' : "Bearer " + token,
-          'Accept' : "application/json"
-        }
-      }, (error, result) => {
-        if (!error) {
-          const users = JSON.parse(result.content);
-          console.log(result);
-          console.log(users.data);
-        }
-      });
+      
     }
 
 
