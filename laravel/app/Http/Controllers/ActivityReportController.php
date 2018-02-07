@@ -133,7 +133,7 @@ class ActivityReportController extends Controller
         $current .= $str_result ;
         file_put_contents($file, $current);
 
-        Mail::to("groupe2@asr.lan")->send(new MailTransac());
+      //  Mail::to("groupe2@asr.lan")->send(new MailTransac());
 
         //Analyse terminée
         $activityReport = DB::table('activityReport')
