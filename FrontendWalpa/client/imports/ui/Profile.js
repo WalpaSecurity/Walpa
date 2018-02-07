@@ -28,7 +28,7 @@ export default class Profile extends Component {
            // debugger;
          //   console.log(TableauRepo);
           //  console.log(TableauRepo[0]);
-            this.renderRepo();
+            this.renderRepo(TableauRepo);
 
         }
         });
@@ -38,7 +38,7 @@ export default class Profile extends Component {
         return TableauRepo;
     }
 
-    renderRepo(){
+    renderRepo(TableauRepo){
         debugger;
         for (i = 0; i<= TableauRepo.length; i++ )
         {
