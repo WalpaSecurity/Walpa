@@ -16,6 +16,10 @@ constructor(props) {
 
         event.preventDefault();
 
+        this.setState = {
+            tab: "bonjour"
+        };
+        /*
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
@@ -39,7 +43,7 @@ constructor(props) {
             this.renderRepo(TableauRepo);
 
         }
-        });
+        });*/
     }
 
     getRepo() {
