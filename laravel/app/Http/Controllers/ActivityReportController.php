@@ -91,17 +91,17 @@ class ActivityReportController extends Controller
         //COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
         //Clonage du fichier git
         shell_exec("git clone ". $request->url ." /var/www/html/public/temp/".$number);
-
+/*
         //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
-        shell_exec("sudo apt-get install php-codesniffer");
+        shell_exec("sudo apt-get install -y php-codesniffer");
         $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/html/public/temp/".$number);
 
         //PHP LOC : is a tool for quickly measuring the size and analyzing the structure of a PHP project
-        shell_exec("sudo apt-get install phploc");
+        shell_exec("sudo apt-get install -y phploc");
         $PHPLOC = shell_exec("phploc /var/www/html/public/temp/".$number);
 
         //PHP Copy/Paste Detector : is a Copy/Paste Detector (CPD) for PHP code.
-        shell_exec("sudo apt-get install phpcpd");
+        shell_exec("sudo apt-get install -y phpcpd");
         $PHPCPD = shell_exec("phpcpd /var/www/html/public/temp/".$number);
 
         //Phortress : static code analyser for potential vulnerabilities
@@ -136,8 +136,8 @@ class ActivityReportController extends Controller
         $current = file_get_contents($file);
         $current .= $str_result ;
         file_put_contents($file, $current);
-
-    //    Mail::to("groupe2@asr.lan")->send(new MailTransac());
+*/
+        Mail::to("groupe2@asr.lan")->send(new MailTransac());
 
         //Analyse terminée
         $activityReport = DB::table('activityReport')
