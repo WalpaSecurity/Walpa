@@ -25,7 +25,7 @@ export default class Contact extends Component {
                     message: message
                 }
             },
-            (error, resultuser) => {
+            (error, result) => {
             if (!error) {
             console.log(result);
             const res = JSON.parse(result.content);
