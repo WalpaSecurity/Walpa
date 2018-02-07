@@ -57,6 +57,17 @@ export default class Connexion extends Component {
         // Clear form
 
     }
+    handleGithub(event){
+        event.preventDefault();
+        HTTP.call('GET', 'http://192.168.1.16:5000/auth/github', {},
+            (error, result) => {
+            if (!error) {
+            const res = JSON.parse(result.content);
+            console.log(res);
+        }
+        });
+
+    }
 
     handleSubmitInscription(event) {
         event.preventDefault();
@@ -108,7 +119,7 @@ export default class Connexion extends Component {
                                 </form>
                                 <hr />
                                 <br/>
-                                <a href="" className="btn btn-secondary"><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
+                                <a href="" className="btn btn-secondary" onClick={this.handleGithub.bind(this)}><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
                             </div>
                             <div className="col-12 col-md-6 col-lg-4 inscription">
                                 <h2>Inscription</h2>
