@@ -78,22 +78,22 @@
    <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
      <td>
-      <p style="padding-left: 20px;  display: -webkit-inline-box; text-align: justify; font-size: 12px; color: dimgrey; font-weight: initial;">
-					<span style="color: #052347; font-size: 19px; font-weight: bold;"> TESTER VOS FICHIERS GITHUB </span>
-				<br><br>
-					Nous vous envoyons l'analyse de votre code en moins de 5 minutes!!
-				</p>
-     </td>
-    </tr>
-    <tr>
-     <td style="padding: 25px 0 0 0;">
-     <p style="padding-left: 20px; width: 350px; display: -webkit-inline-box; text-align: justify; font-size: 12px; color: dimgrey; font-weight: initial;">
-				<span style="color: #052347; font-size: 19px; font-weight: bold;">DEVENEZ MEILLEUR DEVELOPPEUR</span>
-					<br><br>
-					Vous pourrez apprendre de vos erreurs.
-					<br><br>
-					Une analyse complète sera envoyer pour vous expliquez en détails les éléments à modifier.
-				</p>
+       <p style="padding-left: 20px;  display: -webkit-inline-box; text-align: justify; font-size: 12px; color: dimgrey; font-weight: initial;">
+ 					<span style="color: #052347; font-size: 19px; font-weight: bold;"> TESTEZ VOS FICHIERS GITHUB </span>
+ 				<br><br>
+ 					Nous vous envoyons l'analyse de votre code en moins de 5 minutes!!
+ 				</p>
+      </td>
+     </tr>
+     <tr>
+      <td style="padding: 25px 0 0 0;">
+      <p style="padding-left: 20px; width: 350px; display: -webkit-inline-box; text-align: justify; font-size: 12px; color: dimgrey; font-weight: initial;">
+ 				<span style="color: #052347; font-size: 19px; font-weight: bold;">DEVENEZ MEILLEUR DEVELOPPEUR</span>
+ 					<br><br>
+ 					Vous pourrez apprendre de vos erreurs.
+ 					<br><br>
+ 					Une analyse complète sera envoyée pour vous expliquer en détails les éléments à modifier.
+ 				</p>
      </td>
     </tr>
    </table>

@@ -65,12 +65,13 @@ Route::get('/donation', 'DonationsController@index')->name('donation');
 Route::post('/donation', 'DonationsController@store');
 
 Route::get('/mail', function () {
-  try
+        try
     {
         Mail::send('welcome', array('key' => 'value'), function($message)
         {
+            ProcessReport::dispatch();
             $message->from('groupe2@asr.lan');
-            $message->to('catarino.laure@gmail.com', 'John Smith')->subject('Welcome!');
+            $message->to('groupe2@asr.lan', 'John Smith')->subject('Welcome!');
         });
     }
     catch (\Exception $e)
@@ -78,7 +79,6 @@ Route::get('/mail', function () {
         dd($e->getMessage());
     }
 });
-
 
 Route::get('metrics/{filename}', function ($filename) { //Récupération du fichier d'analyse
   //  if (Auth::check()) {

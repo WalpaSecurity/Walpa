@@ -48,7 +48,7 @@
 			 </td>
 			</tr>
 		</table>
-    
+
 		 &nbsp;
 		 &nbsp;
   	  </td>
@@ -78,7 +78,7 @@
     <tr>
      <td>
       <p style="padding-left: 20px;  display: -webkit-inline-box; text-align: justify; font-size: 12px; color: dimgrey; font-weight: initial;">
-					<span style="color: #052347; font-size: 19px; font-weight: bold;"> TESTER VOS FICHIERS GITHUB </span>
+					<span style="color: #052347; font-size: 19px; font-weight: bold;"> TESTEZ VOS FICHIERS GITHUB </span>
 				<br><br>
 					Nous vous envoyons l'analyse de votre code en moins de 5 minutes!!
 				</p>
@@ -91,7 +91,7 @@
 					<br><br>
 					Vous pourrez apprendre de vos erreurs.
 					<br><br>
-					Une analyse complète sera envoyer pour vous expliquez en détails les éléments à modifier.
+					Une analyse complète sera envoyée pour vous expliquer en détails les éléments à modifier.
 				</p>
      </td>
     </tr>
