@@ -93,15 +93,13 @@ class ActivityReportController extends Controller
         shell_exec("git clone ". $request->url ." /var/www/html/public/temp/".$number);
 
         //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
-      //  shell_exec("sudo apt-get install -y php-codesniffer");
-      //  $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/html/public/temp/".$number);
+        shell_exec("sudo apt-get install php-codesniffer");
+        $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/html/public/temp/".$number);
 
         //PHP LOC : is a tool for quickly measuring the size and analyzing the structure of a PHP project
-    //    shell_exec("sudo apt-get install -y phploc");
         $PHPLOC = shell_exec("phploc /var/www/html/public/temp/".$number);
 
         //PHP Copy/Paste Detector : is a Copy/Paste Detector (CPD) for PHP code.
-    //    shell_exec("sudo apt-get install -y phpcpd");
         $PHPCPD = shell_exec("phpcpd /var/www/html/public/temp/".$number);
 
         //Phortress : static code analyser for potential vulnerabilities
@@ -109,9 +107,6 @@ class ActivityReportController extends Controller
         //    $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
 
         //PHP Coding Standards Fixer : The PHP Coding Standards Fixer (PHP CS Fixer) tool fixes your code to follow standards; whether you want to follow PHP coding standards as defined in the PSR-1, PSR-2, etc., or other community driven ones like the Symfony one.
-      //  shell_exec("wget http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -O php-cs-fixer");
-    //  shell_exec("sudo chmod a+x php-cs-fixer");
-      //  shell_exec("sudo mv php-cs-fixer /usr/local/bin/php-cs-fixer");
         $PHPCoding = shell_exec("php-cs-fixer fix /var/www/html/public/temp/".$number);
 
         //PHP Metrics :
@@ -119,7 +114,8 @@ class ActivityReportController extends Controller
         //  shell_exec("cp -R /var/www/html/myreport /var/www/html/public/temp/metrics_". $number);
 
         //Rassemblement de tous les résultats
-      //  $str_result = "-------------------------------------------------------------------------------- \n Détection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
+        $str_result = "";
+        //"-------------------------------------------------------------------------------- \n Détection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
         $str_result .= "\n-------------------------------------------------------------------------------- \n\n Analyse de la taille et la structure du projet PHP : \n\n\n" . $PHPLOC ;
         $str_result .= "\n-------------------------------------------------------------------------------- \n Détecteur de copier/coller : \n\n " . $PHPCPD;
         //  $str_result .= "\n -------------------------------------------------------------------------------- \n Analyse des potentiels vulnérabilités \n " . $PHortress;
