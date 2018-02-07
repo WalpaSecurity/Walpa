@@ -19,6 +19,7 @@ import Try from '../imports/ui/try.js';
 import Dashboard from '../imports/ui/admin/Dashboard.js';
 import Sidebar from '../imports/ui/admin/Sidebar.js';
 import gestionProjets from '../imports/ui/admin/Projets.js';
+import gestionUsers from '../imports/ui/admin/Users.js';
 
 
 const statutconnexion = localStorage.getItem('statutconnexion');
@@ -31,6 +32,7 @@ if(statutconnexion == 1){
               <Switch>
                   <Route exact path="/admin" component={Dashboard}></Route>
                   <Route exact path="/admin/projets" component={gestionProjets}/>
+                  <Route exact path="/admin/utilisateurs" component={gestionUsers}/>
               </Switch>
       </BrowserRouter> , document.getElementById('content'));
   });
