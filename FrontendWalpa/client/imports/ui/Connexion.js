@@ -107,25 +107,28 @@ export default class Connexion extends Component {
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="Se connecter"/>
                                 </form>
+                                <hr />
+                                <br/>
+                                <a href="" className="btn btn-secondary"><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
                             </div>
                             <div className="col-12 col-md-6 col-lg-4 inscription">
                                 <h2>Inscription</h2>
                                 <form onSubmit={this.handleSubmitInscription.bind(this)}>
                                     <div className="form-group">
                                         <label htmlFor="email">Adresse mail</label>
-                                        <input type="text" className="form-control" id="email" ref="emailinscrit" placeholder="blablabla@blabla.fr"/>
+                                        <input type="text" className="form-control" id="email" ref="emailinscrit" placeholder="Entrez votre adresse e-mail"/>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="nom">Nom </label>
-                                        <input type="text" className="form-control" id="nom" ref="name" placeholder="What's yo name son ?"/>
+                                        <input type="text" className="form-control" id="nom" ref="name" placeholder="Entrez votre nom"/>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="password1">Mot de passe</label>
-                                        <input type="password" className="form-control" id="password1" ref="passwordinscrit" placeholder="Put here yo mothafucking password"/>
+                                        <input type="password" className="form-control" id="password1" ref="passwordinscrit" placeholder="Saisissez un mot de passe"/>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="password2">Confirmation mot de passe</label>
-                                        <input type="password" className="form-control" id="password2" ref="passwordinscrit2" placeholder="Put here yo mothafucking password again"/>
+                                        <input type="password" className="form-control" id="password2" ref="passwordinscrit2" placeholder="Confirmez votre mot de passe"/>
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="S'inscrire"/>
                                 </form>

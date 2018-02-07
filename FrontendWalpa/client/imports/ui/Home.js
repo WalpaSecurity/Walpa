@@ -72,7 +72,7 @@ export default class Home extends Component {
                     <h3>Securité</h3>
                   </div>
                   <div className="col-lg-3">
-                    <i className="fa fa-keyboard-o" aria-hidden="true"></i>
+                    <i className="fa fa-keyboard" aria-hidden="true"></i>
                     <h3>Développement</h3>
                   </div>
                   <div className="col-lg-3">

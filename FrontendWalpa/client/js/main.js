@@ -65,16 +65,11 @@ window.onscroll = function () {
 
 function growShrinkLogo() {
     var Logo = document.getElementById("logo");
-    var Menu = document.getElementById("menu");
     var body = document.getElementsByTagName('body');
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
         Logo.style.width = '120px';
-        Menu.style.height = '80px';
-        $(body).css({'padding-top':'0'});
     } else {
         Logo.style.width = '180px';
-        Menu.style.height = '120px';
-        $(body).css({'padding-top':'120px'});
     }
 }
 

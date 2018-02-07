@@ -11,22 +11,22 @@ export default class Footer extends Component {
                 <div className="col-lg-4 footer-menu mb-5 mb-lg-0 text-center text-lg-left">
                   <ul className="list-unstyled mb-0">
                     <li>
-                      <a href="#">Accueil</a>
+                      <a href="/">Accueil</a>
                     </li>
                     <li>
-                      <a href="#">Qui sommes nous ?</a>
+                      <a href="/qui-sommes-nous">Qui sommes nous ?</a>
                     </li>
                     <li>
-                      <a href="#">Analyser mon projet</a>
+                      <a href="/analyser-mon-projet">Analyser mon projet</a>
                     </li>
                     <li>
-                      <a href="#">Faire un don</a>
+                      <a href="faire-un-don">Faire un don</a>
                     </li>
                     <li>
-                      <a href="#">Contact</a>
+                      <a href="/contact">Contact</a>
                     </li>
                     <li>
-                      <a href="#">Mentions Légales</a>
+                      <a href="/mentions-legales">Mentions Légales</a>
                     </li>
                   </ul>
                 </div>
