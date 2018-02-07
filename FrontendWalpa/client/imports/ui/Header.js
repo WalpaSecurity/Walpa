@@ -19,6 +19,8 @@ export default class Header extends Component {
 
     handleGoViewAdmin() {
         localStorage.setItem('view', 'admin');
+        window.location.href = "/admin";
+        return false;
     }
 
     render() {
