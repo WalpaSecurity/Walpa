@@ -37,17 +37,17 @@ export default class Footer extends Component {
                   <ul className="list-inline">
                    <li className="list-inline-item">
                     <a href="">
-                      <i className="fa fa-facebook" aria-hidden="true"></i>
+                      <i className="fab fa-facebook-f"></i>
                     </a>
                    </li>
                    <li className="list-inline-item">
                      <a href="">
-                       <i className="fa fa-twitter" aria-hidden="true"></i>
+                       <i className="fab fa-twitter"></i>
                      </a>
                    </li>
                    <li className="list-inline-item">
                      <a href="">
-                       <i className="fa fa-google-plus" aria-hidden="true"></i>
+                       <i className="fab fa-google-plus-g"></i>
                      </a>
                    </li>
                   </ul>
