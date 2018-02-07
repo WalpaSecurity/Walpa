@@ -28,6 +28,9 @@ export default class Profile extends Component {
             //var toto = TableauRepo;
             console.log(TableauRepo);
           //  console.log(TableauRepo[0]);
+            this.state = {
+                Tab: TableauRepo
+            };
             this.renderRepo(TableauRepo);
 
         }
@@ -39,6 +42,7 @@ export default class Profile extends Component {
     }
 
     renderRepo(test){
+        console.log(this.state.Tab);
         debugger;
         for (i = 0; i<= TableauRepo.length; i++ )
         {
