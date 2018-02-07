@@ -10,7 +10,8 @@ export default class Header extends Component {
         localStorage.removeItem('token');
         localStorage.removeItem('statutconnexion');
         document.location.reload(true);
-        this.props.history.push('/home');
+        window.location.href = "/home";
+        return false;
     }
 
     render() {
@@ -41,10 +42,10 @@ export default class Header extends Component {
                         <a className="nav-link" href="/contact">Contact</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="/profile">Mon ccompte</a>
+                        <a className="nav-link" href="/profile">Mon compte</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
+                        <a className="nav-link link-disconnect" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
                       </li>
                     </ul>
                   </div>
@@ -71,7 +72,7 @@ export default class Header extends Component {
                     <a href="/profile">Mon compte</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" onClick={this.handleDeco.bind(this)}>Deconnexion</a>
+                    <a className="nav-link link-disconnect" onClick={this.handleDeco.bind(this)}>Deconnexion</a>
                   </li>
                 </ul>
               </div>
