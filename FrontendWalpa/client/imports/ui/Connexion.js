@@ -59,13 +59,7 @@ export default class Connexion extends Component {
     }
     handleGithub(event){
         event.preventDefault();
-        HTTP.call('GET', 'http://192.168.1.16:5000/auth/github', {},
-            (error, result) => {
-            if (!error) {
-            const res = JSON.parse(result.content);
-            console.log(res);
-        }
-        });
+        this.props.history.push('http://192.168.1.16:5000/auth/github');
 
     }
 
