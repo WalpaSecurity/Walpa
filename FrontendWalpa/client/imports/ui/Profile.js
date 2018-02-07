@@ -62,11 +62,11 @@ export default class Profile extends Component {
             var tab = [];
             tab[i] = TableauRepo[i];
             console.log(TableauRepo[i].file_name);
-            this.render(
+
                 return (
                   <p> test</p>
                 );
-            )
+
         }
 
         // return this.getRepo().map(
