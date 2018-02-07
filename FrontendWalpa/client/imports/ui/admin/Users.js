@@ -9,6 +9,8 @@ export default class gestionUsers extends Component {
     handleListUsers(event){
       event.preventDefault();
 
+        console.log("toto");
+
       HTTP.call('GET', 'http://192.168.1.16:5000/api/admin', {
         headers:{
           "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
