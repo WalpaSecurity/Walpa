@@ -59,7 +59,7 @@ export default class Connexion extends Component {
     }
     handleGithub(event){
         event.preventDefault();
-        this.props.history.push('http://192.168.1.16:5000/auth/github');
+        window.location('http://192.168.1.16:5000/auth/github');
 
     }
 
