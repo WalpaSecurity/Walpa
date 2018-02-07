@@ -48,6 +48,7 @@ export default class Connexion extends Component {
                       console.log(resuser);
                       console.log(resuser.admin);
                       document.location.reload(true);
+                      return false;
                       if(resuser.admin == 1){
                         this.props.history.push('/admin');
                       } else {
