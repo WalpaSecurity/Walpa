@@ -4,6 +4,15 @@ $('body').css({ 'padding-top':'0 !important'});
 
 export default class Sidebar extends Component {
 
+  handleDeco(event) {
+      event.preventDefault();
+      localStorage.removeItem('token');
+      localStorage.removeItem('statutconnexion');
+      document.location.reload(true);
+      window.location.href = "/home";
+      return false;
+  }
+
     render() {
         return (
           <div className="sidebar-admin text-center">
@@ -22,7 +31,7 @@ export default class Sidebar extends Component {
               </li>
             </ul>
             <div className="topbar text-right">
-              <a href="/logout"><i className="fa fa-user" aria-hidden="true"></i> Déconnexion</a>
+              <a href="/" onClick={this.handleDeco.bind(this)}><i className="fa fa-user" aria-hidden="true"></i> Déconnexion</a>
             </div>
           </div>
 
