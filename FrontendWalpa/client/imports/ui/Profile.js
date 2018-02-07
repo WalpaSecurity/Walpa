@@ -17,7 +17,7 @@ export default class Profile extends Component {
     handleListrepo() {
 
         //event.preventDefault();
-        console.log(this.state.inputValue);
+        //console.log(this.state.inputValue);
 
 
 
@@ -35,18 +35,18 @@ export default class Profile extends Component {
             const res = JSON.parse(result.content);
             console.log(res.data);
 
-            TableauRepo.map(res.data);
+            //TableauRepo.map(res.data);
 
             //var toto = TableauRepo;
-            console.log(TableauRepo);
+            //console.log(TableauRepo);
             // console.log(TableauRepo[0])
 
 
         }
         });
 
-        this.setState({inputValue: "tt"});
-        this.renderRepo();
+        //this.setState({inputValue: "tt"});
+        //this.renderRepo();
 
     }
 
