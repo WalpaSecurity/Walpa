@@ -91,7 +91,7 @@ class ActivityReportController extends Controller
         //COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
         //Clonage du fichier git
         shell_exec("git clone ". $request->url ." /var/www/html/public/temp/".$number);
-/*
+
         //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
         shell_exec("sudo apt-get install -y php-codesniffer");
         $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/html/public/temp/".$number);
@@ -103,7 +103,7 @@ class ActivityReportController extends Controller
         //PHP Copy/Paste Detector : is a Copy/Paste Detector (CPD) for PHP code.
         shell_exec("sudo apt-get install -y phpcpd");
         $PHPCPD = shell_exec("phpcpd /var/www/html/public/temp/".$number);
-
+/*
         //Phortress : static code analyser for potential vulnerabilities
         //shell_exec("sudo apt-get install phpunit");
         //    $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
