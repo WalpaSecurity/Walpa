@@ -28,7 +28,7 @@ export default class AjouterAdmin extends Component {
           email: emailNewAdmin,
           name: nameNewAdmin,
           password: passwordNewAdmin,
-          admin: 1,
+          admin: true,
         }
       }, (error, result) => {
         if (!error) {
