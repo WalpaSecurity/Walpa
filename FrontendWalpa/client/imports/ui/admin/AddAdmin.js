@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+  const token = localStorage.getItem('token');
+
 
 // App component - represents the whole app
 export default class AjouterAdmin extends Component {
@@ -15,6 +17,13 @@ export default class AjouterAdmin extends Component {
       //const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
       HTTP.call('POST', 'http://192.168.1.16:5000/api/admin', {
+        headers:{
+            "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+            'Content-Type' : "application/json",
+            'Authorization' : "Bearer " + token,
+            'Accept' : "application/json"
+
+        },
         data: {
           email: emailNewAdmin,
           name: nameNewAdmin,
