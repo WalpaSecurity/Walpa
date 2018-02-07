@@ -6,7 +6,7 @@
 // App component - represents the whole app
 export default class Header extends Component {
     handleDeco(event) {
-        this.preventDefault();
+        event.preventDefault();
         localStorage.removeItem('token');
         localStorage.removeItem('statutconnexion');
         document.location.reload(true);

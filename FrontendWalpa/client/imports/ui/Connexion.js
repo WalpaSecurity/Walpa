@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { HTTP } from 'meteor/http';
 import { Session } from 'meteor/session';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // App component - represents the whole app
 export default class Connexion extends Component {

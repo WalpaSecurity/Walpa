@@ -5,25 +5,34 @@ import { HTTP } from 'meteor/http';
 // App component - represents the whole app
 export default class Contact extends Component {
     handleSubmitContact(event) {
-            event.preventDefault();
+        event.preventDefault();
 
-            // Find the text field via the React ref
-            const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
-            const nom = ReactDOM.findDOMNode(this.refs.nom).value.trim();
-            const prenom = ReactDOM.findDOMNode(this.refs.prenom).value.trim();
-            const telephone = ReactDOM.findDOMNode(this.refs.telephone).value.trim();
-            const objet = ReactDOM.findDOMNode(this.refs.objet).value.trim();
-            const message = ReactDOM.findDOMNode(this.refs.message).value.trim();
+        // Find the text field via the React ref
+        const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
+        const nom = ReactDOM.findDOMNode(this.refs.nom).value.trim();
+        const prenom = ReactDOM.findDOMNode(this.refs.prenom).value.trim();
+        const telephone = ReactDOM.findDOMNode(this.refs.telephone).value.trim();
+        const objet = ReactDOM.findDOMNode(this.refs.objet).value.trim();
+        const message = ReactDOM.findDOMNode(this.refs.message).value.trim();
 
+        HTTP.call('POST', 'http://192.168.1.16:5000/contact', {
+                data: {
+                    firstName: prenom,
+                    lastName: nom,
+                    email: email,
+                    phone: telephone,
+                    object: objet,
+                    message: message
+                }
+            },
+            (error, result) => {
+            if (!error) {
+            console.log(result);
+            const res = JSON.parse(result.content);
+            console.log(res);
+            }
+        });
 
-            const contact = { "email":email, "nom":nom, "prenom": prenom, "email":email, "telephone":telephone,"objet":objet,  "message": message};
-            const contactjson = JSON.stringify(contact);
-            console.log(contactjson);console.log(contact.nom);
-            // HTTP.call('GET', '/connexion', {}, (error, result) =>{
-            //     if( !error ){
-            // const res = JSON.parse(result.content);
-            // console.log(contactjson);
-            // }
     };
 
     render() {

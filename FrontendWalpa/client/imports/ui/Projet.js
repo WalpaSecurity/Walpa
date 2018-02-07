@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { HTTP } from 'meteor/http';
 
-
+const token = localStorage.getItem('token');
 // App component - represents the whole app
 export default class Projet extends Component {
-    handleSubmitConnexion(event){
+    handleSubmitRepo(event){
+        console.log(token);
         event.preventDefault();
         const repo = ReactDOM.findDOMNode(this.refs.depot).value.trim();
         console.log(repo);
         HTTP.call('POST', 'http://192.168.1.16:5000/api/activity', {
+            headers:{
+                "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                'Content-Type' : "application/json",
+                'Authorization' : "Bearer " + token,
+                'Accept' : "application/json"
+
+            },
               data: {
                   url: repo
               }
@@ -38,7 +46,7 @@ export default class Projet extends Component {
                   </p>
                 </div>
                 <div className="col-12 col-lg-6">
-                  <form onSubmit={this.handleSubmitConnexion.bind(this)} className="formLinkProject text-center">
+                  <form onSubmit={this.handleSubmitRepo.bind(this)} className="formLinkProject text-center">
                     <ol className="list-unstyled text-white ">
                       <li>1. Entrez le lien de votre projet Github</li>
                       <li>2. Connectez-vous à votre compte</li>

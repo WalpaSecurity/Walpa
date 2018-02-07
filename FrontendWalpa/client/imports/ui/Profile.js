@@ -1,11 +1,36 @@
   import React, { Component } from 'react';
 
-
+  const token = localStorage.getItem('token');
 // App component - represents the whole app
 export default class Profile extends Component {
+
+    handleListrepo(event){
+        event.preventDefault();
+
+        HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
+                headers:{
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                    'Content-Type' : "application/json",
+                    'Authorization' : "Bearer " + token,
+                    'Accept' : "application/json"
+
+                }
+            },
+            (error, result) => {
+            if (!error) {
+            const res = JSON.parse(result.content);
+            console.log(res);
+
+        }
+        });
+    }
+
+
+
+
     render() {
         return (
-          <section id="profile">
+          <section id="profile" onLoad={this.handleListrepo.bind(this)}>
             <div className="mes-projets container">
               <div className="row">
                 <div className="col-lg-3 text-center">
