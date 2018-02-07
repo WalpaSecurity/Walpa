@@ -29,7 +29,6 @@ class ContactEmail extends Mailable
      */
     public function build()
     {
-
         return $this->from('groupe2@asr.lan')
           ->view('emails.contact')
           ->with([
@@ -38,12 +37,7 @@ class ContactEmail extends Mailable
                   'email' => $this->data->email,
                   'phone' => $this->data->phone,
                   'object' => $this->data->object,
-                  'message' => $this->data->message,
+                  'type' => $this->data->message,
           ]);
-
-// nom prenom email telephone objet message
-//AFFICHER CORRECTEMENT LE MAIL DANS contact.blade.php
-
-
     }
 }

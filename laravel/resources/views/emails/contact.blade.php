@@ -26,8 +26,7 @@
   <tr>
   <td align="center" bgcolor="#ff6600" style="padding: 40px 0 30px 0;">
   <img src="{{ asset('img/logo-footer-walpa.png') }}" alt="WALPA SECURITY" width="120" style="display: block;" />
-  <h2 style="font-size: 32px; font-weight: bold; color: white;">Bienvenue
-             chez WALPA</h2>
+  <h2 style="font-size: 32px; font-weight: bold; color: white;">Formulaire de contact </h2>
  </td>
 
 	</tr>
@@ -40,8 +39,7 @@
 
     <h1> Message reçu par {{$lastName}} {{$firstName}}</h1>
     <p> Objet : {{$object}}</p>
-    <p> Message : </p>
-
+    <p> Message : {{$type}}</p>
     <p> Email : {{$email}}</p>
     <p> Téléphone : {{$phone}} </p>
 
@@ -61,50 +59,6 @@
 	 </tr>
 	 <tr>
 	  <td>
-	   <table border="0" cellpadding="0" cellspacing="0" width="100%">
-		 <tr>
-		  <td width="260" valign="top">
-		   <table border="0" cellpadding="0" cellspacing="0" width="100%">
-			<tr>
-			 <td align="center">
-			  <img src="{{ asset('img/Octocat.png') }}" alt="" width="100" height="100" style="display: block;" />
-			 </td>
-			</tr>
-			<tr>
-			 <td align="center" style="padding: 25px 0 0 0;">
-				 <img src="{{ asset('img/a.jpg') }}" alt="" width="100" height="100" style="display: block;" />
-			 </td>
-			</tr>
-   </table>
-  </td>
-  <td style="font-size: 0; line-height: 0;" width="20">
-  </td>
-  <td width="260" valign="top">
-   <table border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-     <td>
-      <p style="padding-left: 20px;  display: -webkit-inline-box; text-align: justify; font-size: 12px; color: dimgrey; font-weight: initial;">
-					<span style="color: #052347; font-size: 19px; font-weight: bold;"> TESTER VOS FICHIERS GITHUB </span>
-				<br><br>
-					Nous vous envoyons l'analyse de votre code en moins de 5 minutes!!
-				</p>
-     </td>
-    </tr>
-    <tr>
-     <td style="padding: 25px 0 0 0;">
-     <p style="padding-left: 20px; width: 350px; display: -webkit-inline-box; text-align: justify; font-size: 12px; color: dimgrey; font-weight: initial;">
-				<span style="color: #052347; font-size: 19px; font-weight: bold;">DEVENEZ MEILLEUR DEVELOPPEUR</span>
-					<br><br>
-					Vous pourrez apprendre de vos erreurs.
-					<br><br>
-					Une analyse complète sera envoyer pour vous expliquez en détails les éléments à modifier.
-				</p>
-     </td>
-    </tr>
-   </table>
-  </td>
- </tr>
-</table>
 	  </td>
 	 </tr>
 	</table>
