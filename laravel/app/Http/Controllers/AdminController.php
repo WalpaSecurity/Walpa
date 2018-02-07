@@ -102,7 +102,7 @@ class AdminController extends Controller
           'name' => $request['name'],
           'email' => $request['email'],
           'password' => bcrypt($request['password']),
-          'admin' => $request['admin'],
+          'admin' => true,
           'github_id' => "",
       ]);
 
