@@ -16,13 +16,12 @@ export default class Connexion extends Component {
         console.log(password);
 
         HTTP.call('POST', 'http://192.168.1.16:5000/api/login', {
-                data: {
-                    email: email,
-                    password: password
-                }
-            },
-            (error, result) => {
-            if (!error) {
+          data: {
+            email: email,
+            password: password
+          }
+        },(error, result) => {
+          if (!error) {
             const res = JSON.parse(result.content);
             console.log(res);
             console.log(res.token);
@@ -30,36 +29,34 @@ export default class Connexion extends Component {
             localStorage.setItem('token', token);
             localStorage.setItem('statutconnexion', '2');
             HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
-                headers:{
-                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-                    'Content-Type' : "application/json",
-                    'Authorization' : "Bearer " + token,
-                    'Accept' : "application/json"
+              headers:{
+                "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                'Content-Type' : "application/json",
+                'Authorization' : "Bearer " + token,
+                'Accept' : "application/json"
 
-                },
-                    data: {
-                        token: token
-                    }
-                },
-                (error, resultuser) => {
-                    if (!error) {
-                        console.log(resultuser);
-                        const resuser = JSON.parse(resultuser.content);
-                        console.log(resuser);
-                        console.log(resuser.success.admin);
-                        document.location.reload(true);
+              },
+              data: {
+                token: token
+              }
+            }, (error, resultuser) => {
+              if (!error) {
+                  console.log(resultuser);
+                  const resuser = JSON.parse(resultuser.content);
+                  console.log(resuser);
+                  console.log(resuser.success.admin);
+                  document.location.reload(true);
 
-                        if(resuser.success.admin == 1){
-                          localStorage.setItem('statutconnexion', '1');
-                        } else {
-                          localStorage.setItem('statutconnexion', '2');
-                        }
-                        this.props.history.push('/home');
-                    }
+                  if(resuser.success.admin == 1){
+                    localStorage.setItem('statutconnexion', '1');
+                  } else {
+                    localStorage.setItem('statutconnexion', '2');
+                  }
+                  this.props.history.push('/home');
+              }
             });
-
-        }
-    });
+          }
+        });
 
         // Clear form
 
@@ -71,33 +68,27 @@ export default class Connexion extends Component {
     }*/
 
     handleSubmitInscription(event) {
-        event.preventDefault();
+      event.preventDefault();
 
-        // Find the text field via the React ref
-        const emailinscrit = ReactDOM.findDOMNode(this.refs.emailinscrit).value.trim();
-        const name = ReactDOM.findDOMNode(this.refs.name).value.trim();
-        const passwordinscrit = ReactDOM.findDOMNode(this.refs.passwordinscrit).value.trim();
-        const passwordinscrit2 = ReactDOM.findDOMNode(this.refs.passwordinscrit2).value.trim();
-        //const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
+      // Find the text field via the React ref
+      const emailinscrit = ReactDOM.findDOMNode(this.refs.emailinscrit).value.trim();
+      const name = ReactDOM.findDOMNode(this.refs.name).value.trim();
+      const passwordinscrit = ReactDOM.findDOMNode(this.refs.passwordinscrit).value.trim();
+      const passwordinscrit2 = ReactDOM.findDOMNode(this.refs.passwordinscrit2).value.trim();
+      //const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
-        HTTP.call('POST', 'http://192.168.1.16:5000/api/register', {
-            data: {
-                email: emailinscrit,
-                name: name,
-                password: passwordinscrit,
-                c_password: passwordinscrit2
-                }
-            },
-            (error, result) => {
-                if (!error) {
-                    console.log(result);
-                }
-        });
-
-
-
-        // Clear form
-        //ReactDOM.findDOMNode(this.refs.textInput).value = '';
+      HTTP.call('POST', 'http://192.168.1.16:5000/api/register', {
+        data: {
+          email: emailinscrit,
+          name: name,
+          password: passwordinscrit,
+          c_password: passwordinscrit2
+        }
+      }, (error, result) => {
+        if (!error) {
+          console.log(result);
+        }
+      });
     }
 
     render() {
