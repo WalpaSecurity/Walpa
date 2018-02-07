@@ -15,6 +15,7 @@ export default class Header extends Component {
     }
     handleGetTypePage() {
         localStorage.setItem('view', 'site');
+        console.log('voici la vue front');
     }
 
     handleGoViewAdmin() {
@@ -53,10 +54,10 @@ export default class Header extends Component {
                         <a className="nav-link" href="/contact">Contact</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link btn btn-secondary" href="/admin" onClick={this.handleGoViewAdmin.bind(this)}>Administration</a>
+                        <a className="nav-link bg-light mr-2" href="/admin" onClick={this.handleGoViewAdmin.bind(this)}>Administration</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link-disconnect btn btn-danger" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
+                        <a className="nav-link link-disconnect" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
                       </li>
                     </ul>
                   </div>
@@ -118,10 +119,10 @@ export default class Header extends Component {
                         <a className="nav-link" href="/contact">Contact</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link btn btn-secondary" href="/profile">Mon compte</a>
+                        <a className="nav-link bg-light mr-2" href="/profile">Mon compte</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link-disconnect btn btn-danger" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
+                        <a className="nav-link link-disconnect" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
                       </li>
                     </ul>
                   </div>

@@ -15,12 +15,13 @@ export default class Sidebar extends Component {
 
     handleGetTypePage() {
         localStorage.setItem('view', 'admin');
+        console.log('voici la vue admin');
     }
 
     handleGoViewFront(e) {
         e.preventDefault();
         localStorage.setItem('view', 'site');
-        window.location.href = "/home";
+        window.location.href = "/";
         return false;
     }
 
@@ -49,7 +50,7 @@ export default class Sidebar extends Component {
 
             </ul>
             <div className="topbar text-right">
-              <a href="/" target="_blank" onClick={this.handleGoViewFront.bind(this)}>Voir le site</a>
+              <a href="/" target="_blank" className="mr-4" onClick={this.handleGoViewFront.bind(this)}>Voir le site</a>
               <a href="/" onClick={this.handleDeco.bind(this)}><i className="fa fa-user" aria-hidden="true"></i> Déconnexion</a>
             </div>
           </div>
