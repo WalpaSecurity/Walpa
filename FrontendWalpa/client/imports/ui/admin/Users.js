@@ -28,9 +28,9 @@ export default class gestionUsers extends Component {
 
     render() {
         return (
-          <div className="adminContent gestionUsers">
+          <div className="adminContent gestionUsers" onLoad={this.handleListUsers.bind(this)}>
             <h1>Liste des utilisateurs</h1>
-            <a href="/" className="btn btn-primary" onClick={this.handleListUsers.bind(this)}></a>
+            <a href="/" className="btn btn-primary"></a>
             <table className="table table-striped">
               <thead>
                 <tr>
