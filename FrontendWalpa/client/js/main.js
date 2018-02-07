@@ -40,6 +40,7 @@ if(statutconnexion == 1){
       render(<BrowserRouter>
               <Switch>
                   <Route exact path="/" component={Home}></Route>
+                  <Route exact path="/home" component={Home}></Route>
                   <Route name="connexion" path="/login" component={ Home }  />
                   <Route name="compte" path="/compte" component={ Home }  />
                   <Route exact path="/qui-sommes-nous" component={Team}/>
