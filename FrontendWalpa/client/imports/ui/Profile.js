@@ -19,8 +19,6 @@ export default class Profile extends Component {
         //event.preventDefault();
         //console.log(this.state.inputValue);
 
-
-
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
@@ -34,6 +32,7 @@ export default class Profile extends Component {
             if (!error) {
             const res = JSON.parse(result.content);
             console.log(res.data);
+            TableauRepo =res.data;
 
             //TableauRepo.map(res.data);
 
@@ -111,7 +110,7 @@ export default class Profile extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                        {this.renderRepo()}
+                        {this.TableauRepo}
                     </tbody>
                   </table>
                 </div>
