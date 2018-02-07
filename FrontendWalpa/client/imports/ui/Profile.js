@@ -16,7 +16,7 @@ constructor(props) {
 
         event.preventDefault();
 
-        this.setState({
+        this.setState.bind(this)({
             tab: "bonjour"
         });
         /*
