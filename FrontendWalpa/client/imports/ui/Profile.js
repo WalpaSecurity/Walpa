@@ -1,10 +1,14 @@
   import React, { Component } from 'react';
 
   const token = localStorage.getItem('token');
+  var TableauRepo = [];
 // App component - represents the whole app
 export default class Profile extends Component {
 
+
+
     handleListrepo(event){
+
         event.preventDefault();
 
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
@@ -19,7 +23,9 @@ export default class Profile extends Component {
             (error, result) => {
             if (!error) {
             const res = JSON.parse(result.content);
-            console.log(res.data[0]);
+            console.log(res.data);
+            TableauRepo = res.data;
+            console.log(TableauRepo);
 
         }
         });
@@ -49,76 +55,23 @@ export default class Profile extends Component {
                       </tr>
                     </thead>
                     <tbody>
+                      for (){
                       <tr>
-                        <td>1</td>
-                        <td>
-                         <a href="/files.txt">
-                          Projet 1
-                         </a>
-                        </td>
-                        <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                        <td>
+                          <td>1</td>
+                          <td>
+                          <a href="/files.txt">
+                              Projet 1
+                          </a>
+                          </td>
+                          <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
+                          <td>
                           <a href="/admin/projet/2">
-                            <i className="fa fa-trash" aria-hidden="true"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>
-                         <a href="/files2.txt">
-                          Projet 2
-                         </a>
-                        </td>
-                        <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                        <td>
-                          <a href="#">
-                            <i className="fa fa-trash" aria-hidden="true"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>
-                         <a href="/files3.txt">
-                          Projet 3
-                         </a>
-                        </td>
-                        <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                        <td>
-                          <a href="#">
-                            <i className="fa fa-trash" aria-hidden="true"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>
-                         <a href="/files4.txt">
-                          Projet 4
-                         </a>
-                        </td>
-                        <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                        <td>
-                          <a href="#">
-                            <i className="fa fa-trash" aria-hidden="true"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>
-                         <a href="/files5.txt">
-                          Projet 5
-                         </a>
-                        </td>
-                        <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                        <td>
-                          <a href="#">
-                            <i className="fa fa-trash" aria-hidden="true"></i>
-                          </a>
-                        </td>
-                      </tr>
+                              <i className="fa fa-trash" aria-hidden="true"></i>
+                              </a>
+                              </td>
+                              </tr>
+                      }
+
                     </tbody>
                   </table>
                 </div>
