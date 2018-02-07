@@ -25,9 +25,10 @@ export default class Profile extends Component {
             const res = JSON.parse(result.content);
             //console.log(res.data);
             TableauRepo = res.data;
+            var toto = TableauRepo;
             console.log(TableauRepo);
           //  console.log(TableauRepo[0]);
-            //this.renderRepo(TableauRepo);
+            this.renderRepo(toto);
 
         }
         });
@@ -37,7 +38,8 @@ export default class Profile extends Component {
         return TableauRepo;
     }
 
-    renderRepo(){
+    renderRepo(test){
+        debugger;
         for (i = 0; i<= TableauRepo.length; i++ )
         {
             console.log(TableauRepo[i]);
