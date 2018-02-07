@@ -3,7 +3,7 @@
   const token = localStorage.getItem('token');
   var TableauRepo = [];
 // App component - represents the whole app
-export default class Profile extends React.Component {
+export default class Profile extends Component {
 
     constructor(props) {
         super(props);
@@ -14,13 +14,15 @@ export default class Profile extends React.Component {
 
 
 
-    handleListrepo = event => {
+    handleListrepo() {
 
-        event.preventDefault();
-
-        this.setState({
-            inputValue: "bonnn"
+        //event.preventDefault();
+        console.log(this.state.inputValue);
+        this.setState({inputValue: "tt"}, function () {
+            console.log(this.state.inputValue);
+            debugger;
         });
+
         /*
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
                 headers:{
@@ -53,8 +55,8 @@ export default class Profile extends React.Component {
     }
 
     renderRepo(test){
-        console.log(this.state.tab);
-        debugger;
+     //   console.log(this.state.tab);
+
         for (i = 0; i<= TableauRepo.length; i++ )
         {
             console.log(TableauRepo[i]);
