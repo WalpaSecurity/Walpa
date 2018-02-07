@@ -50,7 +50,7 @@ export default class Sidebar extends Component {
 
             </ul>
             <div className="topbar text-right">
-              <a href="/" target="_blank" className="mr-4" onClick={this.handleGoViewFront.bind(this)}>Voir le site</a>
+              <a href="/" className="mr-4" onClick={this.handleGoViewFront.bind(this)}>Voir le site</a>
               <a href="/" onClick={this.handleDeco.bind(this)}><i className="fa fa-user" aria-hidden="true"></i> Déconnexion</a>
             </div>
           </div>
