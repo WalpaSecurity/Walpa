@@ -64,11 +64,6 @@
 			  <img src="{{ asset('img/Octocat.png') }}" alt="" width="100" height="100" style="display: block;" />
 			 </td>
 			</tr>
-			<tr>
-			 <td align="center" style="padding: 25px 0 0 0;">
-				 <img src="{{ asset('img/a.jpg') }}" alt="" width="100" height="100" style="display: block;" />
-			 </td>
-			</tr>
    </table>
   </td>
   <td style="font-size: 0; line-height: 0;" width="20">
