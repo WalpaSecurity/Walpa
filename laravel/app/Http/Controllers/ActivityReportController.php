@@ -84,64 +84,7 @@ class ActivityReportController extends Controller
           "file_name" => $name_file,
           "user_id" => $id]
       );
-
-
-
-
-        //COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
-        //Clonage du fichier git
-        shell_exec("git clone ". $request->url ." /var/www/laravel/public/temp/".$number);
-
-        //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
-        $PHPCODESNIFFER = shell_exec("
-         /var/www/laravel/public/temp/".$number);
-
-        //PHP LOC : is a tool for quickly measuring the size and analyzing the structure of a PHP project
-        $PHPLOC = shell_exec("phploc /var/www/laravel/public/temp/".$number);
-
-        //PHP Copy/Paste Detector : is a Copy/Paste Detector (CPD) for PHP code.
-        $PHPCPD = shell_exec("phpcpd /var/www/laravel/public/temp/".$number);
-
-        //Phortress : static code analyser for potential vulnerabilities
-        //shell_exec("sudo apt-get install phpunit");
-        //    $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
-
-        //PHP Coding Standards Fixer : The PHP Coding Standards Fixer (PHP CS Fixer) tool fixes your code to follow standards; whether you want to follow PHP coding standards as defined in the PSR-1, PSR-2, etc., or other community driven ones like the Symfony one.
-        $PHPCoding = shell_exec("php-cs-fixer fix /var/www/laravel/public/temp/".$number);
-
-        //PHP Metrics :
-        shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport5 /var/www/laravel/public/temp/".$number);
-        shell_exec("cp -R /var/www/laravel/myreport /var/www/laravel/public/temp/metrics_". $number);
-
-        //Rassemblement de tous les résultats
-        $str_result = "-------------------------------------------------------------------------------- \n Détection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
-        $str_result .= "\n-------------------------------------------------------------------------------- \n\n Analyse de la taille et la structure du projet PHP : \n\n\n" . $PHPLOC ;
-        $str_result .= "\n-------------------------------------------------------------------------------- \n Détecteur de copier/coller : \n\n " . $PHPCPD;
-        //  $str_result .= "\n -------------------------------------------------------------------------------- \n Analyse des potentiels vulnérabilités \n " . $PHortress;
-        $str_result .= "\n-------------------------------------------------------------------------------- \n Modifie le code PHP en standard : \n\n " . $PHPCoding;
-        $str_result .= "\n-------------------------------------------------------------------------------- \n PHP Metrics : \n\n " . URL::asset('/metrics/metrics_'. $number);
-
-
-        //Création du fichier texte qui va contenir le résultat
-        shell_exec("touch /var/www/laravel/public/temp/". $name_file .".txt");
-
-        $file = '/var/www/laravel/public/temp/'. $name_file .'.txt';
-        // Ouvre un fichier pour lire un contenu existant
-        $current = file_get_contents($file);
-        $current .= $str_result ;
-        file_put_contents($file, $current);
-
-        Mail::to("groupe2@asr.lan")->send(new MailTransac());
-
-        //Analyse terminée
-        $activityReport = DB::table('activityReport')
-              ->where('user_id', $id)
-              ->where('url', $request->url)
-              ->where('file_name', $name_file)
-              ->update(['statut' => "TERMINEE"]);
-
-       shell_exec("rm -rf /var/www/laravel/public/temp/".$number);
-
+	ProcessReport::dispatch($request->url, $number, $id, $name_file);
         return response()
         ->json([
             'success' => true,
