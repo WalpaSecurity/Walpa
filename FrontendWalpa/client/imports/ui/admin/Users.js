@@ -95,7 +95,7 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <button onClick={this.handleDeleteUser.bind(this} id="111">
+                    <button onClick={this.handleDeleteUser.bind(this}>
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                   </td>
