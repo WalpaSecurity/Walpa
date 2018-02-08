@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth:api'], function () {
   Route::get('/account', 'ActivityReportController@show'); //Avoir tous les fichiers d'analyse d'un utilisateur
   Route::get('storage/{filename}', function ($filename) { //Récupération du fichier d'analyse
       if (Auth::check()) {
-          $path = '/var/www/html/public/temp/' . $filename .'.txt';
+          $path = '/var/www/laravel/public/temp/' . $filename .'.txt';
 
           if (!File::exists($path)) {
               abort(404);
@@ -65,5 +65,5 @@ Route::group(['middleware' => 'auth:api'], function () {
   Route::delete('/admin/{id}', 'AdminController@deleteAdmin');
   Route::post('/admin', 'AdminController@addAdmin');
   Route::delete('/user/{id}', 'AdminController@delete');
-  Route::get('/projects', 'AdminController@getProjet'); 
+  Route::get('/projects', 'AdminController@getProjet');
 });
