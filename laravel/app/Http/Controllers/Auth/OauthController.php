@@ -39,6 +39,8 @@ class OauthController extends Controller
           return Redirect::to('auth/github');
       }
       $authUser = $this->findOrCreateUser($user);
+      dd($authUser);
+      
       if(Auth::login($authUser, true)){
         $user = Auth::user();
         $success['token'] =  $user->createToken('MyApp')->accessToken;
