@@ -62,16 +62,13 @@ export default class Profile extends Component {
         // );
 
         var renderedHtml ="";
+        renderedHtml +=<tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>;
+        return renderedHtml;
 
         for (var i = 0; i< TableauRepo.length; i++ )
         {
             console.log(TableauRepo[i].file_name);
-            renderedHtml +=<tr>
-                <td>1</td>
-                <td>baz</td>
-                <td>foo</td>
-                <td>bar</td>
-            </tr>;
+            renderedHtml +=<tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>;
         }
 
         return renderedHtml;
