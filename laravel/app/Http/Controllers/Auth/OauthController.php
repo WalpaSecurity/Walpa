@@ -40,11 +40,28 @@ class OauthController extends Controller
 
       Auth::login($authUser, true);
 
-      if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+    /*  if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
 
       }else{
 
+      }*/
+
+
+      if(Auth::login($authUser, true)){
+        $user = Auth::user();
+        $success['token'] =  $user->createToken('MyApp')->accessToken;
+
+        $changeUser = DB::table('users')
+               ->where('id', Auth::user()->id)
+               ->update(['remember_token' => $user->createToken('MyApp')->accessToken]);
+
+
+        return response()->json(['success' => true, 'token' => $user->createToken('MyApp')->accessToken]);
+      }else{
+        return response()->json(['success' => false, 'err' => "Error..."]);
       }
+
+
 
       return Redirect::to('home');
   }
