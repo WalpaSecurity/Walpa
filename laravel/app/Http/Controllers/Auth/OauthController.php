@@ -12,7 +12,6 @@ use Redirect;
 use Socialite;
 use DB;
 
-
 class OauthController extends Controller
 {
   /**
@@ -61,15 +60,18 @@ class OauthController extends Controller
       if ($authUser = User::where('github_id', $githubUser->id)->first()) {
           return $authUser;
       }
-     return DB::table('users')->insert(
-       array(
-         'name' => $request['name'],
-         'email' => $request['email'],
-         'password' => bcrypt($request['password']),
-         'admin' => false,
-         'github_id' => "",
-       )
-   );
+
+
+
+      return DB::table('users')->insert(
+        array(
+          'name' => $githubUser->name,
+          'email' => $githubUser->email,
+          'password' => "",
+          'admin' => false,
+          'github_id' => $githubUser->id,
+        )
+    );
 
   }
 }
