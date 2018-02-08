@@ -225,7 +225,7 @@ export default class Profile extends Component {
                       <tr>
                           <td>1</td>
                           <td>
-                              <a href="/files.txt" onClick={this.handleListrepo.bind(this)}>
+                              <a href="#" onClick={this.handleListrepo.bind(this)}>
                                   Projet 1
                               </a>
                           </td>
