@@ -56,18 +56,25 @@ export default class Profile extends Component {
     }
 
     renderRepo(){
-        return (
-            <p> test</p>
-        );
-        for (i = 0; i< TableauRepo.length; i++ )
+
+        // return (
+            //<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>
+        // );
+
+        var renderedHtml ="";
+
+        for (var i = 0; i< TableauRepo.length; i++ )
         {
-            var tab = [];
-            tab[i] = TableauRepo[i];
             console.log(TableauRepo[i].file_name);
-
-
-
+            renderedHtml +=<tr>
+                <td>1</td>
+                <td>baz</td>
+                <td>foo</td>
+                <td>bar</td>
+            </tr>;
         }
+
+        return renderedHtml;
 
         // return this.getRepo().map(
         //     function (repo) {
@@ -119,7 +126,7 @@ export default class Profile extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                        {this.renderRepo}
+                        {this.renderRepo()}
                     </tbody>
                   </table>
                 </div>
