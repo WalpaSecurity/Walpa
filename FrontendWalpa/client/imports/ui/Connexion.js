@@ -6,6 +6,53 @@ import { Session } from 'meteor/session';
 // App component - represents the whole app
 export default class Connexion extends Component {
 
+    handleSubmitConnexionGitHub(event) {
+        event.preventDefault();
+
+        HTTP.call('GET', 'http://192.168.1.16:5000/auth/github', {
+
+        },(error, result) => {
+          if (!error) {
+            const res = JSON.parse(result.content);
+            console.log(res);
+            console.log(res.token);
+            const token = res.token;
+            localStorage.setItem('token', token);
+            localStorage.setItem('statutconnexion', '2');
+            console.log("connexionGit");
+            // HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
+            //   headers:{
+            //     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+            //     'Content-Type' : "application/json",
+            //     'Authorization' : "Bearer " + token,
+            //     'Accept' : "application/json"
+            //
+            //   },
+            //   data: {
+            //     token: token
+            //   }
+            // }, (error, resultuser) => {
+            //   if (!error) {
+            //       console.log(resultuser);
+            //       const resuser = JSON.parse(resultuser.content);
+            //       console.log(resuser);
+            //       console.log(resuser.success.admin);
+            //       document.location.reload(true);
+            //
+            //       if(resuser.success.admin == 1){
+            //         localStorage.setItem('statutconnexion', '1');
+            //       } else {
+            //         localStorage.setItem('statutconnexion', '2');
+            //       }
+            //       this.props.history.push('/home');
+            //   }
+            // });
+          } else {
+            $('#erreurConnect').show();
+          }
+        });
+    }
+
     handleSubmitConnexion(event) {
         event.preventDefault();
 
@@ -59,15 +106,7 @@ export default class Connexion extends Component {
             $('#erreurConnect').show();
           }
         });
-
-        // Clear form
-
     }
-    /*handleGithub(event){
-        //event.preventDefault();
-
-
-    }*/
 
     handleSubmitInscription(event) {
       event.preventDefault();
@@ -98,7 +137,7 @@ export default class Connexion extends Component {
           $('#erreurRegister').show();
 
           setTimeout(function () {
-              $('#erreurRegister').hide(500);
+              $('#erreurRegister').hide();
           }, 3000);
         }
       });
@@ -125,7 +164,7 @@ export default class Connexion extends Component {
                                 <div className="alert alert-danger erreur" id="erreurConnect" role="alert">Vous devez remplir tous les champs !</div>
                                 <hr />
                                 <br/>
-                                <a href="http://192.168.1.16:5000/auth/github" className="btn btn-secondary" target="_blank"><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
+                                <a href="/" className="btn btn-secondary" target="_blank" onClick={this.handleSubmitConnexionGitHub.bind(this)}><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
                             </div>
                             <div className="col-12 col-md-6 col-lg-4 inscription">
                                 <h2>Inscription</h2>
