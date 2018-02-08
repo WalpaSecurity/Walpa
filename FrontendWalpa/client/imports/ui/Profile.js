@@ -69,7 +69,7 @@ export default class Profile extends Component {
             renderedHtml.push(<tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>);
         }
 
-        return renderedHtml;
+        return renderedHtml[0];
 
         // return this.getRepo().map(
         //     function (repo) {
