@@ -26,10 +26,7 @@ export default class Projet extends Component {
             if (!error) {
             const res = JSON.parse(result.content);
             console.log(res);
-          } else {
-            // Si on a une erreur
-            console.log('pas connecter');
-          }
+          } 
     });
     }
 
