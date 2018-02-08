@@ -85,13 +85,11 @@ export default class Profile extends Component {
 
         let test = TableauRepo.map(
             (tab, index) => (
-                <tbody>
-                <tr>
-                    <td>Ok</td>
-                </tr>
-                </tbody>
+                ok
             )
         );
+
+        console.log('test', test);
 
         return (test);
 
