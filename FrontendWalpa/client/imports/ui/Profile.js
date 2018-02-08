@@ -57,7 +57,7 @@ export default class Profile extends Component {
 
     renderRepo(){
 
-        return (
+        var foo = (
             <tr>
                 <td>1</td>
                       <td>
@@ -73,6 +73,7 @@ export default class Profile extends Component {
                              </td>
                          </tr>
         );
+        return foo;
 
         for (i = 0; i< TableauRepo.length; i++ )
         {
