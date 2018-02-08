@@ -81,10 +81,14 @@ class ProcessReport implements ShouldQueue
         // Ouvre un fichier pour lire un contenu existant
         echo("\nBefore file_get_contents($file)\n");
         $current = file_get_contents($file);
+        echo("After file_get_contents($file)\n");
         $current .= $str_result ;
+        echo("After concat\n");
         file_put_contents($file, $current);
+        echo("After file_put_contents()\n");
 
         Mail::to("groupe2@asr.lan")->send(new MailTransac());
+        echo("After mail\n");
 
         //Analyse termin  e
         $activityReport = DB::table('activityReport')
