@@ -110,7 +110,7 @@ class ActivityReportController extends Controller
         $PHPCoding = shell_exec("php-cs-fixer fix /var/www/laravel/public/temp/".$number);
 
         //PHP Metrics :
-        shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/laravel/public/temp/".$number);
+        shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport5 /var/www/laravel/public/temp/".$number);
         shell_exec("cp -R /var/www/laravel/myreport /var/www/laravel/public/temp/metrics_". $number);
 
         //Rassemblement de tous les résultats
