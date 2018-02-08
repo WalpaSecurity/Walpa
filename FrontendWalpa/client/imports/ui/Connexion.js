@@ -56,7 +56,6 @@ export default class Connexion extends Component {
               }
             });
           } else {
-            console.log($('#erreurConnect'));
             $('#erreurConnect').show();
           }
         });
@@ -90,6 +89,8 @@ export default class Connexion extends Component {
       }, (error, result) => {
         if (!error) {
           console.log(result);
+        } else {
+          $('#erreurRegister').show();
         }
       });
     }
@@ -138,6 +139,7 @@ export default class Connexion extends Component {
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="S'inscrire"/>
                                 </form>
+                                <div className="alert alert-danger erreur" id="erreurRegister" role="alert">Vous devez remplir tous les champs !</div>
                             </div>
                         </div>
                     </div>
