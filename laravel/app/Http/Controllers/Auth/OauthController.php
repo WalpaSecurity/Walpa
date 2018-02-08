@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Auth;
 use Redirect;
 use Socialite;
@@ -31,6 +30,74 @@ class OauthController extends Controller
    */
   public function handleProviderCallback()
   {
+      try {
+          $user = Socialite::driver('github')->user();
+      } catch (Exception $e) {
+          return Redirect::to('auth/github');
+      }
+
+      $authUser = $this->findOrCreateUser($user);
+
+      Auth::login($authUser, true);
+
+      if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+
+      }else{
+
+      }
+
+      return Redirect::to('home');
+  }
+
+  /**
+   * Return user if exists; create and return if doesn't
+   *
+   * @param $githubUser
+   * @return User
+   */
+  private function findOrCreateUser($githubUser)
+  {
+
+      if ($authUser = User::where('github_id', $githubUser->id)->first()) {
+          return $authUser;
+      }
+
+     return User::create([
+          'name' => $githubUser->name,
+          'email' => $githubUser->email,
+          'password' => "",
+          'admin' => false,
+          'github_id' => $githubUser->id,
+      ]);
+
+  }
+}
+
+/*
+namespace App\Http\Controllers\Auth;
+
+
+use App\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Auth;
+use Redirect;
+use Socialite;
+
+class OauthController extends Controller
+{
+
+  public function redirectToProvider()
+  {
+      return Socialite::driver('github')->redirect();
+  }
+
+
+  public function handleProviderCallback()
+  {
       //return response()->json(['toto' => "totoot"]);
 
       try {
@@ -40,7 +107,7 @@ class OauthController extends Controller
       }
       $authUser = $this->findOrCreateUser($user);
       dd(Auth::login($authUser, true));
-      
+
       if(Auth::login($authUser, true)){
         $user = Auth::user();
         $success['token'] =  $user->createToken('MyApp')->accessToken;
@@ -50,12 +117,7 @@ class OauthController extends Controller
       }
   }
 
-  /**
-   * Return user if exists; create and return if doesn't
-   *
-   * @param $githubUser
-   * @return User
-   */
+
   private function findOrCreateUser($githubUser)
   {
 
@@ -72,3 +134,5 @@ class OauthController extends Controller
 
   }
 }
+
+*/
