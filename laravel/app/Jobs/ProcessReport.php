@@ -92,6 +92,6 @@ class ProcessReport implements ShouldQueue
               ->update(['statut' => "TERMINEE"]);
         echo("On arrive à la fin putain");
         rmdir("/var/www/laravel/public/temp/".$this->number);
-        //shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
+        shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
     }
 }
