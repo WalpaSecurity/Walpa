@@ -61,8 +61,7 @@ export default class Profile extends Component {
             //<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>
         // );
 
-        var renderedHtml ="";
-        renderedHtml +=<tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>;
+        var renderedHtml =<tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>;
         return renderedHtml;
 
         for (var i = 0; i< TableauRepo.length; i++ )
