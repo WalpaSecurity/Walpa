@@ -93,7 +93,8 @@ class ActivityReportController extends Controller
         shell_exec("git clone ". $request->url ." /var/www/laravel/public/temp/".$number);
 
         //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
-        $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/laravel/public/temp/".$number);
+        $PHPCODESNIFFER = shell_exec("
+         /var/www/laravel/public/temp/".$number);
 
         //PHP LOC : is a tool for quickly measuring the size and analyzing the structure of a PHP project
         $PHPLOC = shell_exec("phploc /var/www/laravel/public/temp/".$number);
@@ -109,8 +110,8 @@ class ActivityReportController extends Controller
         $PHPCoding = shell_exec("php-cs-fixer fix /var/www/laravel/public/temp/".$number);
 
         //PHP Metrics :
-      //  shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/html/public/temp/".$number);
-        //  shell_exec("cp -R /var/www/html/myreport /var/www/html/public/temp/metrics_". $number);
+        shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/html/public/temp/".$number);
+        shell_exec("cp -R /var/www/html/myreport /var/www/html/public/temp/metrics_". $number);
 
         //Rassemblement de tous les résultats
         $str_result = "-------------------------------------------------------------------------------- \n Détection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
@@ -118,10 +119,9 @@ class ActivityReportController extends Controller
         $str_result .= "\n-------------------------------------------------------------------------------- \n Détecteur de copier/coller : \n\n " . $PHPCPD;
         //  $str_result .= "\n -------------------------------------------------------------------------------- \n Analyse des potentiels vulnérabilités \n " . $PHortress;
         $str_result .= "\n-------------------------------------------------------------------------------- \n Modifie le code PHP en standard : \n\n " . $PHPCoding;
+        $str_result .= "\n-------------------------------------------------------------------------------- \n PHP Metrics : \n\n " . URL::asset('/metrics/metrics_'. $number);
 
-      //  $str_result .= "\n-------------------------------------------------------------------------------- \n PHP Metrics : \n\n " . URL::asset('/metrics/metrics_'. $number);
 
-        //  shell_exec("rm /var/www/html/public/temp/result.txt");
         //Création du fichier texte qui va contenir le résultat
         shell_exec("touch /var/www/laravel/public/temp/". $name_file .".txt");
 
