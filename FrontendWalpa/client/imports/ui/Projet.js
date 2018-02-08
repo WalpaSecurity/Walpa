@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom';
 import { HTTP } from 'meteor/http';
 
 
+function toast() {
+    var toast = document.getElementById("snackbar");
+
+    // Add the "show" class to DIV
+    toast.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () {
+        toast.className = toast.className.replace("show", "");
+    }, 3000);
+}
+
+
 const token = localStorage.getItem('token');
 // App component - represents the whole app
 export default class Projet extends Component {
