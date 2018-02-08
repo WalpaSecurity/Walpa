@@ -23,9 +23,9 @@ class ProcessReport implements ShouldQueue
     public function __construct($url, $number, $id, $name_file)
     {
         $this->url = $url;
-	$this->number = $number;
-	$this->id = $id;
-	$this->name_file = $name_file;
+      	$this->number = $number;
+      	$this->id = $id;
+      	$this->name_file = $name_file;
     }
 
     /**
@@ -35,11 +35,11 @@ class ProcessReport implements ShouldQueue
      */
     public function handle()
     {
-	//COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
+	      //COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
         //Clonage du fichier git
         shell_exec("git clone ". $this->url ." /var/www/laravel/public/temp/".$this->number);
 
-        //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
+  /*      //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
         $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/laravel/public/temp/".$this->number);
 
         //PHP LOC : is a tool for quickly measuring the size and analyzing the structure of a PHP project
@@ -71,21 +71,22 @@ class ProcessReport implements ShouldQueue
         //  shell_exec("rm /var/www/html/public/temp/result.txt");
         //Cr  ation du fichier texte qui va contenir le r  sultat
         shell_exec("touch /var/www/laravel/public/temp/". $this->name_file .".txt");
-         $file = '/var/www/laravel/public/temp/'. $this->name_file .'.txt';
+
+        $file = '/var/www/laravel/public/temp/'. $this->name_file .'.txt';
         // Ouvre un fichier pour lire un contenu existant
         $current = file_get_contents($file);
         $current .= $str_result ;
         file_put_contents($file, $current);
-
+*/
         Mail::to("groupe2@asr.lan")->send(new MailTransac());
 
-        //Analyse termin  e
+    /*    //Analyse termin  e
         $activityReport = DB::table('activityReport')
               ->where('user_id', $this->id)
               ->where('url', $this->url)
               ->where('file_name', $this->name_file)
               ->update(['statut' => "TERMINEE"]);
-
+*/
         shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
     }
 }
