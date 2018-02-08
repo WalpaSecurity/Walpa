@@ -7,10 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Auth;
 use Redirect;
 use Socialite;
-use DB;
 
 class OauthController extends Controller
 {
@@ -60,18 +60,13 @@ class OauthController extends Controller
       if ($authUser = User::where('github_id', $githubUser->id)->first()) {
           return $authUser;
       }
-
-
-
-      return DB::table('users')->insert(
-        array(
+     return User::create([
           'name' => $githubUser->name,
           'email' => $githubUser->email,
           'password' => "",
           'admin' => false,
           'github_id' => $githubUser->id,
-        )
-    );
+      ]);
 
   }
 }
