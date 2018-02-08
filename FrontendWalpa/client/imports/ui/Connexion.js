@@ -98,7 +98,7 @@ export default class Connexion extends Component {
           $('#erreurRegister').show();
 
           setTimeout(function () {
-              $('#erreurRegister').fadeOut();
+              $('#erreurRegister').hide(500);
           }, 3000);
         }
       });
