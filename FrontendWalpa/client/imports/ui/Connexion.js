@@ -95,6 +95,23 @@ export default class Connexion extends Component {
       });
     }
 
+    handleConnectGit(){
+
+      HTTP.call('GET', 'http://192.168.1.16:5000/auth/github/callback', {
+
+      }, (error, result) => {
+        console.log("toto1");
+        if (!error) {
+          const users = JSON.parse(result.content);
+          console.log(result);
+          console.log(users.data);
+          console.log("good");
+        } else {
+          console.log("pas good");
+        }
+      });
+    }
+
     render() {
         return (
                 <section id="connexion-inscription" className="text-center text-lg-left">
