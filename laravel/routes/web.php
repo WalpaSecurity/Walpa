@@ -81,8 +81,8 @@ Route::get('/mail', function () {
 });
 
 Route::get('metrics/{filename}', function ($filename) { //Récupération du fichier d'analyse
-  //  if (Auth::check()) {
-        $path = '/var/www/html/public/temp/' . $filename . '/index.html';
+    if (Auth::check()) {
+        $path = '/var/www/laravel/public/temp/' . $filename . '/index.html';
 
         if (!File::exists($path)) {
             abort(404);
@@ -108,10 +108,11 @@ Route::get('metrics/{filename}', function ($filename) { //Récupération du fich
           'success' => true,
           'resultActivityReport' => $response
     ]);*/
-  /*  } else {
+    } else {
         return view('auth.login');
-    }*/
+    }
 });
+
 
 Route::get('/jobs', 'ActivityReportController@show');
 Route::get('/google', function () {
