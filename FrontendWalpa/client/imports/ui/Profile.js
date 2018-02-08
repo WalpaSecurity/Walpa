@@ -61,7 +61,7 @@ export default class Profile extends Component {
             //<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>
         // );
 
-        var renderedHtml = [];
+        var renderedHtml = []
 
         for (var i = 0; i< TableauRepo.length; i++ )
         {
@@ -71,7 +71,7 @@ export default class Profile extends Component {
         console.log('done');
         console.log(renderedHtml);
 
-        return renderedHtml;
+        return (renderedHtml);
 
         // return this.getRepo().map(
         //     function (repo) {
