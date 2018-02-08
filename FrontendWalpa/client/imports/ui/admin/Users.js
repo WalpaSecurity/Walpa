@@ -30,7 +30,8 @@ export default class gestionUsers extends Component {
     handleDeleteUser(e){
       e.preventDefault();
       console.log("on supprime un user");
-      console.log($(this).closest('tr').data('id'));
+      console.log($(this).closest('listUser tbody tr').data('id'));
+      console.log($(this).closest('tr'));
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -51,6 +52,8 @@ export default class gestionUsers extends Component {
       e.preventDefault();
       console.log("on supprime un admin");
       console.log($(this).closest('tr').data('id'));
+      console.log($(this).closest('tr'));
+      console.log($(this).closest('tr'));
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -71,8 +74,7 @@ export default class gestionUsers extends Component {
     render() {
         return (
           <div className="adminContent gestionUsers" onLoad={this.handleGetListUsers.bind(this)}>
-            <h1>Liste des utilisateurs</h1>
-            <a href="/" className="btn btn-primary">Rafraichir</a>
+            <h2>Liste des utilisateurs</h2>
             <table className="table table-striped" id="listUser">
               <thead>
                 <tr>
