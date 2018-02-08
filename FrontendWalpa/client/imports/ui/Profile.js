@@ -83,7 +83,7 @@ export default class Profile extends Component {
 
         for (var i = 0; i< TableauRepo.length; i++ )
         {
-            setRepodata(TableauRepo);
+            this.setRepodata(TableauRepo);
         }
 
 
