@@ -34,6 +34,10 @@ export default class gestionUsers extends Component {
       console.log($(this));
       console.log($(this).text());
 
+      // Find the text field via the React ref
+      var id = ReactDOM.findDOMNode(this.refs.id).value.trim();
+      console.log(id);
+
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
           "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
@@ -106,9 +110,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)} data-id="1">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteUser.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="1" />
+                      <input type="submit" value="Se connecter"/>
+                    </form>
                   </td>
                 </tr>
                 <tr>
