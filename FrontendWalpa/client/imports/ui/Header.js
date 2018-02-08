@@ -89,6 +89,7 @@ export default class Header extends Component {
                 </ul>
               </div>
               <div className="overlay_mobile"></div>
+              <div id="snackbar">Some text some message..</div>
             </div>
           );
         }else if(statutconnexion == "2"){
@@ -214,6 +215,7 @@ export default class Header extends Component {
                     </ul>
                 </div>
                 <div className="overlay_mobile"></div>
+                <div id="snackbar">Some text some message..</div>
             </div>
           );
         }
