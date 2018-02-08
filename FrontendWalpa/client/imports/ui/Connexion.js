@@ -89,8 +89,17 @@ export default class Connexion extends Component {
       }, (error, result) => {
         if (!error) {
           console.log(result);
-        } else {
+          $('#erreurRegister').removeClass('alert-danger');
+          $('#erreurRegister').addClass('alert-success');
+          $('#erreurRegister').html("Vous pouvez desormais vous connecter !");
           $('#erreurRegister').show();
+        } else {
+          $('#erreurRegister').html("Vous devez remplir tous les champs !");
+          $('#erreurRegister').show();
+
+          setTimeout(function () {
+              $('#erreurRegister').hide();
+          }, 3000);
         }
       });
     }
