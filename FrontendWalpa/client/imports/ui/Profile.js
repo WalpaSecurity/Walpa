@@ -81,11 +81,19 @@ export default class Profile extends Component {
     }
 
 
-    renderRepo = (tab) =>{
+    renderRepo = () =>{
 
-        console.log('ok');
+        console.log('test tab', TableauRepo.length);
 
-        return 'ok';
+        return (
+            <tbody>
+            <tr>
+                <td>
+                    Ok
+                </td>
+            </tr>
+            </tbody>
+        );
 
         // return (
             //<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>
@@ -157,11 +165,7 @@ export default class Profile extends Component {
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                        {TableauRepo.map(
-                            (tab, item) => {
-                                return ( this.renderRepo(tab))
-                            }
-                        )}
+                        { this.renderRepo() }
                   </table>
                 </div>
               </div>
