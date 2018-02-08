@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use Mail;
 use App\Mail\RegisterEmail;
+use DB;
 
 class PassportController extends Controller
 {
