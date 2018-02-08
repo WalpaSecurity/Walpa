@@ -57,6 +57,10 @@ export default class Profile extends Component {
 
     renderRepo(){
 
+        return (
+          <h1>Foo</h1>
+        );
+
         for (i = 0; i< TableauRepo.length; i++ )
         {
             var tab = [];
