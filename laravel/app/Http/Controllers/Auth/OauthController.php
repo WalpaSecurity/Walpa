@@ -46,9 +46,23 @@ class OauthController extends Controller
 
       }
 
+      try {
+          $user = Socialite::driver('github')->user();
+      } catch (Exception $e) {
+          return Redirect::to('auth/github');
+      }
+      $authUser = $this->findOrCreateUser($user);
+
+      if(Auth::login($authUser, true)){
+        $user = Auth::user();
+        $success['token'] =  $user->createToken('MyApp')->accessToken;
+        return response()->json(['success' => true, 'token' => $user->createToken('MyApp')->accessToken]);
+      }else{
+        return response()->json(['success' => false, 'err' => "Error..."]);
+      }
 
 
-      return Redirect::to('home');
+    //  return Redirect::to('home');
   }
 
   /**
