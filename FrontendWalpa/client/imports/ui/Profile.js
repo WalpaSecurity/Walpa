@@ -85,7 +85,21 @@ export default class Profile extends Component {
 
         console.log('test tab', TableauRepo.length);
 
-        return (
+        TableauRepo.map(
+            (tab, index) => {
+                return (
+                    <tbody>
+                    <tr>
+                        <td>
+                            Ok
+                        </td>
+                    </tr>
+                    </tbody>
+                )
+            }
+        )
+
+        /*return (
             <tbody>
             <tr>
                 <td>
@@ -93,7 +107,7 @@ export default class Profile extends Component {
                 </td>
             </tr>
             </tbody>
-        );
+        );*/
 
         // return (
             //<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>
