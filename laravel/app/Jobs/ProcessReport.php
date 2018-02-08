@@ -38,16 +38,16 @@ class ProcessReport implements ShouldQueue
 	      //COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
         //Clonage du fichier git
         shell_exec("git clone ". $this->url ." /var/www/laravel/public/temp/".$this->number);
-        echo('_ git clone d emerde');
+
         //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
         $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/laravel/public/temp/".$this->number);
-        echo("_ codesniffer");
+
         //PHP LOC : is a tool for quickly measuring the size and analyzing the structure of a PHP project
         $PHPLOC = shell_exec("phploc /var/www/laravel/public/temp/".$this->number);
-        echo("_ phploc");
+
         //PHP Copy/Paste Detector : is a Copy/Paste Detector (CPD) for PHP code.
         $PHPCPD = shell_exec("phpcpd /var/www/laravel/public/temp/".$this->number);
-        echo("_ phpcpd");
+
         //Phortress : static code analyser for potential vulnerabilities
         //shell_exec("sudo apt-get install phpunit");
         //    $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
@@ -70,7 +70,9 @@ class ProcessReport implements ShouldQueue
 
         //  shell_exec("rm /var/www/html/public/temp/result.txt");
         //Cr  ation du fichier texte qui va contenir le r  sultat
-        shell_exec("touch /var/www/laravel/public/temp/". $this->name_file .".txt");
+        echo ("AVANT creation file");
+        //shell_exec("touch /var/www/laravel/public/temp/". $this->name_file .".txt");
+        file_put_contents("/var/www/laravel/public/temp/". $this->name_file . ".txt");
         echo("_ creation file");
         $file = '/var/www/laravel/public/temp/'. $this->name_file .'.txt';
         echo("_ dollard file");
