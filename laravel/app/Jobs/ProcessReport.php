@@ -87,17 +87,19 @@ class ProcessReport implements ShouldQueue
         file_put_contents($file, $current);
         echo("After file_put_contents()\n");
 
-        Mail::to("groupe2@asr.lan")->send(new MailTransac());
+        //Mail::to("groupe2@asr.lan")->send(new MailTransac());
         echo("After mail\n");
 
         //Analyse termin  e
-        $activityReport = DB::table('activityReport')
+        /*$activityReport = DB::table('activityReport')
               ->where('user_id', $this->id)
               ->where('url', $this->url)
               ->where('file_name', $this->name_file)
               ->update(['statut' => "TERMINEE"]);
         echo("On arrive à la fin putain");
         //rmdir("/var/www/laravel/public/temp/".$this->number);
+        */
         shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
+        echo("I'm done\n");
     }
 }
