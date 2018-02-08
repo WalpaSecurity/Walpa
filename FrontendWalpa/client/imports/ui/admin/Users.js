@@ -33,7 +33,6 @@ export default class gestionUsers extends Component {
 
     handleDeleteUser(e){
       console.log("on supprime un user");
-      console.log(e.target.id);
       console.log(this.props.data.id);
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
