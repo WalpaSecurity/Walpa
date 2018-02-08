@@ -115,7 +115,7 @@ export default class gestionUsers extends Component {
                   <td>
                     <form onSubmit={this.handleDeleteUser.bind(this)} >
                       <input type="hidden" name="id" ref="id" value="1" />
-                      <input type="submit" value="Se connecter"/>
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
                     </form>
                   </td>
                 </tr>
@@ -125,9 +125,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)} data-id="2">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteUser.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="2" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr>
@@ -136,9 +137,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)} data-id="3">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteUser.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="3" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr>
@@ -147,9 +149,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)} data-id="4">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteUser.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="4" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr>
@@ -158,15 +161,14 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)} data-id="5">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteUser.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="5" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
               </tbody>
             </table>
-
-
             <hr/>
 
 
@@ -188,9 +190,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="1" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr data-id="2">
@@ -199,9 +202,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="2" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr data-id="3">
@@ -210,9 +214,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="3" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr data-id="4">
@@ -221,9 +226,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="4" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr data-id="5">
@@ -232,9 +238,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="5" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
               </tbody>
