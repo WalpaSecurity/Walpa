@@ -157,7 +157,7 @@ export default class Profile extends Component {
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                        {this.renderRepo()}
+                        {this.renderRepo().bind(TableauRepo)}
                   </table>
                 </div>
               </div>
