@@ -38,7 +38,7 @@ class OauthController extends Controller
 
       $authUser = $this->findOrCreateUser($user);
 
-      Auth::login($authUser, true);
+    //  Auth::login($authUser, true);
 
     /*  if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
 
@@ -50,12 +50,9 @@ class OauthController extends Controller
       if(Auth::login($authUser, true)){
         $user = Auth::user();
         $success['token'] =  $user->createToken('MyApp')->accessToken;
-
         $changeUser = DB::table('users')
                ->where('id', Auth::user()->id)
                ->update(['remember_token' => $user->createToken('MyApp')->accessToken]);
-
-
         return response()->json(['success' => true, 'token' => $user->createToken('MyApp')->accessToken]);
       }else{
         return response()->json(['success' => false, 'err' => "Error..."]);
@@ -63,7 +60,7 @@ class OauthController extends Controller
 
 
 
-      return Redirect::to('home');
+    //  return Redirect::to('home');
   }
 
   /**
