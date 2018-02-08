@@ -73,7 +73,7 @@ class ProcessReport implements ShouldQueue
         shell_exec("touch /var/www/laravel/public/temp/". $this->name_file .".txt");
         echo("_ creation file");
         $file = '/var/www/laravel/public/temp/'. $this->name_file .'.txt';
-        echo("_ dollard file")
+        echo("_ dollard file"); 
         // Ouvre un fichier pour lire un contenu existant
         $current = file_get_contents($file);
         $current .= $str_result ;
