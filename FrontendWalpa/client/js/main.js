@@ -93,21 +93,6 @@ if(statutconnexion == "1" && view == "admin"){
 
 
 
-window.onscroll = function () {
-    growShrinkLogo();
-};
-
-function growShrinkLogo() {
-    var Logo = document.getElementById("logo");
-    var body = document.getElementsByTagName('body');
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        Logo.style.width = '120px';
-    } else {
-        Logo.style.width = '180px';
-    }
-}
-
-
 function toast() {
     var toast = document.getElementById("snackbar");
 

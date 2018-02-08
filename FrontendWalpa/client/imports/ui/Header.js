@@ -220,14 +220,19 @@ export default class Header extends Component {
           );
         }
     }
-    // function displayHeader(){
-    //     const element = (
-    //         <div id='wow'></div>
-    // );
-    //     ReactDOM.render(
-    //         element,
-    //         document.getElementById('header')
-    //     );
-    // }
+}
 
+
+
+window.onscroll = function () {
+    growShrinkLogo();
+};
+
+function growShrinkLogo() {
+    var Logo = document.getElementById("logo");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        Logo.style.width = '120px';
+    } else {
+        Logo.style.width = '180px';
+    }
 }
