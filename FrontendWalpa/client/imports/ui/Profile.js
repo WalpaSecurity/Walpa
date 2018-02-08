@@ -1,4 +1,5 @@
   import React, { Component } from 'react';
+  import Repo from './Repo.js';
 
   const token = localStorage.getItem('token');
   var TableauRepo = [];
@@ -8,7 +9,7 @@ export default class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: "p"
+            test: []
         };
     }
 
@@ -62,23 +63,25 @@ export default class Profile extends Component {
         // );
 
 
-        return (<tbody>
-            {TableauRepo.map((item, key) => (
-                <tr key={key}><td>foo</td><td>bar</td><td>baz</td><td>blah</td></tr>
-            ))}
-        </tbody>);
 
-        let renderedHtml = [];
+        this.setState({
+            test: [
+                for (var i = 0; i < TableauRepo.length; i++ )
+                {
+                    {
+                    "id": i,
+                    "filename":TableauRepo[i].file_name,
+                    "url":TableauRepo[i].url,
+                    "success":TableauRepo[i].success
+                    },
+                }
+                ]
+        });
 
-        for (var i = 0; i< TableauRepo.length; i++ )
-        {
-            console.log(TableauRepo[i].file_name);
-            renderedHtml.push(<tr key={i}><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>);
-        }
-        console.log('done');
-        console.log(renderedHtml);
 
-        return (<tbody>{renderedHtml}</tbody>);
+        {this.state.test.map((item, index) => {
+            return <Repo key={index} test={item}/>;
+        })}
 
         // return this.getRepo().map(
         //     function (repo) {
