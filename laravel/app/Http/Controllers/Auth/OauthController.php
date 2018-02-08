@@ -35,18 +35,14 @@ class OauthController extends Controller
       } catch (Exception $e) {
           return Redirect::to('auth/github');
       }
-
       $authUser = $this->findOrCreateUser($user);
-
-      Auth::login($authUser, true);
-
-      if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
-
+      if(Auth::login($authUser, true)){
+        $user = Auth::user();
+        $success['token'] =  $user->createToken('MyApp')->accessToken;
+        return response()->json(['success' => true, 'token' => $user->createToken('MyApp')->accessToken]);
       }else{
-
+        return response()->json(['success' => false, 'err' => "Error..."]);
       }
-
-      return Redirect::to('home');
   }
 
   /**
@@ -61,7 +57,6 @@ class OauthController extends Controller
       if ($authUser = User::where('github_id', $githubUser->id)->first()) {
           return $authUser;
       }
-
      return User::create([
           'name' => $githubUser->name,
           'email' => $githubUser->email,

@@ -23,8 +23,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('login', 'API\PassportController@login');
 Route::post('register', 'API\PassportController@register');
 
-
-
 //Obligation d'avoir la variable "Authorization : Bearer token" dans le Headers
 Route::group(['middleware' => 'auth:api'], function () {
   Route::post('get-details', 'API\PassportController@getDetails'); //Récupère les informations d'un utilisateur
@@ -40,55 +38,28 @@ Route::group(['middleware' => 'auth:api'], function () {
           } else {
               return response()->file($path);
           }
-
             $file = File::get($path);
             $type = File::mimeType($path);
-
             $response = Response::make($file, 200);
             $response->header("Content-Type", $type);
 
-    /*  return response()
-        ->json([
-            'success' => true,
-            'resultActivityReport' => $response
-      ]);*/
-
       } else {
-          return view('auth.login');
+          return response()->json(['success' => false, 'err' => "Error"]);
       }
   });
 
-
-  Route::get('metrics/{filename}', function ($filename) { //Récupération du fichier d'analyse
+  Route::get('metrics/{filename}', function ($filename) { //Récupération du fichier d'analyse PHP Metrics
       if (Auth::check()) {
           $path = '/var/www/laravel/public/temp/' . $filename . '/index.html';
-
           if (!File::exists($path)) {
-              abort(404);
-          } /*else {
-              return response()->file($path);
-          }*/
-
-
+                return response()->json(['success' => false, 'err' => "File doesn't exist"]);
+          }
             $file = File::get($path);
             $type = File::mimeType($path);
-
             $response = Response::make($file, 200);
-
             return $response;
-
-          //  $response->header("Content-Type", $type);
-  //return File::get($path);
-
-        //  return Redirect::to($path);
-
-      /*return response()
-        ->json([
-            'success' => true,
-            'resultActivityReport' => $response
-      ]);*/
       } else {
-          return view('auth.login');
+          return response()->json(['success' => false, 'err' => "Error"]);
       }
   });
 

@@ -81,36 +81,14 @@ Route::get('/mail', function () {
 });
 
 Route::get('metrics/{filename}', function ($filename) { //Récupération du fichier d'analyse
-//    if (Auth::check()) {
         $path = '/var/www/laravel/public/temp/' . $filename . '/index.html';
-
         if (!File::exists($path)) {
             abort(404);
-        } /*else {
-            return response()->file($path);
-        }*/
-
-
+        }
           $file = File::get($path);
           $type = File::mimeType($path);
-
           $response = Response::make($file, 200);
-
           return $response;
-
-        //  $response->header("Content-Type", $type);
-//return File::get($path);
-
-      //  return Redirect::to($path);
-
-    /*return response()
-      ->json([
-          'success' => true,
-          'resultActivityReport' => $response
-    ]);*/
-  /*  } else {
-        return view('auth.login');
-    }*/
 });
 
 

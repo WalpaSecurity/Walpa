@@ -27,7 +27,7 @@ class PassportController extends Controller
             $success['token'] =  $user->createToken('MyApp')->accessToken;
             return response()->json(['success' => true, 'token' => $user->createToken('MyApp')->accessToken]);
         } else {
-            return response()->json(['error'=>'Unauthorised'], 401);
+            return response()->json(['error'=>'Unauthorised or Unknow'], 401);
         }
     }
 
@@ -58,12 +58,14 @@ class PassportController extends Controller
             'github_id' => "",
           )
       );
-        //    $success['token'] =  $user->createToken('MyApp')->accessToken;
+      if($user){
         $success =  $user;
-
+        //    $success['token'] =  $user->createToken('MyApp')->accessToken;
         Mail::to("groupe2@asr.lan")->send(new RegisterEmail($request));
-
         return response()->json(['success'=>true, 'data' => $success]);
+      }else{
+        return response()->json(['success'=>false, 'err' => "Error"]);
+      }
     }
 
     /**
