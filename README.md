@@ -1,20 +1,20 @@
--------------------------------------------- API LARAVEL DOCUMENTATION --------------------------------------------
+----------------------------------------- API LARAVEL DOCUMENTATION -----------------------------------------
 
 ************************
-> User registration < 
+> User registration <
 
 URL : /api/register
 METHOD : POST
-PARAMS : 
+PARAMS :
   name					
   email					
   password				
   c_password				
-RETURN : 
+RETURN :
   {
     “"success”": true,
   }
-  
+
 ************************
 
 > User login <
@@ -43,11 +43,11 @@ HEADERS :
 RETURN :
   {
     "	success":{
-      "”id” : 6 , 
-      “name” : “Toto”, 
-      “email” : “toto@toto.fr”, 
-      “created_at”: “2018-02-01 09:57”, 
-      “updated_at” : “2018-02-01 09:59”"
+        ”id” : 6 ,
+        “name” : “Toto”,
+        “email” : “toto@toto.fr”,
+        “created_at”: “2018-02-01 09:57”,
+        “updated_at” : “2018-02-01 09:59”"
     }
   }
 
@@ -57,7 +57,7 @@ RETURN :
 
 URL : /donation
 METHOD : GET
-RETURN : 
+RETURN :
   {
     ‘success’ : true,
     ‘data’ : {
@@ -78,15 +78,15 @@ PARAMS :
   lastName
   email
   amount        	
-type
-RETURN : 
+  type
+RETURN :
   {
   ‘success’ : true,
   }
 
 ************************
 
-> Send Git Hub URL < 
+> Send Git Hub URL <
 
 URL : /api/activity
 METHOD : POST
@@ -95,7 +95,7 @@ HEADERS :
 	Accept : “application/json”
 PARAMS :
   url
-RETURN : 
+RETURN :
   {
   ‘success’ : true,
   ‘fileName’ : “6_RESULT_1241942487”
@@ -104,13 +104,13 @@ RETURN :
 ************************
 
 > Retrieve user generated scan file lists <
- 
+
 URL : /api/account
 METHOD : GET
 HEADERS :
 	Authorization : “Bearer” + token
 	Accept : “application/json”
-RETURN : 
+RETURN :
   {
       "success": true,
       "history": [
@@ -130,13 +130,14 @@ RETURN :
 ************************
 
 > Retrieve a user's scan file <
- 
+
 URL : /api/storage/{file_name}
 METHOD : GET
 HEADERS :
 	Authorization : “Bearer” + token
 	Accept : "application/json”
-RETURN :  FILE 
+RETURN :  
+  FILE
 
 ************************
 
@@ -144,10 +145,10 @@ RETURN :  FILE
 
 URL : auth/github
 METHOD : GET
-RETURN : 
+RETURN :
   {
     ‘success’ : true,
-    ‘token’: ‘okokokokok……..’
+    ‘token’: ‘afeiuazfek...’
   }
 
 ************************
@@ -163,9 +164,9 @@ PARAMS :
   phone
   object
   message
-RETURN : 
-  { 
-  ‘success’ : true 
+RETURN :
+  {
+  ‘success’ : true
   }
 
 ************************************************
@@ -173,7 +174,7 @@ RETURN :
 >>> ADMIN PART <<<
 
 > Get the list of all users <
- 
+
 URL : /api/admin				
 METHOD : GET
 HEADERS :
@@ -183,11 +184,11 @@ RETURN :
   ‘success’ : true,
   ‘data’ : ‘[......]’
   }
-  
+
 ************************
 
 > Put an admin user <
- 
+
 URL : /api/admin/{id}				
 METHOD : POST
 HEADERS :
@@ -196,14 +197,14 @@ RETURN :
   {
   ‘success’ : true,
   }
-  
+
 ************************
 
 > Add an admin <
- 
+
 URL : /api/admin				
 METHOD : POST
-PARAMS : 
+PARAMS :
 	email
 	name
 	password				
@@ -217,7 +218,7 @@ RETURN :
 ************************
 
 > Delete an admin <
- 
+
 URL : /api/admin/{id}
 METHOD : DELETE
 HEADERS :
@@ -230,7 +231,7 @@ RETURN :
 ************************
 
 > Delete a user <
- 
+
 URL : /api/user/{id}
 METHOD : DELETE
 HEADERS :
@@ -243,7 +244,7 @@ RETURN :
 ************************
 
 > Have a list of all projects in the database <
- 
+
 URL : /api/projects
 METHOD : GET
 HEADERS :
@@ -260,4 +261,4 @@ RETURN :
 
 
 
-© WALPA - 2018 - HACKATON 
+© WALPA - 2018 - HACKATON
