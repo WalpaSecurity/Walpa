@@ -101,9 +101,6 @@ export default class Profile extends Component {
         this.setRepodata(TableauRepo);
 
 
-
-
-
         {this.state.test.map((item, index) => {
             return <Repo key={index} test={item}/>;
         })}
@@ -157,7 +154,7 @@ export default class Profile extends Component {
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                        {this.renderRepo.bind(this)}
+                        {this.renderRepo()}
                   </table>
                 </div>
               </div>
