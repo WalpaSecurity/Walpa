@@ -73,7 +73,7 @@ export default class Profile extends Component {
                     "filename": Tableau[i].file_name,
                     "url": Tableau[i].url,
                     "statut": Tableau[i].statut
-                }
+                },
             );
 
             console.log(i);
