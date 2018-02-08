@@ -24,7 +24,7 @@ export default class SuccessGit extends Component {
 
     render() {
         return (
-          <div>toto</div>
+          <div onLoad={this.handleGitConnect.bind(this)}>toto</div>
     );
     }
 }
