@@ -14,7 +14,8 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "phpcheckstyle/phpcheckstyle": "^0.14.7",
-        "phpmetrics/phpmetrics": "^2.3"
+        "phpmetrics/phpmetrics": "^2.3",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
