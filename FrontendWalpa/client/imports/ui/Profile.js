@@ -56,7 +56,6 @@ export default class Profile extends Component {
     }
 
     renderRepo(){
-        return "coucou";
 
         for (i = 0; i< TableauRepo.length; i++ )
         {
