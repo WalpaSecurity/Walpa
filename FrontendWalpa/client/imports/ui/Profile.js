@@ -66,12 +66,12 @@ export default class Profile extends Component {
         for (var i = 0; i< TableauRepo.length; i++ )
         {
             console.log(TableauRepo[i].file_name);
-            renderedHtml.push(<tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>);
+            return (<tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>);
         }
         console.log('done');
         console.log(renderedHtml);
 
-        return (renderedHtml);
+       // return (renderedHtml);
 
         // return this.getRepo().map(
         //     function (repo) {
