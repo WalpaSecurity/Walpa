@@ -13,6 +13,7 @@ import Contact from '../imports/ui/Contact.js';
 import Connexion from '../imports/ui/Connexion.js';
 import Profile from '../imports/ui/Profile.js';
 import Footer from '../imports/ui/Footer.js';
+import SuccessGit from '../imports/ui/SuccessGit.js';
 import Try from '../imports/ui/try.js';
 
 // ADMIN
@@ -81,6 +82,7 @@ if(statutconnexion == "1" && view == "admin"){
                   <Route exact path="/contact" component={Contact}/>
                   <Route exact path="/connexion" component={Connexion}/>
                   <Route exact path="/profile" component={Profile}/>
+                  <Route exact path="/auth/github/callback?code=0f59d776a23ee87acfff&state=bmRwamAhmjt6U82MIAffi3FHFQwDGHkAfaKbHSZA" component={SuccessGit}/>
                   <Route exact path="/try" component={Try}/>
               </Switch>
       </BrowserRouter> , document.getElementById('content'));
