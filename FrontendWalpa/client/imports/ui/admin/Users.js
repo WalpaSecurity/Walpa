@@ -50,11 +50,6 @@ export default class gestionUsers extends Component {
         }
       });
     }
-
-    toggleEditing( itemId ) {
-      this.setState( { editing: itemId } );
-    }
-
     handleDeleteAdmin(e){
       e.preventDefault();
 
@@ -99,7 +94,7 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <button onClick={ this.toggleEditing.bind( null, item._id ) } key={ item._id }>
+                    <button onClick={this.handleDeleteUser.bind(null,"1")} data-id="1">
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                   </td>
