@@ -81,7 +81,7 @@ export default class Profile extends Component {
     }
 
 
-    renderRepo = (tab) =>{
+    renderRepo = () =>{
 
         console.log('test tab', tab);
 
@@ -165,11 +165,7 @@ export default class Profile extends Component {
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                        { TableauRepo.map(
-                            (tab, item) => {
-                                this.renderRepo(tab)
-                            }
-                        )}
+                        { console.log('repo', TableauRepo.length) }
                   </table>
                 </div>
               </div>
