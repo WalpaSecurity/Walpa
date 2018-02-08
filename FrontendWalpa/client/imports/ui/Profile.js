@@ -12,6 +12,23 @@ export default class Profile extends Component {
             test: []
         };
     }
+    handleListrepo(){
+        HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/18_RESULT_992093363', {
+                headers:{
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                    'Content-Type' : "application/json",
+                    'Authorization' : "Bearer " + token,
+                    'Accept' : "application/json"
+
+                }
+            },
+            (error, result) => {
+                if (!error) {
+                    console.log(result);
+                }
+            });
+    }
+
 
     componentWillMount() {
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
@@ -204,11 +221,22 @@ export default class Profile extends Component {
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                        { TableauRepo.map(
-                            (tab, index) => {
-                                this.renderRepo(tab)
-                            }
-                        ) }
+                      <tbody>
+                      <tr>
+                          <td>1</td>
+                          <td>
+                              <a href="#" onClick={this.handleListrepo.bind(this)}>
+                                  Projet 1
+                              </a>
+                          </td>
+                          <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
+                          <td>
+                              <a href="/admin/projet/2">
+                                  <i className="fa fa-trash" aria-hidden="true"></i>
+                              </a>
+                          </td>
+                          </tr>
+                      </tbody>
                   </table>
                 </div>
               </div>
