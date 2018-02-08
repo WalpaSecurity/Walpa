@@ -58,7 +58,8 @@ class ProcessReport implements ShouldQueue
         //  PHP Metrics :
         //  shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/html/public/temp/".$number);
         //  shell_exec("cp -R /var/www/html/myreport /var/www/html/public/temp/metrics_". $number);
-        rmdir("/var/www/laravel/public/temp/".$this->number);
+//        rmdir("/var/www/laravel/public/temp/".$this->number);
+        shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
         //  Rassemblement de tous les résultats
         $str_result = "-------------------------------------------------------------------------------- \n D  tection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
         $str_result .= "\n-------------------------------------------------------------------------------- \n\n Analyse de la taille et la structure du projet PHP : \n\n\n" . $PHPLOC ;
