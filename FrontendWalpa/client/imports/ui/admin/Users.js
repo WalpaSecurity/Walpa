@@ -47,26 +47,6 @@ export default class gestionUsers extends Component {
         }
       });
     }
-    handleDeleteUser(e){
-      e.preventDefault();
-      console.log("on supprime un user");
-      console.log($(this).closest('tr').data('id'));
-
-      HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
-        headers:{
-          "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-          'Content-Type' : "application/json",
-          'Authorization' : "Bearer " + token,
-          'Accept' : "application/json"
-        }
-      }, (error, result) => {
-        if (!error) {
-          console.log("good");
-        } else {
-          console.log("pas good");
-        }
-      });
-    }
 
     render() {
         return (
