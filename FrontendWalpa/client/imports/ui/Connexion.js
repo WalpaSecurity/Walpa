@@ -5,13 +5,6 @@ import { Session } from 'meteor/session';
 
 // App component - represents the whole app
 export default class Connexion extends Component {
-
-    handleSubmitConnexionGitHub(event) {
-        event.preventDefault();
-
-        HTTP.call('GET', 'http://192.168.1.16:5000/auth/github');
-    }
-
     handleSubmitConnexion(event) {
         event.preventDefault();
 
@@ -123,7 +116,7 @@ export default class Connexion extends Component {
                                 <div className="alert alert-danger erreur" id="erreurConnect" role="alert">Vous devez remplir tous les champs !</div>
                                 <hr />
                                 <br/>
-                                <a href="/" className="btn btn-secondary" target="_blank" onClick={this.handleSubmitConnexionGitHub.bind(this)}><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
+                                <a href="http://192.168.1.16:5000/auth/github" className="btn btn-secondary" target="_blank"><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
                             </div>
                             <div className="col-12 col-md-6 col-lg-4 inscription">
                                 <h2>Inscription</h2>
