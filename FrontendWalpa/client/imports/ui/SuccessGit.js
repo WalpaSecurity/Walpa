@@ -22,12 +22,30 @@ export default class SuccessGit extends Component {
     });
   }
 
+  handleScriptCreate() {
+    console.log("function1");
+  }
+
+  handleScriptError() {
+    console.log("function2");
+  }
+
+  handleScriptLoad() {
+    console.log("function3");
+  }
+
     render() {
         return (
           <div>
 
           toto
             <div onLoad={this.handleGitConnect.bind(this)} className="btn btn-success">bonjour</div>
+            <Script
+              url="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"
+              onCreate={this.handleScriptCreate.bind(this)}
+              onError={this.handleScriptError.bind(this)}
+              onLoad={this.handleScriptLoad.bind(this)}
+            />
           </div>
     );
     }
