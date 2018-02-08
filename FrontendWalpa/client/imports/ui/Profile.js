@@ -65,7 +65,7 @@ export default class Profile extends Component {
         return (<tbody>
             {TableauRepo.map((item, key) => (
                 <tr><td>foo</td><td>bar</td><td>baz</td><td>blah</td></tr>
-            )}
+            ))}
         </tbody>);
 
         let renderedHtml = [];
