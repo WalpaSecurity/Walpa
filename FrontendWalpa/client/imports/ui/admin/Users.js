@@ -30,10 +30,7 @@ export default class gestionUsers extends Component {
     handleDeleteUser(e){
       e.preventDefault();
       console.log("on supprime un user");
-      console.log($(this).closest('tr').data('id'));
-      console.log($(this).find('tr').data('id'));
-      console.log($(this).closest('tr').attr('data-id'));
-      console.log($(this).find('tr').attr('data-id'));
+      console.log($(this).data('id'));
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -54,9 +51,6 @@ export default class gestionUsers extends Component {
       e.preventDefault();
       console.log("on supprime un admin");
       console.log($(this).closest('tr').data('id'));
-      console.log($(this).find('tr').data('id'));
-      console.log($(this).closest('tr').attr('data-id'));
-      console.log($(this).find('tr').attr('data-id'));
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -89,57 +83,57 @@ export default class gestionUsers extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr data-id="1">
+                <tr>
                   <td>1</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)}>
+                    <a href="" onClick={this.handleDeleteUser.bind(this)} data-id="1">
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </a>
                   </td>
                 </tr>
-                <tr data-id="2">
+                <tr>
                   <td>2</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)}>
+                    <a href="" onClick={this.handleDeleteUser.bind(this)} data-id="2">
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </a>
                   </td>
                 </tr>
-                <tr data-id="3">
+                <tr>
                   <td>3</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)}>
+                    <a href="" onClick={this.handleDeleteUser.bind(this)} data-id="3">
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </a>
                   </td>
                 </tr>
-                <tr data-id="4">
+                <tr>
                   <td>4</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)}>
+                    <a href="" onClick={this.handleDeleteUser.bind(this)} data-id="4">
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </a>
                   </td>
                 </tr>
-                <tr data-id="5">
+                <tr>
                   <td>5</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)}>
+                    <a href="" onClick={this.handleDeleteUser.bind(this)} data-id="5">
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </a>
                   </td>
