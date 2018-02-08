@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { HTTP } from 'meteor/http';
+import { Session } from 'meteor/session';
 
 
 const token = localStorage.getItem('token');
@@ -30,10 +33,13 @@ export default class gestionUsers extends Component {
     handleDeleteUser(e){
       e.preventDefault();
       console.log("on supprime un user");
-      console.log($(this).closest('tr').data('id'));
-      console.log($(this).find('tr').data('id'));
-      console.log($(this).closest('tr').attr('data-id'));
-      console.log($(this).find('tr').attr('data-id'));
+      console.log($(this).data('id'));
+      console.log($(this));
+      console.log($(this).text());
+
+      // Find the text field via the React ref
+      var id = ReactDOM.findDOMNode(this.refs.id).value.trim();
+      console.log(id);
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -53,10 +59,14 @@ export default class gestionUsers extends Component {
     handleDeleteAdmin(e){
       e.preventDefault();
       console.log("on supprime un admin");
-      console.log($(this).closest('tr').data('id'));
-      console.log($(this).find('tr').data('id'));
-      console.log($(this).closest('tr').attr('data-id'));
-      console.log($(this).find('tr').attr('data-id'));
+      var id = $(this).closest('tr').data('id');
+      var id2 = $(this).closest('tr');
+      var id3 = $(this).parent('tr');
+      var id4 = $(this);
+      console.log(id);
+      console.log(id2);
+      console.log(id3);
+      console.log(id4);
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -67,8 +77,16 @@ export default class gestionUsers extends Component {
         }
       }, (error, result) => {
         if (!error) {
+          var id = $(this).closest('tr').data('id');
+          var id2 = $(this).closest('tr');
+          console.log(id);
+          console.log(id2);
           console.log("good");
         } else {
+          var id = $(this).closest('tr').data('id');
+          var id2 = $(this).closest('tr');
+          console.log(id);
+          console.log(id2);
           console.log("pas good");
         }
       });
@@ -89,65 +107,68 @@ export default class gestionUsers extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr data-id="1">
+                <tr>
                   <td>1</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteUser.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="1" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
-                <tr data-id="2">
+                <tr>
                   <td>2</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteUser.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="2" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
-                <tr data-id="3">
+                <tr>
                   <td>3</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteUser.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="3" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
-                <tr data-id="4">
+                <tr>
                   <td>4</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteUser.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="4" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
-                <tr data-id="5">
+                <tr>
                   <td>5</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteUser.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteUser.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="5" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
               </tbody>
             </table>
-
-
             <hr/>
 
 
@@ -169,9 +190,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="1" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr data-id="2">
@@ -180,9 +202,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="2" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr data-id="3">
@@ -191,9 +214,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="3" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr data-id="4">
@@ -202,9 +226,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="4" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
                 <tr data-id="5">
@@ -213,9 +238,10 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
+                      <input type="hidden" name="id" ref="id" value="5" />
+                      <input type="submit"><i className="fa fa-trash" aria-hidden="true"></i></input>
+                    </form>
                   </td>
                 </tr>
               </tbody>
