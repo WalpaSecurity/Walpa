@@ -84,7 +84,7 @@ export default class gestionUsers extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr data-id="1">
                   <td>1</td>
                   <td>Nom</td>
                   <td>Email</td>
@@ -95,8 +95,8 @@ export default class gestionUsers extends Component {
                     </a>
                   </td>
                 </tr>
-                <tr>
-                  <td>1</td>
+                <tr data-id="2">
+                  <td>2</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
@@ -106,8 +106,8 @@ export default class gestionUsers extends Component {
                     </a>
                   </td>
                 </tr>
-                <tr>
-                  <td>1</td>
+                <tr data-id="3">
+                  <td>3</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
@@ -117,8 +117,8 @@ export default class gestionUsers extends Component {
                     </a>
                   </td>
                 </tr>
-                <tr>
-                  <td>1</td>
+                <tr data-id="4">
+                  <td>4</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
@@ -128,8 +128,8 @@ export default class gestionUsers extends Component {
                     </a>
                   </td>
                 </tr>
-                <tr>
-                  <td>1</td>
+                <tr data-id="5">
+                  <td>5</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
@@ -158,18 +158,7 @@ export default class gestionUsers extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td data-id="1">1</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
+                <tr data-id="1">
                   <td>1</td>
                   <td>Nom</td>
                   <td>Email</td>
@@ -180,8 +169,8 @@ export default class gestionUsers extends Component {
                     </a>
                   </td>
                 </tr>
-                <tr>
-                  <td>1</td>
+                <tr data-id="2">
+                  <td>2</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
@@ -191,8 +180,8 @@ export default class gestionUsers extends Component {
                     </a>
                   </td>
                 </tr>
-                <tr>
-                  <td>1</td>
+                <tr data-id="3">
+                  <td>3</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
@@ -202,8 +191,19 @@ export default class gestionUsers extends Component {
                     </a>
                   </td>
                 </tr>
-                <tr>
-                  <td>1</td>
+                <tr data-id="4">
+                  <td>4</td>
+                  <td>Nom</td>
+                  <td>Email</td>
+                  <td>01/01/2018</td>
+                  <td>
+                    <a href="" onClick={this.handleDeleteAdmin.bind(this)}>
+                      <i className="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr data-id="5">
+                  <td>5</td>
                   <td>Nom</td>
                   <td>Email</td>
                   <td>01/01/2018</td>
