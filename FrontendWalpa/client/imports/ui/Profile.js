@@ -52,9 +52,28 @@ export default class Profile extends Component {
 
     }
 
-    getRepo() {
-        return TableauRepo;
+    setRepodata(Tableau){
+        // this.setState({
+        //     test: [
+        //
+        //         {
+        //             "id": i,
+        //             "filename":TableauRepo[i].file_name,
+        //             "url":TableauRepo[i].url,
+        //             "success":TableauRepo[i].success
+        //         },
+        //
+        //     ]
+        // });
+        for (var i = 0; i< Tableau.length; i++ )
+        {
+            console.log(i);
+            console.log(Tableau[i].file_name);
+            console.log(Tableau[i].success);
+            console.log(Tableau[i].url);
+        }
     }
+
 
     renderRepo(){
 
@@ -62,20 +81,12 @@ export default class Profile extends Component {
             //<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>
         // );
 
+        for (var i = 0; i< TableauRepo.length; i++ )
+        {
+            setRepodata(TableauRepo);
+        }
 
 
-        this.setState({
-            test: [
-
-                    {
-                    "id": 1,
-                    "filename":TableauRepo[0].file_name,
-                    "url":TableauRepo[0].url,
-                    "success":TableauRepo[0].success
-                    },
-
-                ]
-        });
 
 
         {this.state.test.map((item, index) => {
