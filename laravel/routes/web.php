@@ -81,7 +81,7 @@ Route::get('/mail', function () {
 });
 
 Route::get('metrics/{filename}', function ($filename) { //Récupération du fichier d'analyse
-    if (Auth::check()) {
+//    if (Auth::check()) {
         $path = '/var/www/laravel/public/temp/' . $filename . '/index.html';
 
         if (!File::exists($path)) {
@@ -108,9 +108,9 @@ Route::get('metrics/{filename}', function ($filename) { //Récupération du fich
           'success' => true,
           'resultActivityReport' => $response
     ]);*/
-    } else {
+  /*  } else {
         return view('auth.login');
-    }
+    }*/
 });
 
 
