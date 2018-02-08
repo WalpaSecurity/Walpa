@@ -53,11 +53,11 @@ export default class Connexion extends Component {
                     localStorage.setItem('statutconnexion', '2');
                   }
                   this.props.history.push('/home');
-              } else {
-                console.log($('#erreurConnect'));
-                $('#erreurConnect').show();
               }
             });
+          } else {
+            console.log($('#erreurConnect'));
+            $('#erreurConnect').show();
           }
         });
 
