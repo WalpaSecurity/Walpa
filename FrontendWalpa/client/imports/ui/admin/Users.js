@@ -47,7 +47,7 @@ export default class gestionUsers extends Component {
         }
       });
     }
-    handleDeleteAdmn(e){
+    handleDeleteAdmin(e){
       e.preventDefault();
       console.log("on supprime un admin");
       console.log($(this).closest('tr').data('id'));
