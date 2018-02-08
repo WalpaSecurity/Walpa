@@ -81,11 +81,11 @@ export default class Profile extends Component {
     }
 
 
-    renderRepo(){
+    renderRepo = () =>{
 
         let test = TableauRepo.map(
             (tab, index) => (
-                ok
+                <h1>Ok</h1>
             )
         );
 
