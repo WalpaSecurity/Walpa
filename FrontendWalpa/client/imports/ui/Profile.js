@@ -69,9 +69,9 @@ export default class Profile extends Component {
 
                     {
                     "id": 1,
-                    "filename":TableauRepo[i].file_name,
-                    "url":TableauRepo[i].url,
-                    "success":TableauRepo[i].success
+                    "filename":TableauRepo[0].file_name,
+                    "url":TableauRepo[0].url,
+                    "success":TableauRepo[0].success
                     },
 
                 ]
