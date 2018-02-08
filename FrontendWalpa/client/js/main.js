@@ -110,11 +110,11 @@ function toast() {
     var toast = document.getElementById("snackbar");
 
     // Add the "show" class to DIV
-    toast.className = "show";
+    toast.addClass('show');
 
     // After 3 seconds, remove the show class from DIV
     setTimeout(function () {
-        toast.className = toast.className.replace("show", "");
+        toast.removeClass('show');
     }, 3000);
 }
 
