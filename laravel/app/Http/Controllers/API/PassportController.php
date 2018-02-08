@@ -48,13 +48,15 @@ class PassportController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);
         }
 
-        $user = User::create([
+        $user = DB::table('users')->insert(
+          array(
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
             'admin' => false,
-            'github_id' => '',
-        ]);
+            'github_id' => "",
+          )
+      );
         //    $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
 
