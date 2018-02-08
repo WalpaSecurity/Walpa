@@ -66,15 +66,14 @@ export default class Profile extends Component {
 
         this.setState({
             test: [
-                for (var i = 0; i < TableauRepo.length; i++ )
-                {
+
                     {
                     "id": i,
                     "filename":TableauRepo[i].file_name,
                     "url":TableauRepo[i].url,
                     "success":TableauRepo[i].success
                     },
-                }
+
                 ]
         });
 
