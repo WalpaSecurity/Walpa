@@ -68,7 +68,7 @@ export default class Profile extends Component {
             test: [
 
                     {
-                    "id": i,
+                    "id": 1,
                     "filename":TableauRepo[i].file_name,
                     "url":TableauRepo[i].url,
                     "success":TableauRepo[i].success
