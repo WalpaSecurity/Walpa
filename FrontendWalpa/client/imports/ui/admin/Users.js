@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { HTTP } from 'meteor/http';
+import { Session } from 'meteor/session';
 
 
 const token = localStorage.getItem('token');
