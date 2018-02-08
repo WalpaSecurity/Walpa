@@ -140,7 +140,7 @@ class ActivityReportController extends Controller
               ->where('file_name', $name_file)
               ->update(['statut' => "TERMINEE"]);
 
-      //  shell_exec("rm -rf /var/www/laravel/public/temp/".$number);
+       shell_exec("rm -rf /var/www/laravel/public/temp/".$number);
 
         return response()
         ->json([
