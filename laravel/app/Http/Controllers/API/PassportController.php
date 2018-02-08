@@ -59,7 +59,7 @@ class PassportController extends Controller
           )
       );
         //    $success['token'] =  $user->createToken('MyApp')->accessToken;
-        $success['name'] =  $user->name;
+        $success =  $user;
 
         Mail::to("groupe2@asr.lan")->send(new RegisterEmail($request));
 
