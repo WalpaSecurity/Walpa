@@ -85,7 +85,8 @@ class ProcessReport implements ShouldQueue
               ->where('url', $this->url)
               ->where('file_name', $this->name_file)
               ->update(['statut' => "TERMINEE"]);
-
-        shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
+        echo("On arrive à la fin putain");
+        rmdir("/var/www/laravel/public/temp/".$this->number);
+        //shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
     }
 }

@@ -78,13 +78,14 @@ class ActivityReportController extends Controller
         //AJOUT DANS LA BDD DU COMMENCEMENT DE L'ANALYSE
         $id = Auth::user()->id;
         $number = rand();
-        $name_file = $id ."_RESULT_" . $number ;
+        $name_file = $id ."_RESULT_" . $number;
 
-        $activityReport = DB::table('activityReport')->insert(
-          [ 'statut' => 'EN_COURS',
-            "url" => $request->url,
-            "file_name" => $name_file,
-            "user_id" => $id]
+        $activityReport = DB::table('activityReport')->insert([
+           "statut" => 'EN_COURS',
+           "url" => $request->url,
+           "file_name" => $name_file,
+           "user_id" => $id
+         ]
         );
 
 	     ProcessReport::dispatch($request->url, $number, $id, $name_file);
