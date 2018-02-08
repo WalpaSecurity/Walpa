@@ -13,6 +13,35 @@ export default class Profile extends Component {
         };
     }
 
+    componentWillMount() {
+        HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
+                headers:{
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                    'Content-Type' : "application/json",
+                    'Authorization' : "Bearer " + token,
+                    'Accept' : "application/json"
+
+                }
+            },
+            (error, result) => {
+                if (!error) {
+                    const res = JSON.parse(result.content);
+                    //console.log(res.data);
+                    TableauRepo =res.data;
+                    this.renderRepo();
+
+
+                    //TableauRepo.map(res.data);
+
+                    //var toto = TableauRepo;
+                    //console.log(TableauRepo);
+                    // console.log(TableauRepo[0])
+
+
+                }
+            });
+    }
+
 
 
     handleListrepo() {
@@ -179,7 +208,7 @@ export default class Profile extends Component {
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                        { this.renderRepo() }
+                        { console.log('test tableau', TableauRepo.length) }
                   </table>
                 </div>
               </div>
