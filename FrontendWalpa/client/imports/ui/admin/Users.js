@@ -33,8 +33,7 @@ export default class gestionUsers extends Component {
     handleDeleteUser(e){
       e.preventDefault();
       console.log("on supprime un user");
-      var id = $(this).ReactDOM.findDOMNode(this.refs.id).value.trim();
-      console.log(id);
+      console.log(e.target.id);
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -95,10 +94,9 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <form onSubmit={this.handleDeleteUser.bind(this)} >
-                      <input type="hidden" name="id" ref="id" value="1" />
-                      <input type="submit" value="Supprimer"></input>
-                    </form>
+                    <button onClick={this.handleDeleteUser} id="1">
+                      <i className="fa fa-trash" aria-hidden="true"></i>
+                    </button>
                   </td>
                 </tr>
                 <tr>
