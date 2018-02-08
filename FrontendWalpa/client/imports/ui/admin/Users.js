@@ -31,6 +31,8 @@ export default class gestionUsers extends Component {
       e.preventDefault();
       console.log("on supprime un user");
       console.log($(this).data('id'));
+      console.log($(this));
+      console.log($(this).text());
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
