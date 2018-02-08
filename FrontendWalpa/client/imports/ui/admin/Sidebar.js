@@ -30,7 +30,7 @@ export default class Sidebar extends Component {
           <div className="sidebar-admin text-center" onLoad={this.handleGetTypePage.bind(this)}>
             <ul className="navbar-nav">
               <li className="p-4">
-                  <img src="/images/logo-footer-walpa.png" className="img-fluid" />
+                  <img id="logo" src="/images/logo-footer-walpa.png" className="img-fluid" />
               </li>
               <li className="nav-item active">
                 <a className="nav-link" href="/admin/">{"Tableau d'administration"}</a>

@@ -30,8 +30,10 @@ export default class gestionUsers extends Component {
     handleDeleteUser(e){
       e.preventDefault();
       console.log("on supprime un user");
-      console.log($(this).closest('listUser tbody tr').data('id'));
-      console.log($(this).closest('tr'));
+      console.log($(this).closest('tr').data('id'));
+      console.log($(this).find('tr').data('id'));
+      console.log($(this).closest('tr').attr('data-id'));
+      console.log($(this).find('tr').attr('data-id'));
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -52,8 +54,9 @@ export default class gestionUsers extends Component {
       e.preventDefault();
       console.log("on supprime un admin");
       console.log($(this).closest('tr').data('id'));
-      console.log($(this).closest('tr'));
-      console.log($(this).closest('tr'));
+      console.log($(this).find('tr').data('id'));
+      console.log($(this).closest('tr').attr('data-id'));
+      console.log($(this).find('tr').attr('data-id'));
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
