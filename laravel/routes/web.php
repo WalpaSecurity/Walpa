@@ -69,7 +69,6 @@ Route::get('/mail', function () {
     {
         Mail::send('welcome', array('key' => 'value'), function($message)
         {
-            ProcessReport::dispatch();
             $message->from('groupe2@asr.lan');
             $message->to('groupe2@asr.lan', 'John Smith')->subject('Welcome!');
         });
