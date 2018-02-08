@@ -54,10 +54,12 @@ export default class gestionUsers extends Component {
       console.log("on supprime un admin");
       var id = $(this).closest('tr').data('id');
       var id2 = $(this).closest('tr');
-      var id3 = $(this).parent().parent().data('id');
+      var id3 = $(this).parent('tr');
+      var id4 = $(this);
       console.log(id);
       console.log(id2);
       console.log(id3);
+      console.log(id4);
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
