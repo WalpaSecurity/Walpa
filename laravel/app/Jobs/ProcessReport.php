@@ -72,7 +72,7 @@ class ProcessReport implements ShouldQueue
         //  shell_exec("rm /var/www/html/public/temp/result.txt");
         //Cr  ation du fichier texte qui va contenir le r  sultat
         echo ("AVANT creation file");
-        //shell_exec("touch /var/www/laravel/public/temp/". $this->name_file .".txt");
+        shell_exec("touch /var/www/laravel/public/temp/". $this->name_file .".txt");
         //file_put_contents("/var/www/laravel/public/temp/". $this->name_file . ".txt");
         echo("_ creation file");
         $file = '/var/www/laravel/public/temp/'. $this->name_file .'.txt';
