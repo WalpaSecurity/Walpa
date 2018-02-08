@@ -100,5 +100,6 @@ class ProcessReport implements ShouldQueue
         //rmdir("/var/www/laravel/public/temp/".$this->number);
         shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
         echo("I'm done\n");
+        return True;
     }
 }
