@@ -81,12 +81,14 @@ class ActivityReportController extends Controller
         $name_file = $id ."_RESULT_" . $number ;
 
         $activityReport = DB::table('activityReport')->insert(
-        [ 'statut' => 'EN_COURS',
-          "url" => $request->url,
-          "file_name" => $name_file,
-          "user_id" => $id]
-      );
-	ProcessReport::dispatch($request->url, $number, $id, $name_file);
+          [ 'statut' => 'EN_COURS',
+            "url" => $request->url,
+            "file_name" => $name_file,
+            "user_id" => $id]
+        );
+
+	     ProcessReport::dispatch($request->url, $number, $id, $name_file);
+
         return response()
         ->json([
             'success' => true,

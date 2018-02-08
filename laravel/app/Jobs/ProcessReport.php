@@ -37,9 +37,9 @@ class ProcessReport implements ShouldQueue
     {
 	      //COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
         //Clonage du fichier git
-        shell_exec("git clone ". $this->url ." /var/www/laravel/public/temp/".$this->number);
+    /*     shell_exec("git clone ". $this->url ." /var/www/laravel/public/temp/".$this->number);
 
-  /*      //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
+       //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
         $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/laravel/public/temp/".$this->number);
 
         //PHP LOC : is a tool for quickly measuring the size and analyzing the structure of a PHP project
@@ -87,6 +87,6 @@ class ProcessReport implements ShouldQueue
               ->where('file_name', $this->name_file)
               ->update(['statut' => "TERMINEE"]);
 */
-        shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
+    //    shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
     }
 }
