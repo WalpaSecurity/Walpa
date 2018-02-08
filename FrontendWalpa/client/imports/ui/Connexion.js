@@ -111,7 +111,7 @@ export default class Connexion extends Component {
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="Se connecter"/>
                                 </form>
-                                <div className="alert alert-danger hide" id="erreurConnect" role="alert"></div>
+                                <div className="alert alert-danger d-none" id="erreurConnect" role="alert">Vous devez remplir tous les champs !</div>
                                 <hr />
                                 <br/>
                                 <a href="http://192.168.1.16:5000/auth/github" className="btn btn-secondary" target="_blank"><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
