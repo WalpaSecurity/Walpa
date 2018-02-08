@@ -165,9 +165,9 @@ export default class Profile extends Component {
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                        {TableauRepo.map(
+                        { TableauRepo.map(
                             (tab, item) => {
-                                return ( this.renderRepo(tab))
+                                this.renderRepo(tab)
                             }
                         )}
                   </table>
