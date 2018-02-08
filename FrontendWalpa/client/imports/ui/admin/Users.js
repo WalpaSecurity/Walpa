@@ -33,7 +33,7 @@ export default class gestionUsers extends Component {
     handleDeleteUser(e){
       e.preventDefault();
       console.log("on supprime un user");
-      var id = ReactDOM.findDOMNode(this.refs.id).value.trim();
+      var id = $(this).ReactDOM.findDOMNode(this.refs.id).value.trim();
       console.log(id);
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
