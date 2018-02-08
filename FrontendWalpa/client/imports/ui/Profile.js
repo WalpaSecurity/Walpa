@@ -67,6 +67,15 @@ export default class Profile extends Component {
         // });
         for (var i = 0; i< Tableau.length; i++ )
         {
+            this.state.test.concat(
+                {
+                    "id": i,
+                    "filename": Tableau[i].file_name,
+                    "url": Tableau[i].url,
+                    "statut": Tableau[i].statut
+                }
+            );
+
             console.log(i);
             console.log(Tableau[i].file_name);
             console.log(Tableau[i].statut);
