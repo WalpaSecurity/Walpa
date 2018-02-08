@@ -83,7 +83,15 @@ export default class Profile extends Component {
 
     renderRepo(){
 
-        let test = 'ok';
+        let test = TableauRepo.map(
+            (tab, index) => (
+                <tbody>
+                <tr>
+                    <td>Ok</td>
+                </tr>
+                </tbody>
+            )
+        );
 
         return (test);
 
