@@ -81,22 +81,35 @@ export default class Profile extends Component {
     }
 
 
-    renderRepo(){
+    renderRepo = () =>{
+
+        let test = TableauRepo.map(
+            (tab, index) => (
+                <h1>Ok</h1>
+            )
+        );
+
+        console.log('test', test);
+
+        return (test);
 
         // return (
             //<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>
         // );
 
         //this.setRepodata(TableauRepo);
-        let display =[];
-        for (var i = 0; i< TableauRepo.length; i++ ){
-            display.push(<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>);
+       // let display =[];
+        //for (var i = 0; i< TableauRepo.length; i++ ){
+          //  display.push(<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>);
 
-        }
+       // }
 
-        return (
-            <tbody>{display}</tbody>
-        );
+
+
+
+//        return (
+  //          <tbody>{display}</tbody>
+    //    );
         /*{this.state.test.map((item, index) => {
             return <Repo key={index} test={item}/>;
         })}*/
