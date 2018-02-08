@@ -118,7 +118,7 @@ export default class Profile extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                        {this.renderRepo}
+                        {this.renderRepo()}
                     </tbody>
                   </table>
                 </div>
