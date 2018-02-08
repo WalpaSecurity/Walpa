@@ -61,20 +61,24 @@ export default class Profile extends Component {
             //<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>
         // );
 
-        var renderedHtml = <tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr> ;
+
+        return (<tbody>
+            {TableauRepo.map((item, key) => (
+                <tr><td>foo</td><td>bar</td><td>baz</td><td>blah</td></tr>
+            ))}
+        </tbody>);
+
+        let renderedHtml = [];
 
         for (var i = 0; i< TableauRepo.length; i++ )
         {
             console.log(TableauRepo[i].file_name);
-            renderedHtml = renderedHtml + <tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>;
-            return (
-                <tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>
-            );
+            renderedHtml.push(<tr key={i}><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>);
         }
         console.log('done');
         console.log(renderedHtml);
 
-        return (renderedHtml);
+        return (<tbody>{renderedHtml}</tbody>);
 
         // return this.getRepo().map(
         //     function (repo) {
@@ -125,9 +129,7 @@ export default class Profile extends Component {
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                    <tbody>
                         {this.renderRepo()}
-                    </tbody>
                   </table>
                 </div>
               </div>
