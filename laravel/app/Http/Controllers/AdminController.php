@@ -98,16 +98,17 @@ class AdminController extends Controller
         ]);
       }
 
-      $result = User::create([
-          'name' => $request['name'],
-          'email' => $request['email'],
-          'password' => bcrypt($request['password']),
-          'admin' => true,
-          'github_id' => "",
-      ]);
-
-    //  Mail::to("groupe2@asr.lan")->send(new RegisterEmail($request));
-
+        $result = DB::table('users')->insert(
+          array(
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+            'admin' => true,
+            'github_id' => "",
+          )
+      );
+      
+      Mail::to("groupe2@asr.lan")->send(new RegisterEmail($request));
 
       return response()->json(['success' => true,]);
     }else{
