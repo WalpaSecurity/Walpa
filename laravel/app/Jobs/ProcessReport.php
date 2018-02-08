@@ -53,13 +53,11 @@ class ProcessReport implements ShouldQueue
         //    $PHortress = shell_exec("phpunit /var/www/html/public/temp"); //MARCHE PAS
 
         //PHP Coding Standards Fixer : The PHP Coding Standards Fixer (PHP CS Fixer) tool fixes your code to follow standards; whether you want to follow PHP coding standards as defined in the PSR-1, PSR-2$
-        $PHPCoding = shell_exec("php-cs-fixer fix /var/www/laravel/public/temp/".$this->number);
+        //$PHPCoding = shell_exec("php-cs-fixer fix /var/www/laravel/public/temp/".$this->number);
         echo("_ fixer");
-        
         //  PHP Metrics :
-      //  shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/laravel/public/temp/".$number);
-      //  shell_exec("cp -R /var/www/laravel/myreport /var/www/laravel/public/temp/metrics_". $number);
-
+        //  shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/html/public/temp/".$number);
+        //  shell_exec("cp -R /var/www/html/myreport /var/www/html/public/temp/metrics_". $number);
 //        rmdir("/var/www/laravel/public/temp/".$this->number);
         shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
         //  Rassemblement de tous les résultats
@@ -67,7 +65,7 @@ class ProcessReport implements ShouldQueue
         $str_result .= "\n-------------------------------------------------------------------------------- \n\n Analyse de la taille et la structure du projet PHP : \n\n\n" . $PHPLOC ;
         $str_result .= "\n-------------------------------------------------------------------------------- \n D  tecteur de copier/coller : \n\n " . $PHPCPD;
         //  $str_result .= "\n -------------------------------------------------------------------------------- \n Analyse des potentiels vuln  rabilit  s \n " . $PHortress;
-        $str_result .= "\n-------------------------------------------------------------------------------- \n Modifie le code PHP en standard : \n\n " . $PHPCoding;
+        ///$str_result .= "\n-------------------------------------------------------------------------------- \n Modifie le code PHP en standard : \n\n " . $PHPCoding;
 
       //  $str_result .= "\n-------------------------------------------------------------------------------- \n PHP Metrics : \n\n " . URL::asset('/metrics/metrics_'. $number);
 
