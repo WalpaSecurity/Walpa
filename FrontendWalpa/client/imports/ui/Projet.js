@@ -28,7 +28,8 @@ export default class Projet extends Component {
             console.log(res);
           } else {
             // Si on a une erreur
-            console.log('pas connecter');
+            toast();
+            $('#snackbar').html("test erreur");
           }
     });
     }
