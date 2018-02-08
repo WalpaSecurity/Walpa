@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Jobs\ProcessReport;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
