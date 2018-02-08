@@ -61,12 +61,12 @@ export default class Profile extends Component {
             //<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>
         // );
 
-        var renderedHtml = []
+        var renderedHtml = "" ;
 
         for (var i = 0; i< TableauRepo.length; i++ )
         {
             console.log(TableauRepo[i].file_name);
-            renderedHtml.push(<tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>);
+            renderedHtml = renderedHtml + <tr><td>1</td><td>baz</td><td>foo</td><td>bar</td></tr>;
         }
         console.log('done');
         console.log(renderedHtml);
