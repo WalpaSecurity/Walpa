@@ -35,6 +35,29 @@ class AdminController extends Controller
     }
   }
 
+  protected function getProjet ()
+  {
+    $admin = Auth::user()->admin;
+
+    if($admin == true){
+    $projects = DB::table('activityReport')
+               ->select('*')
+               ->get();
+
+      return response()
+            ->json([
+                'success' => true,
+                'data' => $projects,
+            ]);
+    }else{
+      return response()
+            ->json([
+                'success' => false,
+                'error' => 'Vous n\'etes pas admin.'
+      ]);
+    }
+  }
+
   protected function changeID ($id)
   {
     $admin = Auth::user()->admin;
@@ -65,6 +88,21 @@ class AdminController extends Controller
           ->update(['admin' => false]);
 
       return response()->json(['success' => true,]);
+    }else{
+      return response()
+            ->json([
+                'success' => false,
+                'error' => 'Vous n\'etes pas admin.'
+      ]);
+    }
+  }
+
+  protected function delete ($id)
+  {
+    $admin = Auth::user()->admin;
+    if($admin == true){
+      DB::table('users')->where('id', $id)->delete();
+      return response()->json(['success' => true]);
     }else{
       return response()
             ->json([
@@ -107,7 +145,7 @@ class AdminController extends Controller
             'github_id' => "",
           )
       );
-      
+
       Mail::to("groupe2@asr.lan")->send(new RegisterEmail($request));
 
       return response()->json(['success' => true,]);
