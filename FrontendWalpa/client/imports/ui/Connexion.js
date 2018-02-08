@@ -54,6 +54,7 @@ export default class Connexion extends Component {
                   }
                   this.props.history.push('/home');
               } else {
+                console.log($('#erreurConnect'));
                 $('#erreurConnect').show();
               }
             });
