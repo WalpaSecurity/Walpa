@@ -73,8 +73,13 @@ export default class Profile extends Component {
                     "filename": Tableau[i].file_name,
                     "url": Tableau[i].url,
                     "statut": Tableau[i].statut
-                }
+                },
             );
+            console.log(this.props.test.id);
+            console.log(this.props.test.filename);
+            console.log(this.props.test.url);
+            console.log(this.props.test.statut);
+            console.log('cetait les props');
 
             console.log(i);
             console.log(Tableau[i].file_name);
