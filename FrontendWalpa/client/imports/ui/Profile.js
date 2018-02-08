@@ -89,8 +89,10 @@ export default class Profile extends Component {
 
         //this.setRepodata(TableauRepo);
         let display =[];
+        for (var i = 0; i< TableauRepo.length; i++ ){
+            display.push(<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>);
 
-        display.push(<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>);
+        }
 
         return (
             <tbody>{display}</tbody>
