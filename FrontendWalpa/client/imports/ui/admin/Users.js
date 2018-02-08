@@ -66,8 +66,16 @@ export default class gestionUsers extends Component {
         }
       }, (error, result) => {
         if (!error) {
+          var id = $(this).closest('tr').data('id');
+          var id2 = $(this).closest('tr');
+          console.log(id);
+          console.log(id2);
           console.log("good");
         } else {
+          var id = $(this).closest('tr').data('id');
+          var id2 = $(this).closest('tr');
+          console.log(id);
+          console.log(id2);
           console.log("pas good");
         }
       });
