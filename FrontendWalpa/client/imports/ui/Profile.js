@@ -69,7 +69,7 @@ export default class Profile extends Component {
         {
             console.log(i);
             console.log(Tableau[i].file_name);
-            console.log(Tableau[i].success);
+            console.log(Tableau[i].statut);
             console.log(Tableau[i].url);
         }
     }
