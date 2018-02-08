@@ -123,10 +123,6 @@ function toast() {
 
 jQuery(function($){
 
-  toast();
-  $('#snackbar').html("test erreur");
-
-
   // Ouverture du menu mobile et de l'overlay
   $('body').on("click", ".navbar-toggler", function(){
     $("#menu-mobile").animate({
