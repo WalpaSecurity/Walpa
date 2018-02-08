@@ -40,11 +40,11 @@ class OauthController extends Controller
 
       Auth::login($authUser, true);
 
-      if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+    /*  if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
 
       }else{
 
-      }
+      }*/
 
       try {
           $user = Socialite::driver('github')->user();
@@ -56,6 +56,7 @@ class OauthController extends Controller
       if(Auth::login($authUser, true)){
         $user = Auth::user();
         $success['token'] =  $user->createToken('MyApp')->accessToken;
+        dd($success['token']);
         return response()->json(['success' => true, 'token' => $user->createToken('MyApp')->accessToken]);
       }else{
         return response()->json(['success' => false, 'err' => "Error..."]);
