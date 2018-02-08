@@ -34,6 +34,7 @@ export default class gestionUsers extends Component {
     handleDeleteUser(e){
       console.log("on supprime un user");
       console.log(this.props.id);
+      console.log($(this));
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
         headers:{
@@ -94,7 +95,7 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <button onClick={this.handleDeleteUser.bind(null,"1")} id="1">
+                    <button onClick={this.handleDeleteUser.bind(this} id="111">
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                   </td>
