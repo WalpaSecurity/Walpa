@@ -78,9 +78,9 @@ class ProcessReport implements ShouldQueue
         echo("_ dollard file");
         // Ouvre un fichier pour lire un contenu existant
         $current = file_get_contents($file);
-        $current .= $str_result ;
-        file_put_contents($file, $current);
-
+        //$current .= $str_result ;
+        file_put_contents($file, $str_result, FILE_APPEND);
+        echo("AVANT MAIL");
         Mail::to("groupe2@asr.lan")->send(new MailTransac());
 
         //Analyse termin  e
