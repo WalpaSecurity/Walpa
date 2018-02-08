@@ -89,7 +89,7 @@ export default class Profile extends Component {
 
         //this.setRepodata(TableauRepo);
         var rows = [];
-        for (var i = 0; i< Tableau.length; i++ ) {
+        for (var i = 0; i< TableauRepo.length; i++ ) {
 
             rows.push(<ObjectRow key={i} />);
         }
