@@ -5,7 +5,6 @@ import { Session } from 'meteor/session';
 
 // App component - represents the whole app
 export default class Connexion extends Component {
-
     handleSubmitConnexion(event) {
         event.preventDefault();
 
@@ -53,21 +52,13 @@ export default class Connexion extends Component {
                     localStorage.setItem('statutconnexion', '2');
                   }
                   this.props.history.push('/home');
-              } else {
-                $('#erreurConnect').show();
               }
             });
+          } else {
+            $('#erreurConnect').show();
           }
         });
-
-        // Clear form
-
     }
-    /*handleGithub(event){
-        //event.preventDefault();
-
-
-    }*/
 
     handleSubmitInscription(event) {
       event.preventDefault();
@@ -89,6 +80,34 @@ export default class Connexion extends Component {
       }, (error, result) => {
         if (!error) {
           console.log(result);
+          $('#erreurRegister').removeClass('alert-danger');
+          $('#erreurRegister').addClass('alert-success');
+          $('#erreurRegister').html("Vous pouvez desormais vous connecter !");
+          $('#erreurRegister').show();
+        } else {
+          $('#erreurRegister').html("Vous devez remplir tous les champs !");
+          $('#erreurRegister').show();
+
+          setTimeout(function () {
+              $('#erreurRegister').hide();
+          }, 3000);
+        }
+      });
+    }
+
+    handleConnectGit(){
+
+      HTTP.call('GET', 'http://192.168.1.16:5000/auth/github/callback', {
+
+      }, (error, result) => {
+        console.log("toto1");
+        if (!error) {
+          const users = JSON.parse(result.content);
+          console.log(result);
+          console.log(users.data);
+          console.log("good");
+        } else {
+          console.log("pas good");
         }
       });
     }
@@ -111,7 +130,7 @@ export default class Connexion extends Component {
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="Se connecter"/>
                                 </form>
-                                <div className="alert alert-danger hide" id="erreurConnect" role="alert"></div>
+                                <div className="alert alert-danger erreur" id="erreurConnect" role="alert">Vous devez remplir tous les champs !</div>
                                 <hr />
                                 <br/>
                                 <a href="http://192.168.1.16:5000/auth/github" className="btn btn-secondary" target="_blank"><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
@@ -137,6 +156,7 @@ export default class Connexion extends Component {
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="S'inscrire"/>
                                 </form>
+                                <div className="alert alert-danger erreur" id="erreurRegister" role="alert">Vous devez remplir tous les champs !</div>
                             </div>
                         </div>
                     </div>
