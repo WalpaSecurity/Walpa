@@ -20,7 +20,7 @@ class ProcessReport implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($url, $number, $id, $name_file))
+    public function __construct($url, $number, $id, $name_file)
     {
         $this->url = $url;
 	$this->number = $number;
