@@ -110,22 +110,18 @@ export default class Profile extends Component {
     }
 
 
-    renderRepo = () =>{
+    renderRepo = (tab) =>{
 
-        console.log('test tab', TableauRepo.length);
+        console.log('test tab', tab);
 
-        TableauRepo.map(
-            (tab, index) => {
-                return (
-                    <tbody>
-                    <tr>
-                        <td>
-                            Ok
-                        </td>
-                    </tr>
-                    </tbody>
-                )
-            }
+        return (
+        <tbody>
+        <tr>
+            <td>
+                Ok
+            </td>
+        </tr>
+        </tbody>
         )
 
         /*return (
@@ -208,7 +204,11 @@ export default class Profile extends Component {
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                        { console.log('test tableau', TableauRepo.length) }
+                        { TableauRepo.map(
+                            (tab, index) => {
+                                this.renderRepo(tab)
+                            }
+                        ) }
                   </table>
                 </div>
               </div>
