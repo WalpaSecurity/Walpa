@@ -33,7 +33,6 @@ export default class gestionUsers extends Component {
 
     handleDeleteUser(e){
       console.log("on supprime un user");
-      console.log(e.target.id);
       console.log(this.props.data.id);
 
       HTTP.call('DELETE', 'http://192.168.1.16:5000/api/admin', {
@@ -51,6 +50,11 @@ export default class gestionUsers extends Component {
         }
       });
     }
+
+    toggleEditing( itemId ) {
+      this.setState( { editing: itemId } );
+    }
+
     handleDeleteAdmin(e){
       e.preventDefault();
 
@@ -95,7 +99,7 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <button onClick={this.handleDeleteUser.bind(null,"1")} data-id="1">
+                    <button onClick={ this.toggleEditing.bind( null, item._id ) } key={ item._id }>
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                   </td>
