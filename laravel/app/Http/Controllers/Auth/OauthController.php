@@ -30,8 +30,8 @@ class OauthController extends Controller
    */
   public function handleProviderCallback()
   {
-      return response()->json(['toto' => "totoot"]);
-    /*
+      //return response()->json(['toto' => "totoot"]);
+
       try {
           $user = Socialite::driver('github')->user();
       } catch (Exception $e) {
@@ -44,7 +44,7 @@ class OauthController extends Controller
         return response()->json(['success' => true, 'token' => $user->createToken('MyApp')->accessToken]);
       }else{
         return response()->json(['success' => false, 'err' => "Error..."]);
-      }*/
+      }
   }
 
   /**
