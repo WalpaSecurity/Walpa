@@ -83,9 +83,8 @@ console.log("state" , this.state.test);
 
 
                     this.setState({test: res.data});
-                    console.log("state" , this.state.test);
                     this.renderRepo();
-                    this.displayName(name);
+                    this.displayName();
                     //TableauRepo.map(res.data);
 
                     //var toto = TableauRepo;
