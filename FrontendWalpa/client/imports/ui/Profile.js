@@ -12,25 +12,26 @@ export default class Profile extends Component {
             test: []
         };
     }
-    handleListrepo(){
-        HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/18_RESULT_992093363', {
+
+    handleListrepoFile(){
+        HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/3_RESULT_1739833415', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
                     'Content-Type' : "application/json",
                     'Authorization' : "Bearer " + token,
-                    'Accept' : "application/json"
 
                 }
             },
             (error, result) => {
                 if (!error) {
-                    console.log(result);
+                    console.log(result.content);
+
                 }
             });
+
     }
 
-
-    componentWillMount() {
+   /* componentWillMount() {
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
@@ -47,7 +48,38 @@ export default class Profile extends Component {
                     TableauRepo =res.data;
                     this.renderRepo();
 
+                    this.setState({test: res.data});
+console.log("state" , this.state.test);
+                    //TableauRepo.map(res.data);
 
+                    //var toto = TableauRepo;
+                    //console.log(TableauRepo);
+                    // console.log(TableauRepo[0])
+
+
+                }
+            });
+    }*/
+
+    componentDidMount() {
+        HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
+                headers:{
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                    'Content-Type' : "application/json",
+                    'Authorization' : "Bearer " + token,
+                    'Accept' : "application/json"
+
+                }
+            },
+            (error, result) => {
+                if (!error) {
+                    const res = JSON.parse(result.content);
+                    //console.log(res.data);
+                    TableauRepo =res.data;
+                    this.renderRepo();
+
+                    this.setState({test: res.data});
+                    console.log("state" , this.state.test);
                     //TableauRepo.map(res.data);
 
                     //var toto = TableauRepo;
@@ -225,7 +257,7 @@ export default class Profile extends Component {
                       <tr>
                           <td>1</td>
                           <td>
-                              <a href="#" onClick={this.handleListrepo.bind(this)}>
+                              <a href="#" onClick={this.handleListrepoFile.bind(this)}>
                                   Projet 1
                               </a>
                           </td>
@@ -236,6 +268,10 @@ export default class Profile extends Component {
                               </a>
                           </td>
                           </tr>
+                      <tr>
+                          {this.state.test}
+
+                      </tr>
                       </tbody>
                   </table>
                 </div>

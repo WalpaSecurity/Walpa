@@ -24,15 +24,16 @@ export default class Projet extends Component {
           },
           (error, result) => {
             if (!error) {
+                console.log(result);
             const res = JSON.parse(result.content);
             console.log(res);
 
             toast();
-            $('#snackbar').html("pas d'erreur");
+            $('#snackbar').html("Analyse terminée ! Vérifier vos mails");
           } else {
             // Si on a une erreur
             toast();
-            $('#snackbar').html("test erreur");
+            $('#snackbar').html("Erreur");
           }
     });
     }
