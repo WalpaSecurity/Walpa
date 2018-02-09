@@ -11,7 +11,7 @@ export default class gestionProjets extends Component {
         };
     }
     componentDidMount() {
-        HTTP.call('GET', 'http://192.168.1.16:5000/api/projects', {
+        HTTP.call('GET', 'http://192.168.1.200:5000/api/projects', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
                     'Content-Type' : "application/json",
