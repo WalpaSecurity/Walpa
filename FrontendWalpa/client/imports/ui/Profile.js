@@ -76,11 +76,12 @@ console.log("state" , this.state.test);
                     const res = JSON.parse(result.content);
                     //console.log(res.data);
                     TableauRepo =res.data;
-                  //  this.renderRepo();
+                  //
 
 
                     this.setState({test: res.data});
                     console.log("state" , this.state.test);
+                    this.renderRepo();
                     //TableauRepo.map(res.data);
 
                     //var toto = TableauRepo;
@@ -168,7 +169,7 @@ console.log("state" , this.state.test);
         <tbody>
         <tr>
             <td>
-                Ok
+                {this.state.test}
             </td>
         </tr>
         </tbody>
@@ -269,10 +270,6 @@ console.log("state" , this.state.test);
                               </a>
                           </td>
                           </tr>
-
-                          {this.state.test}
-
-
                       </tbody>
                   </table>
                 </div>
