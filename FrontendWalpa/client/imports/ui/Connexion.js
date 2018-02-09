@@ -5,11 +5,12 @@ import { Session } from 'meteor/session';
 
 // App component - represents the whole app
 export default class Connexion extends Component {
-    handleSubmitConnexion(event) {
-      event.preventDefault();
+  handleSubmitConnexion(event) {
+    event.preventDefault();
 
-      const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
-      const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
+    const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
+    const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
+
 
       if(email != ""){
         if(password != ""){
@@ -45,33 +46,33 @@ export default class Connexion extends Component {
                     console.log(resuser.success.admin);
                     document.location.reload(true);
 
-                    if(resuser.success.admin == 1){
-                      localStorage.setItem('statutconnexion', '1');
-                    } else {
-                      localStorage.setItem('statutconnexion', '2');
-                    }
-                    localStorage.setItem('name', resuser.success.name);
-                    //console.log('Nom :', localStorage.getItem('name'));
-                    this.props.history.push('/home');
-                }
-              });
-            } else {
-              toast();
-              $('#snackbar').css({'background-color':'#c32424'});
-              $('#snackbar').html("Vos informations ne sont pas correctes !");
-            }
-          });
-        } else {
-          toast();
-          $('#snackbar').css({'background-color':'#c32424'});
-          $('#snackbar').html("Vous devez saisir le mot de passe !");
-        }
+                  if(resuser.success.admin == 1){
+                    localStorage.setItem('statutconnexion', '1');
+                  } else {
+                    localStorage.setItem('statutconnexion', '2');
+                  }
+                  localStorage.setItem('name', resuser.success.name);
+                  //console.log('Nom :', localStorage.getItem('name'));
+                  this.props.history.push('/home');
+              }
+            });
+          } else {
+            toast();
+            $('#snackbar').css({'background-color':'#c32424'});
+            $('#snackbar').html("Vous devez saisir un email !");
+          }
+        });
       } else {
         toast();
         $('#snackbar').css({'background-color':'#c32424'});
-        $('#snackbar').html("Vous devez saisir un email !");
+        $('#snackbar').html("Vous devez saisir le mot de passe !");
       }
+    } else {
+      toast();
+      $('#snackbar').css({'background-color':'#c32424'});
+      $('#snackbar').html("Vous devez saisir un email !");
     }
+  }
 
     handleSubmitInscription(event) {
       event.preventDefault();
