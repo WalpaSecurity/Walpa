@@ -81,9 +81,9 @@ export default class gestionUsers extends Component {
 
     render() {
         return (
-          <div className="adminContent gestionUsers" onLoad={this.handleGetUsers.bind(this)} >
+          <div className="adminContent gestionUsers"  >
             <h2>Liste des utilisateurs</h2>
-            <table className="table table-striped" id="listUser">
+            <table className="table table-striped" id="listUser" onLoad={this.handleGetUsers.bind(this)}>
               <thead>
                 <tr>
                   <th scope="col">Id</th>
