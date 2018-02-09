@@ -54,7 +54,7 @@ export default class Header extends Component {
                         <a className="nav-link" href="/contact">Contact</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link bg-light mr-2" href="/admin" onClick={this.handleGoViewAdmin.bind(this)}>Administration</a>
+                        <a className="nav-link bg-orange mr-2" href="/admin" onClick={this.handleGoViewAdmin.bind(this)}>Administration</a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link bg-alert link-disconnect" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
@@ -120,7 +120,7 @@ export default class Header extends Component {
                         <a className="nav-link" href="/contact">Contact</a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link bg-light mr-2" href="/profile">Mon compte</a>
+                        <a className="nav-link bg-orange mr-2" href="/profile">Mon compte</a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link bg-alert link-disconnect" onClick={this.handleDeco.bind(this)} >Deconnexion</a>
@@ -147,7 +147,7 @@ export default class Header extends Component {
                     <a href="/contact">Contact</a>
                   </li>
                   <li>
-                    <a className="nav-link bg-light mr-2" href="/profile">Mon compte</a>
+                    <a className="nav-link bg-orange mr-2" href="/profile">Mon compte</a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link bg-alert link-disconnect" onClick={this.handleDeco.bind(this)}>Deconnexion</a>
