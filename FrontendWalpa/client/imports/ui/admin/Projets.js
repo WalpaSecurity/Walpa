@@ -34,7 +34,7 @@ export default class gestionProjets extends Component {
         let display = [];
 
         for (var i = 0; i< this.state.repo.length; i++ ){
-            display.push(<tr><td>{i}</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" >{this.state.repo[i].file_name}</a></td><td>{this.state.repo[i].url}</td>
+            display.push(<tr><td>{i}</td><td>A venir</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" >{this.state.repo[i].file_name}</a></td><td>{this.state.repo[i].url}</td>
                 <td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
 
         }
