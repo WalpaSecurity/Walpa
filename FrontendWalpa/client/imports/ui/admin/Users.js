@@ -55,6 +55,30 @@ export default class gestionUsers extends Component {
       });
     }
 
+    handleGetListUsers(){
+
+        HTTP.call('GET', 'http://192.168.1.16:5000/api/admin', {
+                headers:{
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                    'Content-Type' : "application/json",
+                    'Authorization' : "Bearer " + token,
+                    'Accept' : "application/json"
+
+                }
+            },
+            (error, result) => {
+                if (!error) {
+                  console.log(result);
+                    const res = JSON.parse(result.content);
+                    console.log(res.data);
+                    //TableauRepo =res.data;
+
+
+
+                }
+            });
+    }
+
     render() {
         return (
           <div className="adminContent gestionUsers" onLoad={this.handleGetListUsers.bind(this)}>
