@@ -87,10 +87,14 @@ export default class gestionUsers extends Component {
 
     renderUsers = () =>{
         let display = [];
-
         for (var i = 0; i< this.state.users.length; i++ ){
+            const admin = this.state.users[i].admin;
+            if(admin == "1"){
+                display.push(<tr><td>{i}</td><td><a href="#" >{this.state.users[i].name}</a></td><td>{this.state.users[i].email}</td><td> Administrateur</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
+            }else {
+                display.push(<tr><td>{i}</td><td><a href="#" >{this.state.users[i].name}</a></td><td>{this.state.users[i].email}</td><td>Utilisateur Classique</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
+            }
 
-            display.push(<tr><td>{i}</td><td><a href="#" >{this.state.users[i].name}</a></td><td>{this.state.users[i].email}</td><td>1/1/0001</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
 
         }
         return (
