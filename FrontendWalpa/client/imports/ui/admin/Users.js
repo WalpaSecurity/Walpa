@@ -55,7 +55,7 @@ export default class gestionUsers extends Component {
       });
     }
 
-    handleGetListUsers(){
+    handleGetUsers(){
 
         HTTP.call('GET', 'http://192.168.1.16:5000/api/admin', {
                 headers:{
@@ -73,15 +73,15 @@ export default class gestionUsers extends Component {
                     console.log(res.data);
                     //TableauRepo =res.data;
 
-
-
+                }else{
+                  console.log('ça ne fonctionne pas');
                 }
             });
     }
 
     render() {
         return (
-          <div className="adminContent gestionUsers" onLoad={this.handleGetListUsers.bind(this)}>
+          <div className="adminContent gestionUsers" onLoad={this.handleGetUsers.bind(this)} >
             <h2>Liste des utilisateurs</h2>
             <table className="table table-striped" id="listUser">
               <thead>
