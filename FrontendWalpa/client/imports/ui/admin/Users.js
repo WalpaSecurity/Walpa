@@ -9,27 +9,7 @@ const token = localStorage.getItem('token');
 // App component - represents the whole app
 export default class gestionUsers extends Component {
 
-    handleGetListUsers(){
-
-      HTTP.call('GET', 'http://192.168.1.16:5000/api/admin', {
-        headers:{
-          "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-          'Content-Type' : "application/json",
-          'Authorization' : "Bearer " + token,
-          'Accept' : "application/json"
-        }
-      }, (error, result) => {
-        if (!error) {
-          const users = JSON.parse(result.content);
-          console.log(result);
-          console.log(users.data);
-          console.log("good");
-        } else {
-          console.log("pas good");
-        }
-      });
-    }
-
+    
 
     handleDeleteUser(e){
       console.log("on supprime un user");
@@ -51,8 +31,6 @@ export default class gestionUsers extends Component {
         }
       });
     }
-
-
 
     handleDeleteAdmin(e){
       e.preventDefault();
@@ -98,7 +76,7 @@ export default class gestionUsers extends Component {
                   <td>Email</td>
                   <td>01/01/2018</td>
                   <td>
-                    <button onClick={this.handleDeleteUser} id="1">
+                    <button onClick={this.handleDeleteUser.bind(this)} id="1">
                       <i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                   </td>
