@@ -32,7 +32,8 @@ export default class Projet extends Component {
             toast();
             $('#snackbar').css({'background-color':'#28a745'});
             $('#snackbar').html("Analyse terminée ! Vérifier vos mails");
-            $("#formAnalyse").reset();
+            $("#formAnalyse input").val("");
+            $("#formAnalyse textarea").val("");
           } else {
             // Si on a une erreur
             toast();

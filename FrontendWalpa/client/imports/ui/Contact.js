@@ -39,7 +39,8 @@ export default class Contact extends Component {
                       toast();
                       $('#snackbar').css({'background-color':'#28a745'});
                       $('#snackbar').html("Merci pour votre message !<br/>L'équipe WALPA vous répondra dans les plus brefs délais !");
-                      $("#formContact").reset();
+                      $("#formContact input").val("");
+                      $("#formContact textarea").val("");
                       }
                     });
                   } else {

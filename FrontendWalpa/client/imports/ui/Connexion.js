@@ -91,6 +91,8 @@ export default class Connexion extends Component {
           $('#erreurRegister').addClass('alert-success');
           $('#erreurRegister').html("Vous pouvez desormais vous connecter !");
           $('#erreurRegister').show();
+          $("#formInscription input").val("");
+          $("#formInscription textarea").val("");
         } else {
           toast();
           $('#erreurRegister').html("Vous devez remplir tous les champs !");
@@ -145,7 +147,7 @@ export default class Connexion extends Component {
                             </div>
                             <div className="col-12 col-md-6 col-lg-4 inscription">
                                 <h2>Inscription</h2>
-                                <form onSubmit={this.handleSubmitInscription.bind(this)}>
+                                <form id="formInscription" onSubmit={this.handleSubmitInscription.bind(this)}>
                                     <div className="form-group">
                                         <label htmlFor="email">Adresse mail</label>
                                         <input type="text" className="form-control" id="email" ref="emailinscrit" placeholder="Entrez votre adresse e-mail"/>
