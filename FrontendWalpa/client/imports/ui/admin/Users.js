@@ -75,6 +75,7 @@ export default class gestionUsers extends Component {
             (error, result) => {
                 if (!error) {
                 const res = JSON.parse(result.content);
+                console.log(res.data);
                 this.setState({users: res.data});
                 this.renderUser();
 
@@ -89,6 +90,9 @@ export default class gestionUsers extends Component {
         let display = [];
 
         for (var i = 0; i< this.state.users.length; i++ ){
+            if(){
+
+            }
             display.push(<tr><td>{i}</td><td><a href="#" >{this.state.users[i].name}</a></td><td>{this.state.users[i].email}</td><td>1/1/0001</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
 
         }
@@ -109,88 +113,11 @@ export default class gestionUsers extends Component {
                   <th scope="col">Id</th>
                   <th scope="col">Nom</th>
                   <th scope="col">Email</th>
-                  <th scope="col">{"Date d'inscription"}</th>
+                  <th scope="col">{"Administrateur"}</th>
                   <th className="text-center" scope="col">{"Supprimer l'utilisateur"}</th>
                 </tr>
               </thead>
                 {this.renderUsers()}
-            </table>
-            <hr/>
-
-
-            <h2>Liste des administrateurs</h2>
-            <table className="table table-striped" id="listAdmin">
-              <thead>
-                <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">Nom</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">{"Date d'inscription"}</th>
-                  <th className="text-center" scope="col">{"Supprimer l'utilisateur"}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr data-id="1">
-                  <td>1</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
-                      <input type="hidden" name="id" ref="id" value="1" />
-                      <input type="submit" value="Supprimer"></input>
-                    </form>
-                  </td>
-                </tr>
-                <tr data-id="2">
-                  <td>2</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
-                      <input type="hidden" name="id" ref="id" value="2" />
-                      <input type="submit" value="Supprimer"></input>
-                    </form>
-                  </td>
-                </tr>
-                <tr data-id="3">
-                  <td>3</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
-                      <input type="hidden" name="id" ref="id" value="3" />
-                      <input type="submit" value="Supprimer"></input>
-                    </form>
-                  </td>
-                </tr>
-                <tr data-id="4">
-                  <td>4</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
-                      <input type="hidden" name="id" ref="id" value="4" />
-                      <input type="submit" value="Supprimer"></input>
-                    </form>
-                  </td>
-                </tr>
-                <tr data-id="5">
-                  <td>5</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <form onSubmit={this.handleDeleteAdmin.bind(this)} >
-                      <input type="hidden" name="id" ref="id" value="5" />
-                      <input type="submit" value="Supprimer"></input>
-                    </form>
-                  </td>
-                </tr>
-              </tbody>
             </table>
           </div>
     );
