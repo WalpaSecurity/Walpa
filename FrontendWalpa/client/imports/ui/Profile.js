@@ -238,6 +238,10 @@ console.log("state" , this.state.test);
                               </a>
                           </td>
                           </tr>
+                      <tr>
+                          {this.state.test}
+
+                      </tr>
                       </tbody>
                   </table>
                 </div>
