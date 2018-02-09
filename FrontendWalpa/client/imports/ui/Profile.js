@@ -243,7 +243,7 @@ console.log("state" , this.state.test);
               <div className="row">
                 <div className="col-lg-3 text-center">
                   <img className="img-fluid d-block mx-auto" width="200px" src="images/user.png" />
-                  <p className="h4 my-4 text-uppercase">{this.name}</p>
+                  <p className="h4 my-4 text-uppercase">name</p>
                 </div>
                 <div className="col-lg-9">
                   <h1>Historiques des projets</h1>
