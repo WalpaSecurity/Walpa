@@ -170,7 +170,7 @@ console.log("state" , this.state.test);
           display.push(this.state.test[i].file_name);
 
         }
-
+console.log("tableau fuck ", display);
         return (
             <tbody>
             <tr>
