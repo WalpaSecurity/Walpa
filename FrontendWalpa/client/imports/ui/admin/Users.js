@@ -77,7 +77,6 @@ export default class gestionUsers extends Component {
                 const res = JSON.parse(result.content);
                 console.log(res.data);
                 this.setState({users: res.data});
-                this.renderUser();
 
 
                 }else{
@@ -90,9 +89,7 @@ export default class gestionUsers extends Component {
         let display = [];
 
         for (var i = 0; i< this.state.users.length; i++ ){
-            if(){
 
-            }
             display.push(<tr><td>{i}</td><td><a href="#" >{this.state.users[i].name}</a></td><td>{this.state.users[i].email}</td><td>1/1/0001</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
 
         }
