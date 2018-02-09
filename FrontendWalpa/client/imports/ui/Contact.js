@@ -37,65 +37,40 @@ export default class Contact extends Component {
                       const res = JSON.parse(result.content);
                       console.log(res);
                       toast();
-                      $('#erreurContact').removeClass('alert-danger');
-                      $('#erreurContact').addClass('alert-success');
-                      $('#erreurContact').html("Merci pour votre message ! L'équipe WALPA vous répondra dans les plus brefs délais !");
-                      $('#erreurContact').show();
+                      $('#snackbar').css({'background-color':'#28a745'});
+                      $('#snackbar').html("Merci pour votre message !<br/>L'équipe WALPA vous répondra dans les plus brefs délais !");
                       }
                     });
                   } else {
                     toast();
-                    $('#erreurContact').html("Vous devez saisir un message !");
-                    $('#erreurContact').show();
-
-                    setTimeout(function () {
-                        $('#erreurContact').hide();
-                    }, 3000);
+                    $('#snackbar').css({'background-color':'#c32424'});
+                    $('#snackbar').html("Vous devez saisir un message !");
                   }
                 } else {
                   toast();
-                  $('#erreurContact').html("Vous devez saisir un objet !");
-                  $('#erreurContact').show();
-
-                  setTimeout(function () {
-                      $('#erreurContact').hide();
-                  }, 3000);
+                  $('#snackbar').css({'background-color':'#c32424'});
+                  $('#snackbar').html("Vous devez saisir un objet !");
                 }
               } else {
                 toast();
-                $('#erreurContact').html("Vous devez saisir un téléphone !");
-                $('#erreurContact').show();
-
-                setTimeout(function () {
-                    $('#erreurContact').hide();
-                }, 3000);
+                $('#snackbar').css({'background-color':'#c32424'});
+                $('#snackbar').html("Vous devez saisir un téléphone !");
               }
             } else {
               toast();
-              $('#erreurContact').html("Vous devez saisir un prénom !");
-              $('#erreurContact').show();
+              $('#snackbar').css({'background-color':'#c32424'});
+              $('#snackbar').html("Vous devez saisir un prénom !");
 
-              setTimeout(function () {
-                  $('#erreurContact').hide();
-              }, 3000);
             }
           } else {
             toast();
-            $('#erreurContact').html("Vous devez saisir un nom !");
-            $('#erreurContact').show();
-
-            setTimeout(function () {
-                $('#erreurContact').hide();
-            }, 3000);
+            $('#snackbar').css({'background-color':'#c32424'});
+            $('#snackbar').html("Vous devez saisir un nom !");
           }
         } else {
           toast();
-          $('#erreurContact').html("Vous devez saisir un email !");
-          $('#erreurContact').show();
-
-          setTimeout(function () {
-              $('#erreurContact').hide();
-          }, 3000);
+          $('#snackbar').css({'background-color':'#c32424'});
+          $('#snackbar').html("Vous devez saisir un email !");
         }
     };
 
@@ -146,7 +121,6 @@ export default class Contact extends Component {
                     </div>
                     <button type="submit" className="btn btn-primary">Envoyer</button>
                   </form>
-                  <div className="alert alert-danger erreur" id="erreurContact" role="alert">Vous devez remplir tous les champs !</div>
                 </div>
               </div>
             </div>
