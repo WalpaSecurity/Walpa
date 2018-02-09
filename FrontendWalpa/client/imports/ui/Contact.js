@@ -15,24 +15,63 @@ export default class Contact extends Component {
         const objet = ReactDOM.findDOMNode(this.refs.objet).value.trim();
         const message = ReactDOM.findDOMNode(this.refs.message).value.trim();
 
-        HTTP.call('POST', 'http://192.168.1.16:5000/contact', {
-                data: {
-                    firstName: prenom,
-                    lastName: nom,
-                    email: email,
-                    phone: telephone,
-                    object: objet,
-                    message: message
+        if(email != ""){
+          if(nom != ""){
+            if(prenom != ""){
+              if(telephone != ""){
+                if(objet != ""){
+                  if(message != ""){
+                    HTTP.call('POST', 'http://192.168.1.16:5000/contact', {
+                        data: {
+                            firstName: prenom,
+                            lastName: nom,
+                            email: email,
+                            phone: telephone,
+                            object: objet,
+                            message: message
+                        }
+                      },
+                      (error, result) => {
+                      if (!error) {
+                      console.log(result);
+                      const res = JSON.parse(result.content);
+                      console.log(res);
+                      toast();
+                      $('#snackbar').css({'background-color':'#28a745'});
+                      $('#snackbar').html("Merci pour votre message !<br/>L'équipe WALPA vous répondra dans les plus brefs délais !");
+                      }
+                    });
+                  } else {
+                    toast();
+                    $('#snackbar').css({'background-color':'#c32424'});
+                    $('#snackbar').html("Vous devez saisir un message !");
+                  }
+                } else {
+                  toast();
+                  $('#snackbar').css({'background-color':'#c32424'});
+                  $('#snackbar').html("Vous devez saisir un objet !");
                 }
-            },
-            (error, result) => {
-            if (!error) {
-            console.log(result);
-            const res = JSON.parse(result.content);
-            console.log(res);
-            }
-        });
+              } else {
+                toast();
+                $('#snackbar').css({'background-color':'#c32424'});
+                $('#snackbar').html("Vous devez saisir un téléphone !");
+              }
+            } else {
+              toast();
+              $('#snackbar').css({'background-color':'#c32424'});
+              $('#snackbar').html("Vous devez saisir un prénom !");
 
+            }
+          } else {
+            toast();
+            $('#snackbar').css({'background-color':'#c32424'});
+            $('#snackbar').html("Vous devez saisir un nom !");
+          }
+        } else {
+          toast();
+          $('#snackbar').css({'background-color':'#c32424'});
+          $('#snackbar').html("Vous devez saisir un email !");
+        }
     };
 
     render() {

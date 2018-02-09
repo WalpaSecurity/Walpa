@@ -86,15 +86,13 @@ export default class Connexion extends Component {
       }, (error, result) => {
         if (!error) {
           console.log(result);
-            toast();
-            $('#snackbar').html("Inscription faite !");
+          toast();
           $('#erreurRegister').removeClass('alert-danger');
           $('#erreurRegister').addClass('alert-success');
           $('#erreurRegister').html("Vous pouvez desormais vous connecter !");
           $('#erreurRegister').show();
         } else {
-            toast();
-            $('#snackbar').html("Remplissez tous les champs");
+          toast();
           $('#erreurRegister').html("Vous devez remplir tous les champs !");
           $('#erreurRegister').show();
 
