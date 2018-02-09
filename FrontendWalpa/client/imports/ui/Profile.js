@@ -2,6 +2,8 @@
   import Repo from './Repo.js';
 
   const token = localStorage.getItem('token');
+  const name = localStorage.getItem('name');
+
   var TableauRepo = [];
 // App component - represents the whole app
 export default class Profile extends Component {
@@ -162,15 +164,12 @@ console.log("state" , this.state.test);
 
 
     renderRepo = () =>{
-
-        console.log('test tab', this.state.test);
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
           display.push(<tr><td>{i}</td><td>{this.state.test[i].file_name}</td><td>{this.state.test[i].url}</td><td>toto</td></tr>);
 
         }
-console.log("tableau fuck ", display);
         return (
             <tbody>
                     {display}
@@ -244,7 +243,7 @@ console.log("tableau fuck ", display);
               <div className="row">
                 <div className="col-lg-3 text-center">
                   <img className="img-fluid d-block mx-auto" width="200px" src="images/user.png" />
-                  <p className="h4 my-4 text-uppercase">User User</p>
+                  <p className="h4 my-4 text-uppercase">{this.name}</p>
                 </div>
                 <div className="col-lg-9">
                   <h1>Historiques des projets</h1>

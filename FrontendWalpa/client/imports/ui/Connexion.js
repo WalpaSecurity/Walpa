@@ -51,6 +51,7 @@ export default class Connexion extends Component {
                   } else {
                     localStorage.setItem('statutconnexion', '2');
                   }
+                  localStorage.setItem('name', resuser.name);
                   this.props.history.push('/home');
               }
             });
