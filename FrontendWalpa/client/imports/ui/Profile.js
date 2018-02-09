@@ -78,13 +78,7 @@ console.log("state" , this.state.test);
                     TableauRepo =res.data;
                   //  this.renderRepo();
 
-                    let pictures = TableauRepo.map((data) => {
-                        return (
-                            <div key={data.statut} >
 
-                            </div>
-                        )
-                    })
                     this.setState({test: res.data});
                     console.log("state" , this.state.test);
                     //TableauRepo.map(res.data);
@@ -275,10 +269,10 @@ console.log("state" , this.state.test);
                               </a>
                           </td>
                           </tr>
-                      <tr>
+
                           {this.state.test}
 
-                      </tr>
+
                       </tbody>
                   </table>
                 </div>
