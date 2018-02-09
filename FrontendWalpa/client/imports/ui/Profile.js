@@ -14,8 +14,8 @@ export default class Profile extends Component {
         };
     }
 
-    handleListrepoFile(){
-      HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/{}', {
+    handleListrepoFile(data){
+      HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/{data}', {
         headers:{
           "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
           'Content-Type' : "application/json",
@@ -24,7 +24,7 @@ export default class Profile extends Component {
       },
       (error, result) => {
         if (!error) {
-            console.log(result.content);
+            console.log(data);
         }
       });
     }
