@@ -122,7 +122,7 @@ class ActivityReportController extends Controller
        //        rmdir("/var/www/laravel/public/temp/".$number);
         shell_exec("rm -rf /var/www/laravel/public/temp/".$number);
         //  Rassemblement de tous les résultats
-        $str_result = "Analyse terminée : \n\n ------------------- \n Detection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
+        $str_result = "Analyse terminée : \n\n <br> <br> ------------------- \n Detection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
         $str_result .= "\n----------------------------------------- \n\n Analyse de la taille et la structure du projet PHP : \n\n\n" . $PHPLOC ;
         $str_result .= "\n--------------------------------------------------- \n Detecteur de copier/coller : \n\n " . $PHPCPD;
         //  $str_result .= "\n -------------------------------------------------------------------------------- \n Analyse des potentiels vuln  rabilit  s \n " . $PHortress;
