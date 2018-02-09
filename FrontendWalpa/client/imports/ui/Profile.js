@@ -28,8 +28,8 @@ export default class Profile extends Component {
 
                 }
             });
-    }
 
+    }
 
     componentWillMount() {
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
@@ -48,7 +48,8 @@ export default class Profile extends Component {
                     TableauRepo =res.data;
                     this.renderRepo();
 
-
+                    this.setState({test: res.data});
+console.log("state" , this.state.test);
                     //TableauRepo.map(res.data);
 
                     //var toto = TableauRepo;
