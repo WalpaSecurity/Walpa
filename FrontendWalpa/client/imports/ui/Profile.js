@@ -16,7 +16,7 @@ export default class Profile extends Component {
     }
 
     handleListrepoFile(){
-        HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/3_RESULT_1739833415', {
+        HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/{}', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
                     'Content-Type' : "application/json",
@@ -171,7 +171,7 @@ console.log("state" , this.state.test);
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
-          display.push(<tr><td>{i}</td><td>{this.state.test[i].file_name}</td><td>{this.state.test[i].url}</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
+            display.push(<tr><td>{i}</td><td><a onClick={this.handleListrepoFile.bind(this)}>{this.state.test[i].file_name}</a></td><td>{this.state.test[i].url}</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
 
         }
         return (
