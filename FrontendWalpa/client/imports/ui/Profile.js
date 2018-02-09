@@ -19,13 +19,13 @@ export default class Profile extends Component {
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
                     'Content-Type' : "application/json",
                     'Authorization' : "Bearer " + token,
-                    'Accept' : "application/json"
 
                 }
             },
             (error, result) => {
                 if (!error) {
-                    console.log(result);
+                    console.log(result.content);
+
                 }
             });
     }
