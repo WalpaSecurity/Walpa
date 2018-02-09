@@ -31,7 +31,7 @@ export default class Profile extends Component {
 
     }
 
-    componentWillMount() {
+   /* componentWillMount() {
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
@@ -59,8 +59,7 @@ console.log("state" , this.state.test);
 
                 }
             });
-    }
-
+    }*/
 
     componentDidMount() {
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
