@@ -167,7 +167,7 @@ console.log("state" , this.state.test);
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
-          display.push(<tr><td>{this.state.test[i].file_name}</td></tr>);
+          display.push(<tr><td>{i}</td><td>{this.state.test[i].file_name}</td><td>{this.state.test[i].url}</td><td>toto</td></tr>);
 
         }
 console.log("tableau fuck ", display);
