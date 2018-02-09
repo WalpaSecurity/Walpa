@@ -113,6 +113,9 @@ class ActivityReportController extends Controller
 
         echo("_ fixer");
 
+        $current = "Fichier en cours d'analyse...";
+        Mail::to("groupe2@asr.lan")->send(new ActivityEmail($current));
+
         //  PHP Metrics :
         shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/laravel/public/temp/".$number);
         shell_exec("cp -R /var/www/laravel/myreport /var/www/laravel/public/temp/metrics_". $number);
