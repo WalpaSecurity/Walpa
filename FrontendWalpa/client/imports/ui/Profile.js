@@ -76,8 +76,15 @@ console.log("state" , this.state.test);
                     const res = JSON.parse(result.content);
                     //console.log(res.data);
                     TableauRepo =res.data;
-                    this.renderRepo();
+                  //  this.renderRepo();
 
+                    let pictures = TableauRepo.map((data) => {
+                        return (
+                            <div key={data.statut} >
+
+                            </div>
+                        )
+                    })
                     this.setState({test: res.data});
                     console.log("state" , this.state.test);
                     //TableauRepo.map(res.data);
