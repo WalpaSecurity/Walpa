@@ -14,8 +14,8 @@ export default class Profile extends Component {
         };
     }
 
-    handleListrepoFile(){
-        HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/{}', {
+    handleListrepoFile(data){
+        HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/{data}', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
                     'Content-Type' : "application/json",
@@ -25,8 +25,8 @@ export default class Profile extends Component {
             },
             (error, result) => {
                 if (!error) {
+                    $('#modalContent').html(result.content);
                     console.log(result.content);
-
                 }
             });
 
@@ -142,7 +142,7 @@ export default class Profile extends Component {
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
-            display.push(<tr><td>{i}</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" onClick={this.handleListrepoFile.bind(this)}>{this.state.test[i].file_name}</a></td><td>{this.state.test[i].url}</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
+            display.push(<tr><td>{i}</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" onClick={this.handleListrepoFile(this.state.test[i].file_name)}>{this.state.test[i].file_name}</a></td><td>{this.state.test[i].url}</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
 
         }
         return (
@@ -187,7 +187,7 @@ export default class Profile extends Component {
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div className="modal-body">
+                    <div className="modal-body" id="modalContent">
                     bonjour toto, voici lanalyse de ton projet !
                     </div>
                     <div className="modal-footer">
