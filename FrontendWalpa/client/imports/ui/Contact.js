@@ -37,64 +37,64 @@ export default class Contact extends Component {
                       const res = JSON.parse(result.content);
                       console.log(res);
                       toast();
-                      $('#erreurRegister').removeClass('alert-danger');
-                      $('#erreurRegister').addClass('alert-success');
-                      $('#erreurRegister').html("Merci pour votre message ! L'équipe WALPA vous répondra dans les plus brefs délais !");
-                      $('#erreurRegister').show();
+                      $('#erreurContact').removeClass('alert-danger');
+                      $('#erreurContact').addClass('alert-success');
+                      $('#erreurContact').html("Merci pour votre message ! L'équipe WALPA vous répondra dans les plus brefs délais !");
+                      $('#erreurContact').show();
                       }
                     });
                   } else {
                     toast();
-                    $('#erreurRegister').html("Vous devez saisir un message !");
-                    $('#erreurRegister').show();
+                    $('#erreurContact').html("Vous devez saisir un message !");
+                    $('#erreurContact').show();
 
                     setTimeout(function () {
-                        $('#erreurRegister').hide();
+                        $('#erreurContact').hide();
                     }, 3000);
                   }
                 } else {
                   toast();
-                  $('#erreurRegister').html("Vous devez saisir un objet !");
-                  $('#erreurRegister').show();
+                  $('#erreurContact').html("Vous devez saisir un objet !");
+                  $('#erreurContact').show();
 
                   setTimeout(function () {
-                      $('#erreurRegister').hide();
+                      $('#erreurContact').hide();
                   }, 3000);
                 }
               } else {
                 toast();
-                $('#erreurRegister').html("Vous devez saisir un téléphone !");
-                $('#erreurRegister').show();
+                $('#erreurContact').html("Vous devez saisir un téléphone !");
+                $('#erreurContact').show();
 
                 setTimeout(function () {
-                    $('#erreurRegister').hide();
+                    $('#erreurContact').hide();
                 }, 3000);
               }
             } else {
               toast();
-              $('#erreurRegister').html("Vous devez saisir un prénom !");
-              $('#erreurRegister').show();
+              $('#erreurContact').html("Vous devez saisir un prénom !");
+              $('#erreurContact').show();
 
               setTimeout(function () {
-                  $('#erreurRegister').hide();
+                  $('#erreurContact').hide();
               }, 3000);
             }
           } else {
             toast();
-            $('#erreurRegister').html("Vous devez saisir un nom !");
-            $('#erreurRegister').show();
+            $('#erreurContact').html("Vous devez saisir un nom !");
+            $('#erreurContact').show();
 
             setTimeout(function () {
-                $('#erreurRegister').hide();
+                $('#erreurContact').hide();
             }, 3000);
           }
         } else {
           toast();
-          $('#erreurRegister').html("Vous devez saisir un email !");
-          $('#erreurRegister').show();
+          $('#erreurContact').html("Vous devez saisir un email !");
+          $('#erreurContact').show();
 
           setTimeout(function () {
-              $('#erreurRegister').hide();
+              $('#erreurContact').hide();
           }, 3000);
         }
     };
@@ -146,6 +146,7 @@ export default class Contact extends Component {
                     </div>
                     <button type="submit" className="btn btn-primary">Envoyer</button>
                   </form>
+                  <div className="alert alert-danger erreur" id="erreurContact" role="alert">Vous devez remplir tous les champs !</div>
                 </div>
               </div>
             </div>
