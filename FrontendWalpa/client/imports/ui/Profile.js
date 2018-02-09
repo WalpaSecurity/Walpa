@@ -12,7 +12,7 @@ export default class Profile extends Component {
             test: []
         };
     }
-    handleListrepo(){
+    handleListrepoFile(){
         HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/18_RESULT_992093363', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
@@ -225,7 +225,7 @@ export default class Profile extends Component {
                       <tr>
                           <td>1</td>
                           <td>
-                              <a href="#" onClick={this.handleListrepo.bind(this)}>
+                              <a href="#" onClick={this.handleListrepoFile.bind(this)}>
                                   Projet 1
                               </a>
                           </td>
