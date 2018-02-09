@@ -59,10 +59,14 @@ export default class Connexion extends Component {
             }
           });
         } else {
-
+          toast();
+          $('#snackbar').css({'background-color':'#c32424'});
+          $('#snackbar').html("Vous devez saisir le mot de passe !");
         }
       } else {
-
+        toast();
+        $('#snackbar').css({'background-color':'#c32424'});
+        $('#snackbar').html("Vous devez saisir un email !");
       }
     }
 
@@ -95,12 +99,8 @@ export default class Connexion extends Component {
           $("#formInscription textarea").val("");
         } else {
           toast();
-          $('#erreurRegister').html("Vous devez remplir tous les champs !");
-          $('#erreurRegister').show();
-
-          setTimeout(function () {
-              $('#erreurRegister').hide();
-          }, 3000);
+          $('#snackbar').css({'background-color':'#c32424'});
+          $('#snackbar').html("Vous devez saisir un message !");
         }
       });
     }
@@ -166,7 +166,6 @@ export default class Connexion extends Component {
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="S'inscrire"/>
                                 </form>
-                                <div className="alert alert-danger erreur" id="erreurRegister" role="alert">Vous devez remplir tous les champs !</div>
                             </div>
                         </div>
                     </div>
