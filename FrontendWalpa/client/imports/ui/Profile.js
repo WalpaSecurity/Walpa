@@ -139,12 +139,8 @@ export default class Profile extends Component {
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
-          display.push(<tr>
-            <td>{i}</td>
-            <td><a href="#" data-toggle="modal" data-target="#exampleModal" onClick={this.handleListrepoFile(this.state.test[i].file_name)}>{this.state.test[i].file_name}</a></td>
-            <td>{this.state.test[i].url}</td>
-            <td className="text-center"><a href="#"><i className="far fa-trash-alt"></i></a></td>
-            </tr>);
+            display.push(<tr><td>{i}</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" onClick={this.handleListrepoFile(this.state.test[i].file_name)}>{this.state.test[i].file_name}</a></td><td>{this.state.test[i].url}</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
+
         }
         return (
             <tbody>
