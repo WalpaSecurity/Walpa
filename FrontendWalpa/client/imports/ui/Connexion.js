@@ -55,7 +55,9 @@ export default class Connexion extends Component {
                 }
               });
             } else {
-              $('#erreurConnect').show();
+              toast();
+              $('#snackbar').css({'background-color':'#c32424'});
+              $('#snackbar').html("Vos informations ne sont pas correctes !");
             }
           });
         } else {
@@ -80,29 +82,57 @@ export default class Connexion extends Component {
       const passwordinscrit2 = ReactDOM.findDOMNode(this.refs.passwordinscrit2).value.trim();
       //const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
-      HTTP.call('POST', 'http://192.168.1.16:5000/api/register', {
-        data: {
-          email: emailinscrit,
-          name: name,
-          password: passwordinscrit,
-          c_password: passwordinscrit2
-        }
-      }, (error, result) => {
-        if (!error) {
-          console.log(result);
-          toast();
-          $('#erreurRegister').removeClass('alert-danger');
-          $('#erreurRegister').addClass('alert-success');
-          $('#erreurRegister').html("Vous pouvez desormais vous connecter !");
-          $('#erreurRegister').show();
-          $("#formInscription input").val("");
-          $("#formInscription textarea").val("");
+      if(emailinscrit != ""){
+        if(name != ""){
+          if(passwordinscrit != ""){
+            if(passwordinscrit2 != ""){
+              if(passwordinscrit == passwordinscrit2){
+                HTTP.call('POST', 'http://192.168.1.16:5000/api/register', {
+                  data: {
+                    email: emailinscrit,
+                    name: name,
+                    password: passwordinscrit,
+                    c_password: passwordinscrit2
+                  }
+                }, (error, result) => {
+                  if (!error) {
+                    console.log(result);
+                    toast();
+                    $('#snackbar').css({'background-color':'#28a745'});
+                    $('#snackbar').html("Votre inscription à bien été enregistrer.<br/>Vous pouvez désormais vous connecter via le formulaire de connexion !");
+                    $("#formInscription input").val("");
+                    $("#formInscription textarea").val("");
+                  } else {
+                    toast();
+                    $('#snackbar').css({'background-color':'#c32424'});
+                    $('#snackbar').html("Il y a une erreur lors de la saisi, veuillez recommencer !");
+                  }
+                });
+              } else {
+                toast();
+                $('#snackbar').css({'background-color':'#c32424'});
+                $('#snackbar').html("Vos mots de passe ne correspondent pas !");
+              }
+            } else {
+              toast();
+              $('#snackbar').css({'background-color':'#c32424'});
+              $('#snackbar').html("Vous confirmer votre mot de passe !");
+            }
+          } else {
+            toast();
+            $('#snackbar').css({'background-color':'#c32424'});
+            $('#snackbar').html("Vous devez saisir un mot de passe !");
+          }
         } else {
           toast();
           $('#snackbar').css({'background-color':'#c32424'});
-          $('#snackbar').html("Vous devez saisir un message !");
+          $('#snackbar').html("Vous devez saisir un nom !");
         }
-      });
+      } else {
+        toast();
+        $('#snackbar').css({'background-color':'#c32424'});
+        $('#snackbar').html("Vous devez saisir un email !");
+      }
     }
 
     handleConnectGit(){
@@ -140,7 +170,6 @@ export default class Connexion extends Component {
                                     </div>
                                     <input className="btn btn-primary" type="submit" value="Se connecter"/>
                                 </form>
-                                <div className="alert alert-danger erreur" id="erreurConnect" role="alert">Vous devez remplir tous les champs !</div>
                                 <hr />
                                 <br/>
                                 <a href="http://192.168.1.16:5000/auth/github" className="btn btn-secondary"><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
