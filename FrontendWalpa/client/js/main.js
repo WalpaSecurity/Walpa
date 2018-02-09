@@ -9,6 +9,7 @@ import Home from '../imports/ui/Home.js';
 import Team from '../imports/ui/Team.js';
 import Projet from '../imports/ui/Projet.js';
 import Dons from '../imports/ui/Dons.js';
+import DonsSuccess from '../imports/ui/Dons-success.js';
 import Contact from '../imports/ui/Contact.js';
 import Connexion from '../imports/ui/Connexion.js';
 import Profile from '../imports/ui/Profile.js';
@@ -58,6 +59,7 @@ if(statutconnexion == "1" && view == "admin"){
                   <Route exact path="/qui-sommes-nous" component={Team}/>
                   <Route exact path="/analyser-mon-projet" component={Projet}/>
                   <Route exact path="/faire-un-don" component={Dons}/>
+                  <Route exact path="/dons-success" component={DonsSuccess}/>
                   <Route exact path="/contact" component={Contact}/>
                   <Route exact path="/connexion" component={Connexion}/>
                   <Route exact path="/profile" component={Profile}/>
