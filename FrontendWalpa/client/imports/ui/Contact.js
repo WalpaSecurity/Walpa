@@ -15,24 +15,88 @@ export default class Contact extends Component {
         const objet = ReactDOM.findDOMNode(this.refs.objet).value.trim();
         const message = ReactDOM.findDOMNode(this.refs.message).value.trim();
 
-        HTTP.call('POST', 'http://192.168.1.16:5000/contact', {
-                data: {
-                    firstName: prenom,
-                    lastName: nom,
-                    email: email,
-                    phone: telephone,
-                    object: objet,
-                    message: message
-                }
-            },
-            (error, result) => {
-            if (!error) {
-            console.log(result);
-            const res = JSON.parse(result.content);
-            console.log(res);
-            }
-        });
+        if(email != ""){
+          if(nom != ""){
+            if(prenom != ""){
+              if(telephone != ""){
+                if(objet != ""){
+                  if(message != ""){
+                    HTTP.call('POST', 'http://192.168.1.16:5000/contact', {
+                        data: {
+                            firstName: prenom,
+                            lastName: nom,
+                            email: email,
+                            phone: telephone,
+                            object: objet,
+                            message: message
+                        }
+                      },
+                      (error, result) => {
+                      if (!error) {
+                      console.log(result);
+                      const res = JSON.parse(result.content);
+                      console.log(res);
+                      toast();
+                      $('#erreurRegister').removeClass('alert-danger');
+                      $('#erreurRegister').addClass('alert-success');
+                      $('#erreurRegister').html("Merci pour votre message ! L'équipe WALPA vous répondra dans les plus brefs délais !");
+                      $('#erreurRegister').show();
+                      }
+                    });
+                  } else {
+                    toast();
+                    $('#erreurRegister').html("Vous devez saisir un message !");
+                    $('#erreurRegister').show();
 
+                    setTimeout(function () {
+                        $('#erreurRegister').hide();
+                    }, 3000);
+                  }
+                } else {
+                  toast();
+                  $('#erreurRegister').html("Vous devez saisir un objet !");
+                  $('#erreurRegister').show();
+
+                  setTimeout(function () {
+                      $('#erreurRegister').hide();
+                  }, 3000);
+                }
+              } else {
+                toast();
+                $('#erreurRegister').html("Vous devez saisir un téléphone !");
+                $('#erreurRegister').show();
+
+                setTimeout(function () {
+                    $('#erreurRegister').hide();
+                }, 3000);
+              }
+            } else {
+              toast();
+              $('#erreurRegister').html("Vous devez saisir un prénom !");
+              $('#erreurRegister').show();
+
+              setTimeout(function () {
+                  $('#erreurRegister').hide();
+              }, 3000);
+            }
+          } else {
+            toast();
+            $('#erreurRegister').html("Vous devez saisir un nom !");
+            $('#erreurRegister').show();
+
+            setTimeout(function () {
+                $('#erreurRegister').hide();
+            }, 3000);
+          }
+        } else {
+          toast();
+          $('#erreurRegister').html("Vous devez saisir un email !");
+          $('#erreurRegister').show();
+
+          setTimeout(function () {
+              $('#erreurRegister').hide();
+          }, 3000);
+        }
     };
 
     render() {
