@@ -32,6 +32,7 @@ export default class Projet extends Component {
             toast();
             $('#snackbar').css({'background-color':'#28a745'});
             $('#snackbar').html("Analyse terminée ! Vérifier vos mails");
+            $("#formAnalyse").reset();
           } else {
             // Si on a une erreur
             toast();
@@ -57,7 +58,7 @@ export default class Projet extends Component {
                   </p>
                 </div>
                 <div className="col-12 col-lg-6">
-                  <form onSubmit={this.handleSubmitRepo.bind(this)} className="formLinkProject text-center">
+                  <form id="formAnalyse" onSubmit={this.handleSubmitRepo.bind(this)} className="formLinkProject text-center">
                     <ol className="list-unstyled text-white ">
                       <li>1. Entrez le lien de votre projet Github</li>
                       <li>2. Connectez-vous à votre compte</li>

@@ -39,6 +39,7 @@ export default class Contact extends Component {
                       toast();
                       $('#snackbar').css({'background-color':'#28a745'});
                       $('#snackbar').html("Merci pour votre message !<br/>L'équipe WALPA vous répondra dans les plus brefs délais !");
+                      $("#formContact").reset();
                       }
                     });
                   } else {
@@ -94,7 +95,7 @@ export default class Contact extends Component {
                   </p>
                 </div>
                 <div className="col-lg-6">
-                  <form onSubmit={this.handleSubmitContact.bind(this)} >
+                  <form id="formContact" onSubmit={this.handleSubmitContact.bind(this)} >
                     <div className="form-group">
                       <label htmlFor="inputMail">Email</label>
                       <input type="email" className="form-control" ref="email" id="inputMail" placeholder="Entrez votre email" />
