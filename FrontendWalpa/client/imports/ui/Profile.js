@@ -167,17 +167,13 @@ console.log("state" , this.state.test);
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
-          display.push(this.state.test[i].file_name);
+          display.push(<tr><td>{this.state.test[i].file_name}</td></tr>);
 
         }
 console.log("tableau fuck ", display);
         return (
             <tbody>
-            <tr>
-                <td>
                     {display}
-                </td>
-            </tr>
             </tbody>
         )
 
