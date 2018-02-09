@@ -179,7 +179,7 @@ export default class Connexion extends Component {
                                 <form id="formInscription" onSubmit={this.handleSubmitInscription.bind(this)}>
                                     <div className="form-group">
                                         <label htmlFor="email">Adresse mail</label>
-                                        <input type="text" className="form-control" id="email" ref="emailinscrit" placeholder="Entrez votre adresse e-mail"/>
+                                        <input type="email" className="form-control" id="email" ref="emailinscrit" placeholder="Entrez votre adresse e-mail"/>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="nom">Nom </label>

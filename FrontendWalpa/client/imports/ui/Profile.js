@@ -142,7 +142,8 @@ export default class Profile extends Component {
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
-            display.push(<tr><td>{i}</td><td><a href="#" onClick={this.handleListrepoFile.bind(this)}>{this.state.test[i].file_name}</a></td><td>{this.state.test[i].url}</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
+            display.push(<tr><td>{i}</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" onClick={this.handleListrepoFile(this.state.test[i].file_name)}>{this.state.test[i].file_name}</a></td><td>{this.state.test[i].url}</td>
+            <td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
 
         }
         return (
@@ -178,7 +179,25 @@ export default class Profile extends Component {
                   </table>
                 </div>
               </div>
-
+              <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body" id="modalContent">
+                    bonjour toto, voici lanalyse de ton projet !
+                    </div>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" className="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
