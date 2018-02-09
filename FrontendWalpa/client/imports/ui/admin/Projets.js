@@ -23,7 +23,7 @@ export default class gestionProjets extends Component {
                 if (!error) {
                     const res = JSON.parse(result.content);
                     console.log(res.data);
-                    this.setState({users: res.data});
+                    this.setState({repo: res.data});
                 }else {
                     console.log('nous rencontrons quelques soucis !');
                 }
@@ -33,8 +33,8 @@ export default class gestionProjets extends Component {
     renderRepo = () =>{
         let display = [];
 
-        for (var i = 0; i< this.state.test.length; i++ ){
-            display.push(<tr><td>{i}</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" >{this.state.test[i].file_name}</a></td><td>{this.state.test[i].url}</td>
+        for (var i = 0; i< this.state.repo.length; i++ ){
+            display.push(<tr><td>{i}</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" >{this.state.repo[i].file_name}</a></td><td>{this.state.repo[i].url}</td>
                 <td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
 
         }
