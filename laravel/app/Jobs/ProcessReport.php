@@ -91,11 +91,12 @@ class ProcessReport implements ShouldQueue
         echo("After mail\n");
 
         //Analyse termin  e
-        /*$activityReport = DB::table('activityReport')
+        $activityReport = DB::table('activityReport')
               ->where('user_id', $this->id)
               ->where('url', $this->url)
               ->where('file_name', $this->name_file)
               ->update(['statut' => "TERMINEE"]);
+
         echo("On arrive à la fin putain");
         //rmdir("/var/www/laravel/public/temp/".$this->number);
         //shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
