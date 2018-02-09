@@ -140,7 +140,7 @@ export default class Profile extends Component {
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
-            display.push(<tr><td>{i}</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" onClick={this.handleListrepoFile(this.state.test[i].file_name)}>{this.state.test[i].file_name}</a></td><td>{this.state.test[i].url}</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
+            display.push(<tr><td>{i}</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" onClick={this.handleListrepoFile.bind(this)}>{this.state.test[i].file_name}</a></td><td>{this.state.test[i].url}</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
 
         }
         return (
@@ -154,7 +154,7 @@ export default class Profile extends Component {
     render() {
 
         return (
-          <section id="profile">
+          <section id="profile" onLoad={this.handleListrepo.bind(this)}>
             <div className="mes-projets container">
               <div className="row">
                 <div className="col-lg-3 text-center">
