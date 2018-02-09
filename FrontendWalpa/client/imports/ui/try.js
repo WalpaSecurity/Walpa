@@ -8,7 +8,7 @@ export default class Try extends Component {
         event.preventDefault();
 
 
-        HTTP.call('GET', 'http://192.168.1.200:5000/try', {}, (error, result) =>{
+        HTTP.call('GET', 'http://192.168.1.16:5000/try', {}, (error, result) =>{
             if( !error ){
             console.log(result);
             const res = JSON.parse(result.content);
