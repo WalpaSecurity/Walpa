@@ -14,19 +14,22 @@ export default class Profile extends Component {
         };
     }
 
-    handleListrepoFile(data){
-      HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/{data}', {
-        headers:{
-          "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-          'Content-Type' : "application/json",
-          'Authorization' : "Bearer " + token,
-        }
-      },
-      (error, result) => {
-        if (!error) {
-          $('#modalContent').html("");
-        }
-      });
+    handleListrepoFile(){
+        HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/{}', {
+                headers:{
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                    'Content-Type' : "application/json",
+                    'Authorization' : "Bearer " + token,
+
+                }
+            },
+            (error, result) => {
+                if (!error) {
+                    console.log(result.content);
+
+                }
+            });
+
     }
 
 
@@ -153,7 +156,7 @@ export default class Profile extends Component {
     render() {
 
         return (
-          <section id="profile">
+          <section id="profile" onLoad={this.handleListrepo.bind(this)}>
             <div className="mes-projets container">
               <div className="row">
                 <div className="col-lg-3 text-center">
