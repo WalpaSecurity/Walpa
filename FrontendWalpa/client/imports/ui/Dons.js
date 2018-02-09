@@ -30,6 +30,9 @@ export default class Dons extends Component {
                   </div>
                   <div className="col-12 col-lg-6 modePaiement1">
                     <h3>Paiement via BitCoin</h3>
+                    <p>
+                      Bientôt disponible ...
+                    </p>
                   </div>
                 </div>
 
