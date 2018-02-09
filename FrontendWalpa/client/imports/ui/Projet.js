@@ -30,11 +30,13 @@ export default class Projet extends Component {
             console.log(res);
 
             toast();
+            $('#snackbar').css({'background-color':'#28a745'});
             $('#snackbar').html("Analyse terminée ! Vérifier vos mails");
           } else {
             // Si on a une erreur
             toast();
-            $('#snackbar').html("Erreur");
+            $('#snackbar').css({'background-color':'#c32424'});
+            $('#snackbar').html("Vous devez vous connecter ou créer un compte !");
           }
     });
     }
