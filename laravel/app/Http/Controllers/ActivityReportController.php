@@ -112,8 +112,8 @@ class ActivityReportController extends Controller
         echo("_ fixer");
 
         //  PHP Metrics :
-        shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/html/public/temp/".$number);
-        shell_exec("cp -R /var/www/html/myreport /var/www/html/public/temp/metrics_". $number);
+        shell_exec("php ./vendor/bin/phpmetrics --report-html=myreport /var/www/laravel/public/temp/".$number);
+        shell_exec("cp -R /var/www/laravel/myreport /var/www/laravel/public/temp/metrics_". $number);
        //        rmdir("/var/www/laravel/public/temp/".$number);
         shell_exec("rm -rf /var/www/laravel/public/temp/".$number);
         //  Rassemblement de tous les résultats
