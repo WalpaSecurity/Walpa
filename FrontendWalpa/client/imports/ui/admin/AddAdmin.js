@@ -41,7 +41,8 @@ export default class AjouterAdmin extends Component {
                 $('#erreurAjoutAdmin').html("Le compte "+emailNewAdmin+" à bien été crée. Vous pouvez desormais vous connecter avec ce compte !");
                 $('#erreurAjoutAdmin').show();
               } else {
-
+                $('#erreurAjoutAdmin').html("Une des informations n'est pas valide !");
+                $('#erreurAjoutAdmin').show();
               }
             });
           } else {
@@ -74,7 +75,7 @@ export default class AjouterAdmin extends Component {
             <form onSubmit={this.handleAddAdmin.bind(this)}>
                 <div className="form-group">
                     <label htmlFor="email">Adresse mail</label>
-                    <input type="text" className="form-control" id="email" ref="emailNewAdmin" placeholder="Entrez une adresse e-mail"/>
+                    <input type="email" className="form-control" id="email" ref="emailNewAdmin" placeholder="Entrez une adresse e-mail"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="nom">Nom </label>
@@ -86,7 +87,7 @@ export default class AjouterAdmin extends Component {
                 </div>
                 <input className="btn btn-primary" type="submit" value="Ajouter un administrateur"/>
             </form>
-            <div className="alert alert danger" id="erreurAjoutAdmin">
+            <div className="alert alert-danger" id="erreurAjoutAdmin">
 
             </div>
           </div>
