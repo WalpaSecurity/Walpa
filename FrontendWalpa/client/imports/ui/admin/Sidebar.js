@@ -32,7 +32,7 @@ export default class Sidebar extends Component {
               <li className="p-4">
                   <img id="logo" src="/images/logo-footer-walpa.png" className="img-fluid" />
               </li>
-              <li className="nav-item active">
+              <li className="nav-item">
                 <a className="nav-link" href="/admin/">{"Tableau d'administration"}</a>
               </li>
               <li className="nav-item">
