@@ -16,25 +16,55 @@ export default class AjouterAdmin extends Component {
       const passwordNewAdmin = ReactDOM.findDOMNode(this.refs.passwordNewAdmin).value.trim();
       //const password = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
-      HTTP.call('POST', 'http://192.168.1.16:5000/api/admin', {
-        headers:{
-            "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-            'Content-Type' : "application/json",
-            'Authorization' : "Bearer " + token,
-            'Accept' : "application/json"
+      if(emailNewAdmin != ""){
+        if(nameNewAdmin != ""){
+          if(passwordNewAdmin != ""){
+            HTTP.call('POST', 'http://192.168.1.16:5000/api/admin', {
+              headers:{
+                  "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                  'Content-Type' : "application/json",
+                  'Authorization' : "Bearer " + token,
+                  'Accept' : "application/json"
 
-        },
-        data: {
-          email: emailNewAdmin,
-          name: nameNewAdmin,
-          password: passwordNewAdmin,
-          admin: 1,
+              },
+              data: {
+                email: emailNewAdmin,
+                name: nameNewAdmin,
+                password: passwordNewAdmin,
+                admin: 1,
+              }
+            }, (error, result) => {
+              if (!error) {
+                console.log(result);
+                $('#erreurAjoutAdmin').removeClass('alert-danger');
+                $('#erreurAjoutAdmin').addClass('alert-success');
+                $('#erreurAjoutAdmin').html("Le compte "+emailNewAdmin+" à bien été crée. Vous pouvez desormais vous connecter avec ce compte !");
+                $('#erreurAjoutAdmin').show();
+              } else {
+
+              }
+            });
+          } else {
+            $('#erreurAjoutAdmin').html("Vous devez taper un mot de passe !");
+            $('#erreurAjoutAdmin').show();
+            setTimeout(function () {
+                $('#erreurAjoutAdmin').hide();
+            }, 3000);
+          }
+        } else {
+          $('#erreurAjoutAdmin').html("Vous devez taper un nom !");
+          $('#erreurAjoutAdmin').show();
+          setTimeout(function () {
+              $('#erreurAjoutAdmin').hide();
+          }, 3000);
         }
-      }, (error, result) => {
-        if (!error) {
-          console.log(result);
-        }
-      });
+      } else {
+        $('#erreurAjoutAdmin').html("Vous devez taper un email !");
+        $('#erreurAjoutAdmin').show();
+        setTimeout(function () {
+            $('#erreurAjoutAdmin').hide();
+        }, 3000);
+      }
     }
 
     render() {
@@ -56,6 +86,9 @@ export default class AjouterAdmin extends Component {
                 </div>
                 <input className="btn btn-primary" type="submit" value="Ajouter un administrateur"/>
             </form>
+            <div className="alert alert danger" id="erreurAjoutAdmin">
+
+            </div>
           </div>
     );
     }
