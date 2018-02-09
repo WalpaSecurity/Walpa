@@ -100,7 +100,7 @@ class ProcessReport implements ShouldQueue
         echo("On arrive à la fin putain");
         //rmdir("/var/www/laravel/public/temp/".$this->number);
         //shell_exec("rm -rf /var/www/laravel/public/temp/".$this->number);
-        */
+        
         //Mail::to("groupe2@asr.lan")->send(new MailTransac());
         echo("I'm done\n");
         return True;
