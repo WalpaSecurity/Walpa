@@ -5,10 +5,16 @@ import { Session } from 'meteor/session';
 
 
 const token = localStorage.getItem('token');
+var Users = [];
 
 // App component - represents the whole app
 export default class gestionUsers extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: []
+        };
+    }
     
 
     handleDeleteUser(e){
@@ -55,7 +61,7 @@ export default class gestionUsers extends Component {
       });
     }
 
-    handleGetUsers(){
+    componentDidMount() {
         console.log('toto');
         HTTP.call('GET', 'http://192.168.1.16:5000/api/admin', {
                 headers:{
@@ -68,15 +74,29 @@ export default class gestionUsers extends Component {
             },
             (error, result) => {
                 if (!error) {
-                  console.log(result);
-                    const res = JSON.parse(result.content);
-                    console.log(res.data);
-                    //TableauRepo =res.data;
+                const res = JSON.parse(result.content);
+                this.setState({users: res.data});
+                this.renderUser();
+
 
                 }else{
                   console.log('ça ne fonctionne pas');
                 }
             });
+    }
+
+    renderUsers = () =>{
+        let display = [];
+
+        for (var i = 0; i< this.state.users.length; i++ ){
+            display.push(<tr><td>{i}</td><td><a href="#" >{this.state.users[i].name}</a></td><td>{this.state.users[i].email}</td><td>1/1/0001</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
+
+        }
+        return (
+            <tbody>
+            {display}
+            </tbody>
+        )
     }
 
     render() {
@@ -93,67 +113,7 @@ export default class gestionUsers extends Component {
                   <th className="text-center" scope="col">{"Supprimer l'utilisateur"}</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <button onClick={this.handleDeleteUser.bind(this)} id="1">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <form onSubmit={this.handleDeleteUser.bind(this)} >
-                      <input type="hidden" name="id" ref="id" value="2" />
-                      <input type="submit" value="Supprimer"></input>
-                    </form>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <form onSubmit={this.handleDeleteUser.bind(this)} >
-                      <input type="hidden" name="id" ref="id" value="3" />
-                      <input type="submit" value="Supprimer"></input>
-                    </form>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <form onSubmit={this.handleDeleteUser.bind(this)} >
-                      <input type="hidden" name="id" ref="id" value="4" />
-                      <input type="submit" value="Supprimer"></input>
-                    </form>
-                  </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Nom</td>
-                  <td>Email</td>
-                  <td>01/01/2018</td>
-                  <td>
-                    <form onSubmit={this.handleDeleteUser.bind(this)} >
-                      <input type="hidden" name="id" ref="id" value="5" />
-                      <input type="submit" value="Supprimer"></input>
-                    </form>
-                  </td>
-                </tr>
-              </tbody>
+                {this.renderUsers()}
             </table>
             <hr/>
 
