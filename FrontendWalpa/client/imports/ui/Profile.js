@@ -14,99 +14,64 @@ export default class Profile extends Component {
         };
     }
 
-    handleListrepoFile(){
-        HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/{}', {
-                headers:{
-                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-                    'Content-Type' : "application/json",
-                    'Authorization' : "Bearer " + token,
-
-                }
-            },
-            (error, result) => {
-                if (!error) {
-                    console.log(result.content);
-
-                }
-            });
-
+    handleListrepoFile(data){
+      HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/{data}', {
+        headers:{
+          "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+          'Content-Type' : "application/json",
+          'Authorization' : "Bearer " + token,
+        }
+      },
+      (error, result) => {
+        if (!error) {
+            console.log(data);
+        }
+      });
     }
 
-
-
     componentDidMount() {
-
-        HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
-                headers:{
-                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-                    'Content-Type' : "application/json",
-                    'Authorization' : "Bearer " + token,
-                    'Accept' : "application/json"
-
-                }
-            },
-            (error, result) => {
-                if (!error) {
-                    const res = JSON.parse(result.content);
-                    //console.log(res.data);
-                    TableauRepo =res.data;
-                  //
-
-
-                    this.setState({test: res.data});
-                    this.renderRepo();
-                    this.displayName();
-                    //TableauRepo.map(res.data);
-
-                    //var toto = TableauRepo;
-                    //console.log(TableauRepo);
-                    // console.log(TableauRepo[0])
-
-
-                }
-            });
+      HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
+        headers:{
+          "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+          'Content-Type' : "application/json",
+          'Authorization' : "Bearer " + token,
+          'Accept' : "application/json"
+        }
+      },
+      (error, result) => {
+        if (!error) {
+          const res = JSON.parse(result.content);
+          //console.log(res.data);
+          TableauRepo =res.data;
+          this.setState({test: res.data});
+          this.renderRepo();
+          this.displayName();
+        }
+      });
     }
 
     displayName(){
         const Supaname = name;
-        return (<p className="h4 my-4 text-uppercase"> {Supaname}</p>)
+        return (<p className="h4 my-4 text-uppercase"> {Supaname}</p>);
     }
 
     handleListrepo() {
-
-        //event.preventDefault();
-        //console.log(this.state.inputValue);
-
-        HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
-                headers:{
-                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-                    'Content-Type' : "application/json",
-                    'Authorization' : "Bearer " + token,
-                    'Accept' : "application/json"
-
-                }
-            },
-            (error, result) => {
-            if (!error) {
-            const res = JSON.parse(result.content);
-            //console.log(res.data);
-            TableauRepo =res.data;
-            this.renderRepo();
-
-
-            //TableauRepo.map(res.data);
-
-            //var toto = TableauRepo;
-            //console.log(TableauRepo);
-            // console.log(TableauRepo[0])
-
-
+      HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
+        headers:{
+          "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+          'Content-Type' : "application/json",
+          'Authorization' : "Bearer " + token,
+          'Accept' : "application/json"
         }
-        });
-
-        //this.setState({inputValue: "tt"});
-        //this.renderRepo();
-
+      },
+      (error, result) => {
+        if (!error) {
+          const res = JSON.parse(result.content);
+          //console.log(res.data);
+          TableauRepo =res.data;
+          this.renderRepo();
+        }
+      });
     }
 
     setRepodata(Tableau){
