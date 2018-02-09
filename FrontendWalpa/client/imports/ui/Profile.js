@@ -174,7 +174,7 @@ console.log("state" , this.state.test);
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
-          display.push(<tr><td>{i}</td><td>{this.state.test[i].file_name}</td><td>{this.state.test[i].url}</td><td className="text-center"><i className="far fa-trash-alt"></i></td></tr>);
+          display.push(<tr><td>{i}</td><td>{this.state.test[i].file_name}</td><td>{this.state.test[i].url}</td><td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
 
         }
         return (
