@@ -14,21 +14,20 @@ export default class Connexion extends Component {
 
       if(email != ""){
         if(password != ""){
-          HTTP.call('POST', 'http://192.168.1.200:52900/api/login', {
+          HTTP.call('POST', 'http://192.168.1.16:5000/api/login', {
             data: {
               email: email,
               password: password
             }
           },(error, result) => {
             if (!error) {
-                console.log(result);
               const res = JSON.parse(result.content);
               console.log(res);
               console.log(res.token);
               const token = res.token;
               localStorage.setItem('token', token);
               localStorage.setItem('statutconnexion', '2');
-              HTTP.call('POST', 'http://192.168.1.200:52900/api/get-details', {
+              HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
                 headers:{
                   "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
                   'Content-Type' : "application/json",
@@ -89,7 +88,7 @@ export default class Connexion extends Component {
           if(passwordinscrit != ""){
             if(passwordinscrit2 != ""){
               if(passwordinscrit == passwordinscrit2){
-                HTTP.call('POST', 'http://192.168.1.200:52900/api/register', {
+                HTTP.call('POST', 'http://192.168.1.16:5000/api/register', {
                   data: {
                     email: emailinscrit,
                     name: name,
@@ -139,7 +138,7 @@ export default class Connexion extends Component {
 
     handleConnectGit(){
 
-      HTTP.call('GET', 'http://192.168.1.200:52900/auth/github/callback', {
+      HTTP.call('GET', 'http://192.168.1.16:5000/auth/github/callback', {
 
       }, (error, result) => {
         console.log("toto1");
@@ -174,7 +173,7 @@ export default class Connexion extends Component {
                                 </form>
                                 <hr />
                                 <br/>
-                                <a href="http://192.168.1.200:52900/auth/github" className="btn btn-secondary"><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
+                                <a href="http://192.168.1.16:5000/auth/github" className="btn btn-secondary"><i className="fab fa-github"></i> Connexion / Inscription Via <b>GitHub</b></a>
                             </div>
                             <div className="col-12 col-md-6 col-lg-4 inscription">
                                 <h2>Inscription</h2>
