@@ -111,7 +111,7 @@ class ActivityReportController extends Controller
         //PHP Coding Standards Fixer : The PHP Coding Standards Fixer (PHP CS Fixer) tool fixes your code to follow standards; whether you want to follow PHP coding standards as defined in the PSR-1, PSR-2$
         $PHPCoding = shell_exec("php-cs-fixer fix /var/www/laravel/public/temp/".$number);
 
-        echo("_ fixer");
+      //  echo("_ fixer");
 
         $current = "Fichier en cours d'analyse...";
         Mail::to("groupe2@asr.lan")->send(new ActivityEmail($current));
@@ -122,7 +122,7 @@ class ActivityReportController extends Controller
        //        rmdir("/var/www/laravel/public/temp/".$number);
         shell_exec("rm -rf /var/www/laravel/public/temp/".$number);
         //  Rassemblement de tous les résultats
-        $str_result = "Analyse terminée : \n\n CHR(10) CHR(13) ------------------- \n Detection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
+        $str_result = "Analyse terminée : \n\n ------------------- \n Detection des violations dans les fichiers PHP, JS et CSS : \n\n\n " . $PHPCODESNIFFER ;
         $str_result .= "\n----------------------------------------- \n\n Analyse de la taille et la structure du projet PHP : \n\n\n" . $PHPLOC ;
         $str_result .= "\n--------------------------------------------------- \n Detecteur de copier/coller : \n\n " . $PHPCPD;
         //  $str_result .= "\n -------------------------------------------------------------------------------- \n Analyse des potentiels vuln  rabilit  s \n " . $PHortress;
@@ -132,24 +132,24 @@ class ActivityReportController extends Controller
 
         //  shell_exec("rm /var/www/html/public/temp/result.txt");
         //Cr  ation du fichier texte qui va contenir le r  sultat
-        echo ("AVANT creation file");
+      //  echo ("AVANT creation file");
         shell_exec("touch /var/www/laravel/public/temp/". $name_file .".txt");
         //file_put_contents("/var/www/laravel/public/temp/". $name_file . ".txt");
-        echo("_ creation file");
+      //  echo("_ creation file");
         $file = '/var/www/laravel/public/temp/'. $name_file .'.txt';
-        echo("_ dollard file");
+      //  echo("_ dollard file");
 
         // Ouvre un fichier pour lire un contenu existant
-        echo("\nBefore file_get_contents($file)\n");
+      //  echo("\nBefore file_get_contents($file)\n");
         $current = file_get_contents($file);
-        echo("After file_get_contents($file)\n");
+      //  echo("After file_get_contents($file)\n");
         $current .= $str_result ;
-        echo("After concat\n");
+      //  echo("After concat\n");
         file_put_contents($file, $current);
-        echo("After file_put_contents()\n");
+//echo("After file_put_contents()\n");
 
         //
-        echo("After mail\n");
+      //  echo("After mail\n");
 
         Mail::to("groupe2@asr.lan")->send(new ActivityEmail($current));
 
