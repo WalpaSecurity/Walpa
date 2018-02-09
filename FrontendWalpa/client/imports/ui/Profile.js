@@ -257,23 +257,6 @@ console.log("tableau fuck ", display);
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-             /*         <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>
-                              <a href="#" onClick={this.handleListrepoFile.bind(this)}>
-                                  Projet 1
-                              </a>
-                          </td>
-                          <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                          <td>
-                              <a href="/admin/projet/2">
-                                  <i className="fa fa-trash" aria-hidden="true"></i>
-                              </a>
-                          </td>
-                          </tr>
-
-                      </tbody>*/
                       {this.renderRepo()}
                   </table>
                 </div>
