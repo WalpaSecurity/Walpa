@@ -15,7 +15,7 @@ export default class Profile extends Component {
     }
 
     handleListrepoFile(data){
-      HTTP.call('GET', 'http://192.168.1.16:5000/api/storage/{data}', {
+      HTTP.call('GET', 'http://192.168.1.200:52900/api/storage/{data}', {
         headers:{
           "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
           'Content-Type' : "application/json",
@@ -31,7 +31,7 @@ export default class Profile extends Component {
     }
 
     componentDidMount() {
-      HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
+      HTTP.call('GET', 'http://192.168.1.200:52900/api/account', {
         headers:{
           "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
           'Content-Type' : "application/json",
@@ -57,7 +57,7 @@ export default class Profile extends Component {
     }
 
     handleListrepo() {
-      HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
+      HTTP.call('GET', 'http://192.168.1.200:52900/api/account', {
         headers:{
           "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
           'Content-Type' : "application/json",

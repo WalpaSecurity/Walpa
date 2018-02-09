@@ -20,7 +20,7 @@ export default class AjouterAdmin extends Component {
         if(nameNewAdmin != ""){
           if(passwordNewAdmin != ""){
             if(passwordNewAdmin.length >= 6){
-              HTTP.call('POST', 'http://192.168.1.16:5000/api/admin', {
+              HTTP.call('POST', 'http://192.168.1.16:52900/api/admin', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
                     'Content-Type' : "application/json",

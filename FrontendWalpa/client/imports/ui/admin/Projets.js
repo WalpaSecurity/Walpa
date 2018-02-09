@@ -1,8 +1,50 @@
   import React, { Component } from 'react';
 
-
+  const token = localStorage.getItem('token');
+  var Repo = [];
 // App component - represents the whole app
 export default class gestionProjets extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            repo: []
+        };
+    }
+    componentDidMount() {
+        HTTP.call('GET', 'http://192.168.1.200:52900/api/projects', {
+                headers:{
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                    'Content-Type' : "application/json",
+                    'Authorization' : "Bearer " + token,
+                    'Accept' : "application/json"
+                }
+            },
+            (error, result) => {
+                if (!error) {
+                    const res = JSON.parse(result.content);
+                    console.log(res.data);
+                    this.setState({users: res.data});
+                }else {
+                    console.log('nous rencontrons quelques soucis !');
+                }
+            });
+    }
+
+    renderRepo = () =>{
+        let display = [];
+
+        for (var i = 0; i< this.state.test.length; i++ ){
+            display.push(<tr><td>{i}</td><td><a href="#" data-toggle="modal" data-target="#exampleModal" >{this.state.test[i].file_name}</a></td><td>{this.state.test[i].url}</td>
+                <td className="text-center"><a href=""><i className="far fa-trash-alt"></i></a></td></tr>);
+
+        }
+        return (
+            <tbody>
+            {display}
+            </tbody>
+        )
+    }
+
     render() {
         return (
           <div className="adminContent gestionProjets">
@@ -17,83 +59,7 @@ export default class gestionProjets extends Component {
                   <th className="text-center" scope="col">Supprimer le projet</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Jean Mouloud</td>
-                  <td>
-                   <a href="/admin/projet/1">
-                    Projet 1
-                   </a>
-                  </td>
-                  <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                  <td>
-                    <a href="/admin/projet/2">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Alain Jéfaim</td>
-                  <td>
-                   <a href="/admin/projet/2">
-                    Projet 2
-                   </a>
-                  </td>
-                  <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                  <td>
-                    <a href="#">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Legrand Monarque</td>
-                  <td>
-                   <a href="/admin/projet/3">
-                    Projet 3
-                   </a>
-                  </td>
-                  <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                  <td>
-                    <a href="#">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>James Bond</td>
-                  <td>
-                   <a href="/admin/projet/4">
-                    Projet 4
-                   </a>
-                  </td>
-                  <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                  <td>
-                    <a href="#">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Le violongay</td>
-                  <td>
-                   <a href="/admin/projet/5">
-                    Projet 5
-                   </a>
-                  </td>
-                  <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                  <td>
-                    <a href="#">
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
+                {this.renderRepo()}
             </table>
           </div>
     );
