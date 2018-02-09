@@ -97,12 +97,10 @@ console.log("state" , this.state.test);
             });
     }
 
-    // displayName(){
-    //     console.log('le nom cest :',name);
-    //     const Supaname = name;
-    //     console.log(Supaname);
-    //     return (<p className="h4 my-4 text-uppercase"> {Supaname}</p>)
-    // }
+    displayName(){
+        const Supaname = name;
+        return (<p className="h4 my-4 text-uppercase"> {Supaname}</p>)
+    }
 
     handleListrepo() {
 
@@ -174,7 +172,7 @@ console.log("state" , this.state.test);
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
-          display.push(<tr><td>{i}</td><td>{this.state.test[i].file_name}</td><td>{this.state.test[i].url}</td><td className="text-center"><i className="far fa-trash-alt"></i></td></tr>);
+          display.push(<tr><td>{i}</td><td>{this.state.test[i].file_name}</td><td>{this.state.test[i].url}</td><td>toto</td></tr>);
 
         }
         return (
@@ -193,7 +191,7 @@ console.log("state" , this.state.test);
               <div className="row">
                 <div className="col-lg-3 text-center">
                   <img className="img-fluid d-block mx-auto" width="200px" src="images/user.png" />
-                    {/*{this.displayName()}*/}
+                    {this.displayName()}
                 </div>
                 <div className="col-lg-9">
                   <h1>Historiques des projets</h1>
