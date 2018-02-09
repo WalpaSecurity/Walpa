@@ -92,6 +92,8 @@ class ActivityReportController extends Controller
         //COMMENCEMENT DE L'ANALYSE DU FICHIER PHP :
         //Clonage du fichier git
         shell_exec("git clone ". $request->url ." /var/www/laravel/public/temp/".$number);
+        $current = "Git clone terminée";
+        Mail::to("groupe2@asr.lan")->send(new ActivityEmail($current));
 
         //PHP CODE SNIFFER : that tokenizes PHP, JavaScript and CSS files to detect violations of a defined coding standard
         $PHPCODESNIFFER = shell_exec("phpcs --standard=LaravelCodeSniffer/Standards/Laravel/ /var/www/laravel/public/temp/".$number);
@@ -148,7 +150,7 @@ class ActivityReportController extends Controller
 
         Mail::to("groupe2@asr.lan")->send(new ActivityEmail($current));
 
-        //Analyse termin  e
+        //Analyse terminée
         $activityReport = DB::table('activityReport')
               ->where('user_id', $id)
               ->where('url', $request->url)
