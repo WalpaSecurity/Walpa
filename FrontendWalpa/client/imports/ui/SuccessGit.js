@@ -8,7 +8,7 @@ export default class SuccessGit extends Component {
 
   handleGitConnect(){
 
-    HTTP.call('GET', 'http://192.168.1.200:5000/auth/github/callback', {
+    HTTP.call('GET', 'http://192.168.1.200:52900/auth/github/callback', {
 
     }, (error, result) => {
       if (!error) {

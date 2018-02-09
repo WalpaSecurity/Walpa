@@ -21,7 +21,7 @@ export default class Contact extends Component {
               if(telephone != ""){
                 if(objet != ""){
                   if(message != ""){
-                    HTTP.call('POST', 'http://192.168.1.200:5000/contact', {
+                    HTTP.call('POST', 'http://192.168.1.200:52900/contact', {
                         data: {
                             firstName: prenom,
                             lastName: nom,
