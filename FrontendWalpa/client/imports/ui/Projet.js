@@ -67,7 +67,7 @@ export default class Projet extends Component {
                     </ol>
                     <label className="text-white">Entrer le lien de votre projet GitHub</label>
                     <input type="text" className="form-control" ref="depot" id="basic-url" aria-describedby="basic-addon3" />
-                    <input className="btn btn-primary" type="submit" value="Analyser mon projet"/>
+                    <button className="btn btn-primary" type="submit">Analyser mon projet</button>
                   </form>
                 </div>
               </div>
