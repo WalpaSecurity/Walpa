@@ -6,59 +6,63 @@ import { Session } from 'meteor/session';
 // App component - represents the whole app
 export default class Connexion extends Component {
     handleSubmitConnexion(event) {
-        event.preventDefault();
+      event.preventDefault();
 
-        // Find the text field via the React ref
-        const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
-        const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
-        console.log(email);
-        console.log(password);
+      const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
+      const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
 
-        HTTP.call('POST', 'http://192.168.1.16:5000/api/login', {
-          data: {
-            email: email,
-            password: password
-          }
-        },(error, result) => {
-          if (!error) {
-            const res = JSON.parse(result.content);
-            console.log(res);
-            console.log(res.token);
-            const token = res.token;
-            localStorage.setItem('token', token);
-            localStorage.setItem('statutconnexion', '2');
-            HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
-              headers:{
-                "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-                'Content-Type' : "application/json",
-                'Authorization' : "Bearer " + token,
-                'Accept' : "application/json"
+      if(email != ""){
+        if(password != ""){
+          HTTP.call('POST', 'http://192.168.1.16:5000/api/login', {
+            data: {
+              email: email,
+              password: password
+            }
+          },(error, result) => {
+            if (!error) {
+              const res = JSON.parse(result.content);
+              console.log(res);
+              console.log(res.token);
+              const token = res.token;
+              localStorage.setItem('token', token);
+              localStorage.setItem('statutconnexion', '2');
+              HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
+                headers:{
+                  "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                  'Content-Type' : "application/json",
+                  'Authorization' : "Bearer " + token,
+                  'Accept' : "application/json"
+                },
+                data: {
+                  token: token
+                }
+              }, (error, resultuser) => {
+                if (!error) {
+                    console.log(resultuser);
+                    const resuser = JSON.parse(resultuser.content);
+                    console.log(resuser);
+                    console.log(resuser.success.admin);
+                    document.location.reload(true);
 
-              },
-              data: {
-                token: token
-              }
-            }, (error, resultuser) => {
-              if (!error) {
-                  console.log(resultuser);
-                  const resuser = JSON.parse(resultuser.content);
-                  console.log(resuser);
-                  console.log(resuser.success.admin);
-                  document.location.reload(true);
+                    if(resuser.success.admin == 1){
+                      localStorage.setItem('statutconnexion', '1');
+                    } else {
+                      localStorage.setItem('statutconnexion', '2');
+                    }
+                    localStorage.setItem('name', resuser.name);
+                    this.props.history.push('/home');
+                }
+              });
+            } else {
+              $('#erreurConnect').show();
+            }
+          });
+        } else {
 
-                  if(resuser.success.admin == 1){
-                    localStorage.setItem('statutconnexion', '1');
-                  } else {
-                    localStorage.setItem('statutconnexion', '2');
-                  }
-                  localStorage.setItem('name', resuser.name);
-                  this.props.history.push('/home');
-              }
-            });
-          } else {
-            $('#erreurConnect').show();
-          }
-        });
+        }
+      } else {
+
+      }
     }
 
     handleSubmitInscription(event) {
