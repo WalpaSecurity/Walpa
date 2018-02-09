@@ -78,13 +78,7 @@ console.log("state" , this.state.test);
                     TableauRepo =res.data;
                   //  this.renderRepo();
 
-                    let pictures = res.data.map((pic) => {
-                        return (
-                            <div key={pic.statut} >
 
-                            </div>
-                        )
-                    })
                     this.setState({test: res.data});
                     console.log("state" , this.state.test);
                     //TableauRepo.map(res.data);
