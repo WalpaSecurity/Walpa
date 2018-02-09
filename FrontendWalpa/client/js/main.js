@@ -98,6 +98,7 @@ if(statutconnexion == "1" && view == "admin"){
 function toast() {
     var toast = document.getElementById("snackbar");
 
+    toast.hide();
     // Add the "show" class to DIV
     toast.addClass('show');
 
