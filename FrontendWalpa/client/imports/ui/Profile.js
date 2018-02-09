@@ -24,7 +24,7 @@ export default class Profile extends Component {
       },
       (error, result) => {
         if (!error) {
-          $('#modalContent').html(result.content);
+          $('#modalContent').text(data);
         }
       });
     }
