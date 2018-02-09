@@ -83,11 +83,11 @@ export default class AjouterAdmin extends Component {
                 </div>
                 <div className="form-group">
                     <label htmlFor="password1">Mot de passe</label>
-                    <input type="password" className="form-control" id="password1" ref="passwordNewAdmin" placeholder="Saisissez un mot de passe"/>
+                    <input type="password" className="form-control" id="password1" min="6" ref="passwordNewAdmin" placeholder="Saisissez un mot de passe"/>
                 </div>
                 <input className="btn btn-primary" type="submit" value="Ajouter un administrateur"/>
             </form>
-            <div className="alert alert-danger" id="erreurAjoutAdmin">
+            <div className="alert alert-danger erreur" id="erreurAjoutAdmin">
 
             </div>
           </div>
