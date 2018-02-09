@@ -83,9 +83,8 @@ console.log("state" , this.state.test);
 
 
                     this.setState({test: res.data});
-                    console.log("state" , this.state.test);
                     this.renderRepo();
-                    this.displayName(name);
+                    this.displayName();
                     //TableauRepo.map(res.data);
 
                     //var toto = TableauRepo;
@@ -97,12 +96,10 @@ console.log("state" , this.state.test);
             });
     }
 
-    // displayName(){
-    //     console.log('le nom cest :',name);
-    //     const Supaname = name;
-    //     console.log(Supaname);
-    //     return (<p className="h4 my-4 text-uppercase"> {Supaname}</p>)
-    // }
+    displayName(){
+        const Supaname = name;
+        return (<p className="h4 my-4 text-uppercase"> {Supaname}</p>)
+    }
 
     handleListrepo() {
 
@@ -193,7 +190,7 @@ console.log("state" , this.state.test);
               <div className="row">
                 <div className="col-lg-3 text-center">
                   <img className="img-fluid d-block mx-auto" width="200px" src="images/user.png" />
-                    {/*{this.displayName()}*/}
+                    {this.displayName()}
                 </div>
                 <div className="col-lg-9">
                   <h1>Historiques des projets</h1>
