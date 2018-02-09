@@ -5,72 +5,72 @@ import { Session } from 'meteor/session';
 
 // App component - represents the whole app
 export default class Connexion extends Component {
-    handleSubmitConnexion(event) {
-      event.preventDefault();
+  handleSubmitConnexion(event) {
+    event.preventDefault();
 
-      const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
-      const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
+    const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
+    const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
 
-      if(email != ""){
-        if(password != ""){
-          HTTP.call('POST', 'http://192.168.1.16:5000/api/login', {
-            data: {
-              email: email,
-              password: password
-            }
-          },(error, result) => {
-            if (!error) {
-              const res = JSON.parse(result.content);
-              console.log(res);
-              console.log(res.token);
-              const token = res.token;
-              localStorage.setItem('token', token);
-              localStorage.setItem('statutconnexion', '2');
-              HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
-                headers:{
-                  "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-                  'Content-Type' : "application/json",
-                  'Authorization' : "Bearer " + token,
-                  'Accept' : "application/json"
-                },
-                data: {
-                  token: token
-                }
-              }, (error, resultuser) => {
-                if (!error) {
-                    console.log(resultuser);
-                    const resuser = JSON.parse(resultuser.content);
-                    console.log(resuser);
-                    console.log(resuser.success.admin);
-                    document.location.reload(true);
+    if(email != ""){
+      if(password != ""){
+        HTTP.call('POST', 'http://192.168.1.16:5000/api/login', {
+          data: {
+            email: email,
+            password: password
+          }
+        },(error, result) => {
+          if (!error) {
+            const res = JSON.parse(result.content);
+            console.log(res);
+            console.log(res.token);
+            const token = res.token;
+            localStorage.setItem('token', token);
+            localStorage.setItem('statutconnexion', '2');
+            HTTP.call('POST', 'http://192.168.1.16:5000/api/get-details', {
+              headers:{
+                "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
+                'Content-Type' : "application/json",
+                'Authorization' : "Bearer " + token,
+                'Accept' : "application/json"
+              },
+              data: {
+                token: token
+              }
+            }, (error, resultuser) => {
+              if (!error) {
+                  console.log(resultuser);
+                  const resuser = JSON.parse(resultuser.content);
+                  console.log(resuser);
+                  console.log(resuser.success.admin);
+                  document.location.reload(true);
 
-                    if(resuser.success.admin == 1){
-                      localStorage.setItem('statutconnexion', '1');
-                    } else {
-                      localStorage.setItem('statutconnexion', '2');
-                    }
-                    localStorage.setItem('name', resuser.success.name);
-                    //console.log('Nom :', localStorage.getItem('name'));
-                    this.props.history.push('/home');
-                }
-              });
-            } else {
-              toast();
-              $('#snackbar').css({'background-color':'#c32424'});
-              $('#snackbar').html("Vos informations ne sont pas correctes !");
-            }
-          });
-        } else {
-          toast();
-          $('#snackbar').css({'background-color':'#c32424'});
-          $('#snackbar').html("Vous devez saisir le mot de passe !");
-        }
+                  if(resuser.success.admin == 1){
+                    localStorage.setItem('statutconnexion', '1');
+                  } else {
+                    localStorage.setItem('statutconnexion', '2');
+                  }
+                  localStorage.setItem('name', resuser.success.name);
+                  //console.log('Nom :', localStorage.getItem('name'));
+                  this.props.history.push('/home');
+              }
+            });
+          } else {
+            toast();
+            $('#snackbar').css({'background-color':'#c32424'});
+            $('#snackbar').html("Vous devez saisir un email !");
+          }
+        });
       } else {
         toast();
         $('#snackbar').css({'background-color':'#c32424'});
-        $('#snackbar').html("Vous devez saisir un email !");
+        $('#snackbar').html("Vous devez saisir le mot de passe !");
       }
+    } else {
+      toast();
+      $('#snackbar').css({'background-color':'#c32424'});
+      $('#snackbar').html("Vous devez saisir un email !");
     }
+  }
 
     handleSubmitInscription(event) {
       event.preventDefault();
