@@ -168,7 +168,7 @@ export default class Connexion extends Component {
                                     <label htmlFor="mdp">Mot de passe</label>
                                         <input type="password" className="form-control" id="mdp" ref="password" placeholder="Entrez votre mot de passe"/>
                                     </div>
-                                    <input className="btn btn-primary" type="submit" value="Se connecter"/>
+                                  <button className="btn btn-primary" type="submit">{"Se connecter"}</button>
                                 </form>
                                 <hr />
                                 <br/>
@@ -193,7 +193,7 @@ export default class Connexion extends Component {
                                         <label htmlFor="password2">Confirmation mot de passe</label>
                                         <input type="password" className="form-control" id="password2" ref="passwordinscrit2" placeholder="Confirmez votre mot de passe"/>
                                     </div>
-                                    <input className="btn btn-primary" type="submit" value="S'inscrire"/>
+                                    <button className="btn btn-primary" type="submit">{"S'inscrire"}</button>
                                 </form>
                             </div>
                         </div>
