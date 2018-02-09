@@ -80,7 +80,7 @@ console.log("state" , this.state.test);
 
                     let pictures = TableauRepo.map((data) => {
                         return (
-                            <div key={pic.statut} >
+                            <div key={data.statut} >
 
                             </div>
                         )
