@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { HTTP } from 'meteor/http';
 
 const token = localStorage.getItem('token');
+
 // App component - represents the whole app
 export default class Projet extends Component {
     handleSubmitRepo(event){

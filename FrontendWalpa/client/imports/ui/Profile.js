@@ -2,6 +2,8 @@
   import Repo from './Repo.js';
 
   const token = localStorage.getItem('token');
+  const name = localStorage.getItem('name');
+
   var TableauRepo = [];
 // App component - represents the whole app
 export default class Profile extends Component {
@@ -161,18 +163,17 @@ console.log("state" , this.state.test);
     }
 
 
-    renderRepo = (tab) =>{
+    renderRepo = () =>{
+        let display = [];
 
-        console.log('test tab', tab);
+        for (var i = 0; i< this.state.test.length; i++ ){
+          display.push(<tr><td>{i}</td><td>{this.state.test[i].file_name}</td><td>{this.state.test[i].url}</td><td>toto</td></tr>);
 
+        }
         return (
-        <tbody>
-        <tr>
-            <td>
-                {this.state.test}
-            </td>
-        </tr>
-        </tbody>
+            <tbody>
+                    {display}
+            </tbody>
         )
 
         /*return (
@@ -242,7 +243,7 @@ console.log("state" , this.state.test);
               <div className="row">
                 <div className="col-lg-3 text-center">
                   <img className="img-fluid d-block mx-auto" width="200px" src="images/user.png" />
-                  <p className="h4 my-4 text-uppercase">User User</p>
+                  <p className="h4 my-4 text-uppercase">{this.name}</p>
                 </div>
                 <div className="col-lg-9">
                   <h1>Historiques des projets</h1>
@@ -255,22 +256,7 @@ console.log("state" , this.state.test);
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                      <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>
-                              <a href="#" onClick={this.handleListrepoFile.bind(this)}>
-                                  Projet 1
-                              </a>
-                          </td>
-                          <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-                          <td>
-                              <a href="/admin/projet/2">
-                                  <i className="fa fa-trash" aria-hidden="true"></i>
-                              </a>
-                          </td>
-                          </tr>
-                      </tbody>
+                      {this.renderRepo()}
                   </table>
                 </div>
               </div>
