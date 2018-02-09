@@ -11,8 +11,7 @@ export default class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            test: [],
-            firstName : name,
+            test: []
         };
     }
 
@@ -65,6 +64,7 @@ console.log("state" , this.state.test);
     }*/
 
     componentDidMount() {
+
         HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
                 headers:{
                     "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
@@ -85,6 +85,7 @@ console.log("state" , this.state.test);
                     this.setState({test: res.data});
                     console.log("state" , this.state.test);
                     this.renderRepo();
+                    this.displayName(name);
                     //TableauRepo.map(res.data);
 
                     //var toto = TableauRepo;
@@ -96,7 +97,9 @@ console.log("state" , this.state.test);
             });
     }
 
-
+    displayName(){
+        return (<p className="h4 my-4 text-uppercase"> name</p>)
+    }
 
     handleListrepo() {
 
@@ -164,17 +167,7 @@ console.log("state" , this.state.test);
     }
 
 
-    renderName = () => {
-        let name = this.state.firstName;
-console.log(name);
-        return (
-            <tbody>
-            {display}
-            </tbody>
-        )
-    }
-
-        renderRepo = () =>{
+    renderRepo = () =>{
         let display = [];
 
         for (var i = 0; i< this.state.test.length; i++ ){
@@ -186,65 +179,8 @@ console.log(name);
                     {display}
             </tbody>
         )
-
-        /*return (
-            <tbody>
-            <tr>
-                <td>
-                    Ok
-                </td>
-            </tr>
-            </tbody>
-        );*/
-
-        // return (
-            //<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>
-        // );
-
-        //this.setRepodata(TableauRepo);
-       // let display =[];
-        //for (var i = 0; i< TableauRepo.length; i++ ){
-          //  display.push(<tr><td>1</td><td><a href="/files.txt">Projet 1</a></td><td>{"https://github.com/WalpaSecurity/Walpa.git"}</td><td><a href="/admin/projet/2"><i className="fa fa-trash" aria-hidden="true"></i></a></td></tr>);
-
-       // }
-
-
-
-
-//        return (
-  //          <tbody>{display}</tbody>
-    //    );
-        /*{this.state.test.map((item, index) => {
-            return <Repo key={index} test={item}/>;
-        })}*/
-
-        // return this.getRepo().map(
-        //     function (repo) {
-        //         <tr>
-        //             <td>1</td>
-        //             <td>
-        //                 <a href="/files.txt">
-        //                     Projet 1
-        //                 </a>
-        //             </td>
-        //             <td>{"https://github.com/WalpaSecurity/Walpa.git"}</td>
-        //             <td>
-        //             <a href="/admin/projet/2">
-        //             <i className="fa fa-trash" aria-hidden="true"></i>
-        //             </a>
-        //             </td>
-        //         </tr>
-        //     }
-        // );
     }
 
-        // <ul>
-        // {myList.map(function (element) {
-        // return (
-        //     <li>{element}</li>
-        // )
-        // })}
-        // </ul>
 
     render() {
 
@@ -254,7 +190,7 @@ console.log(name);
               <div className="row">
                 <div className="col-lg-3 text-center">
                   <img className="img-fluid d-block mx-auto" width="200px" src="images/user.png" />
-                  <p className="h4 my-4 text-uppercase">{this.renderName}</p>
+                    {this.displayName()}
                 </div>
                 <div className="col-lg-9">
                   <h1>Historiques des projets</h1>
