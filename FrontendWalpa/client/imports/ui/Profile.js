@@ -98,7 +98,9 @@ console.log("state" , this.state.test);
     }
 
     displayName(){
+        console.log('le nom cest :',name);
         const Supaname = name;
+        console.log(Supaname);
         return (<p className="h4 my-4 text-uppercase"> {Supaname}</p>)
     }
 
