@@ -25,6 +25,7 @@ export default class Profile extends Component {
             },
             (error, result) => {
                 if (!error) {
+                    $('#modalContent').html(data);
                     console.log(result.content);
                 }
             });
