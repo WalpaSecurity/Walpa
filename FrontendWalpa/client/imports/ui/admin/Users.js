@@ -68,6 +68,7 @@ export default class gestionUsers extends Component {
             },
             (error, result) => {
                 if (!error) {
+                  console.log(result);
                     const res = JSON.parse(result.content);
                     console.log(res.data);
                     //TableauRepo =res.data;
