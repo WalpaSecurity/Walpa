@@ -1,5 +1,4 @@
   import React, { Component } from 'react';
-  import Repo from './Repo.js';
 
   const token = localStorage.getItem('token');
   const name = localStorage.getItem('name');
@@ -33,35 +32,7 @@ export default class Profile extends Component {
 
     }
 
-   /* componentWillMount() {
-        HTTP.call('GET', 'http://192.168.1.16:5000/api/account', {
-                headers:{
-                    "Access-Control-Allow-Headers": "Content-Type, Authorization,Accept , Access-Control-Allow-Headers",
-                    'Content-Type' : "application/json",
-                    'Authorization' : "Bearer " + token,
-                    'Accept' : "application/json"
 
-                }
-            },
-            (error, result) => {
-                if (!error) {
-                    const res = JSON.parse(result.content);
-                    //console.log(res.data);
-                    TableauRepo =res.data;
-                    this.renderRepo();
-
-                    this.setState({test: res.data});
-console.log("state" , this.state.test);
-                    //TableauRepo.map(res.data);
-
-                    //var toto = TableauRepo;
-                    //console.log(TableauRepo);
-                    // console.log(TableauRepo[0])
-
-
-                }
-            });
-    }*/
 
     componentDidMount() {
 
