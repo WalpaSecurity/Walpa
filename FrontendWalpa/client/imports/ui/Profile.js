@@ -261,7 +261,7 @@ console.log("tableau fuck ", display);
                         <th className="text-center" scope="col">Supprimer le projet</th>
                       </tr>
                     </thead>
-                      <tbody>
+             /*         <tbody>
                       <tr>
                           <td>1</td>
                           <td>
@@ -276,7 +276,9 @@ console.log("tableau fuck ", display);
                               </a>
                           </td>
                           </tr>
-                      </tbody>
+
+                      </tbody>*/
+                      {this.renderRepo()}
                   </table>
                 </div>
               </div>
