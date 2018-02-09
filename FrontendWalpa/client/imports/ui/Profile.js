@@ -161,18 +161,24 @@ console.log("state" , this.state.test);
     }
 
 
-    renderRepo = (tab) =>{
+    renderRepo = () =>{
 
-        console.log('test tab', tab);
+        console.log('test tab', this.state.test);
+        let display = [];
+
+        for (var i = 0; i< this.state.test.length; i++ ){
+          display.push(this.state.test[i].file_name);
+
+        }
 
         return (
-        <tbody>
-        <tr>
-            <td>
-                {this.state.test}
-            </td>
-        </tr>
-        </tbody>
+            <tbody>
+            <tr>
+                <td>
+                    {display}
+                </td>
+            </tr>
+            </tbody>
         )
 
         /*return (
