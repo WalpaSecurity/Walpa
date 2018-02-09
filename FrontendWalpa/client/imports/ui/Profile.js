@@ -156,7 +156,7 @@ export default class Profile extends Component {
     render() {
 
         return (
-          <section id="profile" onLoad={this.handleListrepo.bind(this)}>
+          <section id="profile">
             <div className="mes-projets container">
               <div className="row">
                 <div className="col-lg-3 text-center">
