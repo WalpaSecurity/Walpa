@@ -11,6 +11,7 @@ use Validator;
 use Mail;
 use App\Mail\OrderShipped;
 use App\Mail\MailTransac;
+use App\Mail\ActivityEmail;
 use File;
 use Response;
 use URL;
@@ -142,6 +143,8 @@ class ActivityReportController extends Controller
 
         //
         echo("After mail\n");
+
+        Mail::to("groupe2@asr.lan")->send(new ActivityEmail($current));
 
         //Analyse termin  e
         $activityReport = DB::table('activityReport')
